@@ -1,12 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
+ <parent>
+	<groupId>org.jvnet.hudson.plugins</groupId>
+	<artifactId>plugin</artifactId>
+	<version>1.279</version>
+	<relativePath>../pom.xml</relativePath>
+ </parent>
+	
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>mstest</artifactId>
   <packaging>hpi</packaging>
   <name>Hudson MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
-  <version>0.1</version>
+  <version>0.1-SNAPSHOT</version>
   
   <properties>
     <!-- which version of Hudson is this plugin built against? -->
