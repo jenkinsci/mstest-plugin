@@ -13,7 +13,7 @@
   <packaging>hpi</packaging>
   <name>Hudson MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
-  <version>0.1</version>
+  <version>0.2-SNAPSHOT</version>
   
   <properties>
     <!-- which version of Hudson is this plugin built against? -->
@@ -180,10 +180,4 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
-  <scm>
-    <connection>scm:svn:https://guest@svn.dev.java.net/svn/hudson/tags/mstest-0.1</connection>
-    <developerConnection>scm:svn:https://svn.dev.java.net/svn/hudson/tags/mstest-0.1</developerConnection>
-    <url>https://hudson.dev.java.net/source/browse/hudson/hudson/plugins/mstest/tags/mstest-0.1</url>
-  </scm>
 </project>
