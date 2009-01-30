@@ -1,0 +1,10 @@
+<div>
+  <p>
+    The MSTest plugin can convert TRX format test reports into JUnit XML format so it can be recorded
+    by Hudson.<br> 
+
+	To enable the MSTest plugin features you need to set up your build to run MSTest.exe first. Example:<br><br> 
+	"%PROGRAMFILES%\Microsoft Visual Studio 9.0\Common7\IDE\MSTest.exe" /runconfig:MyTestProject\LocalTestRun.testrunconfig /testcontainer:MyTestProject\bin\Release\MyTestProject.dll /resultsfile:TestResults\testResults.trx<br><br>
+	and then specify the path to MSTest TRX files, such as TestResults/testResults.trx.
+  </p>
+</div>

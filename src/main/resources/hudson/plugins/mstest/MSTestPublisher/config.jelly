@@ -1,0 +1,10 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+	<!--
+		This jelly script is used for per-project configuration.
+	-->
+	<f:entry title="Test report TRX file" description="	
+	  Basedir of the path is &lt;a href='ws/'>the workspace root&lt;/a>.
+	">
+    	<f:textbox name="mstest_reports.pattern" value="${instance.testResultsTrxFile}" />
+	</f:entry>
+</j:jelly>
