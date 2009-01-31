@@ -13,7 +13,7 @@
   <packaging>hpi</packaging>
   <name>Hudson MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   
   <properties>
     <!-- which version of Hudson is this plugin built against? -->
