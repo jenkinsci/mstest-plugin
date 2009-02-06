@@ -4,7 +4,7 @@
  <parent>
 	<groupId>org.jvnet.hudson.plugins</groupId>
 	<artifactId>plugin</artifactId>
-	<version>1.279</version>
+	<version>1.281</version>
 	<relativePath>../pom.xml</relativePath>
  </parent>
 	
@@ -13,7 +13,7 @@
   <packaging>hpi</packaging>
   <name>Hudson MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
-  <version>0.3-SNAPSHOT</version>
+  <version>0.2-SNAPSHOT</version>
   <url>http://hudson.gotdns.com/wiki/display/HUDSON/MSTest+Plugin</url>
 
   <dependencies>
