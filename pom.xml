@@ -15,11 +15,6 @@
   <description>Generates test reports for MSTest.</description>
   <version>0.2-SNAPSHOT</version>
   <url>http://hudson.gotdns.com/wiki/display/HUDSON/MSTest+Plugin</url>
-  
-  <properties>
-    <!-- which version of Hudson is this plugin built against? -->
-    <hudson.version>1.270</hudson.version>
-  </properties>
 
   <dependencies>
     <dependency>
