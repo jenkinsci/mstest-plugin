@@ -14,7 +14,7 @@
   <name>Hudson MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
   <version>0.4-SNAPSHOT</version>
-  <url>http://hudson.gotdns.com/wiki/display/HUDSON/MSTest+Plugin</url>
+  <url>http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin</url>
 
   <dependencies>
     <dependency>
