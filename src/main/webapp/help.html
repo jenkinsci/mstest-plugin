@@ -5,6 +5,12 @@
 
 	To enable the MSTest plugin features you need to set up your build to run MSTest.exe first. Example:<br><br> 
 	"%PROGRAMFILES%\Microsoft Visual Studio 9.0\Common7\IDE\MSTest.exe" /runconfig:MyTestProject\LocalTestRun.testrunconfig /testcontainer:MyTestProject\bin\Release\MyTestProject.dll /resultsfile:TestResults\testResults.trx<br><br>
-	and then specify the path to MSTest TRX files, such as TestResults/testResults.trx.
+	and then specify the path to the MSTest TRX file, such as TestResults/testResults.trx.<br><br>
+	You can also run multiple test assemblies. The configuration is similar, you just need to add another testcontainer: <BR><BR>
+	"%PROGRAMFILES%\Microsoft Visual Studio 9.0\Common7\IDE\MSTest.exe" /runconfig:MyTestProject\LocalTestRun.testrunconfig /testcontainer:MyTestProject1\bin\Release\MyTestProject1.dll /testcontainer:MyTestProject2\bin\Release\MyTestProject2.dll /resultsfile:TestResults\testResults.trx<br><br>
+	MSTest will run all tests from all assemblies and generate the specified TRX file. 
   </p>
 </div>
+
+
+ 

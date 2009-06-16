@@ -3,7 +3,7 @@ package hudson.plugins.mstest;
 import hudson.Launcher;
 import hudson.Util;
 import hudson.FilePath.FileCallable;
-import hudson.maven.agent.AbortException;
+import hudson.AbortException;
 import hudson.model.AbstractBuild;
 import hudson.model.Action;
 import hudson.model.BuildListener;
@@ -72,7 +72,7 @@ public class MSTestPublisher extends hudson.tasks.Publisher implements Serializa
             }
             
         } catch (TransformerException te) {
-            throw new AbortException("Could not read the XSL XML file. Please report this issue to the plugin author", te);
+            throw new AbortException("Could not read the XSL XML file. Please report this issue to the plugin author");
         }
 
         return result;
@@ -175,7 +175,7 @@ public class MSTestPublisher extends hudson.tasks.Publisher implements Serializa
 
         @Override
         public String getDisplayName() {
-            return "Publish MSTest test result report";
+            return Messages.MsTest_Publisher_Name();
         }
 
         @Override

@@ -45,6 +45,16 @@ public class MSTestReportConverterTest {
         Diff myDiff = new Diff(readXmlAsString("junit_mstest_4_tests_2_classes.xml"), myTransform);
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }
+    
+    @Test
+    public void testConversionTwoTestsFromDifferentAssemblies() throws Exception {
+
+        Transform myTransform = new Transform(new InputSource(this.getClass().getResourceAsStream("mstest_2_tests_from_different_assemblies.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+        
+        Diff myDiff = new Diff(readXmlAsString("junit_mstest_2_tests_from_different_assemblies.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
 
 
     private String readXmlAsString(String resourceName) throws IOException {

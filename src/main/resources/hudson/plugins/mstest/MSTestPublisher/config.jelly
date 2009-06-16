@@ -2,9 +2,7 @@
 	<!--
 		This jelly script is used for per-project configuration.
 	-->
-	<f:entry title="Test report TRX file" description="	
-	  Basedir of the path is &lt;a href='ws/'>the workspace root&lt;/a>.
-	">
+	<f:entry title="${%Test report TRX file}" description="${%description.pattern}">
     	<f:textbox name="mstest_reports.pattern" value="${instance.testResultsTrxFile}" />
 	</f:entry>
 </j:jelly>
