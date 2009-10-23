@@ -3,8 +3,8 @@ package hudson.plugins.mstest;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import hudson.model.AbstractProject;
 import hudson.model.Action;
-import hudson.model.Project;
 import hudson.tasks.test.TestResultProjectAction;
 
 import org.jmock.Expectations;
@@ -20,12 +20,12 @@ import org.junit.Test;
 public class MSTestPublisherTest extends TestHelper{
 
     private Mockery classContext;
-    private Project project;
+    private AbstractProject project;
 
     @Before
     public void setUp() throws Exception {
         classContext = getClassMock();
-        project = classContext.mock(Project.class);
+        project = classContext.mock(AbstractProject.class);
     }
 
     @Test

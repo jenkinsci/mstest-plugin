@@ -1,7 +1,6 @@
 package hudson.plugins.mstest;
 
 import hudson.FilePath;
-import hudson.Util;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
@@ -15,8 +14,6 @@ import java.io.Serializable;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.apache.tools.ant.DirectoryScanner;
-import org.apache.tools.ant.types.FileSet;
 import org.xml.sax.SAXException;
 
 /**
@@ -79,5 +76,4 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         return retValue;
     }
 
-    
 }
