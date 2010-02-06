@@ -16,6 +16,13 @@
   <version>0.5-SNAPSHOT</version>
   <url>http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin</url>
 
+  <developers>
+    <developer>
+      <id>acmarques</id>
+      <name>Antonio Marques</name>
+    </developer>
+  </developers>
+
   <dependencies>
     <dependency>
 		<groupId>org.jmock</groupId>
