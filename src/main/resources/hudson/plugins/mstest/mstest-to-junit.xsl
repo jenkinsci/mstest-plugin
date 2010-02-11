@@ -15,7 +15,9 @@
 				<xsl:for-each select="//a:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
-					<xsl:variable name="duration" select="substring-after(@duration, '00:00:')"/>	
+					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
+					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>	
+					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>		
 					<xsl:variable name="outcome" select="@outcome"/>	
 					<xsl:variable name="message" select="a:Output/a:ErrorInfo/a:Message"/>	
 					<xsl:variable name="stacktrace" select="a:Output/a:ErrorInfo/a:StackTrace"/>	
@@ -25,7 +27,7 @@
 							<xsl:variable name="className" select="substring-before(a:TestMethod/@className, ',')"/>	
 								<testcase classname="{$className}"
 									name="{$testName}"
-									time="{$duration}">
+									time="{$duration_hours*3600 + $duration_minutes*60 + $duration_seconds }">
 
 									<xsl:if test="contains($outcome, 'Failed')"> 
 <failure>
@@ -44,7 +46,9 @@ STACK TRACE:
 				<xsl:for-each select="//b:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
-					<xsl:variable name="duration" select="substring-after(@duration, '00:00:')"/>	
+					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
+					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>	
+					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
 					<xsl:variable name="outcome" select="@outcome"/>	
 					<xsl:variable name="message" select="b:Output/b:ErrorInfo/b:Message"/>	
 					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>	
@@ -54,7 +58,7 @@ STACK TRACE:
 							<xsl:variable name="className" select="substring-before(b:TestMethod/@className, ',')"/>	
 								<testcase classname="{$className}"
 									name="{$testName}"
-									time="{$duration}">
+									time="{$duration_hours*3600 + $duration_minutes*60 + $duration_seconds }">
 
 									<xsl:if test="contains($outcome, 'Failed')"> 
 <failure>
