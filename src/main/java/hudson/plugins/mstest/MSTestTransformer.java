@@ -4,6 +4,7 @@ import hudson.FilePath;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import hudson.util.IOException2;
+import hudson.Util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,6 +16,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
 import org.xml.sax.SAXException;
+import org.apache.tools.ant.DirectoryScanner;
+import org.apache.tools.ant.types.FileSet;
 
 /**
  * Class responsible for transforming the MSTest build report into a JUnit file and then
@@ -42,38 +45,59 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
 
     /** {@inheritDoc} */
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
-        Boolean retValue = Boolean.TRUE;
+        String[] mstestFiles = findMSTestReports(ws);
+
+        if (mstestFiles.length == 0) {
+            listener.fatalError("No MSTest TRX test report files were found. Configuration error?");
+           return Boolean.FALSE;
+        }
+
 
         File junitOutputPath = new File(ws, JUNIT_REPORTS_PATH);
         junitOutputPath.mkdirs();
 
-        FileInputStream fileStream = null;
-        try{
-        	fileStream = new FileInputStream(new File(ws, testResultsFile));
-        }
-        catch(FileNotFoundException e)
+        for (String mstestFile : mstestFiles)
         {
-        	listener.fatalError("No MSTest TRX test report files were found. Configuration error?");
-        	return  Boolean.FALSE;
-        }
-        
-        try {
-            unitReportTransformer.transform(fileStream, junitOutputPath);
-        } catch (TransformerException te) {
-            throw new IOException2(
+            listener.getLogger().println(mstestFile);
+                FileInputStream fileStream = new FileInputStream(new File(ws, mstestFile));
+            try {
+                unitReportTransformer.transform(fileStream, junitOutputPath);
+            } catch (TransformerException te) {
+                throw new IOException2(
                     "Could not transform the MSTest report. Please report this issue to the plugin author", te);
-        } catch (SAXException se) {
-            throw new IOException2(
+            } catch (SAXException se) {
+                throw new IOException2(
                     "Could not transform the MSTest report. Please report this issue to the plugin author", se);
-        } catch (ParserConfigurationException pce) {
-            throw new IOException2(
+            } catch (ParserConfigurationException pce) {
+                throw new IOException2(
                     "Could not initalize the XML parser. Please report this issue to the plugin author", pce);
-        } finally {
-        	if(fileStream != null)
-        		fileStream.close();
+            } finally {
+                if(fileStream != null)
+                    fileStream.close();
+            }
         }
 
-        return retValue;
+        return true;
     }
 
+    /**
+     * Returns all MSTest report files matching the pattern given in configuration
+     *
+     * @param workspacePath Workspace Path
+     * @return an array of strings containing filenames of MSTest report files
+     */
+    private String[] findMSTestReports(File workspacePath) {
+        if (workspacePath == null)
+            return new String[]{};
+
+        FileSet fs = Util.createFileSet(workspacePath, testResultsFile);
+        DirectoryScanner ds = fs.getDirectoryScanner();
+
+        String[] mstestFiles = ds.getIncludedFiles();
+        if (mstestFiles.length == 0) {
+            listener.fatalError("No MSTest test report files were found.");
+        }
+
+        return mstestFiles;
+    }
 }

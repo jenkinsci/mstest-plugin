@@ -68,7 +68,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
         boolean result = true;
         try {
-            listener.getLogger().println("Processing tests results in file " + testResultsFile);
+            listener.getLogger().println("Processing tests results in file(s) " + testResultsFile);
             MSTestTransformer transformer = new MSTestTransformer(testResultsFile, new MSTestReportConverter(), listener);
             result = build.getWorkspace().act(transformer);
 
