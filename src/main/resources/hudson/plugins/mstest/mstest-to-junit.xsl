@@ -46,6 +46,7 @@ STACK TRACE:
 				<xsl:for-each select="//b:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
+          <xsl:variable name="testId" select="@testId"/>
 					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
 					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>	
 					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
@@ -53,8 +54,8 @@ STACK TRACE:
 					<xsl:variable name="message" select="b:Output/b:ErrorInfo/b:Message"/>	
 					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>	
 					<xsl:for-each select="//b:UnitTest">
-						<xsl:variable name="currentExecutionId" select="b:Execution/@id"/>
-						<xsl:if test="$currentExecutionId = $executionId" >
+            <xsl:variable name="currentTestId" select="@id"/>            
+            <xsl:if test="$currentTestId = $testId" >
 							<xsl:variable name="className" select="substring-before(b:TestMethod/@className, ',')"/>	
 								<testcase classname="{$className}"
 									name="{$testName}"
