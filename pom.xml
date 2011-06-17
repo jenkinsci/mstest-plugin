@@ -2,19 +2,18 @@
   <modelVersion>4.0.0</modelVersion>
   
  <parent>
-	<groupId>org.jvnet.hudson.plugins</groupId>
-	<artifactId>plugin</artifactId>
-	<version>1.319</version>
-	<relativePath>../pom.xml</relativePath>
+   <groupId>org.jenkins-ci.plugins</groupId>
+   <artifactId>plugin</artifactId>
+   <version>1.400</version>
  </parent>
 	
   <groupId>org.jvnet.hudson.plugins</groupId>
   <artifactId>mstest</artifactId>
   <packaging>hpi</packaging>
-  <name>Hudson MSTest plugin</name>
+  <name>JENKINS MSTest plugin</name>
   <description>Generates test reports for MSTest.</description>
   <version>0.7-SNAPSHOT</version>
-  <url>http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin</url>
+  <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
 
   <developers>
     <developer>
@@ -49,4 +48,14 @@
 		<scope>test</scope>
 	</dependency>	
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>m.g.o-public</id>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <url>http://maven.glassfish.org/content/groups/public/</url>
+    </repository>
+  </repositories>
 </project>
