@@ -37,11 +37,25 @@ public class MSTestPublisherJenkinsRuleTest {
         FreeStyleProject project = j.createFreeStyleProject();
         project.getPublishersList().add(new MSTestPublisher("$TRX"));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
-        FilePath ws = build.getWorkspace();
 
         String s = FileUtils.readFileToString(build.getLogFile());
         assertFalse(s.contains("Processing tests results in file(s) $TRX"));
         assertTrue(s.contains("/build.trx"));
     }
 
+    @Test
+    public void testResolveMultipleEnvironmentVariables() throws InterruptedException, IOException, Exception {
+
+        EnvironmentVariablesNodeProperty prop = new EnvironmentVariablesNodeProperty();
+        EnvVars envVars = prop.getEnvVars();
+        envVars.put("TRX", "build.trx");
+        j.jenkins.getGlobalNodeProperties().add(prop);
+        FreeStyleProject project = j.createFreeStyleProject();
+        project.getPublishersList().add(new MSTestPublisher("$WORKSPACE/$TRX"));
+        FreeStyleBuild build = project.scheduleBuild2(0).get();
+
+        String s = FileUtils.readFileToString(build.getLogFile());
+        assertFalse(s.contains("Processing tests results in file(s) $TRX"));
+        assertTrue(s.contains("/build.trx"));
+    }
 }
