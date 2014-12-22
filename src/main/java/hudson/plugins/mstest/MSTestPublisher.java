@@ -68,11 +68,9 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
         boolean result = true;
         try {
-            EnvVars env = build.getEnvironment();
+            EnvVars env = build.getEnvironment(listener);
             String expanded = env.expand(testResultsFile);
-            if (expanded == testResultsFile) {
-                this.testResultsFile = testResultsFile;
-            } else {
+            if (expanded == null ? testResultsFile != null : !expanded.equals(testResultsFile)) {
                 this.testResultsFile = expanded;
             }
             if (!new File(this.testResultsFile).isAbsolute()) {
