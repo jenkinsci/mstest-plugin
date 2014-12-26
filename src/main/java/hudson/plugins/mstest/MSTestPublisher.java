@@ -39,6 +39,7 @@ import org.kohsuke.stapler.StaplerRequest;
 public class MSTestPublisher extends Recorder implements Serializable {
 
     private String testResultsFile;
+    private String resolvedFilePath;
 
     public MSTestPublisher(String testResultsFile) {
         this.testResultsFile = testResultsFile;
@@ -46,6 +47,10 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
     public String getTestResultsTrxFile() {
         return testResultsFile;
+    }
+
+        public String getResolvedFilePath() {
+        return resolvedFilePath;
     }
 
     @Override
@@ -68,17 +73,10 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
         boolean result = true;
         try {
-            EnvVars env = build.getEnvironment(listener);
-            String expanded = env.expand(testResultsFile);
-            if (expanded == null ? testResultsFile != null : !expanded.equals(testResultsFile)) {
-                this.testResultsFile = expanded;
-            }
-            if (!new File(this.testResultsFile).isAbsolute()) {
-                this.testResultsFile = new File(build.getWorkspace().toURI().getPath(), this.testResultsFile).getAbsolutePath();
-            }
+            resolveFilePath(build, listener);
 
-            listener.getLogger().println("Processing tests results in file(s) " + testResultsFile);
-            MSTestTransformer transformer = new MSTestTransformer(testResultsFile, new MSTestReportConverter(), listener);
+            listener.getLogger().println("Processing tests results in file(s) " + resolvedFilePath);
+            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener);
             result = build.getWorkspace().act(transformer);
 
             if (result) {
@@ -92,6 +90,18 @@ public class MSTestPublisher extends Recorder implements Serializable {
         }
 
         return result;
+    }
+
+    private void resolveFilePath(AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+        EnvVars env = build.getEnvironment(listener);
+        resolvedFilePath = testResultsFile;
+        String expanded = env.expand(resolvedFilePath);
+        if (expanded == null ? resolvedFilePath != null : !expanded.equals(resolvedFilePath)) {
+            resolvedFilePath = expanded;
+        }
+        if (!new File(resolvedFilePath).isAbsolute()) {
+            resolvedFilePath = new File(build.getWorkspace().toURI().getPath(), resolvedFilePath).getAbsolutePath();
+        }
     }
 
     /**
