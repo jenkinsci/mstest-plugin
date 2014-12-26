@@ -7,9 +7,13 @@ package hudson.plugins.mstest;
 
 import hudson.EnvVars;
 import hudson.FilePath;
+import hudson.Launcher;
+import hudson.model.AbstractBuild;
+import hudson.model.BuildListener;
 import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
 import hudson.slaves.EnvironmentVariablesNodeProperty;
+import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import static org.junit.Assert.assertFalse;
@@ -17,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.TestBuilder;
 
 /**
  *
@@ -29,7 +34,6 @@ public class MSTestPublisherJenkinsRuleTest {
 
     @Test
     public void testResolveEnvironmentVariables() throws InterruptedException, IOException, Exception {
-
         EnvironmentVariablesNodeProperty prop = new EnvironmentVariablesNodeProperty();
         EnvVars envVars = prop.getEnvVars();
         envVars.put("TRX", "build.trx");
@@ -45,7 +49,6 @@ public class MSTestPublisherJenkinsRuleTest {
 
     @Test
     public void testResolveMultipleEnvironmentVariables() throws InterruptedException, IOException, Exception {
-
         EnvironmentVariablesNodeProperty prop = new EnvironmentVariablesNodeProperty();
         EnvVars envVars = prop.getEnvVars();
         envVars.put("TRX", "build.trx");
@@ -57,5 +60,31 @@ public class MSTestPublisherJenkinsRuleTest {
         String s = FileUtils.readFileToString(build.getLogFile());
         assertFalse(s.contains("Processing tests results in file(s) $TRX"));
         assertTrue(s.contains("/build.trx"));
+    }
+
+    @Test
+    public void testExecuteOnRealTrx() throws InterruptedException, IOException, Exception {
+        EnvironmentVariablesNodeProperty prop = new EnvironmentVariablesNodeProperty();
+        EnvVars envVars = prop.getEnvVars();
+        envVars.put("TRX", "results-example-mstest.trx");
+        j.jenkins.getGlobalNodeProperties().add(prop);
+        FreeStyleProject project = j.createFreeStyleProject();
+        project.getPublishersList().add(new MSTestPublisher("$WORKSPACE/$TRX"));
+        project.getBuildersList().add(new TestBuilder() {
+            public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
+                    BuildListener listener) throws InterruptedException, IOException {
+                File f = new File("src/test/java/hudson/plugins/mstest/results-example-mstest.trx");
+                assertTrue(f.exists());
+                File dest = new File(build.getWorkspace().getRemote());
+                assertTrue(dest.exists());
+                FileUtils.copyFileToDirectory(f, dest);
+                assertTrue(build.getWorkspace().child("results-example-mstest.trx").exists());
+                return true;
+            }
+        });
+
+        FreeStyleBuild build = project.scheduleBuild2(0).get();
+        String s = FileUtils.readFileToString(build.getLogFile());
+        assertTrue(s.contains("/results-example-mstest.trx"));
     }
 }

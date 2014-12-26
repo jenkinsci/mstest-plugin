@@ -99,9 +99,6 @@ public class MSTestPublisher extends Recorder implements Serializable {
         if (expanded == null ? resolvedFilePath != null : !expanded.equals(resolvedFilePath)) {
             resolvedFilePath = expanded;
         }
-        if (!new File(resolvedFilePath).isAbsolute()) {
-            resolvedFilePath = new File(build.getWorkspace().toURI().getPath(), resolvedFilePath).getAbsolutePath();
-        }
     }
 
     /**
