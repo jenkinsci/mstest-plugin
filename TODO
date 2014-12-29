@@ -1,0 +1,4 @@
+extend to .coverage files
+	execute some executable to convert these files to .xml (yasu-s has one)
+	convert these executables to the EMMA format (an XSLT is available on a Jenkins wiki page)
+	use the EMMA publisher to integrate them to the dashboard
