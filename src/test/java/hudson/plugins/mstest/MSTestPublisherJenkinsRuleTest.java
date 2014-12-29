@@ -73,7 +73,7 @@ public class MSTestPublisherJenkinsRuleTest {
         project.getBuildersList().add(new TestBuilder() {
             public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
                     BuildListener listener) throws InterruptedException, IOException {
-                File f = new File("src/test/java/hudson/plugins/mstest/results-example-mstest.trx");
+                File f = new File("src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
                 assertTrue(f.exists());
                 File dest = new File(build.getWorkspace().getRemote());
                 assertTrue(dest.exists());
