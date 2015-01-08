@@ -47,7 +47,7 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         String[] mstestFiles = findMSTestReports(ws);
 
         if (mstestFiles.length == 0) {
-            listener.fatalError("No MSTest TRX test report files were found. Configuration error?");
+            listener.fatalError("MSTest: No MSTest TRX test report files were found. Configuration error?");
             return Boolean.FALSE;
         }
 
@@ -55,19 +55,19 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         junitOutputPath.mkdirs();
 
         for (String mstestFile : mstestFiles) {
-            listener.getLogger().println(mstestFile);
+            listener.getLogger().println("MSTest: " + mstestFile);
             FileInputStream fileStream = new FileInputStream(new File(mstestFile));
             try {
                 unitReportTransformer.transform(fileStream, junitOutputPath);
             } catch (TransformerException te) {
                 throw new IOException2(
-                        "Could not transform the MSTest report. Please report this issue to the plugin author", te);
+                        "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", te);
             } catch (SAXException se) {
                 throw new IOException2(
-                        "Could not transform the MSTest report. Please report this issue to the plugin author", se);
+                        "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", se);
             } catch (ParserConfigurationException pce) {
                 throw new IOException2(
-                        "Could not initalize the XML parser. Please report this issue to the plugin author", pce);
+                        "MSTest: Could not initalize the XML parser. Please report this issue to the plugin author", pce);
             } finally {
                 if (fileStream != null) {
                     fileStream.close();

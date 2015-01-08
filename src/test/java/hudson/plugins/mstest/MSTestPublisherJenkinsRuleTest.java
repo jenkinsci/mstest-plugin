@@ -87,4 +87,26 @@ public class MSTestPublisherJenkinsRuleTest {
         String s = FileUtils.readFileToString(build.getLogFile());
         assertTrue(s.contains("/results-example-mstest.trx"));
     }
+    
+    @Test
+    public void testExecuteOnRealTrx_usingAntFileSet() throws InterruptedException, IOException, Exception {
+        FreeStyleProject project = j.createFreeStyleProject();
+        project.getPublishersList().add(new MSTestPublisher("**/*.trx"));
+        project.getBuildersList().add(new TestBuilder() {
+            public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
+                    BuildListener listener) throws InterruptedException, IOException {
+                File f = new File("src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
+                assertTrue(f.exists());
+                File dest = new File(build.getWorkspace().getRemote(), "TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072");
+                assertTrue(dest.mkdir());
+                FileUtils.copyFileToDirectory(f, dest);
+                assertTrue(build.getWorkspace().child("TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072/results-example-mstest.trx").exists());
+                return true;
+            }
+        });
+
+        FreeStyleBuild build = project.scheduleBuild2(0).get();
+        String s = FileUtils.readFileToString(build.getLogFile());
+        assertTrue(s.contains("/results-example-mstest.trx"));
+    }
 }
