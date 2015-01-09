@@ -1,12 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-  
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
         <version>1.554.1</version>
     </parent>
-	
     <groupId>org.jvnet.hudson.plugins</groupId>
     <artifactId>mstest</artifactId>
     <packaging>hpi</packaging>
@@ -14,28 +12,20 @@
     <description>Generates test reports for MSTest.</description>
     <version>0.8-SNAPSHOT</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
+    
+    <scm>
+        <connection>scm:git:ssh://github.com/jenkinsci/mstest-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mstest-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/mstest-plugin</url>
+    </scm>
 
     <developers>
         <developer>
-            <id>acmarques</id>
-            <name>Antonio Marques</name>
+            <id>nilleb</id>
+            <name>Ivo Bellin Salarin</name>
         </developer>
     </developers>
-
-    <!--dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId>org.hamcrest</groupId>
-          <artifactId>hamcrest-api</artifactId>
-          <version>1.0</version>
-        </dependency>
-        <dependency>
-          <groupId>org.hamcrest</groupId>
-          <artifactId>hamcrest-library</artifactId>
-          <version>1.0</version>
-        </dependency>
-      </dependencies>
-    </dependencyManagement-->
+    <!--dependencyManagement><dependencies><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-api</artifactId><version>1.0</version></dependency><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-library</artifactId><version>1.0</version></dependency></dependencies></dependencyManagement-->
     <dependencies>
         <dependency>
             <groupId>xmlunit</groupId>
@@ -69,9 +59,8 @@
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
             <scope>test</scope>
-        </dependency>	
+        </dependency>
     </dependencies>
-
     <repositories>
         <repository>
             <id>repo.jenkins-ci.org</id>
@@ -81,12 +70,10 @@
             <url>http://repo.jenkins-ci.org/public/</url>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <pluginRepository>
             <id>repo.jenkins-ci.org</id>
             <url>http://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
-</project>  
-
+</project>
