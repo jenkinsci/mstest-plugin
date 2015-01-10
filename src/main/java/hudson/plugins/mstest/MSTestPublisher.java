@@ -1,10 +1,12 @@
 package hudson.plugins.mstest;
 
+import hudson.EnvVars;
 import hudson.Launcher;
 import hudson.Util;
 import hudson.FilePath.FileCallable;
 import hudson.AbortException;
 import hudson.Extension;
+import hudson.FilePath;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
@@ -32,13 +34,14 @@ import org.kohsuke.stapler.StaplerRequest;
 
 /**
  * Class that records MSTest test reports into Hudson.
- * 
+ *
  * @author Antonio Marques
  */
 public class MSTestPublisher extends Recorder implements Serializable {
 
     private String testResultsFile;
-
+    private String resolvedFilePath;
+    private long buildTime;
 
     public MSTestPublisher(String testResultsFile) {
         this.testResultsFile = testResultsFile;
@@ -46,6 +49,10 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
     public String getTestResultsTrxFile() {
         return testResultsFile;
+    }
+
+    public String getResolvedFilePath() {
+        return resolvedFilePath;
     }
 
     @Override
@@ -67,26 +74,39 @@ public class MSTestPublisher extends Recorder implements Serializable {
             throws InterruptedException, IOException {
 
         boolean result = true;
+        buildTime = build.getTimestamp().getTimeInMillis();
         try {
-            listener.getLogger().println("Processing tests results in file(s) " + testResultsFile);
-            MSTestTransformer transformer = new MSTestTransformer(testResultsFile, new MSTestReportConverter(), listener);
+            resolveFilePath(build, listener);
+
+            listener.getLogger().println("MSTest: Processing tests results in file(s) " + resolvedFilePath);
+            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener);
             result = build.getWorkspace().act(transformer);
 
             if (result) {
                 // Run the JUnit test archiver
-                result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);                
+                result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);
                 build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
             }
-            
+
         } catch (TransformerException te) {
-            throw new AbortException("Could not read the XSL XML file. Please report this issue to the plugin author");
+            throw new AbortException("MSTest: Could not read the XSL XML file. Please report this issue to the plugin author");
         }
 
         return result;
     }
 
+    private void resolveFilePath(AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+        EnvVars env = build.getEnvironment(listener);
+        resolvedFilePath = testResultsFile;
+        String expanded = env.expand(resolvedFilePath);
+        if (expanded == null ? resolvedFilePath != null : !expanded.equals(resolvedFilePath)) {
+            resolvedFilePath = expanded;
+        }
+    }
+
     /**
      * Record the test results into the current build.
+     *
      * @param junitFilePattern
      * @param build
      * @param listener
@@ -100,13 +120,11 @@ public class MSTestPublisher extends Recorder implements Serializable {
         TestResultAction action;
 
         try {
-            final long buildTime = build.getTimestamp().getTimeInMillis();
-
             TestResult existingTestResults = null;
             if (existingAction != null) {
                 existingTestResults = existingAction.getResult();
             }
-            TestResult result = getTestResult(junitFilePattern, build, existingTestResults, buildTime);
+            TestResult result = getTestResult(junitFilePattern, build, existingTestResults);
 
             if (existingAction == null) {
                 action = new TestResultAction(build, result, listener);
@@ -114,13 +132,15 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 action = existingAction;
                 action.setResult(result, listener);
             }
-            if(result.getPassCount()==0 && result.getFailCount()==0)
+            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
                 new AbortException("None of the test reports contained any result");
+            }
         } catch (AbortException e) {
-            if(build.getResult()==Result.FAILURE)
-                // most likely a build failed before it gets to the test phase.
-                // don't report confusing error message.
+            if (build.getResult() == Result.FAILURE) // most likely a build failed before it gets to the test phase.
+            // don't report confusing error message.
+            {
                 return true;
+            }
 
             listener.getLogger().println(e.getMessage());
             build.setResult(Result.FAILURE);
@@ -131,14 +151,16 @@ public class MSTestPublisher extends Recorder implements Serializable {
             build.getActions().add(action);
         }
 
-        if(action.getResult().getFailCount()>0)
+        if (action.getResult().getFailCount() > 0) {
             build.setResult(Result.UNSTABLE);
+        }
 
         return true;
     }
 
     /**
      * Collect the test results from the files
+     *
      * @param junitFilePattern
      * @param build
      * @param existingTestResults existing test results to add results to
@@ -148,19 +170,19 @@ public class MSTestPublisher extends Recorder implements Serializable {
      * @throws InterruptedException
      */
     private TestResult getTestResult(final String junitFilePattern, AbstractBuild<?, ?> build,
-            final TestResult existingTestResults, final long buildTime) throws IOException, InterruptedException {
+            final TestResult existingTestResults) throws IOException, InterruptedException {
         TestResult result = build.getWorkspace().act(new FileCallable<TestResult>() {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
-                FileSet fs = Util.createFileSet(ws,junitFilePattern);
+                FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
 
                 String[] files = ds.getIncludedFiles();
-                if(files.length==0) {
+                if (files.length == 0) {
                     // no test result. Most likely a configuration error or fatal problem
                     throw new AbortException("No test report files were found. Configuration error?");
                 }
                 if (existingTestResults == null) {
-                    return new TestResult(buildTime, ds);
+                    return new TestResult(buildTime, ds, false);
                 } else {
                     existingTestResults.parse(buildTime, ds);
                     return existingTestResults;
@@ -172,7 +194,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
     @Override
     public DescriptorImpl getDescriptor() {
-        return (DescriptorImpl)super.getDescriptor();
+        return (DescriptorImpl) super.getDescriptor();
     }
 
     @Extension
