@@ -133,7 +133,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 action.setResult(result, listener);
             }
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                new AbortException("None of the test reports contained any result");
+                throw new AbortException("None of the test reports contained any result");
             }
         } catch (AbortException e) {
             if (build.getResult() == Result.FAILURE) // most likely a build failed before it gets to the test phase.
@@ -175,7 +175,6 @@ public class MSTestPublisher extends Recorder implements Serializable {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
-
                 String[] files = ds.getIncludedFiles();
                 if (files.length == 0) {
                     // no test result. Most likely a configuration error or fatal problem

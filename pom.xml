@@ -23,6 +23,7 @@
         <developer>
             <id>nilleb</id>
             <name>Ivo Bellin Salarin</name>
+            <email>me@nilleb.com</email>
         </developer>
     </developers>
     <!--dependencyManagement><dependencies><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-api</artifactId><version>1.0</version></dependency><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-library</artifactId><version>1.0</version></dependency></dependencies></dependencyManagement-->
