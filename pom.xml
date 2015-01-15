@@ -10,12 +10,12 @@
     <packaging>hpi</packaging>
     <name>JENKINS MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.8</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     
     <scm>
-        <connection>scm:git:ssh://github.com/jenkinsci/mstest-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mstest-plugin.git</developerConnection>
+        <connection>scm:https://github.com/jenkinsci/mstest-plugin.git</connection>
+        <developerConnection>scm:git:https://github.com/jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
     </scm>
 
