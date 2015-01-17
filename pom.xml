@@ -14,7 +14,7 @@
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     
     <scm>
-        <connection>scm:git:ssh://github.com/jenkinsci/mstest-plugin.git</connection>
+        <connection>scm:git:https://github.com/jenkinsci/mstest-plugin.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
     </scm>
