@@ -10,15 +10,13 @@
     <packaging>hpi</packaging>
     <name>JENKINS MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
-    <version>0.9-SNAPSHOT</version>
+    <version>0.11-SNAPSHOT</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
-    
     <scm>
         <connection>scm:git:https://github.com/jenkinsci/mstest-plugin.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
     </scm>
-
     <developers>
         <developer>
             <id>nilleb</id>
@@ -26,13 +24,21 @@
             <email>me@nilleb.com</email>
         </developer>
     </developers>
+
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.1</version>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.maven.scm</groupId>
+                <artifactId>maven-scm-provider-gitexe</artifactId>
+                <version>1.9.2</version>
+            </dependency>
+        </dependencies>
+    </plugin>
     <!--dependencyManagement><dependencies><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-api</artifactId><version>1.0</version></dependency><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-library</artifactId><version>1.0</version></dependency></dependencies></dependencyManagement-->
     <dependencies>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-gitexe</artifactId>
-            <version>1.9.2</version>
-          </dependency>
         <dependency>
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
