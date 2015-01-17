@@ -10,7 +10,7 @@
     <packaging>hpi</packaging>
     <name>JENKINS MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.9-SNAPSHOT</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     
     <scm>
@@ -28,6 +28,11 @@
     </developers>
     <!--dependencyManagement><dependencies><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-api</artifactId><version>1.0</version></dependency><dependency><groupId>org.hamcrest</groupId><artifactId>hamcrest-library</artifactId><version>1.0</version></dependency></dependencies></dependencyManagement-->
     <dependencies>
+        <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9.2</version>
+          </dependency>
         <dependency>
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
