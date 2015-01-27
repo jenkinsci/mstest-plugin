@@ -3,7 +3,6 @@ package hudson.plugins.mstest;
 import hudson.FilePath;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
-import hudson.util.IOException2;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,12 +26,12 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
     private static final long serialVersionUID = 1L;
 
     public static final String JUNIT_REPORTS_PATH = "temporary-junit-reports";
-    private BuildListener listener;
+    private final BuildListener listener;
 
     // Build related objects
     private final String testResultsFile;
 
-    private MSTestReportConverter unitReportTransformer;
+    private final MSTestReportConverter unitReportTransformer;
 
     public MSTestTransformer(String testResults, MSTestReportConverter unitReportTransformer, BuildListener listener) throws TransformerException {
         this.testResultsFile = testResults;
@@ -42,6 +41,10 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
 
     /**
      * {@inheritDoc}
+     * @param ws
+     * @param channel
+     * @return 
+     * @throws java.io.IOException
      */
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
         String[] mstestFiles = findMSTestReports(ws);
@@ -56,22 +59,17 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
 
         for (String mstestFile : mstestFiles) {
             listener.getLogger().println("MSTest: " + mstestFile);
-            FileInputStream fileStream = new FileInputStream(new File(mstestFile));
             try {
-                unitReportTransformer.transform(fileStream, junitOutputPath);
+                unitReportTransformer.transform(mstestFile, junitOutputPath);
             } catch (TransformerException te) {
-                throw new IOException2(
+                throw new IOException(
                         "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", te);
             } catch (SAXException se) {
-                throw new IOException2(
+                throw new IOException(
                         "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", se);
             } catch (ParserConfigurationException pce) {
-                throw new IOException2(
+                throw new IOException(
                         "MSTest: Could not initalize the XML parser. Please report this issue to the plugin author", pce);
-            } finally {
-                if (fileStream != null) {
-                    fileStream.close();
-                }
             }
         }
 
