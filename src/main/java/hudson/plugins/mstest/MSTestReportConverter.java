@@ -32,7 +32,7 @@ public class MSTestReportConverter implements Serializable {
     private static final String TEMP_JUNIT_FILE_STR = "temp-junit.xml";
     public static final String MSTEST_TO_JUNIT_XSLFILE_STR = "mstest-to-junit.xsl";
     private static final String MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR = "MSTestCoverageToEmma.xsl";
-    private static final String EMMA_FILE_STR = "emma/coverage.xml";
+    private static final String EMMA_FILE_STR = "emma" + File.pathSeparator + "coverage.xml";
     private static final String MSTESTCOVERAGE_FILE_STR = "mstest-coverage.xml";
 
     private transient int fileCount;
@@ -65,6 +65,7 @@ public class MSTestReportConverter implements Serializable {
         File c = new File(f.getParent(), MSTESTCOVERAGE_FILE_STR);
         if (c.exists()) {
             File emmaTargetFile = new File(junitOutputPath, EMMA_FILE_STR);
+            emmaTargetFile.getParentFile().mkdirs();
             try {
                 fileStream = new FileInputStream(c);
                 XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
