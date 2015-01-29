@@ -177,7 +177,6 @@ public class MSTestPublisher extends Recorder implements Serializable {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
-
                 String[] files = ds.getIncludedFiles();
                 if (files.length == 0) {
                     // no test result. Most likely a configuration error or fatal problem
