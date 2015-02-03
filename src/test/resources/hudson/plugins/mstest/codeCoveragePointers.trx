@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="cb1bb4ac-33d9-4e09-881e-afe29aa1d50c" name="USER@COMPUTER 2015-02-02 11:47:50" runUser="CEGIDGROUP\USER" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2015-02-02T11:47:50.9859283+01:00" queuing="2015-02-02T11:47:50.9859283+01:00" start="2015-02-02T11:47:50.9859283+01:00" finish="2015-02-02T11:47:57.7282312+01:00" />
+  <TestSettings name="default" id="b17e5a20-10e8-4fce-ab80-dd3736da32cb">
+    <Execution>
+      <TestTypeSpecific />
+    </Execution>
+    <Deployment runDeploymentRoot="USER_COMPUTER 2015-02-02 11_47_50" />
+    <Properties />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="5d953915-a21b-45d6-9280-1cae4a6c3af8" testId="3fcdfa27-0482-f053-f3c4-d9293c14bb6c" testName="repositories" computerName="COMPUTER" duration="00:00:08.1812608" startTime="2015-02-02T11:47:42.7319014+01:00" endTime="2015-02-02T11:47:50.9390288+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d953915-a21b-45d6-9280-1cae4a6c3af8" />
+    <UnitTestResult executionId="9d3bc7ff-8d98-4890-ba5d-c57c93bb62e8" testId="ae41d2ac-5a89-54a0-589e-1a25d0adc954" testName="hardcoded_source" computerName="COMPUTER" duration="00:00:06.5458564" startTime="2015-02-02T11:47:50.9546772+01:00" endTime="2015-02-02T11:47:57.5102362+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d3bc7ff-8d98-4890-ba5d-c57c93bb62e8">
+      <Output>
+        <StdOut>depget: installing EntityFramework.8.0.3
+* the package 'EntityFramework version 8.0.3' has been downloaded.
+	- copying the folder 'content' to cwd</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="75fa10b5-916e-4598-a4ff-eae8d49943e0" testId="d2cad0a6-b736-4c40-200c-f8d68c0d53e5" testName="source_cant_be_resolved_against_local_nuget_config" computerName="COMPUTER" duration="00:00:00.0032618" startTime="2015-02-02T11:47:57.5142302+01:00" endTime="2015-02-02T11:47:57.5182359+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="75fa10b5-916e-4598-a4ff-eae8d49943e0" />
+    <UnitTestResult executionId="a28d6dc2-1171-431f-827f-e44c77280170" testId="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26" testName="listOfItems" computerName="COMPUTER" duration="00:00:00.0029779" startTime="2015-02-02T11:47:57.5182359+01:00" endTime="2015-02-02T11:47:57.5212353+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a28d6dc2-1171-431f-827f-e44c77280170" />
+    <UnitTestResult executionId="bb480f1f-9351-45d6-a11c-20f27e024454" testId="bfbd7558-141f-44d8-8d23-e98c196a0665" testName="listOfItems_globs" computerName="COMPUTER" duration="00:00:00.0013475" startTime="2015-02-02T11:47:57.5212353+01:00" endTime="2015-02-02T11:47:57.5232357+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb480f1f-9351-45d6-a11c-20f27e024454" />
+    <UnitTestResult executionId="a767961b-7dba-4c45-a356-1ae1b3c00225" testId="375d96da-0111-1815-c406-f3784084c75c" testName="nugetPackCommandLine" computerName="COMPUTER" duration="00:00:00.0094378" startTime="2015-02-02T11:47:57.5232357+01:00" endTime="2015-02-02T11:47:57.5333183+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a767961b-7dba-4c45-a356-1ae1b3c00225" />
+    <UnitTestResult executionId="f9c26656-5d0a-49aa-bfca-097a0a6d6b6f" testId="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac" testName="nugetPackCommandLine_ns" computerName="COMPUTER" duration="00:00:00.0041143" startTime="2015-02-02T11:47:57.5333183+01:00" endTime="2015-02-02T11:47:57.5382369+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f9c26656-5d0a-49aa-bfca-097a0a6d6b6f" />
+    <UnitTestResult executionId="31a54508-8688-4472-9692-719469e75580" testId="67336dc1-aa99-21ef-3b2a-a3a85647b9d9" testName="cpp" computerName="COMPUTER" duration="00:00:00.0024386" startTime="2015-02-02T11:47:57.5382369+01:00" endTime="2015-02-02T11:47:57.5412210+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31a54508-8688-4472-9692-719469e75580" />
+    <UnitTestResult executionId="d997ac81-313e-461e-8e59-be8b368b46bc" testId="b368d6c0-df8d-0658-c977-7c70a5226e3a" testName="cs" computerName="COMPUTER" duration="00:00:00.0007582" startTime="2015-02-02T11:47:57.5412210+01:00" endTime="2015-02-02T11:47:57.5422212+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d997ac81-313e-461e-8e59-be8b368b46bc" />
+    <UnitTestResult executionId="bac19452-56ef-4c77-b4b6-87cf09fdb1d2" testId="0de20b5f-e08e-364d-338e-d309e97e5c1a" testName="vb" computerName="COMPUTER" duration="00:00:00.0006873" startTime="2015-02-02T11:47:57.5422212+01:00" endTime="2015-02-02T11:47:57.5432217+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bac19452-56ef-4c77-b4b6-87cf09fdb1d2" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="repositories" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="3fcdfa27-0482-f053-f3c4-d9293c14bb6c">
+      <Execution id="5d953915-a21b-45d6-9280-1cae4a6c3af8" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.DepGetRestoreTest" name="repositories" />
+    </UnitTest>
+    <UnitTest name="hardcoded_source" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="ae41d2ac-5a89-54a0-589e-1a25d0adc954">
+      <Execution id="9d3bc7ff-8d98-4890-ba5d-c57c93bb62e8" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.DepGetTest" name="hardcoded_source" />
+    </UnitTest>
+    <UnitTest name="source_cant_be_resolved_against_local_nuget_config" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="d2cad0a6-b736-4c40-200c-f8d68c0d53e5">
+      <Execution id="75fa10b5-916e-4598-a4ff-eae8d49943e0" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.DepGetTest" name="source_cant_be_resolved_against_local_nuget_config" />
+    </UnitTest>
+    <UnitTest name="listOfItems" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26">
+      <Execution id="a28d6dc2-1171-431f-827f-e44c77280170" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.ComposeItemGroupTest" name="listOfItems" />
+    </UnitTest>
+    <UnitTest name="listOfItems_globs" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="bfbd7558-141f-44d8-8d23-e98c196a0665">
+      <Execution id="bb480f1f-9351-45d6-a11c-20f27e024454" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.ComposeItemGroupTest" name="listOfItems_globs" />
+    </UnitTest>
+    <UnitTest name="nugetPackCommandLine" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="375d96da-0111-1815-c406-f3784084c75c">
+      <Execution id="a767961b-7dba-4c45-a356-1ae1b3c00225" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine" />
+    </UnitTest>
+    <UnitTest name="nugetPackCommandLine_ns" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac">
+      <Execution id="f9c26656-5d0a-49aa-bfca-097a0a6d6b6f" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine_ns" />
+    </UnitTest>
+    <UnitTest name="cpp" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="67336dc1-aa99-21ef-3b2a-a3a85647b9d9">
+      <Execution id="31a54508-8688-4472-9692-719469e75580" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.ReadAssemblyVersionInfoTaskTest" name="cpp" />
+    </UnitTest>
+    <UnitTest name="cs" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="b368d6c0-df8d-0658-c977-7c70a5226e3a">
+      <Execution id="d997ac81-313e-461e-8e59-be8b368b46bc" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.ReadAssemblyVersionInfoTaskTest" name="cs" />
+    </UnitTest>
+    <UnitTest name="vb" storage="C:\Builds\20\project\src\myProject.Tests\bin\release\myProject.Tests.dll" id="0de20b5f-e08e-364d-338e-d309e97e5c1a">
+      <Execution id="bac19452-56ef-4c77-b4b6-87cf09fdb1d2" />
+      <TestMethod codeBase="C:\Builds\20\project\src\myProject.Tests\bin\Release\myProject.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="myProject.Tests.ReadAssemblyVersionInfoTaskTest" name="vb" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="3fcdfa27-0482-f053-f3c4-d9293c14bb6c" executionId="5d953915-a21b-45d6-9280-1cae4a6c3af8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae41d2ac-5a89-54a0-589e-1a25d0adc954" executionId="9d3bc7ff-8d98-4890-ba5d-c57c93bb62e8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d2cad0a6-b736-4c40-200c-f8d68c0d53e5" executionId="75fa10b5-916e-4598-a4ff-eae8d49943e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26" executionId="a28d6dc2-1171-431f-827f-e44c77280170" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bfbd7558-141f-44d8-8d23-e98c196a0665" executionId="bb480f1f-9351-45d6-a11c-20f27e024454" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="375d96da-0111-1815-c406-f3784084c75c" executionId="a767961b-7dba-4c45-a356-1ae1b3c00225" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac" executionId="f9c26656-5d0a-49aa-bfca-097a0a6d6b6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67336dc1-aa99-21ef-3b2a-a3a85647b9d9" executionId="31a54508-8688-4472-9692-719469e75580" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b368d6c0-df8d-0658-c977-7c70a5226e3a" executionId="d997ac81-313e-461e-8e59-be8b368b46bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0de20b5f-e08e-364d-338e-d309e97e5c1a" executionId="bac19452-56ef-4c77-b4b6-87cf09fdb1d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="10" executed="10" passed="10" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <CollectorDataEntries>
+      <Collector agentName="COMPUTER" uri="datacollector://microsoft/CodeCoverage/2.0" collectorDisplayName="Code Coverage">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="COMPUTER\USER_COMPUTER 2015-02-02 11_47_41.coverage">
+            </A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+</TestRun>

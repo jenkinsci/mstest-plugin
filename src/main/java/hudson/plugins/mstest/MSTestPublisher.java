@@ -24,6 +24,8 @@ import hudson.tasks.test.TestResultProjectAction;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.xml.transform.TransformerException;
 
@@ -39,9 +41,10 @@ import org.kohsuke.stapler.StaplerRequest;
  */
 public class MSTestPublisher extends Recorder implements Serializable {
 
-    private String testResultsFile;
+    private final String testResultsFile;
     private String resolvedFilePath;
     private long buildTime;
+    private EmmaPublisher emmaPublisher;
 
     public MSTestPublisher(String testResultsFile) {
         this.testResultsFile = testResultsFile;
@@ -63,6 +66,17 @@ public class MSTestPublisher extends Recorder implements Serializable {
         } else {
             return null;
         }
+    }
+    
+    @Override
+    public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
+        Collection<Action> actions = new ArrayList<Action>();
+        Action testResultAction = this.getProjectAction(project);
+        if (testResultAction != null)
+            actions.add(testResultAction);
+        if (emmaPublisher != null)
+            actions.add(emmaPublisher.getProjectAction(project));
+        return actions;
     }
 
     public BuildStepMonitor getRequiredMonitorService() {
@@ -87,7 +101,10 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);
                 build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
                 if (build.getWorkspace().list("**/emma/coverage.xml").length > 0)
-                    new EmmaPublisher().perform(build, launcher, listener);
+                {
+                    emmaPublisher = new EmmaPublisher();
+                    emmaPublisher.perform(build, launcher, listener);
+                }
             }
 
         } catch (TransformerException te) {
