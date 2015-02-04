@@ -41,9 +41,11 @@ public class MSTestPublisherJenkinsRuleTest {
         project.getPublishersList().add(new MSTestPublisher("$TRX"));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
 
-        String s = FileUtils.readFileToString(build.getLogFile());
-        assertFalse(s.contains("Processing tests results in file(s) $TRX"));
-        assertTrue(s.contains("build.trx"));
+        if (build != null) {
+            String s = FileUtils.readFileToString(build.getLogFile());
+            assertFalse(s.contains("Processing tests results in file(s) $TRX"));
+            assertTrue(s.contains("build.trx"));
+        }
     }
 
     @Test
@@ -56,9 +58,11 @@ public class MSTestPublisherJenkinsRuleTest {
         project.getPublishersList().add(new MSTestPublisher("$WORKSPACE/$TRX"));
         FreeStyleBuild build = project.scheduleBuild2(0).get();
 
-        String s = FileUtils.readFileToString(build.getLogFile());
-        assertFalse(s.contains("Processing tests results in file(s) $TRX"));
-        assertTrue(s.contains("/build.trx"));
+        if (build != null) {
+            String s = FileUtils.readFileToString(build.getLogFile());
+            assertFalse(s.contains("Processing tests results in file(s) $TRX"));
+            assertTrue(s.contains("/build.trx"));
+        }
     }
 
     @Test
@@ -83,10 +87,12 @@ public class MSTestPublisherJenkinsRuleTest {
         });
 
         FreeStyleBuild build = project.scheduleBuild2(0).get();
-        String s = FileUtils.readFileToString(build.getLogFile());
-        assertTrue(s.contains("/results-example-mstest.trx"));
+        if (build != null) {
+            String s = FileUtils.readFileToString(build.getLogFile());
+            assertTrue(s.contains(File.separator + "results-example-mstest.trx"));
+        }
     }
-    
+
     @Test
     public void testExecuteOnRealTrx_usingAntFileSet() throws InterruptedException, IOException, Exception {
         FreeStyleProject project = j.createFreeStyleProject();
@@ -105,7 +111,9 @@ public class MSTestPublisherJenkinsRuleTest {
         });
 
         FreeStyleBuild build = project.scheduleBuild2(0).get();
-        String s = FileUtils.readFileToString(build.getLogFile());
-        assertTrue(s == null || s.contains("/results-example-mstest.trx"));
+        if (build != null) {
+            String s = FileUtils.readFileToString(build.getLogFile());
+            assertTrue(s == null || s.contains(File.separator + "results-example-mstest.trx"));
+        }
     }
 }

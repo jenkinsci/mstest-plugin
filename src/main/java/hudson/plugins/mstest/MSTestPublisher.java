@@ -44,7 +44,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
     private final String testResultsFile;
     private String resolvedFilePath;
     private long buildTime;
-    private EmmaPublisher emmaPublisher;
+    //private EmmaPublisher emmaPublisher;
 
     public MSTestPublisher(String testResultsFile) {
         this.testResultsFile = testResultsFile;
@@ -71,11 +71,12 @@ public class MSTestPublisher extends Recorder implements Serializable {
     @Override
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
         Collection<Action> actions = new ArrayList<Action>();
-        Action testResultAction = this.getProjectAction(project);
-        if (testResultAction != null)
-            actions.add(testResultAction);
-        if (emmaPublisher != null)
-            actions.add(emmaPublisher.getProjectAction(project));
+        Action action = this.getProjectAction(project);
+        if (action != null)
+            actions.add(action);
+        action = new EmmaPublisher().getProjectAction(project);
+        if (action != null)
+            actions.add(action);
         return actions;
     }
 
@@ -101,10 +102,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);
                 build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
                 if (build.getWorkspace().list("**/emma/coverage.xml").length > 0)
-                {
-                    emmaPublisher = new EmmaPublisher();
-                    emmaPublisher.perform(build, launcher, listener);
-                }
+                    new EmmaPublisher().perform(build, launcher, listener);
             }
 
         } catch (TransformerException te) {
