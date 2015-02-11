@@ -11,6 +11,7 @@ import hudson.model.AbstractProject;
 import hudson.model.Action;
 import hudson.model.BuildListener;
 import hudson.model.Result;
+import hudson.plugins.emma.EmmaHealthReportThresholds;
 import hudson.plugins.emma.EmmaPublisher;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
@@ -102,7 +103,21 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);
                 build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
                 if (build.getWorkspace().list("**/emma/coverage.xml").length > 0)
-                    new EmmaPublisher().perform(build, launcher, listener);
+                {
+                    EmmaPublisher ep = new EmmaPublisher();
+                    ep.healthReports = new EmmaHealthReportThresholds();
+                    ep.healthReports.setMaxBlock(80);
+                    ep.healthReports.setMinBlock(0);
+                    ep.healthReports.setMaxClass(100);
+                    ep.healthReports.setMinClass(0);
+                    ep.healthReports.setMaxCondition(80);
+                    ep.healthReports.setMinCondition(0);
+                    ep.healthReports.setMaxMethod(70);
+                    ep.healthReports.setMinMethod(0);
+                    ep.healthReports.setMaxLine(80);
+                    ep.healthReports.setMinLine(0);
+                    ep.perform(build, launcher, listener);
+                }
             }
 
         } catch (TransformerException te) {
