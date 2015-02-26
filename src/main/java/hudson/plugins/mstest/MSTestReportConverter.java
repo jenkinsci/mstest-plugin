@@ -17,6 +17,11 @@ import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -64,7 +69,7 @@ public class MSTestReportConverter implements Serializable {
         }
 
         File c = new File(f.getParent(), MSTESTCOVERAGE_FILE_STR);
-        if (c.exists()) {
+        if (c.exists() && containsData(c)) {
             File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
             emmaTargetFile.getParentFile().mkdirs();
             listener.getLogger().printf("mstest xml coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
@@ -79,6 +84,23 @@ public class MSTestReportConverter implements Serializable {
         } else {
             listener.getLogger().printf("mstest xml coverage report file not found: %s\n", c.getAbsolutePath());
         }
+    }
+
+    private boolean containsData(File c) throws IOException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(c);
+            XPathFactory xPathfactory = XPathFactory.newInstance();
+            XPath xpath = xPathfactory.newXPath();
+            XPathExpression expr = xpath.compile("count(/CoverageDS/*)");
+            Double childCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+            return childCount > 0;
+        } catch (ParserConfigurationException ex) {
+        } catch (org.xml.sax.SAXException ex) {
+        } catch (XPathExpressionException ex) {
+        }
+        return false;
     }
 
     /**
