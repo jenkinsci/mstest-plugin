@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import hudson.model.BuildListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,6 +17,11 @@ import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -48,7 +54,7 @@ public class MSTestReportConverter implements Serializable {
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    public void transform(String file, File junitOutputPath)
+    public void transform(String file, File junitOutputPath, BuildListener listener)
             throws FileNotFoundException, IOException, TransformerException,
             SAXException, ParserConfigurationException {
         File f = new File(file);
@@ -63,9 +69,10 @@ public class MSTestReportConverter implements Serializable {
         }
 
         File c = new File(f.getParent(), MSTESTCOVERAGE_FILE_STR);
-        if (c.exists()) {
+        if (c.exists() && containsData(c)) {
             File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
             emmaTargetFile.getParentFile().mkdirs();
+            listener.getLogger().printf("mstest xml coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
             try {
                 fileStream = new FileInputStream(c);
                 XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
@@ -74,7 +81,26 @@ public class MSTestReportConverter implements Serializable {
                     fileStream.close();
                 }
             }
+        } else {
+            listener.getLogger().printf("mstest xml coverage report file not found: %s\n", c.getAbsolutePath());
         }
+    }
+
+    private boolean containsData(File c) throws IOException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(c);
+            XPathFactory xPathfactory = XPathFactory.newInstance();
+            XPath xpath = xPathfactory.newXPath();
+            XPathExpression expr = xpath.compile("count(/CoverageDS/*)");
+            Double childCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
+            return childCount > 0;
+        } catch (ParserConfigurationException ex) {
+        } catch (org.xml.sax.SAXException ex) {
+        } catch (XPathExpressionException ex) {
+        }
+        return false;
     }
 
     /**

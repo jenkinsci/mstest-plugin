@@ -3,12 +3,12 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.554.1</version>
+        <version>1.579</version>
     </parent>
     <groupId>org.jvnet.hudson.plugins</groupId>
     <artifactId>mstest</artifactId>
     <packaging>hpi</packaging>
-    <name>JENKINS MSTest plugin</name>
+    <name>MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
     <version>0.12-SNAPSHOT</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
@@ -79,6 +79,12 @@
             <artifactId>cglib</artifactId>
             <version>2.2.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins</groupId>
+            <artifactId>junit</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
     <repositories>

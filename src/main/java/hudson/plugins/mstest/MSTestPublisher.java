@@ -11,6 +11,7 @@ import hudson.model.AbstractProject;
 import hudson.model.Action;
 import hudson.model.BuildListener;
 import hudson.model.Result;
+import hudson.plugins.emma.EmmaHealthReportThresholds;
 import hudson.plugins.emma.EmmaPublisher;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
@@ -44,7 +45,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
     private final String testResultsFile;
     private String resolvedFilePath;
     private long buildTime;
-    private EmmaPublisher emmaPublisher;
+    //private EmmaPublisher emmaPublisher;
 
     public MSTestPublisher(String testResultsFile) {
         this.testResultsFile = testResultsFile;
@@ -71,11 +72,12 @@ public class MSTestPublisher extends Recorder implements Serializable {
     @Override
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
         Collection<Action> actions = new ArrayList<Action>();
-        Action testResultAction = this.getProjectAction(project);
-        if (testResultAction != null)
-            actions.add(testResultAction);
-        if (emmaPublisher != null)
-            actions.add(emmaPublisher.getProjectAction(project));
+        Action action = this.getProjectAction(project);
+        if (action != null)
+            actions.add(action);
+        action = new EmmaPublisher().getProjectAction(project);
+        if (action != null)
+            actions.add(action);
         return actions;
     }
 
@@ -102,8 +104,19 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
                 if (build.getWorkspace().list("**/emma/coverage.xml").length > 0)
                 {
-                    emmaPublisher = new EmmaPublisher();
-                    emmaPublisher.perform(build, launcher, listener);
+                    EmmaPublisher ep = new EmmaPublisher();
+                    ep.healthReports = new EmmaHealthReportThresholds();
+                    ep.healthReports.setMaxBlock(80);
+                    ep.healthReports.setMinBlock(0);
+                    ep.healthReports.setMaxClass(100);
+                    ep.healthReports.setMinClass(0);
+                    ep.healthReports.setMaxCondition(80);
+                    ep.healthReports.setMinCondition(0);
+                    ep.healthReports.setMaxMethod(70);
+                    ep.healthReports.setMinMethod(0);
+                    ep.healthReports.setMaxLine(80);
+                    ep.healthReports.setMinLine(0);
+                    ep.perform(build, launcher, listener);
                 }
             }
 
