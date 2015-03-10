@@ -3,13 +3,14 @@
 	<xsl:output method="xml" indent="yes" />
 	<xsl:template match="/">
 		<testsuites>
-			<xsl:variable name="buildName" select="//a:TestRun/@name"/>
-			<xsl:variable name="numberOfTests" select="count(//a:UnitTestResult/@outcome) + count(//b:UnitTestResult/@outcome)"/>
- 			<xsl:variable name="numberOfFailures" select="count(//a:UnitTestResult/@outcome[.='Failed']) + count(//b:UnitTestResult/@outcome[.='Failed'])" />
- 			<xsl:variable name="numberSkipped" select="count(//a:UnitTestResult/@outcome[.!='Passed' and .!='Failed']) + count(//b:UnitTestResult/@outcome[.!='Passed' and .!='Failed'])" />
+			<xsl:variable name="buildName" select="/a:TestRun/@name or /b:TestRun/@name"/>
+			<xsl:variable name="numberOfTests" select="count(/a:TestRun/a:ResultSummary/Counters/@total) + count(/a:TestRun/a:ResultSummary/Counters/@total)"/>
+ 			<xsl:variable name="numberOfFailures" select="count(/a:TestRun/a:ResultSummary/a:Counters/@failed)" />
+ 			<xsl:variable name="numberOfErrors" select="count(/a:TestRun/a:ResultSummary/a:Counters/@errors)" />
+ 			<xsl:variable name="numberSkipped" select="count(/a:TestRun/a:ResultSummary/Counters/@notRunnable)" />
 			<testsuite name="MSTestSuite"
 				tests="{$numberOfTests}" time="0"
-				failures="{$numberOfFailures}"  errors="0"
+				failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
 				skipped="{$numberSkipped}">
 
 				<xsl:for-each select="//a:UnitTestResult">
