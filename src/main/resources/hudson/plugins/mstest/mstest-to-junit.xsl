@@ -45,7 +45,7 @@
 											<xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
 										</xsl:attribute>
 									</xsl:if>
-									<xsl:if test="contains($outcome, 'Failed')">
+									<xsl:if test="$message or $stacktrace">
 <failure>
 MESSAGE:
 <xsl:value-of select="$message" />
@@ -92,7 +92,7 @@ STACK TRACE:
 										</xsl:attribute>
 									</xsl:if>
 
-									<xsl:if test="contains($outcome, 'Failed')">
+									<xsl:if test="$message or $stacktrace">
 <failure>
 MESSAGE:
 <xsl:value-of select="$message" />
