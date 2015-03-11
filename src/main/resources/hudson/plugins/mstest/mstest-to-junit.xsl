@@ -47,11 +47,10 @@
 									</xsl:if>
 									<xsl:if test="$message or $stacktrace">
 <failure>
-MESSAGE:
-<xsl:value-of select="$message" />
-+++++++++++++++++++
-STACK TRACE:
-<xsl:value-of select="$stacktrace" />
+	<xsl:if test="$message">
+		<xsl:attribute name="message"><xsl:value-of select="$message" /></xsl:attribute>
+	</xsl:if>
+	<xsl:value-of select="$stacktrace" />
 </failure>
 								</xsl:if>
 							</testcase>
@@ -94,11 +93,10 @@ STACK TRACE:
 
 									<xsl:if test="$message or $stacktrace">
 <failure>
-MESSAGE:
-<xsl:value-of select="$message" />
-+++++++++++++++++++
-STACK TRACE:
-<xsl:value-of select="$stacktrace" />
+	<xsl:if test="$message">
+		<xsl:attribute name="message"><xsl:value-of select="$message" /></xsl:attribute>
+	</xsl:if>
+	<xsl:value-of select="$stacktrace" />
 </failure>
 									</xsl:if>
 								</testcase>
