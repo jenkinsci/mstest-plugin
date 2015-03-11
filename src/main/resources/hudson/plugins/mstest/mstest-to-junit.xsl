@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:a ="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" xmlns:b ="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" >
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:a ="http://microsoft.com/schemas/VisualStudio/TeamTest/2006"
+                xmlns:b ="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" >
 	<xsl:output method="xml" indent="yes" />
 	<xsl:template match="/">
 		<testsuites>
 			<xsl:variable name="buildName" select="/a:TestRun/@name or /b:TestRun/@name"/>
-			<xsl:variable name="numberOfTests" select="count(/a:TestRun/a:ResultSummary/Counters/@total) + count(/a:TestRun/a:ResultSummary/Counters/@total)"/>
- 			<xsl:variable name="numberOfFailures" select="count(/a:TestRun/a:ResultSummary/a:Counters/@failed)" />
- 			<xsl:variable name="numberOfErrors" select="count(/a:TestRun/a:ResultSummary/a:Counters/@errors)" />
- 			<xsl:variable name="numberSkipped" select="count(/a:TestRun/a:ResultSummary/Counters/@notRunnable)" />
+			<xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
+ 			<xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
+ 			<xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error)" />
+ 			<xsl:variable name="numberSkipped" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@notRunnable | /b:TestRun/b:ResultSummary/b:Counters/@notRunnable)" />
 			<testsuite name="MSTestSuite"
 				tests="{$numberOfTests}" time="0"
 				failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
@@ -16,6 +18,7 @@
 				<xsl:for-each select="//a:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
+					<xsl:variable name="duration" select="@duration"/>
 					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
 					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>
 					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
@@ -36,9 +39,12 @@
 								</xsl:choose>
 							</xsl:variable>
 							<testcase classname="{$className}"
-									name="{$testName}"
-									time="{$duration_hours*3600 + $duration_minutes*60 + $duration_seconds }">
-
+									name="{$testName}">
+									<xsl:if test="$duration">
+										<xsl:attribute name="time">
+											<xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
+										</xsl:attribute>
+									</xsl:if>
 									<xsl:if test="contains($outcome, 'Failed')">
 <failure>
 MESSAGE:
@@ -57,6 +63,7 @@ STACK TRACE:
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
 					<xsl:variable name="testId" select="@testId"/>
+					<xsl:variable name="duration" select="@duration"/>
 					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
 					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>
 					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
@@ -78,7 +85,12 @@ STACK TRACE:
 								</xsl:variable>
 								<testcase classname="{$className}"
 										name="{$testName}"
-										time="{$duration_hours*3600 + $duration_minutes*60 + $duration_seconds }">
+										>
+									<xsl:if test="$duration">
+										<xsl:attribute name="time">
+											<xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
+										</xsl:attribute>
+									</xsl:if>
 
 									<xsl:if test="contains($outcome, 'Failed')">
 <failure>

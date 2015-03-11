@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="3" time="0" failures="0" errors="3" skipped="0">
+        <testcase classname="LindbergCorp.StringFileTranslator.Test.TranslatorTests" name="TestConversion"/>
+        <testcase classname="LindbergCorp.StringFileTranslator.Test.TranslatorTests" name="TestConversionFrench"/>
+        <testcase classname="LindbergCorp.StringFileTranslator.Test.TranslatorTests" name="TestFileNotFound"/>
+    </testsuite>
+</testsuites>
