@@ -8,7 +8,7 @@
 			<xsl:variable name="buildName" select="/a:TestRun/@name or /b:TestRun/@name"/>
 			<xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
  			<xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
- 			<xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error)" />
+ 			<xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error | /a:TestRun/a:ResultSummary/a:Counters/@timeout | /b:TestRun/b:ResultSummary/b:Counters/@timeout)" />
  			<xsl:variable name="numberSkipped" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@notRunnable | /b:TestRun/b:ResultSummary/b:Counters/@notRunnable)" />
 			<testsuite name="MSTestSuite"
 				tests="{$numberOfTests}" time="0"
@@ -19,9 +19,6 @@
 					<xsl:variable name="testName" select="@testName"/>
 					<xsl:variable name="executionId" select="@executionId"/>
 					<xsl:variable name="duration" select="@duration"/>
-					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
-					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>
-					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
 					<xsl:variable name="outcome" select="@outcome"/>
 					<xsl:variable name="message" select="a:Output/a:ErrorInfo/a:Message"/>
 					<xsl:variable name="stacktrace" select="a:Output/a:ErrorInfo/a:StackTrace"/>
@@ -38,34 +35,22 @@
 									</xsl:otherwise>
 								</xsl:choose>
 							</xsl:variable>
-							<testcase classname="{$className}"
-									name="{$testName}">
-									<xsl:if test="$duration">
-										<xsl:attribute name="time">
-											<xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
-										</xsl:attribute>
-									</xsl:if>
-									<xsl:if test="$message or $stacktrace">
-<failure>
-	<xsl:if test="$message">
-		<xsl:attribute name="message"><xsl:value-of select="$message" /></xsl:attribute>
-	</xsl:if>
-	<xsl:value-of select="$stacktrace" />
-</failure>
-								</xsl:if>
-							</testcase>
+                            <xsl:call-template name="format-test-case">
+                                <xsl:with-param name="className" select="$className"/>
+                                <xsl:with-param name="duration" select="$duration"/>
+                                <xsl:with-param name="message" select="$message"/>
+                                <xsl:with-param name="outcome" select="$outcome"/>
+                                <xsl:with-param name="stacktrace" select="$stacktrace"/>
+                                <xsl:with-param name="testName" select="$testName"/>
+                            </xsl:call-template>
 						</xsl:if>
 					</xsl:for-each>
 				</xsl:for-each>
 
 				<xsl:for-each select="//b:UnitTestResult">
 					<xsl:variable name="testName" select="@testName"/>
-					<xsl:variable name="executionId" select="@executionId"/>
 					<xsl:variable name="testId" select="@testId"/>
 					<xsl:variable name="duration" select="@duration"/>
-					<xsl:variable name="duration_seconds" select="substring(@duration, 7)"/>
-					<xsl:variable name="duration_minutes" select="substring(@duration, 4,2 )"/>
-					<xsl:variable name="duration_hours" select="substring(@duration, 1, 2)"/>
 					<xsl:variable name="outcome" select="@outcome"/>
 					<xsl:variable name="message" select="b:Output/b:ErrorInfo/b:Message"/>
 					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>
@@ -82,29 +67,55 @@
 										</xsl:otherwise>
 									</xsl:choose>
 								</xsl:variable>
-								<testcase classname="{$className}"
-										name="{$testName}"
-										>
-									<xsl:if test="$duration">
-										<xsl:attribute name="time">
-											<xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
-										</xsl:attribute>
-									</xsl:if>
-
-									<xsl:if test="$message or $stacktrace">
-<failure>
-	<xsl:if test="$message">
-		<xsl:attribute name="message"><xsl:value-of select="$message" /></xsl:attribute>
-	</xsl:if>
-	<xsl:value-of select="$stacktrace" />
-</failure>
-									</xsl:if>
-								</testcase>
+                                <xsl:call-template name="format-test-case">
+                                    <xsl:with-param name="className" select="$className"/>
+                                    <xsl:with-param name="duration" select="$duration"/>
+                                    <xsl:with-param name="message" select="$message"/>
+                                    <xsl:with-param name="outcome" select="$outcome"/>
+                                    <xsl:with-param name="stacktrace" select="$stacktrace"/>
+                                    <xsl:with-param name="testName" select="$testName"/>
+                                </xsl:call-template>
 							</xsl:if>
 					</xsl:for-each>
 				</xsl:for-each>
-
 			</testsuite>
 		</testsuites>
 	</xsl:template>
+
+    <xsl:template name="format-test-case">
+        <xsl:param name="className"/>
+        <xsl:param name="testName"/>
+        <xsl:param name="duration"/>
+        <xsl:param name="outcome"/>
+        <xsl:param name="message"/>
+        <xsl:param name="stacktrace"/>
+        <xsl:variable name="duration_seconds" select="substring($duration, 7)"/>
+        <xsl:variable name="duration_minutes" select="substring($duration, 4, 2 )"/>
+        <xsl:variable name="duration_hours" select="substring($duration, 1, 2)"/>
+        <testcase classname="{$className}"
+                  name="{$testName}"
+                >
+            <xsl:if test="$duration">
+                <xsl:attribute name="time">
+                    <xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@outcome != 'Passed' or (not(@outcome) and ($message or $stacktrace))">
+                <xsl:variable name="tag">
+                    <xsl:choose>
+                        <xsl:when test="$outcome = 'Failed'">failure</xsl:when>
+                        <xsl:otherwise>error</xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <xsl:element name="{$tag}">
+                    <xsl:if test="$message">
+                        <xsl:attribute name="message"><xsl:value-of select="$message" /></xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="$stacktrace">
+                        <xsl:value-of select="$stacktrace" />
+                    </xsl:if>
+                </xsl:element>
+            </xsl:if>
+        </testcase>
+    </xsl:template>
 </xsl:stylesheet>
