@@ -77,12 +77,33 @@ public class MSTestReportConverterTest {
     }
 
     @Test
-    public void testErrorCount() throws Exception {
+    public void testTextMessages() throws Exception {
 
-        Transform myTransform = new Transform(new InputSource(this.getClass().getResourceAsStream("kozl-unit-tests-missing.trx")),
+        Transform myTransform = new Transform(new InputSource(this.getClass().getResourceAsStream("JENKINS-17506.trx")),
                 new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
 
-        Diff myDiff = new Diff(readXmlAsString("kozl-unit-test-missing.xml"), myTransform);
+        Diff myDiff = new Diff(readXmlAsString("JENKINS-17506.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
+    @Test
+    public void testOutputMessages() throws Exception {
+
+        Transform myTransform = new Transform(new InputSource(this.getClass().getResourceAsStream("JENKINS-13862.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("JENKINS-13862.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
+    @Test
+    public void testErrorCount() throws Exception {
+
+        Transform myTransform = new Transform(
+                new InputSource(this.getClass().getResourceAsStream("kozl-unit-tests-missing.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("kozl-unit-tests-missing.xml"), myTransform);
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }
 

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="1" time="0" failures="0" errors="1" skipped="0">
+        <testcase classname="FunctionsTest.FibonacciTest" name="HasTargetTest">
+            <error message="The agent process was stopped while the test was running."/>
+        </testcase>
+    </testsuite>
+</testsuites>

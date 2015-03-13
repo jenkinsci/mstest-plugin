@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="1" time="0" failures="0" errors="0" skipped="0">
+        <testcase classname="FunctionsTest.FibonacciTest" name="HasTargetTest">
+            <system-out>given RomanCalc object exists
+                when args I and II are passed to the Add Method
+                then III is returned
+            </system-out>
+        </testcase>
+    </testsuite>
+</testsuites>
