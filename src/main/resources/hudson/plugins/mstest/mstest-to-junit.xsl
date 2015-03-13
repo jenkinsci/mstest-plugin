@@ -33,6 +33,11 @@
 					<xsl:variable name="outcome" select="@outcome"/>
 					<xsl:variable name="message" select="a:Output/a:ErrorInfo/a:Message"/>
 					<xsl:variable name="stacktrace" select="a:Output/a:ErrorInfo/a:StackTrace"/>
+                    <xsl:variable name="textMessages">
+                        <xsl:for-each select="a:Output/a:TextMessages/a:Message">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
 					<xsl:for-each select="//a:UnitTest">
 						<xsl:variable name="currentExecutionId" select="a:Execution/@id"/>
 						<xsl:if test="$currentExecutionId = $executionId" >
@@ -53,6 +58,7 @@
                                 <xsl:with-param name="outcome" select="$outcome"/>
                                 <xsl:with-param name="stacktrace" select="$stacktrace"/>
                                 <xsl:with-param name="testName" select="$testName"/>
+                                <xsl:with-param name="textMessages" select="$textMessages"/>
                             </xsl:call-template>
 						</xsl:if>
 					</xsl:for-each>
@@ -68,6 +74,11 @@
 					<xsl:variable name="outcome" select="@outcome"/>
 					<xsl:variable name="message" select="b:Output/b:ErrorInfo/b:Message"/>
 					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>
+                    <xsl:variable name="textMessages">
+                        <xsl:for-each select="b:Output/b:TextMessages/b:Message">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
 					<xsl:for-each select="//b:UnitTest">
 						<xsl:variable name="currentTestId" select="@id"/>
 							<xsl:if test="$currentTestId = $testId" >
@@ -88,6 +99,7 @@
                                     <xsl:with-param name="outcome" select="$outcome"/>
                                     <xsl:with-param name="stacktrace" select="$stacktrace"/>
                                     <xsl:with-param name="testName" select="$testName"/>
+                                    <xsl:with-param name="textMessages" select="$textMessages"/>
                                 </xsl:call-template>
 							</xsl:if>
 					</xsl:for-each>
@@ -103,6 +115,7 @@
         <xsl:param name="outcome"/>
         <xsl:param name="message"/>
         <xsl:param name="stacktrace"/>
+        <xsl:param name="textMessages"/>
         <xsl:variable name="duration_seconds" select="substring($duration, 7)"/>
         <xsl:variable name="duration_minutes" select="substring($duration, 4, 2 )"/>
         <xsl:variable name="duration_hours" select="substring($duration, 1, 2)"/>
@@ -112,7 +125,7 @@
                     <xsl:value-of select="$duration_hours*3600 + $duration_minutes*60 + $duration_seconds"/>
                 </xsl:attribute>
             </xsl:if>
-            <xsl:if test="@outcome != 'Passed' or (not(@outcome) and ($message or $stacktrace))">
+            <xsl:if test="$outcome != 'Passed' or (not($outcome) and ($message or $stacktrace))">
                 <xsl:variable name="tag">
                     <xsl:choose>
                         <xsl:when test="$outcome = 'Failed'">failure</xsl:when>
@@ -127,6 +140,9 @@
                         <xsl:value-of select="$stacktrace" />
                     </xsl:if>
                 </xsl:element>
+            </xsl:if>
+            <xsl:if test="$textMessages">
+                <system-out><xsl:value-of select="$textMessages"/></system-out>
             </xsl:if>
         </testcase>
     </xsl:template>
