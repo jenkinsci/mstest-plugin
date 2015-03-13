@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="930638c2-1646-4d97-ad3d-2b49651e7472" name="Koiti@KOU 2009-01-11 16:22:44" runUser="KOU\Koiti" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <TestRunConfiguration name="Local Test Run" id="049b43ad-25f0-49df-9c33-bd7842bc7f63">
+        <Description>This is a default test run configuration for a local test run.</Description>
+        <Deployment runDeploymentRoot="E:\Koiti\Dev\GitHudsonTest\TestResults\Koiti_KOU 2009-01-11 16_22_44">
+            <DeploymentItem filename="E:\Koiti\Dev\GitHudsonTest\GitHudsonTest\bin\Release\GitHudsonTest.exe" />
+        </Deployment>
+        <TestTypeSpecific />
+    </TestRunConfiguration>
+    <ResultSummary outcome="Failed">
+        <Counters total="1" executed="1" passed="0" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    </ResultSummary>
+    <Times creation="2009-01-11T16:22:44.4687500-02:00" queuing="2009-01-11T16:22:45.9375000-02:00" start="2009-01-11T16:22:46.2343750-02:00" finish="2009-01-11T16:22:46.7187500-02:00" />
+    <TestDefinitions>
+        <UnitTest name="HasTargetTest" storage="e:\koiti\dev\githudsontest\functionstest\bin\release\functionstest.dll" id="44861a89-0ac6-f405-4b04-99f6f9d85d1e">
+            <Css projectStructure="" iteration="" />
+            <Owners>
+                <Owner name="" />
+            </Owners>
+            <Execution id="70be9f02-00a0-49df-8c5a-8fb84a74b210" />
+            <TestMethod codeBase="E:\Koiti\Dev\GitHudsonTest\FunctionsTest\bin\Release\FunctionsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="FunctionsTest.FibonacciTest, FunctionsTest" name="CalculaFibonacci" />
+        </UnitTest>
+    </TestDefinitions>
+    <TestLists>
+        <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+        <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+    </TestLists>
+    <TestEntries>
+        <TestEntry testId="44861a89-0ac6-f405-4b04-99f6f9d85d1e" executionId="70be9f02-00a0-49df-8c5a-8fb84a74b210" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    </TestEntries>
+    <Results>
+        <UnitTestResult executionId="70be9f02-00a0-49df-8c5a-8fb84a74b210" testId="44861a89-0ac6-f405-4b04-99f6f9d85d1e" testName="HasTargetTest" computerName="xxx-LT" startTime="2012-05-22T14:32:34.3525653-04:00" endTime="2012-05-22T14:32:41.9625760-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="70be9f02-00a0-49df-8c5a-8fb84a74b210">
+    <Output>
+        <ErrorInfo>
+            <Message>The agent process was stopped while the test was running.</Message>
+        </ErrorInfo>
+    </Output>
+</UnitTestResult>
+        </Results>
+        </TestRun>
