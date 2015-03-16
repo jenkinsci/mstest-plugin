@@ -141,7 +141,7 @@
                     </xsl:if>
                 </xsl:element>
             </xsl:if>
-            <xsl:if test="$textMessages">
+            <xsl:if test="$textMessages != ''">
                 <system-out><xsl:value-of select="$textMessages"/></system-out>
             </xsl:if>
         </testcase>

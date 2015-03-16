@@ -3,6 +3,7 @@ package hudson.plugins.mstest;
 import static org.junit.Assert.assertTrue;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -11,7 +12,12 @@ import org.custommonkey.xmlunit.Transform;
 import org.custommonkey.xmlunit.XMLUnit;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.Document;
 import org.xml.sax.InputSource;
+
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 /**
  * Unit tests for MSTestReportConverter class
@@ -76,6 +82,12 @@ public class MSTestReportConverterTest {
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }
 
+    void saveDocumentToFile(Document myDocument, String outputFile) throws TransformerException {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        Result output = new StreamResult(new File(outputFile));
+        Source input = new DOMSource(myDocument);
+        transformer.transform(input, output);
+    }
     @Test
     public void testTextMessages() throws Exception {
 
