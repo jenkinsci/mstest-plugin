@@ -196,7 +196,6 @@ public class MSTestPublisher extends Recorder implements Serializable {
      * @param junitFilePattern
      * @param build
      * @param existingTestResults existing test results to add results to
-     * @param buildTime
      * @return a test result
      * @throws IOException
      * @throws InterruptedException

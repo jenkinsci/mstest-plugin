@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="041dd56b-f3b7-430b-895c-2c6158ee2000" name="nilleb@HOST18468 2015-03-18 08:03:36" runUser="DOMAIN\nilleb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2015-03-18T08:03:36.1641544+01:00" queuing="2015-03-18T08:03:36.1661539+01:00" start="2015-03-18T08:03:36.1731526+01:00" finish="2015-03-18T08:03:45.4035731+01:00" />
+  <TestSettings name="default" id="1b418121-3dfa-4f53-8b75-f20e768f5ca2">
+    <Execution>
+      <TestTypeSpecific />
+    </Execution>
+    <Deployment runDeploymentRoot="nilleb_HOST18468 2015-03-18 08_03_36" />
+    <Properties />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="d99fad75-6e5a-47bc-8aad-9b8081487049" testId="9235ffb7-a0a5-3c9c-d6a6-5ccb6a0048f3" testName="two_args" computerName="HOST18468" startTime="2015-03-18T08:03:35.2411889+01:00" endTime="2015-03-18T08:03:35.2441889+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d99fad75-6e5a-47bc-8aad-9b8081487049" />
+    <UnitTestResult executionId="ea4074ab-fbb2-492d-8eea-76d47030f13c" testId="256d5696-784d-9f47-e59e-afb402b2b6e5" testName="empty" computerName="HOST18468" duration="00:00:00.0024320" startTime="2015-03-18T08:03:35.2531899+01:00" endTime="2015-03-18T08:03:35.2801919+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea4074ab-fbb2-492d-8eea-76d47030f13c" />
+    <UnitTestResult executionId="7e66ca03-1264-4fff-a8b7-fafdac97658b" testId="99055f27-d9ff-d66a-ed9a-79c4bdb06d24" testName="failing" computerName="HOST18468" duration="00:00:00.0121448" startTime="2015-03-18T08:03:35.2801919+01:00" endTime="2015-03-18T08:03:35.2931929+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7e66ca03-1264-4fff-a8b7-fafdac97658b">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.Fail failed. expected failure</Message>
+          <StackTrace>   à green.Tests.PipeLineTest.failing() dans k:\GitRepositories\green\green.Tests\PipeLineTest.cs:ligne 30
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="008016d7-8fdc-4962-b7a4-246709c4c45b" testId="257c754a-7625-78be-3d3d-54b49a2d8138" testName="args_protect_from_dos_interpretation" computerName="HOST18468" duration="00:00:00.0666330" startTime="2015-03-18T08:03:35.2931929+01:00" endTime="2015-03-18T08:03:35.3609169+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="008016d7-8fdc-4962-b7a4-246709c4c45b" />
+    <UnitTestResult executionId="714d84cc-b35d-4136-8db9-5d57073658fc" testId="b5216a3f-b6f2-5b39-8782-2133047918f5" testName="args_protect_from_dos_interpretation_nn" computerName="HOST18468" duration="00:00:00.0001573" startTime="2015-03-18T08:03:35.3609169+01:00" endTime="2015-03-18T08:03:35.3609169+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="714d84cc-b35d-4136-8db9-5d57073658fc" />
+    <UnitTestResult executionId="6cf56764-d2c8-4666-b8b8-94a47ea71f63" testId="3fcdfa27-0482-f053-f3c4-d9293c14bb6c" testName="repositories" computerName="HOST18468" duration="00:00:05.7780042" startTime="2015-03-18T08:03:35.3609169+01:00" endTime="2015-03-18T08:03:41.1396712+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6cf56764-d2c8-4666-b8b8-94a47ea71f63" />
+    <UnitTestResult executionId="d79d2275-9523-460f-9b39-049fdbca897c" testId="ae41d2ac-5a89-54a0-589e-1a25d0adc954" testName="hardcoded_source" computerName="HOST18468" duration="00:00:04.0947049" startTime="2015-03-18T08:03:41.1416716+01:00" endTime="2015-03-18T08:03:45.2415120+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d79d2275-9523-460f-9b39-049fdbca897c">
+      <Output>
+        <StdOut>depget: installing depget.0.5.1
+* the package 'depget version 0.5.1' has been downloaded.
+	- copying the folder 'content' to cwd
+depget: installing Cegid.MsiMake.8.0.6
+* the package 'Cegid.MsiMake version 8.0.6' has been downloaded.
+	- copying the folder 'content' to cwd</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="098e1e2d-c4c3-4699-908e-8840ddc619c0" testId="d2cad0a6-b736-4c40-200c-f8d68c0d53e5" testName="source_cant_be_resolved_against_local_nuget_config" computerName="HOST18468" duration="00:00:00.0021988" startTime="2015-03-18T08:03:45.2435131+01:00" endTime="2015-03-18T08:03:45.2465128+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="098e1e2d-c4c3-4699-908e-8840ddc619c0" />
+    <UnitTestResult executionId="345c9bca-f923-45ba-992b-b02dbdd8e5ff" testId="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26" testName="listOfItems" computerName="HOST18468" duration="00:00:00.0052196" startTime="2015-03-18T08:03:45.2465128+01:00" endTime="2015-03-18T08:03:45.2525414+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="345c9bca-f923-45ba-992b-b02dbdd8e5ff" />
+    <UnitTestResult executionId="0271533f-cb72-4da7-8ec5-cf79e6c46fad" testId="bfbd7558-141f-44d8-8d23-e98c196a0665" testName="listOfItems_globs" computerName="HOST18468" duration="00:00:00.0016981" startTime="2015-03-18T08:03:45.2525414+01:00" endTime="2015-03-18T08:03:45.2545297+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0271533f-cb72-4da7-8ec5-cf79e6c46fad" />
+    <UnitTestResult executionId="b0ef8446-cb75-4a8f-897a-84ee1ff5fe87" testId="375d96da-0111-1815-c406-f3784084c75c" testName="nugetPackCommandLine" computerName="HOST18468" duration="00:00:00.0154968" startTime="2015-03-18T08:03:45.2545297+01:00" endTime="2015-03-18T08:03:45.2705304+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0ef8446-cb75-4a8f-897a-84ee1ff5fe87" />
+    <UnitTestResult executionId="2ce9333f-5c1c-4679-a3fb-aa9c371fdd19" testId="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac" testName="nugetPackCommandLine_ns" computerName="HOST18468" duration="00:00:00.0047711" startTime="2015-03-18T08:03:45.2705304+01:00" endTime="2015-03-18T08:03:45.2765155+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2ce9333f-5c1c-4679-a3fb-aa9c371fdd19" />
+    <UnitTestResult executionId="4cfcc8a6-7d64-4fcf-b71e-9af4b085cbf9" testId="67336dc1-aa99-21ef-3b2a-a3a85647b9d9" testName="cpp" computerName="HOST18468" duration="00:00:00.0025082" startTime="2015-03-18T08:03:45.2765155+01:00" endTime="2015-03-18T08:03:45.2795152+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4cfcc8a6-7d64-4fcf-b71e-9af4b085cbf9" />
+    <UnitTestResult executionId="fb1d0ccf-f23e-4e12-a8c4-30cad5d7cd91" testId="b368d6c0-df8d-0658-c977-7c70a5226e3a" testName="cs" computerName="HOST18468" duration="00:00:00.0004587" startTime="2015-03-18T08:03:45.2795152+01:00" endTime="2015-03-18T08:03:45.2795152+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb1d0ccf-f23e-4e12-a8c4-30cad5d7cd91" />
+    <UnitTestResult executionId="6fa36d42-9eb5-49a8-ab1c-c7008a042790" testId="0de20b5f-e08e-364d-338e-d309e97e5c1a" testName="vb" computerName="HOST18468" duration="00:00:00.0004777" startTime="2015-03-18T08:03:45.2805157+01:00" endTime="2015-03-18T08:03:45.2805157+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6fa36d42-9eb5-49a8-ab1c-c7008a042790" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="two_args" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="9235ffb7-a0a5-3c9c-d6a6-5ccb6a0048f3">
+      <Execution id="d99fad75-6e5a-47bc-8aad-9b8081487049" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.PipeLineTest" name="two_args" />
+    </UnitTest>
+    <UnitTest name="empty" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="256d5696-784d-9f47-e59e-afb402b2b6e5">
+      <Execution id="ea4074ab-fbb2-492d-8eea-76d47030f13c" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.PipeLineTest" name="empty" />
+    </UnitTest>
+    <UnitTest name="failing" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="99055f27-d9ff-d66a-ed9a-79c4bdb06d24">
+      <Execution id="7e66ca03-1264-4fff-a8b7-fafdac97658b" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.PipeLineTest" name="failing" />
+    </UnitTest>
+    <UnitTest name="args_protect_from_dos_interpretation" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="257c754a-7625-78be-3d3d-54b49a2d8138">
+      <Execution id="008016d7-8fdc-4962-b7a4-246709c4c45b" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.greenTest" name="args_protect_from_dos_interpretation" />
+    </UnitTest>
+    <UnitTest name="args_protect_from_dos_interpretation_nn" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="b5216a3f-b6f2-5b39-8782-2133047918f5">
+      <Execution id="714d84cc-b35d-4136-8db9-5d57073658fc" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.greenTest" name="args_protect_from_dos_interpretation_nn" />
+    </UnitTest>
+    <UnitTest name="repositories" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="3fcdfa27-0482-f053-f3c4-d9293c14bb6c">
+      <Execution id="6cf56764-d2c8-4666-b8b8-94a47ea71f63" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.DepGetRestoreTest" name="repositories" />
+    </UnitTest>
+    <UnitTest name="hardcoded_source" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="ae41d2ac-5a89-54a0-589e-1a25d0adc954">
+      <Execution id="d79d2275-9523-460f-9b39-049fdbca897c" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.DepGetTest" name="hardcoded_source" />
+    </UnitTest>
+    <UnitTest name="source_cant_be_resolved_against_local_nuget_config" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="d2cad0a6-b736-4c40-200c-f8d68c0d53e5">
+      <Execution id="098e1e2d-c4c3-4699-908e-8840ddc619c0" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.DepGetTest" name="source_cant_be_resolved_against_local_nuget_config" />
+    </UnitTest>
+    <UnitTest name="listOfItems" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26">
+      <Execution id="345c9bca-f923-45ba-992b-b02dbdd8e5ff" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.ComposeItemGroupTest" name="listOfItems" />
+    </UnitTest>
+    <UnitTest name="listOfItems_globs" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="bfbd7558-141f-44d8-8d23-e98c196a0665">
+      <Execution id="0271533f-cb72-4da7-8ec5-cf79e6c46fad" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.ComposeItemGroupTest" name="listOfItems_globs" />
+    </UnitTest>
+    <UnitTest name="nugetPackCommandLine" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="375d96da-0111-1815-c406-f3784084c75c">
+      <Execution id="b0ef8446-cb75-4a8f-897a-84ee1ff5fe87" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine" />
+    </UnitTest>
+    <UnitTest name="nugetPackCommandLine_ns" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac">
+      <Execution id="2ce9333f-5c1c-4679-a3fb-aa9c371fdd19" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine_ns" />
+    </UnitTest>
+    <UnitTest name="cpp" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="67336dc1-aa99-21ef-3b2a-a3a85647b9d9">
+      <Execution id="4cfcc8a6-7d64-4fcf-b71e-9af4b085cbf9" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.ReadAssemblyVersionInfoTaskTest" name="cpp" />
+    </UnitTest>
+    <UnitTest name="cs" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="b368d6c0-df8d-0658-c977-7c70a5226e3a">
+      <Execution id="fb1d0ccf-f23e-4e12-a8c4-30cad5d7cd91" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.ReadAssemblyVersionInfoTaskTest" name="cs" />
+    </UnitTest>
+    <UnitTest name="vb" storage="k:\gitrepositories\green\green.tests\bin\release\green.tests.dll" id="0de20b5f-e08e-364d-338e-d309e97e5c1a">
+      <Execution id="6fa36d42-9eb5-49a8-ab1c-c7008a042790" />
+      <TestMethod codeBase="K:\GitRepositories\green\green.Tests\bin\Release\green.Tests.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="green.Tests.ReadAssemblyVersionInfoTaskTest" name="vb" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="9235ffb7-a0a5-3c9c-d6a6-5ccb6a0048f3" executionId="d99fad75-6e5a-47bc-8aad-9b8081487049" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="256d5696-784d-9f47-e59e-afb402b2b6e5" executionId="ea4074ab-fbb2-492d-8eea-76d47030f13c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="99055f27-d9ff-d66a-ed9a-79c4bdb06d24" executionId="7e66ca03-1264-4fff-a8b7-fafdac97658b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="257c754a-7625-78be-3d3d-54b49a2d8138" executionId="008016d7-8fdc-4962-b7a4-246709c4c45b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b5216a3f-b6f2-5b39-8782-2133047918f5" executionId="714d84cc-b35d-4136-8db9-5d57073658fc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3fcdfa27-0482-f053-f3c4-d9293c14bb6c" executionId="6cf56764-d2c8-4666-b8b8-94a47ea71f63" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ae41d2ac-5a89-54a0-589e-1a25d0adc954" executionId="d79d2275-9523-460f-9b39-049fdbca897c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d2cad0a6-b736-4c40-200c-f8d68c0d53e5" executionId="098e1e2d-c4c3-4699-908e-8840ddc619c0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2dededa3-f8e9-7f1a-9ac0-f1e1ca4edd26" executionId="345c9bca-f923-45ba-992b-b02dbdd8e5ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bfbd7558-141f-44d8-8d23-e98c196a0665" executionId="0271533f-cb72-4da7-8ec5-cf79e6c46fad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="375d96da-0111-1815-c406-f3784084c75c" executionId="b0ef8446-cb75-4a8f-897a-84ee1ff5fe87" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="86987bed-e5dc-06e5-48dc-d3a8bbe8f3ac" executionId="2ce9333f-5c1c-4679-a3fb-aa9c371fdd19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="67336dc1-aa99-21ef-3b2a-a3a85647b9d9" executionId="4cfcc8a6-7d64-4fcf-b71e-9af4b085cbf9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b368d6c0-df8d-0658-c977-7c70a5226e3a" executionId="fb1d0ccf-f23e-4e12-a8c4-30cad5d7cd91" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0de20b5f-e08e-364d-338e-d309e97e5c1a" executionId="6fa36d42-9eb5-49a8-ab1c-c7008a042790" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="15" executed="14" passed="13" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test 'two_args' was skipped in the test run.</StdOut>
+    </Output>
+    <CollectorDataEntries>
+      <Collector agentName="HOST18468" uri="datacollector://microsoft/CodeCoverage/2.0" collectorDisplayName="Code Coverage">
+        <UriAttachments>
+          <UriAttachment>
+            <A href="HOST18468\nilleb_HOST18468 2015-03-18 08_03_33.coverage">
+            </A>
+          </UriAttachment>
+        </UriAttachments>
+      </Collector>
+    </CollectorDataEntries>
+  </ResultSummary>
+</TestRun>
