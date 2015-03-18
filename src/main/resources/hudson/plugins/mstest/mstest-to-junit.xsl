@@ -13,7 +13,8 @@
             <xsl:variable name="numberSkipped">
                 <xsl:choose>
                     <xsl:when test="$skipped2006 > 0"><xsl:value-of select="$skipped2006"/></xsl:when>
-                    <xsl:otherwise><xsl:value-of select="$skipped2010"/></xsl:otherwise>
+                    <xsl:when test="$skipped2010 > 0"><xsl:value-of select="$skipped2010"/></xsl:when>
+                    <xsl:otherwise>0</xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
 			<testsuite name="MSTestSuite"
