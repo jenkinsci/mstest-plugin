@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +25,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.io.FilenameUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -40,6 +43,7 @@ public class MSTestReportConverter implements Serializable {
     private static final String MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR = "MSTestCoverageToEmma.xsl";
     private static final String EMMA_FILE_STR = "emma" + File.separator + "coverage.xml";
     private static final String MSTESTCOVERAGE_FILE_STR = "mstest-coverage.xml";
+    private static final String MSTESTCOVERAGE_FILE_EXT = ".ccx";
 
     private transient int fileCount;
 
@@ -68,21 +72,41 @@ public class MSTestReportConverter implements Serializable {
             }
         }
 
-        File c = new File(f.getParent(), MSTESTCOVERAGE_FILE_STR);
-        if (c.exists() && containsData(c)) {
-            File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
-            emmaTargetFile.getParentFile().mkdirs();
-            listener.getLogger().printf("mstest xml coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
-            try {
-                fileStream = new FileInputStream(c);
-                XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
-            } finally {
-                if (fileStream != null) {
-                    fileStream.close();
-                }
+        for (File c: getCoverageFiles(f))
+            if (c.exists() && containsData(c)) {
+                convertToEmma(listener, f, c);
+                break;
+            } else {
+                listener.getLogger().printf("[MSTEST] XML coverage report file not found: %s\n", c.getAbsolutePath());
             }
-        } else {
-            listener.getLogger().printf("mstest xml coverage report file not found: %s\n", c.getAbsolutePath());
+    }
+
+    private List<File> getCoverageFiles(File trxFile)
+    {
+        List<File> coverageFiles = new ArrayList<File>();
+        coverageFiles.add(new File(trxFile.getParent(), MSTESTCOVERAGE_FILE_STR));
+        coverageFiles.add(getCoverageFile(trxFile));
+        return coverageFiles;
+    }
+
+    private File getCoverageFile(File trxFile)
+    {
+        String fileNameWithOutExt = FilenameUtils.removeExtension(FilenameUtils.getBaseName(trxFile.getAbsolutePath()));
+        return new File(trxFile.getParentFile(), fileNameWithOutExt + MSTESTCOVERAGE_FILE_EXT);
+    }
+
+    private void convertToEmma(BuildListener listener, File f, File c) throws TransformerException, IOException, ParserConfigurationException {
+        FileInputStream fileStream = null;
+        File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
+        emmaTargetFile.getParentFile().mkdirs();
+        listener.getLogger().printf("mstest xml coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
+        try {
+            fileStream = new FileInputStream(c);
+            XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
+        } finally {
+            if (fileStream != null) {
+                fileStream.close();
+            }
         }
     }
 
