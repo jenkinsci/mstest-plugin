@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="15" time="0" failures="1" errors="0" skipped="1">
+        <testcase classname="green.Tests.PipeLineTest" name="two_args">
+            <skipped/>
+        </testcase>
+        <testcase classname="green.Tests.PipeLineTest" name="empty" time="0.002432"/>
+        <testcase classname="green.Tests.PipeLineTest" name="failing" time="0.0121448">
+            <failure message="Assert.Fail failed. expected failure">   à green.Tests.PipeLineTest.failing() dans k:\GitRepositories\green\green.Tests\PipeLineTest.cs:ligne 30
+            </failure>
+        </testcase>
+        <testcase classname="green.Tests.greenTest" name="args_protect_from_dos_interpretation" time="0.066633"/>
+        <testcase classname="green.Tests.greenTest" name="args_protect_from_dos_interpretation_nn" time="0.0001573"/>
+        <testcase classname="green.Tests.DepGetRestoreTest" name="repositories" time="5.7780042"/>
+        <testcase classname="green.Tests.DepGetTest" name="hardcoded_source" time="4.0947049"/>
+        <testcase classname="green.Tests.DepGetTest" name="source_cant_be_resolved_against_local_nuget_config" time="0.0021988"/>
+        <testcase classname="green.Tests.ComposeItemGroupTest" name="listOfItems" time="0.0052196"/>
+        <testcase classname="green.Tests.ComposeItemGroupTest" name="listOfItems_globs" time="0.0016981"/>
+        <testcase classname="green.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine" time="0.0154968"/>
+        <testcase classname="green.Tests.NuGetPackCommandLineTest" name="nugetPackCommandLine_ns" time="0.0047711"/>
+        <testcase classname="green.Tests.ReadAssemblyVersionInfoTaskTest" name="cpp" time="0.0025082"/>
+        <testcase classname="green.Tests.ReadAssemblyVersionInfoTaskTest" name="cs" time="0.0004587"/>
+        <testcase classname="green.Tests.ReadAssemblyVersionInfoTaskTest" name="vb" time="0.0004777"/>
+    </testsuite>
+</testsuites>
