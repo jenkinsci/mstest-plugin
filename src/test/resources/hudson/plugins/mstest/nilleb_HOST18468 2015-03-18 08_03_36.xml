@@ -11,7 +11,15 @@
         <testcase classname="green.Tests.greenTest" name="args_protect_from_dos_interpretation" time="0.066633"/>
         <testcase classname="green.Tests.greenTest" name="args_protect_from_dos_interpretation_nn" time="0.0001573"/>
         <testcase classname="green.Tests.DepGetRestoreTest" name="repositories" time="5.7780042"/>
-        <testcase classname="green.Tests.DepGetTest" name="hardcoded_source" time="4.0947049"/>
+        <testcase classname="green.Tests.DepGetTest" name="hardcoded_source" time="4.0947049">
+            <system-out>depget: installing depget.0.5.1
+                * the package 'depget version 0.5.1' has been downloaded.
+                - copying the folder 'content' to cwd
+                depget: installing Cegid.MsiMake.8.0.6
+                * the package 'Cegid.MsiMake version 8.0.6' has been downloaded.
+                - copying the folder 'content' to cwd
+            </system-out>
+        </testcase>
         <testcase classname="green.Tests.DepGetTest" name="source_cant_be_resolved_against_local_nuget_config" time="0.0021988"/>
         <testcase classname="green.Tests.ComposeItemGroupTest" name="listOfItems" time="0.0052196"/>
         <testcase classname="green.Tests.ComposeItemGroupTest" name="listOfItems_globs" time="0.0016981"/>

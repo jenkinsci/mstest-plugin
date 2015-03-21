@@ -46,6 +46,16 @@
                             <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
                         </xsl:for-each>
                     </xsl:variable>
+                    <xsl:variable name="stdout">
+                        <xsl:for-each select="a:Output/a:StdOut">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <xsl:variable name="stderr">
+                        <xsl:for-each select="a:Output/a:StdErr">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
 					<xsl:for-each select="//a:UnitTest">
 						<xsl:variable name="currentExecutionId" select="a:Execution/@id"/>
 						<xsl:if test="$currentExecutionId = $executionId" >
@@ -67,6 +77,8 @@
                                 <xsl:with-param name="stacktrace" select="$stacktrace"/>
                                 <xsl:with-param name="testName" select="$testName"/>
                                 <xsl:with-param name="textMessages" select="$textMessages"/>
+                                <xsl:with-param name="stdout" select="$stdout"/>
+                                <xsl:with-param name="stderr" select="$stderr"/>
                             </xsl:call-template>
 						</xsl:if>
 					</xsl:for-each>
@@ -84,6 +96,16 @@
 					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>
                     <xsl:variable name="textMessages">
                         <xsl:for-each select="b:Output/b:TextMessages/b:Message">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <xsl:variable name="stdout">
+                        <xsl:for-each select="b:Output/b:StdOut">
+                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                        </xsl:for-each>
+                    </xsl:variable>
+                    <xsl:variable name="stderr">
+                        <xsl:for-each select="b:Output/b:StdErr">
                             <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
                         </xsl:for-each>
                     </xsl:variable>
@@ -108,6 +130,8 @@
                                     <xsl:with-param name="stacktrace" select="$stacktrace"/>
                                     <xsl:with-param name="testName" select="$testName"/>
                                     <xsl:with-param name="textMessages" select="$textMessages"/>
+                                    <xsl:with-param name="stdout" select="$stdout"/>
+                                    <xsl:with-param name="stderr" select="$stderr"/>
                                 </xsl:call-template>
 							</xsl:if>
 					</xsl:for-each>
@@ -124,6 +148,8 @@
         <xsl:param name="message"/>
         <xsl:param name="stacktrace"/>
         <xsl:param name="textMessages"/>
+        <xsl:param name="stdout"/>
+        <xsl:param name="stderr"/>
         <xsl:variable name="duration_seconds" select="substring($duration, 7)"/>
         <xsl:variable name="duration_minutes" select="substring($duration, 4, 2 )"/>
         <xsl:variable name="duration_hours" select="substring($duration, 1, 2)"/>
@@ -150,8 +176,14 @@
                     </xsl:if>
                 </xsl:element>
             </xsl:if>
-            <xsl:if test="$textMessages != ''">
-                <system-out><xsl:value-of select="$textMessages"/></system-out>
+            <xsl:if test="$textMessages != '' or $stdout != ''">
+                <system-out>
+                    <xsl:if test="$textMessages != ''"><xsl:value-of select="$textMessages"/></xsl:if>
+                    <xsl:if test="$stdout != ''"><xsl:value-of select="$stdout"/></xsl:if>
+                </system-out>
+            </xsl:if>
+            <xsl:if test="$stderr != ''">
+                <system-err><xsl:value-of select="$stderr"/></system-err>
             </xsl:if>
         </testcase>
     </xsl:template>

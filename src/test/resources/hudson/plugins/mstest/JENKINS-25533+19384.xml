@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="4" time="0" failures="4" errors="0" skipped="0">
+        <testcase classname="UITestAutomation.RouteOptimization_SanityCheck" name="Login" time="43.8338627">
+            <failure message="Test method SanityCheck.Login threw exception: &#10;ArtOfTest.Common.Exceptions.AssertException: Assert.AreEqual - [Expected:True],[Actual:False]">    at ArtOfTest.Common.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message)
+                at ArtOfTest.Common.UnitTesting.Assert.AreEqual[T](T expected, T actual)
+                at UITestAutomation.SimpleChecks.IsLoginDialogShown() in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 455
+                at UITestAutomation.SimpleChecks.CheckLoginDialogShown(Boolean exp, String msg) in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 425
+                at UITestAutomation.SimpleActions.LoginAs(String user, String password) in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 76
+                at SanityCheck.Login() in d:\tests_Workspace\src\TestAutomation\SanityCheck.cs:line 25
+            </failure>
+            <system-out>17:43:23 ..Failed to connect: Attempt 0
+                17:43:25 ..Connected to CLIENT : v1.0.511.0
+                17:43:25 [PASS] Check Login dialog is presented on the main page
+                17:43:25 [PASS] Check OK button is disabled on initial Login Screen
+                17:43:27 ..Entered user name
+                17:43:28 ..Enter user password
+                17:43:28 [PASS] Check OK button became enabled after entered credentials
+                17:43:29 ..Confirmed login by OK button press
+            </system-out>
+        </testcase>
+    </testsuite>
+</testsuites>

@@ -131,6 +131,17 @@ public class MSTestReportConverterTest {
     }
 
     @Test
+    public void testStdOut() throws Exception {
+
+        Transform myTransform = new Transform(
+                new InputSource(this.getClass().getResourceAsStream("JENKINS-25533+19384.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("JENKINS-25533+19384.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
+    @Test
     public void testConversionTestsWithDurationLongerThanOneMinute() throws Exception {
 
         Transform myTransform = new Transform(new InputSource(this.getClass().getResourceAsStream("mstest_more_than_one_minute_test.trx")),

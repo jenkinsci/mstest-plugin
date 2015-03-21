@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<TestRun id="8792d452-e1ff-49d8-9937-83f936f1511c" name="user@TEST_VM 2015-03-18 17:42:48" runUser="user" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="4d40471d-767f-4aaf-a5a8-d6a4f6dca761">
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Deployment runDeploymentRoot="Jenkins_MsTest_StdOut" />
+    <Properties />
+  </TestSettings>
+  <Times creation="2015-03-18T17:42:48.3860256+03:00" queuing="2015-03-18T17:42:49.2503336+03:00" start="2015-03-18T17:42:49.4711568+03:00" finish="2015-03-18T17:44:09.3160066+03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="4" executed="4" error="0" failed="4" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <OrderedTest name="RouteOptimization_SanityCheck" storage="c:\autotester\bin\routeoptimization_sanitycheck.orderedtest" id="082fabc9-d9e5-4339-9787-a8a6e3886f9b" continueAfterFailure="true">
+      <Execution id="b6a601f4-8e48-4abf-8823-97a29a629efd" />
+      <TestLinks>
+        <TestLink id="a94138fa-750a-4f8a-4d1e-e4b9d6f37fa0" name="Login" storage="bin\debug\TestAutomation.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </TestLinks>
+    </OrderedTest>
+    <UnitTest name="Login" storage="c:\TestAutomation.dll" id="a94138fa-750a-4f8a-4d1e-e4b9d6f37fa0">
+      <TestMethod codeBase="c:/autotester/bin/TestAutomation.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UITestAutomation.RouteOptimization_SanityCheck, TestAutomation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Login" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="082fabc9-d9e5-4339-9787-a8a6e3886f9b" executionId="b6a601f4-8e48-4abf-8823-97a29a629efd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+      <TestEntries>
+        <TestEntry testId="a94138fa-750a-4f8a-4d1e-e4b9d6f37fa0" executionId="25041167-b2d2-412f-862f-190bdf974170" parentExecutionId="b6a601f4-8e48-4abf-8823-97a29a629efd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+      </TestEntries>
+    </TestEntry>
+  </TestEntries>
+  <Results>
+    <TestResultAggregation executionId="b6a601f4-8e48-4abf-8823-97a29a629efd" testId="082fabc9-d9e5-4339-9787-a8a6e3886f9b" testName="SanityCheck" computerName="TEST_VM" duration="00:01:09.5895342" startTime="2015-03-18T17:42:49.5560888+03:00" endTime="2015-03-18T17:43:59.1260450+03:00" testType="ec4800e8-40e5-4ab3-8510-b8bf29b1904d" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6a601f4-8e48-4abf-8823-97a29a629efd">
+      <Counters error="0" failed="3" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+      <InnerResults>
+        <UnitTestResult executionId="25041167-b2d2-412f-862f-190bdf974170" parentExecutionId="b6a601f4-8e48-4abf-8823-97a29a629efd" testId="a94138fa-750a-4f8a-4d1e-e4b9d6f37fa0" testName="Login" computerName="TEST_VM" duration="00:00:43.8338627" startTime="2015-03-18T17:42:49.5760728+03:00" endTime="2015-03-18T17:43:34.2210270+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="25041167-b2d2-412f-862f-190bdf974170">
+          <Output>
+            <StdOut>17:43:23 ..Failed to connect: Attempt 0
+17:43:25 ..Connected to CLIENT : v1.0.511.0
+17:43:25 [PASS] Check Login dialog is presented on the main page
+17:43:25 [PASS] Check OK button is disabled on initial Login Screen
+17:43:27 ..Entered user name
+17:43:28 ..Enter user password
+17:43:28 [PASS] Check OK button became enabled after entered credentials
+17:43:29 ..Confirmed login by OK button press</StdOut>
+            <ErrorInfo>
+              <Message>Test method SanityCheck.Login threw exception: 
+ArtOfTest.Common.Exceptions.AssertException: Assert.AreEqual - [Expected:True],[Actual:False]</Message>
+              <StackTrace>    at ArtOfTest.Common.UnitTesting.Assert.AreEqual[T](T expected, T actual, String message)
+   at ArtOfTest.Common.UnitTesting.Assert.AreEqual[T](T expected, T actual)
+   at UITestAutomation.SimpleChecks.IsLoginDialogShown() in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 455
+   at UITestAutomation.SimpleChecks.CheckLoginDialogShown(Boolean exp, String msg) in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 425
+   at UITestAutomation.SimpleActions.LoginAs(String user, String password) in d:\tests_Workspace\src\TestAutomation\TestActions.cs:line 76
+   at SanityCheck.Login() in d:\tests_Workspace\src\TestAutomation\SanityCheck.cs:line 25
+</StackTrace>
+            </ErrorInfo>
+          </Output>
+        </UnitTestResult>
+      </InnerResults>
+    </TestResultAggregation>
+  </Results>
+</TestRun>
