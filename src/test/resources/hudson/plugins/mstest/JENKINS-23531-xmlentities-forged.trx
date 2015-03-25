@@ -9,7 +9,7 @@
         <TestTypeSpecific/>
     </TestRunConfiguration>
     <ResultSummary outcome="Failed">
-        <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0"
+        <Counters total="1" executed="1" passed="0" error="1" failed="0" timeout="0" aborted="0" inconclusive="0"
                   passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0"
                   inProgress="0" pending="0"/>
     </ResultSummary>
@@ -38,16 +38,30 @@
     </TestEntries>
     <Results>
         <UnitTestResult executionId="70be9f02-00a0-49df-8c5a-8fb84a74b210" testId="44861a89-0ac6-f405-4b04-99f6f9d85d1e"
-                        testName="HasTargetTest" computerName="xxx-LT" startTime="2012-05-22T14:32:34.3525653-04:00"
-                        endTime="2012-05-22T14:32:41.9625760-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b"
+                        testName="testname" computerName="build03" duration="00:00:00.3476771"
+                        startTime="2014-06-23T12:47:41.6389392+02:00" endTime="2014-06-23T12:47:41.9899837+02:00"
+                        testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed"
                         testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d"
-                        relativeResultsDirectory="70be9f02-00a0-49df-8c5a-8fb84a74b210" outcome="Passed">
+                        relativeResultsDirectory="e52cb99b-b64e-4652-b608-9d0676641579">
             <Output>
-                <TextMessages>
-                    <Message>given RomanCalc object exists</Message>
-                    <Message>when args I and II are passed to the Add Method</Message>
-                    <Message>then III is returned</Message>
-                </TextMessages>
+                <ErrorInfo>
+                    <Message>Test method Common.Settings.Test.Status.Bb_StatusTest.Bb_GetLimitFixed_UserIsLoggedIn_Null
+                        threw exception:
+                        System.ArgumentException: Method 'GetLimitOption' not found on type
+                        Common.Settings.UserStatus.UserStatus
+                    </Message>
+                    <!-- doesn't respect : http://www.w3.org/TR/REC-xml/#charsets -->
+                    <StackTrace>at Telerik.JustMock.Expectations.NonPublicExpectation.&#x1C;?&#x2;(Type ?&#x8;, Type ?&#x8;&#x2;,
+                        String &#x12;&#x6;&#x2;, Object[] ?&#x6;)
+                        at Telerik.JustMock.Expectations.NonPublicExpectation.? &#x2;.? &#x2;()
+                        at ??&#x2;.??&#x2;.??&#x2;[?&#x4;](Func`1 ??&#x2;)
+                        at Telerik.JustMock.Expectations.NonPublicExpectation.Arrange[TReturn](Type targetType, String
+                        memberName, Object[] args)
+                        at Common.Settings.Test.Status.Bb_StatusTest.Bb_GetLimitFixed_UserIsLoggedIn_Null() in
+                        c:\jenkins\workspace\dev\Common\Common.Settings.Test\BlackBox\UserStatus\Bb_UserStatus_GetLimitFixedTest.cs:line
+                        32
+                    </StackTrace>
+                </ErrorInfo>
             </Output>
         </UnitTestResult>
     </Results>
