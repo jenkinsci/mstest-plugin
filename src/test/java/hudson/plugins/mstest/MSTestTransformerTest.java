@@ -5,14 +5,14 @@ import hudson.FilePath;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.PrintStream;
+import java.io.*;
+import java.nio.file.Files;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -23,8 +23,6 @@ import org.junit.Test;
 public class MSTestTransformerTest extends TestHelper{
 
 	
-    protected File parentFile;
-    protected FilePath workspace;
     private BuildListener buildListener;
     private Mockery context;
     private Mockery classContext;
@@ -53,7 +51,7 @@ public class MSTestTransformerTest extends TestHelper{
     
 
     @Test
-    public void testReturnWhenNoTRXFileisFound() throws Exception {
+    public void testReturnWhenNoTRXFileIsFound() throws Exception {
         classContext.checking(new Expectations() {
             {
                 ignoring(buildListener).getLogger();
@@ -64,5 +62,24 @@ public class MSTestTransformerTest extends TestHelper{
         transformer = new MSTestTransformer("build.trx", converter, buildListener);
         Boolean result = transformer.invoke(parentFile, virtualChannel);
         assertFalse("The archiver did not return false when it could not find any files", result);
+    }
+
+
+    @Ignore
+    @Test
+    public void testInvalidXmlCharacters() throws Exception {
+        classContext.checking(new Expectations() {
+            {
+                ignoring(buildListener).getLogger();
+            }
+        });
+        final String testPath = "xmlentities-forged.xml";
+        File testFile = new File(parentFile, testPath);
+        if (testFile.exists())
+            testFile.delete();
+        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
+        Files.copy(testStream, testFile.toPath());
+        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        transformer.invoke(parentFile, virtualChannel);
     }
 }
