@@ -63,7 +63,7 @@ public class ContentCorrector
         while (m.find()) {
             long c = Long.parseLong(m.group("char"), 16);
             if (!isAllowed(c)) {
-                line = new StringBuilder(line).replace(m.start("entity"), m.end("entity"), "").toString();
+                line = new StringBuilder(line).replace(m.start(1), m.end(1), "").toString();
                 m = p.matcher(line);
             }
         }
@@ -76,15 +76,6 @@ public class ContentCorrector
     }
 
     public static int randInt(int min, int max) {
-
-        // NOTE: Usually this should be a field rather than a method
-        // variable so that it is not re-seeded every call.
-        Random rand = new Random();
-
-        // nextInt is normally exclusive of the top value,
-        // so add 1 to make it inclusive
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-
-        return randomNum;
+        return new Random().nextInt((max - min) + 1) + min;
     }
 }
