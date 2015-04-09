@@ -1,6 +1,7 @@
 package hudson.plugins.mstest;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -21,11 +22,11 @@ public class ContentCorrector
 
     public String fix() throws IOException
     {
-        String filename = Integer.toString(randInt(1000, 1000000)) + ".rnd";
+        String filename = Integer.toString(randInt(1000, 1000000)) + ".trx";
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
-        PrintWriter out = new PrintWriter(outfile);
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), StandardCharsets.UTF_8));
         BufferedReader in = new BufferedReader(new FileReader(inFile));
         String line = in.readLine();
         while (line != null) {
