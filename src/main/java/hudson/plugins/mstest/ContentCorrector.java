@@ -27,7 +27,7 @@ public class ContentCorrector
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
         PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), StandardCharsets.UTF_8));
-        BufferedReader in = new BufferedReader(new FileReader(inFile));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), StandardCharsets.UTF_8));
         String line = in.readLine();
         while (line != null) {
             line = stripIllegalEntities(stripIllegalCharacters(line));
