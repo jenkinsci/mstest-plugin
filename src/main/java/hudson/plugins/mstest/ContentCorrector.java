@@ -2,8 +2,6 @@ package hudson.plugins.mstest;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +18,7 @@ public class ContentCorrector
         this.file = file;
     }
 
-    public String fix() throws IOException
+    public void fix() throws IOException
     {
         String filename = Integer.toString(randInt(1000, 1000000)) + ".trx";
         File inFile = new File(file);
@@ -29,14 +27,22 @@ public class ContentCorrector
         PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), StandardCharsets.UTF_8));
         BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), StandardCharsets.UTF_8));
         String line = in.readLine();
+        boolean replace = false;
         while (line != null) {
-            line = stripIllegalEntities(stripIllegalCharacters(line));
-            out.println(line);
+            String newline = stripIllegalEntities(stripIllegalCharacters(line));
+            if (line.length() != newline.length())
+                replace = true;
+            out.println(newline);
             line = in.readLine();
         }
         in.close();
         out.close();
-        return outfile.getAbsolutePath();
+        if (replace)
+            java.nio.file.Files.move(
+                    outfile.toPath(),
+                    inFile.toPath(),
+                    java.nio.file.StandardCopyOption.REPLACE_EXISTING,
+                    java.nio.file.LinkOption.NOFOLLOW_LINKS);
     }
 
     private String stripIllegalCharacters(String line)

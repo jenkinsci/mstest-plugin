@@ -60,8 +60,8 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         for (String mstestFile : mstestFiles) {
             listener.getLogger().println("MSTest: " + mstestFile);
             try {
-                String fixed = new ContentCorrector(mstestFile).fix();
-                unitReportTransformer.transform(fixed, junitOutputPath, listener);
+                new ContentCorrector(mstestFile).fix();
+                unitReportTransformer.transform(mstestFile, junitOutputPath, listener);
             } catch (TransformerException te) {
                 throw new IOException(
                         "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", te);

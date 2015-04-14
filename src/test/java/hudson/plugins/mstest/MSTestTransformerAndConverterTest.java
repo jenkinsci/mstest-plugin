@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import hudson.FilePath;
 import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 import org.jmock.Expectations;
@@ -54,7 +55,7 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
                 ignoring(buildListener);
             }
         });
-        final String testPath = "xmlentities-forged.xml";
+        final String testPath = "xmlentities-forged.trx";
         File testFile = new File(parentFile, testPath);
         if (testFile.exists())
             testFile.delete();
@@ -63,5 +64,30 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         MSTestReportConverter converter = new MSTestReportConverter();
         transformer = new MSTestTransformer(testPath, converter, buildListener);
         transformer.invoke(parentFile, virtualChannel);
+        FilePath[] list = workspace.list("*.trx");
+        assertEquals(1, list.length);
+    }
+
+    @Test
+    public void testCharset() throws Exception {
+        final PrintStream logger = new PrintStream(new ByteArrayOutputStream());
+        classContext.checking(new Expectations() {
+            {
+                ignoring(buildListener).getLogger();
+                will(returnValue(logger));
+                ignoring(buildListener);
+            }
+        });
+        final String testPath = "charset.trx";
+        File testFile = new File(parentFile, testPath);
+        if (testFile.exists())
+            testFile.delete();
+        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-charset.trx");
+        Files.copy(testStream, testFile.toPath());
+        MSTestReportConverter converter = new MSTestReportConverter();
+        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        transformer.invoke(parentFile, virtualChannel);
+        FilePath[] list = workspace.list("*.trx");
+        assertEquals(1, list.length);
     }
 }
