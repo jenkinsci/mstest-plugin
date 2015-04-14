@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
 <testsuite name="MSTestSuite" tests="12" time="0" failures="0" errors="0" skipped="0">
-<testcase classname="DataDrivenTests2013.UnitTest1" name="OmitTest (Data Row 2)" time="0.0095855" />
-<testcase classname="DataDrivenTests2013.UnitTest1" name="OmitTest (Data Row 0)" time="0.0000422" />
+<testcase classname="DataDrivenTests2013.UnitTest1" name="OmitTest row 2" time="0.0095855" />
+<testcase classname="DataDrivenTests2013.UnitTest1" name="OmitTest row 0" time="0.0000422" />
 <testcase classname="DataDrivenTests2013.UnitTest1" name="Case B" time="0.0001635">
 <system-out>test-alternate-name:Case B:
 </system-out>
