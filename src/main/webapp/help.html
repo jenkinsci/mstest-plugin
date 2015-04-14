@@ -72,7 +72,7 @@
          <ul><code>omit-from-jenkins:true</code></ul>
 
       Like the other reporting options, this must be the first line of text written to stdout during the execution of the test you want to filter 
-      it from the test report.
+      from the test report.
     </p>
 <h4>Example</h4>
     <p>
@@ -94,12 +94,12 @@
      [TestMethod()]
      public void Test2()
      {
-        if (testContext.DataRow("ExpectedResult2") = null) {
+        if (testContext.DataRow("ExpectedResult2") == null) {
             Console.WriteLine("omit-from-jenkins:true");
             return;
         }
 
-        Console.WriteLine(String.Format("test-instance-name:{0}:", testContext.DataRow("TestCaseName"));
+        Console.WriteLine(String.Format("test-instance-name:{0}:", testContext.DataRow("TestCaseName")));
         // do test logic
         ...
      }  
