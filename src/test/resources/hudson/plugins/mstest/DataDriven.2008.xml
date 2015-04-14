@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<testsuite name="MSTestSuite" tests="12" time="0" failures="0" errors="0" skipped="0">
+<testcase classname="DataDrivenTests.UnitTest1" name="OmitTest (Data Row 2)" time="0.0000497" />
+<testcase classname="DataDrivenTests.UnitTest1" name="OmitTest (Data Row 0)" time="0.0000146" />
+<testcase classname="DataDrivenTests.UnitTest1" name="Case C" time="0.0002185">
+<system-out>test-alternate-name:Case C:
+</system-out>
+</testcase>
+<testcase classname="DataDrivenTests.UnitTest1" name="Case A" time="0.0000154">
+<system-out>test-alternate-name:Case A:
+</system-out>
+</testcase>
+<testcase classname="DataDrivenTests.UnitTest1" name="Case B" time="0.0000094">
+<system-out>test-alternate-name:Case B:
+</system-out>
+</testcase>
+<testcase classname="DataDrivenTests.UnitTest1" name="SuffixTest.Case B" time="0.0002003">
+<system-out>test-instance-name:Case B:
+</system-out>
+</testcase>
+<testcase classname="DataDrivenTests.UnitTest1" name="SuffixTest.Case C" time="0.0000158">
+<system-out>test-instance-name:Case C:
+</system-out>
+</testcase>
+<testcase classname="DataDrivenTests.UnitTest1" name="SuffixTest.Case A" time="0.0000126">
+<system-out>test-instance-name:Case A:
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0d1d86f0-a985-43e0-9de1-1a4b94b9cc05" name="dmel@JENK 2015-04-13 10:08:05" runUser="dmel" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="787c166a-cd2c-4312-93e9-acd79f25ff43">
+    <Deployment userDeploymentRoot="c:\Users\dmel\Documents\Projects\StandardTests.2008\bin\Debug" useDefaultDeploymentRoot="false" runDeploymentRoot="dmel_JENK 2015-04-13 10_08_05" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2015-04-13T10:08:05.3844358-06:00" queuing="2015-04-13T10:08:06.0194993-06:00" start="2015-04-13T10:08:06.0845058-06:00" finish="2015-04-13T10:08:06.3445318-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="OmitTest" storage="standardtests.2008.dll" id="22596bc5-7cad-8408-0b95-fd57a65ef77e">
+      <Execution id="fb09cdde-7362-4997-9ab1-922d0bd47f1d" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/StandardTests.2008/bin/Debug/StandardTests.2008.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="StandardTests2013.UnitTest1, StandardTests.2008, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OmitTest" />
+    </UnitTest>
+    <UnitTest name="RenameTest" storage="standardtests.2008.dll" id="45ed4e5a-a3b0-6943-a319-60d03cc823f7">
+      <Execution id="82adcc23-b335-402e-8aa5-21b5167b9259" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/StandardTests.2008/bin/Debug/StandardTests.2008.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="StandardTests2013.UnitTest1, StandardTests.2008, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RenameTest" />
+    </UnitTest>
+    <UnitTest name="SuffixTest" storage="standardtests.2008.dll" id="f3983df7-7282-c779-5ab3-c36505c77fb6">
+      <Execution id="1e697a18-db72-4bd7-a978-ad351b079adb" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/StandardTests.2008/bin/Debug/StandardTests.2008.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="StandardTests2013.UnitTest1, StandardTests.2008, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SuffixTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="22596bc5-7cad-8408-0b95-fd57a65ef77e" executionId="fb09cdde-7362-4997-9ab1-922d0bd47f1d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="45ed4e5a-a3b0-6943-a319-60d03cc823f7" executionId="82adcc23-b335-402e-8aa5-21b5167b9259" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f3983df7-7282-c779-5ab3-c36505c77fb6" executionId="1e697a18-db72-4bd7-a978-ad351b079adb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="fb09cdde-7362-4997-9ab1-922d0bd47f1d" testId="22596bc5-7cad-8408-0b95-fd57a65ef77e" testName="OmitTest" computerName="JENK" duration="00:00:00.0100071" startTime="2015-04-13T10:08:06.1295103-06:00" endTime="2015-04-13T10:08:06.3115285-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb09cdde-7362-4997-9ab1-922d0bd47f1d">
+      <Output>
+        <StdOut>omit-from-jenkins:true</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="82adcc23-b335-402e-8aa5-21b5167b9259" testId="45ed4e5a-a3b0-6943-a319-60d03cc823f7" testName="RenameTest" computerName="JENK" duration="00:00:00.0000983" startTime="2015-04-13T10:08:06.3125286-06:00" endTime="2015-04-13T10:08:06.3145288-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="82adcc23-b335-402e-8aa5-21b5167b9259">
+      <Output>
+        <StdOut>test-alternate-name:Use This Name Instead:</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1e697a18-db72-4bd7-a978-ad351b079adb" testId="f3983df7-7282-c779-5ab3-c36505c77fb6" testName="SuffixTest" computerName="JENK" duration="00:00:00.0000908" startTime="2015-04-13T10:08:06.3145288-06:00" endTime="2015-04-13T10:08:06.3165290-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1e697a18-db72-4bd7-a978-ad351b079adb">
+      <Output>
+        <StdOut>test-instance-name:My Suffix:</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
