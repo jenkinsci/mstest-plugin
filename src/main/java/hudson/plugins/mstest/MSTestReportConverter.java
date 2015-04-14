@@ -117,7 +117,7 @@ public class MSTestReportConverter implements Serializable {
             Document doc = builder.parse(c);
             XPathFactory xPathfactory = XPathFactory.newInstance();
             XPath xpath = xPathfactory.newXPath();
-            XPathExpression expr = xpath.compile("count(/CoverageDS/*)");
+            XPathExpression expr = xpath.compile("count(/CoverageDSPriv/*)");
             Double childCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
             return childCount > 0;
         } catch (ParserConfigurationException ex) {
