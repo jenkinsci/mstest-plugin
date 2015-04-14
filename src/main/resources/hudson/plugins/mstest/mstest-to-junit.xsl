@@ -2,13 +2,13 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:a ="http://microsoft.com/schemas/VisualStudio/TeamTest/2006"
                 xmlns:b ="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" >
-	<xsl:output method="xml" indent="yes" />
-	<xsl:template match="/">
-		<testsuites>
-			<xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
- 			<xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
- 			<xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error | /a:TestRun/a:ResultSummary/a:Counters/@timeout | /b:TestRun/b:ResultSummary/b:Counters/@timeout)" />
- 			<xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
+    <xsl:output encoding="UTF-8" method="xml" indent="yes" />
+    <xsl:template match="/">
+        <testsuites>
+            <xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
+            <xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
+            <xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error | /a:TestRun/a:ResultSummary/a:Counters/@timeout | /b:TestRun/b:ResultSummary/b:Counters/@timeout)" />
+            <xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
             <xsl:variable name="skipped2010" select="/b:TestRun/b:ResultSummary/b:Counters/@total - /b:TestRun/b:ResultSummary/b:Counters/@executed"/>
             <xsl:variable name="numberSkipped">
                 <xsl:choose>
@@ -17,58 +17,60 @@
                     <xsl:otherwise>0</xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
-			<testsuite name="MSTestSuite"
-				tests="{$numberOfTests}" time="0"
-				failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
-				skipped="{$numberSkipped}">
+            <testsuite name="MSTestSuite"
+                tests="{$numberOfTests}" time="0"
+                failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
+                skipped="{$numberSkipped}">
 
-				<xsl:for-each select="//a:UnitTestResult">
-                    <xsl:variable name="testName">
-                        <xsl:value-of select="@testName"/>
-                        <xsl:if test="@dataRowInfo"> row <xsl:value-of select="@dataRowInfo"/></xsl:if>
-                    </xsl:variable>
-                    <xsl:variable name="executionId">
-                        <xsl:choose>
-                            <xsl:when test="@resultType = 'DataDrivenDataRow'">
-                                <xsl:value-of select="@parentExecutionId"/>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:value-of select="@executionId"/>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </xsl:variable>
-                    <xsl:variable name="duration" select="@duration"/>
-					<xsl:variable name="outcome" select="@outcome"/>
-					<xsl:variable name="message" select="a:Output/a:ErrorInfo/a:Message"/>
-					<xsl:variable name="stacktrace" select="a:Output/a:ErrorInfo/a:StackTrace"/>
-                    <xsl:variable name="textMessages">
-                        <xsl:for-each select="a:Output/a:TextMessages/a:Message">
-                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
-                        </xsl:for-each>
-                    </xsl:variable>
+                <xsl:for-each select="//a:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //b:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)]">
                     <xsl:variable name="stdout">
-                        <xsl:for-each select="a:Output/a:StdOut">
+                        <xsl:for-each select="a:Output/a:StdOut | b:Output/b:StdOut">
                             <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
                         </xsl:for-each>
                     </xsl:variable>
-                    <xsl:variable name="stderr">
-                        <xsl:for-each select="a:Output/a:StdErr">
-                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
-                        </xsl:for-each>
-                    </xsl:variable>
-					<xsl:for-each select="//a:UnitTest">
-						<xsl:variable name="currentExecutionId" select="a:Execution/@id"/>
-						<xsl:if test="$currentExecutionId = $executionId" >
-							<xsl:variable name="className">
-								<xsl:choose>
-									<xsl:when test="contains(a:TestMethod/@className, ',')">
-										<xsl:value-of select="substring-before(a:TestMethod/@className, ',')"/>
-									</xsl:when>
-									<xsl:otherwise>
-										<xsl:value-of select="a:TestMethod/@className"/>
-									</xsl:otherwise>
-								</xsl:choose>
-							</xsl:variable>
+                    <xsl:if test="not(starts-with($stdout, 'omit-from-jenkins:true'))">
+                        <xsl:variable name="testId" select="@testId" />
+                        <xsl:variable name="duration" select="@duration"/>
+                        <xsl:variable name="outcome" select="@outcome"/>
+                        <xsl:variable name="message" select="a:Output/a:ErrorInfo/a:Message | b:Output/b:ErrorInfo/b:Message"/>
+                        <xsl:variable name="stacktrace" select="a:Output/a:ErrorInfo/a:StackTrace | b:Output/b:ErrorInfo/b:StackTrace"/>
+                        <xsl:variable name="textMessages">
+                            <xsl:for-each select="a:Output/a:TextMessages/a:Message | b:Output/b:TextMessages/b:Message">
+                                <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                            </xsl:for-each>
+                        </xsl:variable>
+                        <xsl:variable name="stderr">
+                            <xsl:for-each select="a:Output/a:StdErr | b:Output/b:StdErr">
+                                <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
+                            </xsl:for-each>
+                        </xsl:variable>
+                        <xsl:variable name="testName">
+                            <xsl:choose>
+                                <xsl:when test="starts-with($stdout, 'test-alternate-name:')">
+                                    <xsl:value-of select="substring-before(substring-after($stdout, 'test-alternate-name:'), ':')"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="@testName"/>
+                                    <xsl:choose>
+                                        <xsl:when test="starts-with($stdout, 'test-instance-name:')">
+                                            <xsl:text>.</xsl:text><xsl:value-of select="substring-before(substring-after($stdout, 'test-instance-name:'), ':')"/>
+                                        </xsl:when>
+                                        <xsl:when test="@dataRowInfo"> row <xsl:value-of select="@dataRowInfo"/></xsl:when>
+                                    </xsl:choose>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:variable>
+                        <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod">
+                            <xsl:variable name="className">
+                                <xsl:choose>
+                                    <xsl:when test="contains(@className, ',')">
+                                        <xsl:value-of select="substring-before(@className, ',')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="@className"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
                             <xsl:call-template name="format-test-case">
                                 <xsl:with-param name="className" select="$className"/>
                                 <xsl:with-param name="duration" select="$duration"/>
@@ -80,65 +82,13 @@
                                 <xsl:with-param name="stdout" select="$stdout"/>
                                 <xsl:with-param name="stderr" select="$stderr"/>
                             </xsl:call-template>
-						</xsl:if>
-					</xsl:for-each>
-				</xsl:for-each>
+                        </xsl:for-each>
+                    </xsl:if>
+                </xsl:for-each>
 
-				<xsl:for-each select="//b:UnitTestResult">
-					<xsl:variable name="testName">
-                        <xsl:value-of select="@testName"/>
-                        <xsl:if test="@dataRowInfo"> row <xsl:value-of select="@dataRowInfo"/></xsl:if>
-                    </xsl:variable>
-					<xsl:variable name="testId" select="@testId"/>
-					<xsl:variable name="duration" select="@duration"/>
-					<xsl:variable name="outcome" select="@outcome"/>
-					<xsl:variable name="message" select="b:Output/b:ErrorInfo/b:Message"/>
-					<xsl:variable name="stacktrace" select="b:Output/b:ErrorInfo/b:StackTrace"/>
-                    <xsl:variable name="textMessages">
-                        <xsl:for-each select="b:Output/b:TextMessages/b:Message">
-                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
-                        </xsl:for-each>
-                    </xsl:variable>
-                    <xsl:variable name="stdout">
-                        <xsl:for-each select="b:Output/b:StdOut">
-                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
-                        </xsl:for-each>
-                    </xsl:variable>
-                    <xsl:variable name="stderr">
-                        <xsl:for-each select="b:Output/b:StdErr">
-                            <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
-                        </xsl:for-each>
-                    </xsl:variable>
-					<xsl:for-each select="//b:UnitTest">
-						<xsl:variable name="currentTestId" select="@id"/>
-							<xsl:if test="$currentTestId = $testId" >
-								<xsl:variable name="className">
-									<xsl:choose>
-										<xsl:when test="contains(b:TestMethod/@className, ',')">
-											<xsl:value-of select="substring-before(b:TestMethod/@className, ',')"/>
-										</xsl:when>
-										<xsl:otherwise>
-											<xsl:value-of select="b:TestMethod/@className"/>
-										</xsl:otherwise>
-									</xsl:choose>
-								</xsl:variable>
-                                <xsl:call-template name="format-test-case">
-                                    <xsl:with-param name="className" select="$className"/>
-                                    <xsl:with-param name="duration" select="$duration"/>
-                                    <xsl:with-param name="message" select="$message"/>
-                                    <xsl:with-param name="outcome" select="$outcome"/>
-                                    <xsl:with-param name="stacktrace" select="$stacktrace"/>
-                                    <xsl:with-param name="testName" select="$testName"/>
-                                    <xsl:with-param name="textMessages" select="$textMessages"/>
-                                    <xsl:with-param name="stdout" select="$stdout"/>
-                                    <xsl:with-param name="stderr" select="$stderr"/>
-                                </xsl:call-template>
-							</xsl:if>
-					</xsl:for-each>
-				</xsl:for-each>
-			</testsuite>
-		</testsuites>
-	</xsl:template>
+            </testsuite>
+        </testsuites>
+    </xsl:template>
 
     <xsl:template name="format-test-case">
         <xsl:param name="className"/>

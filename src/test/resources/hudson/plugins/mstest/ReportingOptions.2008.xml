@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006" xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<testsuite name="MSTestSuite" tests="3" time="0" failures="0" errors="0" skipped="0">
+<testcase classname="StandardTests.UnitTest1" name="Use This Name Instead" time="0.0000924">
+<system-out>test-alternate-name:Use This Name Instead:
+</system-out>
+</testcase>
+<testcase classname="StandardTests.UnitTest1" name="SuffixTest.My Suffix" time="0.0000817">
+<system-out>test-instance-name:My Suffix:
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="af11d844-dc5f-4872-996d-2a3181ea8f3a" name="dmel@JENK 2015-04-13 10:11:10" runUser="dmel" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="750f21a3-0970-49d3-aec3-4b02755a974b">
+    <Deployment userDeploymentRoot="c:\Users\dmel\Documents\Projects\DataDrivenTests2013\bin\Debug" useDefaultDeploymentRoot="false" runDeploymentRoot="dmel_JENK 2015-04-13 10_11_10" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2015-04-13T10:11:10.1636744-06:00" queuing="2015-04-13T10:11:10.7236856-06:00" start="2015-04-13T10:11:10.7886869-06:00" finish="2015-04-13T10:11:11.7337058-06:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="12" executed="12" passed="12" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="OmitTest" storage="datadriventests2013.dll" id="4ffa8110-2efc-6a70-8c1a-9443e12271e8">
+      <Execution id="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/DataDrivenTests2013/bin/Debug/DataDrivenTests2013.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DataDrivenTests2013.UnitTest1, DataDrivenTests2013, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="OmitTest" />
+      <DataSource connectionString="Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)}; dbq=c:\users\dmel\documents\testcases.xlsx;defaultdir=C:\\TestData; driverid=1046;maxbuffersize=2048;pagetimeout=5" providerInvariantName="System.Data.Odbc" tableName="TestCases$" accessMethod="Random" />
+    </UnitTest>
+    <UnitTest name="RenameTest" storage="datadriventests2013.dll" id="babd6762-e479-cb40-a5c0-61e57efd845f">
+      <Execution id="6d28775e-ae75-494c-8414-c7f6df305490" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/DataDrivenTests2013/bin/Debug/DataDrivenTests2013.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DataDrivenTests2013.UnitTest1, DataDrivenTests2013, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RenameTest" />
+      <DataSource connectionString="Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)}; dbq=c:\users\dmel\documents\testcases.xlsx;defaultdir=C:\\TestData; driverid=1046;maxbuffersize=2048;pagetimeout=5" providerInvariantName="System.Data.Odbc" tableName="TestCases$" accessMethod="Random" />
+    </UnitTest>
+    <UnitTest name="SuffixTest" storage="datadriventests2013.dll" id="b32bf995-cf99-7474-51a8-8f40a424b0f6">
+      <Execution id="ab7fb116-6b14-4374-b77a-49a2ca9e102c" />
+      <TestMethod codeBase="c:/Users/dmel/Documents/Projects/DataDrivenTests2013/bin/Debug/DataDrivenTests2013.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DataDrivenTests2013.UnitTest1, DataDrivenTests2013, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SuffixTest" />
+      <DataSource connectionString="Driver={Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)}; dbq=c:\users\dmel\documents\testcases.xlsx;defaultdir=C:\\TestData; driverid=1046;maxbuffersize=2048;pagetimeout=5" providerInvariantName="System.Data.Odbc" tableName="TestCases$" accessMethod="Random" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4ffa8110-2efc-6a70-8c1a-9443e12271e8" executionId="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="babd6762-e479-cb40-a5c0-61e57efd845f" executionId="6d28775e-ae75-494c-8414-c7f6df305490" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b32bf995-cf99-7474-51a8-8f40a424b0f6" executionId="ab7fb116-6b14-4374-b77a-49a2ca9e102c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" testId="4ffa8110-2efc-6a70-8c1a-9443e12271e8" testName="OmitTest" computerName="JENK" duration="00:00:00.5816966" startTime="2015-04-13T10:11:10.8436880-06:00" endTime="2015-04-13T10:11:11.6137034-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" resultType="DataDrivenTest">
+      <Counters error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="3" completed="0" inProgress="0" pending="0" />
+      <InnerResults>
+        <UnitTestResult executionId="68065ff4-a108-4541-8fa6-a621851c0f6a" parentExecutionId="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" testId="4ffa8110-2efc-6a70-8c1a-9443e12271e8" testName="OmitTest" computerName="JENK" duration="00:00:00.0095855" startTime="2015-04-13T10:11:11.5537022-06:00" endTime="2015-04-13T10:11:11.5687025-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" dataRowInfo="2" resultType="DataDrivenDataRow" />
+        <UnitTestResult executionId="8115f02e-334e-4ec8-b086-4945d26176a9" parentExecutionId="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" testId="4ffa8110-2efc-6a70-8c1a-9443e12271e8" testName="OmitTest" computerName="JENK" duration="00:00:00.0000422" startTime="2015-04-13T10:11:11.5687025-06:00" endTime="2015-04-13T10:11:11.5687025-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" dataRowInfo="0" resultType="DataDrivenDataRow" />
+        <UnitTestResult executionId="0b74c484-caf2-4bc5-a95e-de1eea406540" parentExecutionId="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" testId="4ffa8110-2efc-6a70-8c1a-9443e12271e8" testName="OmitTest" computerName="JENK" duration="00:00:00.0000975" startTime="2015-04-13T10:11:11.5687025-06:00" endTime="2015-04-13T10:11:11.5687025-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="77d6cddd-3a8b-432d-b482-a6b9d61fa1ba" dataRowInfo="1" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>omit-from-jenkins:true</StdOut>
+          </Output>
+        </UnitTestResult>
+      </InnerResults>
+    </UnitTestResult>
+    <UnitTestResult executionId="6d28775e-ae75-494c-8414-c7f6df305490" testId="babd6762-e479-cb40-a5c0-61e57efd845f" testName="RenameTest" computerName="JENK" duration="00:00:00.0399662" startTime="2015-04-13T10:11:11.6137034-06:00" endTime="2015-04-13T10:11:11.6587043-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d28775e-ae75-494c-8414-c7f6df305490" resultType="DataDrivenTest">
+      <Counters error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="3" completed="0" inProgress="0" pending="0" />
+      <InnerResults>
+        <UnitTestResult executionId="787e6b9a-616b-46a9-ada7-d67e2751e01f" parentExecutionId="6d28775e-ae75-494c-8414-c7f6df305490" testId="babd6762-e479-cb40-a5c0-61e57efd845f" testName="RenameTest" computerName="JENK" duration="00:00:00.0001635" startTime="2015-04-13T10:11:11.6287037-06:00" endTime="2015-04-13T10:11:11.6287037-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d28775e-ae75-494c-8414-c7f6df305490" dataRowInfo="1" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-alternate-name:Case B:</StdOut>
+          </Output>
+        </UnitTestResult>
+        <UnitTestResult executionId="945ec578-84f8-42dd-925f-9e194983f04f" parentExecutionId="6d28775e-ae75-494c-8414-c7f6df305490" testId="babd6762-e479-cb40-a5c0-61e57efd845f" testName="RenameTest" computerName="JENK" duration="00:00:00.0000181" startTime="2015-04-13T10:11:11.6287037-06:00" endTime="2015-04-13T10:11:11.6287037-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d28775e-ae75-494c-8414-c7f6df305490" dataRowInfo="2" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-alternate-name:Case C:</StdOut>
+          </Output>
+        </UnitTestResult>
+        <UnitTestResult executionId="bc4f1f8e-817a-41a3-9776-7e5ff4cdca3d" parentExecutionId="6d28775e-ae75-494c-8414-c7f6df305490" testId="babd6762-e479-cb40-a5c0-61e57efd845f" testName="RenameTest" computerName="JENK" duration="00:00:00.0000090" startTime="2015-04-13T10:11:11.6287037-06:00" endTime="2015-04-13T10:11:11.6287037-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d28775e-ae75-494c-8414-c7f6df305490" dataRowInfo="0" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-alternate-name:Case A:</StdOut>
+          </Output>
+        </UnitTestResult>
+      </InnerResults>
+    </UnitTestResult>
+    <UnitTestResult executionId="ab7fb116-6b14-4374-b77a-49a2ca9e102c" testId="b32bf995-cf99-7474-51a8-8f40a424b0f6" testName="SuffixTest" computerName="JENK" duration="00:00:00.0419548" startTime="2015-04-13T10:11:11.6587043-06:00" endTime="2015-04-13T10:11:11.7037052-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab7fb116-6b14-4374-b77a-49a2ca9e102c" resultType="DataDrivenTest">
+      <Counters error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="3" completed="0" inProgress="0" pending="0" />
+      <InnerResults>
+        <UnitTestResult executionId="4af3609f-63d1-4c18-83e8-5e9166438e42" parentExecutionId="ab7fb116-6b14-4374-b77a-49a2ca9e102c" testId="b32bf995-cf99-7474-51a8-8f40a424b0f6" testName="SuffixTest" computerName="JENK" duration="00:00:00.0001896" startTime="2015-04-13T10:11:11.6737046-06:00" endTime="2015-04-13T10:11:11.6737046-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab7fb116-6b14-4374-b77a-49a2ca9e102c" dataRowInfo="2" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-instance-name:Case C:</StdOut>
+          </Output>
+        </UnitTestResult>
+        <UnitTestResult executionId="bb6c38c8-f94d-45f1-83e8-43db338418f9" parentExecutionId="ab7fb116-6b14-4374-b77a-49a2ca9e102c" testId="b32bf995-cf99-7474-51a8-8f40a424b0f6" testName="SuffixTest" computerName="JENK" duration="00:00:00.0000118" startTime="2015-04-13T10:11:11.6737046-06:00" endTime="2015-04-13T10:11:11.6737046-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab7fb116-6b14-4374-b77a-49a2ca9e102c" dataRowInfo="0" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-instance-name:Case A:</StdOut>
+          </Output>
+        </UnitTestResult>
+        <UnitTestResult executionId="0c78ae2c-0c0b-4403-a4f3-f9889e311dee" parentExecutionId="ab7fb116-6b14-4374-b77a-49a2ca9e102c" testId="b32bf995-cf99-7474-51a8-8f40a424b0f6" testName="SuffixTest" computerName="JENK" duration="00:00:00.0000090" startTime="2015-04-13T10:11:11.6737046-06:00" endTime="2015-04-13T10:11:11.6737046-06:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab7fb116-6b14-4374-b77a-49a2ca9e102c" dataRowInfo="1" resultType="DataDrivenDataRow">
+          <Output>
+            <StdOut>test-instance-name:Case B:</StdOut>
+          </Output>
+        </UnitTestResult>
+      </InnerResults>
+    </UnitTestResult>
+  </Results>
+</TestRun>
