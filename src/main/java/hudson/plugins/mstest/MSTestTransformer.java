@@ -5,7 +5,6 @@ import hudson.model.BuildListener;
 import hudson.remoting.VirtualChannel;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,16 +26,23 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
 
     public static final String JUNIT_REPORTS_PATH = "temporary-junit-reports";
     private final BuildListener listener;
+    private final boolean failOnError;
 
     // Build related objects
     private final String testResultsFile;
 
     private final MSTestReportConverter unitReportTransformer;
 
+    
     public MSTestTransformer(String testResults, MSTestReportConverter unitReportTransformer, BuildListener listener) throws TransformerException {
+        this(testResults, unitReportTransformer, listener, true);
+    }
+    
+    public MSTestTransformer(String testResults, MSTestReportConverter unitReportTransformer, BuildListener listener, boolean failOnError) throws TransformerException {
         this.testResultsFile = testResults;
         this.unitReportTransformer = unitReportTransformer;
         this.listener = listener;
+        this.failOnError = failOnError;
     }
 
     /**
@@ -50,6 +56,10 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         String[] mstestFiles = findMSTestReports(ws);
 
         if (mstestFiles.length == 0) {
+            if(!failOnError){
+                listener.getLogger().println("MSTest: No MSTest TRX test report files were found. Ignoring.");
+                return Boolean.TRUE;
+            }
             listener.fatalError("MSTest: No MSTest TRX test report files were found. Configuration error?");
             return Boolean.FALSE;
         }
