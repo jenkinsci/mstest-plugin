@@ -33,6 +33,8 @@ import javax.xml.transform.TransformerException;
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.kohsuke.stapler.DataBoundConstructor;
+import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
 
 /**
@@ -45,10 +47,18 @@ public class MSTestPublisher extends Recorder implements Serializable {
     private final String testResultsFile;
     private String resolvedFilePath;
     private long buildTime;
+    private boolean failOnError;
     //private EmmaPublisher emmaPublisher;
 
-    public MSTestPublisher(String testResultsFile) {
+    
+    public MSTestPublisher(String testResultsFile){
+        this(testResultsFile, true);
+    }
+    
+    @DataBoundConstructor
+    public MSTestPublisher(String testResultsFile, boolean failOnError) {
         this.testResultsFile = testResultsFile;
+        this.failOnError = failOnError;
     }
 
     public String getTestResultsTrxFile() {
@@ -57,6 +67,15 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
     public String getResolvedFilePath() {
         return resolvedFilePath;
+    }
+    
+    public boolean getFailOnError(){
+        return failOnError; 
+    }
+    
+    @DataBoundSetter
+    public final void setFailOnError(boolean failOnError) {
+        this.failOnError = failOnError;
     }
 
     @Override
@@ -95,7 +114,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
             resolveFilePath(build, listener);
 
             listener.getLogger().println("MSTest: Processing tests results in file(s) " + resolvedFilePath);
-            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener);
+            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener, failOnError);
             result = build.getWorkspace().act(transformer);
 
             if (result) {
@@ -158,6 +177,11 @@ public class MSTestPublisher extends Recorder implements Serializable {
             }
             TestResult result = getTestResult(junitFilePattern, build, existingTestResults);
 
+            //There was no result because there was no TRX file
+            if(result == null) {
+                return true;
+            }
+            
             if (existingAction == null) {
                 action = new TestResultAction(build, result, listener);
             } else {
@@ -207,9 +231,14 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
                 String[] files = ds.getIncludedFiles();
+                
                 if (files.length == 0) {
-                    // no test result. Most likely a configuration error or fatal problem
-                    throw new AbortException("No test report files were found. Configuration error?");
+                    if(failOnError) {
+                        // no test result. Most likely a configuration error or fatal problem
+                        throw new AbortException("No test report files were found. Configuration error?");
+                    } else {
+                        return null;
+                    }
                 }
                 if (existingTestResults == null) {
                     return new TestResult(buildTime, ds, false);
@@ -251,7 +280,11 @@ public class MSTestPublisher extends Recorder implements Serializable {
 
         @Override
         public Publisher newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            return new MSTestPublisher(req.getParameter("mstest_reports.pattern"));
+            boolean failOnError = true;
+            if(req.getParameter("failOnError") == null || !req.getParameter("failOnError").equals("on")) {
+                failOnError = false;
+            }
+            return new MSTestPublisher(req.getParameter("mstest_reports.pattern"), failOnError);
         }
     }
 }
