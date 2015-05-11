@@ -48,17 +48,19 @@ public class MSTestPublisher extends Recorder implements Serializable {
     private String resolvedFilePath;
     private long buildTime;
     private boolean failOnError;
+    private boolean keepLongStdio;
     //private EmmaPublisher emmaPublisher;
 
     
     public MSTestPublisher(String testResultsFile){
-        this(testResultsFile, true);
+        this(testResultsFile, true, false);
     }
     
     @DataBoundConstructor
-    public MSTestPublisher(String testResultsFile, boolean failOnError) {
+    public MSTestPublisher(String testResultsFile, boolean failOnError, boolean keepLongStdio) {
         this.testResultsFile = testResultsFile;
         this.failOnError = failOnError;
+        this.keepLongStdio = keepLongStdio;
     }
 
     public String getTestResultsTrxFile() {
@@ -241,7 +243,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
                     }
                 }
                 if (existingTestResults == null) {
-                    return new TestResult(buildTime, ds, false);
+                    return new TestResult(buildTime, ds, keepLongStdio);
                 } else {
                     existingTestResults.parse(buildTime, ds);
                     return existingTestResults;
@@ -284,7 +286,11 @@ public class MSTestPublisher extends Recorder implements Serializable {
             if(req.getParameter("failOnError") == null || !req.getParameter("failOnError").equals("on")) {
                 failOnError = false;
             }
-            return new MSTestPublisher(req.getParameter("mstest_reports.pattern"), failOnError);
+            boolean keepLongStdio = false;
+            if(req.getParameter("failOnError") == null || req.getParameter("failOnError").equals("on")) {
+                failOnError = true;
+            }
+            return new MSTestPublisher(req.getParameter("mstest_reports.pattern"), failOnError, keepLongStdio);
         }
     }
 }
