@@ -287,8 +287,8 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 failOnError = false;
             }
             boolean keepLongStdio = false;
-            if(req.getParameter("failOnError") == null || req.getParameter("failOnError").equals("on")) {
-                failOnError = true;
+            if(req.getParameter("keepLongStdio") == null || req.getParameter("keepLongStdio").equals("on")) {
+                keepLongStdio = true;
             }
             return new MSTestPublisher(req.getParameter("mstest_reports.pattern"), failOnError, keepLongStdio);
         }

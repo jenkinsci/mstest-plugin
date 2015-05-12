@@ -3,10 +3,10 @@
 		This jelly script is used for per-project configuration.
 	-->
 	<f:entry title="${%Test report TRX file}" description="${%description.pattern}">
-            <f:textbox name="mstest_reports.pattern" value="${instance.testResultsTrxFile}" />
+            <f:textbox name="mstest_reports.pattern" value="${instance.testResultsTrxFile}" default="**/*.trx"/>
 	</f:entry>
 	<f:entry title="${%Fail build if no files are found}" field="failOnError" >
-		<f:checkbox name="failOnError" />
+		<f:checkbox name="failOnError" default="true"/>
 	</f:entry>
 	<f:entry field="keepLongStdio" title="${%Retain long standard output/error}">
 		<f:checkbox name="keepLongStdio" />
