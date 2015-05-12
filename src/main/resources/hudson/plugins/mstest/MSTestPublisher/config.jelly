@@ -8,7 +8,7 @@
 	<f:entry title="${%Fail build if no files are found}" field="failOnError" >
 		<f:checkbox name="failOnError" />
 	</f:entry>
-	<f:entry field="keepLongStdio" title="">
-		<f:checkbox name="keepLongStdio" title="${%Retain long standard output/error}"/>
+	<f:entry field="keepLongStdio" title="${%Retain long standard output/error}">
+		<f:checkbox name="keepLongStdio" />
 	</f:entry>
 </j:jelly>
