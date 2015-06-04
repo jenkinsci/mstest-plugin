@@ -42,7 +42,7 @@ public class MSTestReportConverter implements Serializable {
     public static final String MSTEST_TO_JUNIT_XSLFILE_STR = "mstest-to-junit.xsl";
     private static final String MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR = "MSTestCoverageToEmma.xsl";
     private static final String EMMA_FILE_STR = "emma" + File.separator + "coverage.xml";
-    private static final String MSTESTCOVERAGE_FILE_STR = "mstest-coverage.xml";
+    private static final String MSTESTCOVERAGE_FILE_STR = "vstest.coveragexml";
     private static final String MSTESTCOVERAGE_FILE_EXT = ".coveragexml";
 
     private transient int fileCount;
