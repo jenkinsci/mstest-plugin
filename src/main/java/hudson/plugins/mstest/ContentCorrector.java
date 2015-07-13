@@ -1,7 +1,8 @@
 package hudson.plugins.mstest;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+//import java.nio.charset.Charset;
+//import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,8 +25,8 @@ public class ContentCorrector
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), StandardCharsets.UTF_8));
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), StandardCharsets.UTF_8));
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), com.google.common.base.Charsets.UTF_8));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), com.google.common.base.Charsets.UTF_8));
         String line = in.readLine();
         boolean replace = false;
         while (line != null) {
@@ -63,7 +64,7 @@ public class ContentCorrector
 
     private String stripIllegalEntities(String line)
     {
-        final String pattern = "(?<entity>&#x(?<char>[0-9A-Ca-c]{1,4});)";
+        final String pattern = "(?<entity>&#x(?<char>[0-9A-Fa-f]{1,4});)";
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(line);
 

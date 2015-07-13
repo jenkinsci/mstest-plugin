@@ -69,6 +69,29 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
     }
 
     @Test
+    public void testInvalidXmlCharacters_VishalMane() throws Exception {
+        final PrintStream logger = new PrintStream(new ByteArrayOutputStream());
+        classContext.checking(new Expectations() {
+            {
+                ignoring(buildListener).getLogger();
+                will(returnValue(logger));
+                ignoring(buildListener);
+            }
+        });
+        final String testPath = "vishalMane.trx";
+        File testFile = new File(parentFile, testPath);
+        if (testFile.exists())
+            testFile.delete();
+        InputStream testStream = this.getClass().getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
+        Files.copy(testStream, testFile.toPath());
+        MSTestReportConverter converter = new MSTestReportConverter();
+        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        transformer.invoke(parentFile, virtualChannel);
+        FilePath[] list = workspace.list("*.trx");
+        assertEquals(1, list.length);
+    }
+
+    @Test
     public void testCharset() throws Exception {
         final PrintStream logger = new PrintStream(new ByteArrayOutputStream());
         classContext.checking(new Expectations() {
