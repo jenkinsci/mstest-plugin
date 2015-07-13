@@ -73,9 +73,14 @@ public class MSTestReportConverter implements Serializable {
         }
 
         for (File c: getCoverageFiles(f))
-            if (c.exists() && containsData(c)) {
-                convertToEmma(listener, f, c);
-                break;
+            if (c.exists())
+            {
+                if (containsData(c)) {
+                    convertToEmma(listener, f, c);
+                    break;
+                } else {
+                    listener.getLogger().printf("[MSTEST] XML coverage report file format not supported (read the wiki): %s\n", c.getAbsolutePath());
+                }
             } else {
                 listener.getLogger().printf("[MSTEST] XML coverage report file not found: %s\n", c.getAbsolutePath());
             }
@@ -99,7 +104,7 @@ public class MSTestReportConverter implements Serializable {
         FileInputStream fileStream = null;
         File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
         emmaTargetFile.getParentFile().mkdirs();
-        listener.getLogger().printf("mstest xml coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
+        //listener.getLogger().printf("[MSTEST] XML coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
         try {
             fileStream = new FileInputStream(c);
             XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
