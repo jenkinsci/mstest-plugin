@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuites xmlns:b="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" xmlns:a="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+    <testsuite name="MSTestSuite" tests="317" time="0" failures="116" errors="0" skipped="6">
+        <testcase classname="DATAFEED.Tests.Arbo" name="DimensionTimeEventIncompatibleWithTimeVisit" time="3.396041"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="IncompatibleDimensionAndMetric" time="5.8350647"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="IncorrectDimensionNameInSub" time="3.3843026"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="IncorrectDimensionOrMetricNameInColumns" time="2.8648721"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="IncorrectSyntaxInSub" time="0.554269"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="LevelIsStandalone" time="0.6828328"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="MaxResultsLimitedTo30Elements" time="0.6263992"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="MultiPeriodIncompatibleWithEvolution" time="0.1565793"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="NoInterlinkedSub" time="0.7442964"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="NumberOfSubElementsLimitedTo10080" time="25.1327062"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="OnlyOneAttributeOutsideSub" time="0.9938442"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="OnlyOneSubInColumns" time="0.7493228"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="OnlyTimeAttributesInSub" time="0.7835447"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="P1DeclaredButNoMetricPrefixedWithP1" time="0.7927949"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="SortOnDimensionNotSelectedInSub" time="0.95936"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="TestComplexArbo" time="9.3495458"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="TestOrderAscTimeMonth" time="2.4943516"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="TestOrderDescTimeMonth" time="6.8773926"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="TestSimpleArbo" time="6.7593005"/>
+        <testcase classname="DATAFEED.Tests.Arbo" name="WrongSyntaxInSub" time="1.5751141"/>
+        <testcase classname="DATAFEED.Tests.ColumnHidden" name="ErrorColumnHidden" time="0.3371104"/>
+        <testcase classname="DATAFEED.Tests.ColumnHidden" name="EvoColumnHidden" time="9.5669552">
+            <failure message="Test method DATAFEED.Tests.ColumnHidden.EvoColumnHidden threw exception: &#10;System.Exception: AT-REQUEST:3f97b3f7-6114-427a-b281-dbb9534022f3&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.ColumnHidden.EvoColumnHidden() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\ColumnHidden.cs:line 52
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.ColumnHidden" name="MultiPeriodColumnHidden" time="7.9410089"/>
+        <testcase classname="DATAFEED.Tests.ColumnHidden" name="SimpleColumnHidden" time="4.6692829"/>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="InvalidAccessHeaderAccessOKUrlApiUser" time="4.0991338">
+            <failure message="Test method DATAFEED.Tests.CompteApi.InvalidAccessHeaderAccessOKUrlApiUser threw exception: &#10;System.Net.WebException: AT-REQUEST:d4df104b-c7f7-41c9-917d-30796dc8b021&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.CompteApi.InvalidAccessHeaderAccessOKUrlApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 61
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="InvalidAccessUrlApiUser" time="4.0805737">
+            <failure message="Test method DATAFEED.Tests.CompteApi.InvalidAccessUrlApiUser threw exception: &#10;System.Exception: AT-REQUEST:4488d649-813d-4075-99b7-fd1b5f9c0935">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.CompteApi.InvalidAccessUrlApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 50
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="InvalidAPIUser" time="2.1254484">
+            <failure message="Assert.IsTrue failed. ">   at DATAFEED.Tests.CompteApi.InvalidAPIUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 43
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="OverrideAbsolutePathApiUser" time="2.0557917">
+            <failure message="Assert.IsTrue failed. ">   at DATAFEED.Tests.CompteApi.OverrideAbsolutePathApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 96
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="OverrideBadParameterUrlApiUser" time="10.1326689">
+            <failure message="Assert.IsTrue failed. ">   at DATAFEED.Tests.CompteApi.OverrideBadParameterUrlApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 85
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="OverrideUrlApiUser" time="10.1940823">
+            <failure message="Test method DATAFEED.Tests.CompteApi.OverrideUrlApiUser threw exception: &#10;System.Net.WebException: AT-REQUEST:fde0d442-2cfb-4562-8b0a-0c9c0bc4d829&#10;{&quot;ErrorCode&quot;:1,&quot;ErrorMessage&quot;:&quot;Unexpected Error&quot;}&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.CompteApi.OverrideUrlApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 72
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CompteApi" name="TestApiUser" time="2.0790949">
+            <failure message="Test method DATAFEED.Tests.CompteApi.TestApiUser threw exception: &#10;System.Net.WebException: AT-REQUEST:542c8cc5-ef2e-49fb-b761-e1ed7e576675&#10;{&quot;ErrorCode&quot;:1,&quot;ErrorMessage&quot;:&quot;Unexpected Error&quot;}&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.CompteApi.TestApiUser() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CompteApi.cs:line 27
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.ConfigPerf" name="FrontV2GetSegmentPerf" time="25.7652168">
+            <failure message="Test method DATAFEED.Tests.ConfigPerf.FrontV2GetSegmentPerf threw exception: &#10;System.Net.WebException: The operation has timed out">    at DATAFEED.Tests.HttpRequestHelper.Send(String url, Int32 p_iMaxRetry, String method, String body) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 106
+                at DATAFEED.Tests.ConfigPerf.FrontV2GetSegmentPerf() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\ConfigPerf.cs:line 59
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.ConfigPerf" name="PlatformGetMultiSitePerf" time="15.9612479">
+            <failure message="Test method DATAFEED.Tests.ConfigPerf.PlatformGetMultiSitePerf threw exception: &#10;System.Net.WebException: The operation has timed out">    at DATAFEED.Tests.HttpRequestHelper.Send(String url, Int32 p_iMaxRetry, String method, String body) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 106
+                at DATAFEED.Tests.ConfigPerf.PlatformGetMultiSitePerf() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\ConfigPerf.cs:line 20
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="ContextTagInFirstPosition" time="4.0720605">
+            <failure message="Assert.AreEqual failed. Expected:&lt;-1&gt;. Actual:&lt;157&gt;. ">   at DATAFEED.Tests.Context.ContextTagInFirstPosition() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 26
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="IncludeDescriptionStandard" time="12.2226019">
+            <failure message="Test method DATAFEED.Tests.Context.IncludeDescriptionStandard threw exception: &#10;System.Net.WebException: AT-REQUEST:550b4d2c-50da-487d-9719-2b8ea34ef835&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Context.IncludeDescriptionStandard() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 98
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="IncludeDescriptionStandardMultiPeriod" time="12.1740581">
+            <failure message="Test method DATAFEED.Tests.Context.IncludeDescriptionStandardMultiPeriod threw exception: &#10;System.Net.WebException: AT-REQUEST:88287ce7-16ef-4804-8931-519a9a0d4a1f&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Context.IncludeDescriptionStandardMultiPeriod() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 134
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="IncludeParent" time="4.1075777">
+            <failure message="Test method DATAFEED.Tests.Context.IncludeParent threw exception: &#10;System.Net.WebException: AT-REQUEST:933dc8ee-dfb0-49fb-a8b9-38a9fc31e4d2&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Context.IncludeParent() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 79
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="IncorrectIncludeContextSyntax" time="4.1136343">
+            <failure message="Test method DATAFEED.Tests.Context.IncorrectIncludeContextSyntax threw exception: &#10;System.Exception: AT-REQUEST:402c704f-d110-4240-a863-a453822f8107">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Context.IncorrectIncludeContextSyntax() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 67
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="MultiPeriodInContext" time="4.065049">
+            <failure message="Test method DATAFEED.Tests.Context.MultiPeriodInContext threw exception: &#10;System.Exception: AT-REQUEST:fc1259e7-cb49-47b6-a90c-d8de4a0308fe&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Context.MultiPeriodInContext() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 51
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Context" name="NonConsecutivePeriodInContext" time="4.0660212">
+            <failure message="Test method DATAFEED.Tests.Context.NonConsecutivePeriodInContext threw exception: &#10;System.Exception: AT-REQUEST:0f61681e-9c8d-4b9c-9209-bf49ce80485b&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Context.NonConsecutivePeriodInContext() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Context.cs:line 36
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeBoolean" time="4.1216993">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeBoolean threw exception: &#10;System.Exception: AT-REQUEST:d33f3dac-3d60-42aa-9403-934066874516&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeBoolean() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 164
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeDate" time="4.1149908">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeDate threw exception: &#10;System.Exception: AT-REQUEST:7ac15a5a-75ad-4058-b479-c918debb4c13&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeDate() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 21
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeDecimal" time="4.0960919">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeDecimal threw exception: &#10;System.Exception: AT-REQUEST:aa5eb81c-6ec7-418f-b96e-e5b430f908c5&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeDecimal() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 86
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeEvo" time="4.1183641">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeEvo threw exception: &#10;System.Exception: AT-REQUEST:6f2fc8e6-ede3-4777-abdc-15f8f8e685bd&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeEvo() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 180
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeInt" time="4.0533241">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeInt threw exception: &#10;System.Exception: AT-REQUEST:079586c9-515c-44ff-bb25-863fd79de65e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeInt() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 42
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="CustomerTypeString" time="4.1183543">
+            <failure message="Test method DATAFEED.Tests.CustomerType.CustomerTypeString threw exception: &#10;System.Exception: AT-REQUEST:93f56cf4-6934-4e62-8289-1a28e0f266b1&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.CustomerTypeString() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 138
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomerType" name="LevelTimestamp" time="4.0864165">
+            <failure message="Test method DATAFEED.Tests.CustomerType.LevelTimestamp threw exception: &#10;System.Exception: AT-REQUEST:8e4902d0-2c2e-44b8-9f8d-0d0fb8905bdf&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.CustomerType.LevelTimestamp() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomerType.cs:line 195
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomMetric" name="MetricContainsSegmentFalse" time="4.1021397">
+            <failure message="Test method DATAFEED.Tests.CustomMetric.MetricContainsSegmentFalse threw exception: &#10;System.Net.WebException: AT-REQUEST:216335e4-f43a-4f3d-b4a9-1e09e89d8131&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.CustomMetric.MetricContainsSegmentFalse() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomMetric.cs:line 34
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.CustomMetric" name="MetricContainsSegmentTrue" time="4.0754171">
+            <failure message="Test method DATAFEED.Tests.CustomMetric.MetricContainsSegmentTrue threw exception: &#10;System.Exception: AT-REQUEST:9e5fa21d-1898-41d0-b62f-793a775c0162">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.CustomMetric.MetricContainsSegmentTrue() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\CustomMetric.cs:line 20
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="ColumnMax50IgnoreLevelId" time="4.1650597">
+            <failure message="Test method DATAFEED.Tests.Evolution.ColumnMax50IgnoreLevelId threw exception: &#10;System.Net.WebException: AT-REQUEST:d336cbc9-0127-4795-8bd5-39dde1e2cdce&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Evolution.ColumnMax50IgnoreLevelId() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 1022
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoB100Mode" time="4.1081634">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoB100Mode threw exception: &#10;System.Exception: AT-REQUEST:9b9c9bb8-4c54-438b-a6f9-ff9b63747a5f&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.EvoB100Mode() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 888
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoBadMode" time="4.0949977">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoBadMode threw exception: &#10;System.Exception: AT-REQUEST:4428b278-1dcd-4753-93ed-cf56afb03131">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.EvoBadMode() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 784
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoModeKeyWithoutPeriodKey" time="4.1124026">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoModeKeyWithoutPeriodKey threw exception: &#10;System.Exception: AT-REQUEST:3e5a077c-e311-462a-ac7c-4c4f1e9b5e92">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.EvoModeKeyWithoutPeriodKey() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 796
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoMultiDimWithFilterHidden" time="4.0612522">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoMultiDimWithFilterHidden threw exception: &#10;System.Exception: AT-REQUEST:0f439a8e-5ec8-4991-b9af-ba97efb29f67&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.EvoMultiDimWithFilterHidden() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 966
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoPercentMode" time="4.0903763">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoPercentMode threw exception: &#10;System.Exception: AT-REQUEST:b5531599-1a30-4101-8432-72e60b04779a&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.EvoPercentMode() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 808
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoPercentModeMultiDim" time="4.1146096">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoPercentModeMultiDim threw exception: &#10;System.Exception: AT-REQUEST:4336ecab-8b61-4548-909c-b3ff92898854&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.EvoPercentModeMultiDim() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 847
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="EvoRatioMode" time="4.0962516">
+            <failure message="Test method DATAFEED.Tests.Evolution.EvoRatioMode threw exception: &#10;System.Exception: AT-REQUEST:284ed814-22e7-44c3-b9d3-a88a971c3fc8&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.EvoRatioMode() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 927
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="LevelIsStandalone" time="4.1044434">
+            <failure message="Test method DATAFEED.Tests.Evolution.LevelIsStandalone threw exception: &#10;System.Exception: AT-REQUEST:fabbcf1b-b06c-4d0b-80d2-b71fde5b6db9&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.LevelIsStandalone() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 998
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestAutoAttribut" time="4.1300693">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestAutoAttribut threw exception: &#10;System.Exception: AT-REQUEST:f2be91de-c1b2-4c15-94f8-9bd50baaadb2&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestAutoAttribut() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 766
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestBoucheTrou" time="2.0668008">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestBoucheTrou threw exception: &#10;System.Exception: AT-REQUEST:c478cae0-b98b-4c6f-bba4-2b05d4073c30&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestBoucheTrou() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 406
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestColumnsMetadata" time="4.1015346">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestColumnsMetadata threw exception: &#10;System.Exception: AT-REQUEST:a237f623-7e29-426c-8832-2c3715bc4b3e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestColumnsMetadata() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 679
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoCase1" time="4.146431">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoCase1 threw exception: &#10;System.Exception: AT-REQUEST:63997f7d-5d16-4dad-981a-842df6216435">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoCase1() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 346
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoCase2_3" time="2.0973871">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoCase2_3 threw exception: &#10;System.Exception: AT-REQUEST:6bfc1cee-30db-4336-a188-98b925980fcb&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoCase2_3() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 361
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoCase4" time="2.1072701">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoCase4 threw exception: &#10;System.Exception: AT-REQUEST:a5eb9aa3-0423-4165-aaeb-adf8f253a5c3">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoCase4() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 376
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoCase5" time="4.1448485">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoCase5 threw exception: &#10;System.Exception: AT-REQUEST:b38e42fe-c367-4b01-8486-5c322d4b9c6e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoCase5() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 391
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoGranularityGreaterThanPeriodGranularity" time="4.130454">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoGranularityGreaterThanPeriodGranularity threw exception: &#10;System.Exception: AT-REQUEST:7659bbfc-a97f-43b1-a03f-501b14a23ad6&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoGranularityGreaterThanPeriodGranularity() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 316
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoHourEvent" time="2.0893953">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoHourEvent threw exception: &#10;System.Exception: AT-REQUEST:52b59334-cd53-435b-95ae-f0c6f68bd2c1&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoHourEvent() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 701
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoInMultiPeriod" time="2.0630005">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoInMultiPeriod threw exception: &#10;System.Exception: AT-REQUEST:35c47656-41fa-4c95-932d-4f84d105cc06&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoInMultiPeriod() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 577
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoInMultiPeriodMultiDim" time="4.0729664">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoInMultiPeriodMultiDim threw exception: &#10;System.Exception: AT-REQUEST:a7fc668e-3284-492d-8931-8646323b0fb1&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoInMultiPeriodMultiDim() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 609
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoMetricsEvoNotAllInColumns" time="4.1296733">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoMetricsEvoNotAllInColumns threw exception: &#10;System.Exception: AT-REQUEST:7c710057-e226-47d1-a97d-d839ab0bc62e">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoMetricsEvoNotAllInColumns() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 286
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoMultiPeriodSimple" time="2.0998091">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoMultiPeriodSimple threw exception: &#10;System.Exception: AT-REQUEST:57583c98-80ac-4ec5-baef-4d7c8ca020d9&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoMultiPeriodSimple() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 160
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoMultiPeriodSimpleMultiDim" time="2.1044075">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoMultiPeriodSimpleMultiDim threw exception: &#10;System.Exception: AT-REQUEST:da7028b5-7c19-4760-884f-7bd504b23492&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoMultiPeriodSimpleMultiDim() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 181
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoNotStandalone" time="4.120059">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoNotStandalone threw exception: &#10;System.Exception: AT-REQUEST:3bf3c2c1-55e0-49d4-bf74-95a956af1536&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoNotStandalone() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 229
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoP1NotObligatory" time="4.1121728">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoP1NotObligatory threw exception: &#10;System.Exception: AT-REQUEST:3d0d3167-bf55-40c6-b5fe-bd3598937a11&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoP1NotObligatory() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 265
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoPeriodNotContinue" time="2.0843384">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoPeriodNotContinue threw exception: &#10;System.Exception: AT-REQUEST:feb092ab-5fcf-43ef-9bc1-da7c0cbc81a8">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoPeriodNotContinue() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 301
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoPeriodNotDefined" time="2.085993">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoPeriodNotDefined threw exception: &#10;System.Exception: AT-REQUEST:fac06503-f61b-4c9d-abe6-d3f0554fd61c">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoPeriodNotDefined() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 145
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoSimpleNotStandalone" time="4.0758095">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoSimpleNotStandalone threw exception: &#10;System.Exception: AT-REQUEST:af370c04-4ec7-4fc1-ae4b-a7d76741b937&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestEvoSimpleNotStandalone() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 205
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestEvoSubForbidden" time="4.0609325">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestEvoSubForbidden threw exception: &#10;System.Exception: AT-REQUEST:aec3a2cf-0e61-4b3f-ba80-8772a295c1fb">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestEvoSubForbidden() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 331
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestFirstParamGranularity" time="4.1211585">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestFirstParamGranularity threw exception: &#10;System.Exception: AT-REQUEST:764f27d5-9066-4685-9645-3543c523cbf4">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestFirstParamGranularity() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 100
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestHourForPeriodLessThan1Year" time="2.0820794">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestHourForPeriodLessThan1Year threw exception: &#10;System.Exception: AT-REQUEST:a08f8c87-5b45-463d-82e9-1a1db33c80e5">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestHourForPeriodLessThan1Year() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 115
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestMaxResultLimit" time="4.068765">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestMaxResultLimit threw exception: &#10;System.Exception: AT-REQUEST:b0239957-db4a-41c5-bdb0-bcbbd60185a5">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestMaxResultLimit() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 422
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestMinuteEvent" time="2.0801278">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestMinuteEvent threw exception: &#10;System.Net.WebException: AT-REQUEST:77c55db1-8b5a-4600-ab79-9bb0bda9b415&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Evolution.TestMinuteEvent() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 723
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestMinuteForPeriodLessThan1Week" time="2.0751359">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestMinuteForPeriodLessThan1Week threw exception: &#10;System.Exception: AT-REQUEST:2e0ea7eb-4575-4a14-904d-6cfd0509f8ba">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestMinuteForPeriodLessThan1Week() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 130
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_D_Evo_MN" time="2.0691129">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_D_Evo_MN threw exception: &#10;System.Exception: AT-REQUEST:0caa5808-4c80-4f40-9fce-c3b9bf57643f&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriod_D_Evo_MN() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 554
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_M_Evo_D" time="4.072087">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_M_Evo_D threw exception: &#10;System.Exception: AT-REQUEST:5a5ab089-be72-4824-b4d2-f71662f57ea5&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriod_M_Evo_D() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 496
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_M_Evo_M" time="4.1263381">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_M_Evo_M threw exception: &#10;System.Exception: AT-REQUEST:7f43125d-8c68-4c0c-90c9-e8cf38e1bba6&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriod_M_Evo_M() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 452
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_M_Evo_MN" time="2.1048677">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_M_Evo_MN threw exception: &#10;System.Exception: AT-REQUEST:fc23418d-8fb9-4172-a656-87a5220c9061">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestPeriod_M_Evo_MN() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 539
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_M_Evo_W" time="2.1015031">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_M_Evo_W threw exception: &#10;System.Exception: AT-REQUEST:9d52e6d4-a9a5-41ac-9ee7-00011e183640&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriod_M_Evo_W() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 474
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_M_Evo_Y" time="4.0640575">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_M_Evo_Y threw exception: &#10;System.Exception: AT-REQUEST:2370e80d-0591-447e-bb16-8e93706a7a9f">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Evolution.TestPeriod_M_Evo_Y() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 437
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriod_W_Evo_H" time="4.0723287">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriod_W_Evo_H threw exception: &#10;System.Exception: AT-REQUEST:0ec73a99-4e55-4703-8d86-094c70fe2cc9&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriod_W_Evo_H() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 517
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestPeriodComplex" time="2.0928578">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestPeriodComplex threw exception: &#10;System.Exception: AT-REQUEST:9f8ba449-24c4-40ba-bd4b-298232d1a322&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestPeriodComplex() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 664
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestSimpleEvolution" time="2.0906214">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestSimpleEvolution threw exception: &#10;System.Exception: AT-REQUEST:40d41a6c-77b1-4171-b86e-4d270babfcfc&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestSimpleEvolution() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 24
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Evolution" name="TestSimpleEvolutionMultiDim" time="4.1138207">
+            <failure message="Test method DATAFEED.Tests.Evolution.TestSimpleEvolutionMultiDim threw exception: &#10;System.Exception: AT-REQUEST:8d4dc3a4-83f8-4fb7-9098-f45967a0e1d0&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Evolution.TestSimpleEvolutionMultiDim() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Evolution.cs:line 59
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractArbo" time="4.1208746">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractArbo threw exception: &#10;System.Exception: AT-REQUEST:2504e8ed-e52a-4386-99e4-531ce3e91997&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Extract.ExtractArbo() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 131
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractError" time="2.0909315">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractError threw exception: &#10;System.Exception: AT-REQUEST:aed9cca0-566f-4261-9972-a544036eae19">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Extract.ExtractError() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 16
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractEvo" time="4.0800506">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractEvo threw exception: &#10;System.Exception: AT-REQUEST:bce086fb-3c91-476e-8da0-f32aadae2b84&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Extract.ExtractEvo() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 52
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractMultiPeriod" time="4.1034884">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractMultiPeriod threw exception: &#10;System.Exception: AT-REQUEST:c334f1e6-51e6-48f3-9a2e-9c8313d26e52&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Extract.ExtractMultiPeriod() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 71
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractMultiSpace" time="2.0910103">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractMultiSpace threw exception: &#10;System.Exception: AT-REQUEST:feaa3190-97c1-4f1b-9b05-3be55e5d4d7b&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Extract.ExtractMultiSpace() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 101
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractSimple" time="2.0898145">
+            <failure message="Test method DATAFEED.Tests.Extract.ExtractSimple threw exception: &#10;System.Exception: AT-REQUEST:6a63615d-8fe0-4212-9819-c5c7c6e3354d&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Extract.ExtractSimple() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 28
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Extract" name="ExtractTotaux" time="2.0981755">
+            <failure message="Assert.AreEqual failed. Expected:&lt;106&gt;. Actual:&lt;1001&gt;. ">   at DATAFEED.Tests.Extract.ExtractTotaux() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Extract.cs:line 155
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="CheckFilterDate" time="4.0597447">
+            <failure message="Test method DATAFEED.Tests.Filter.CheckFilterDate threw exception: &#10;System.Exception: AT-REQUEST:3b3acc30-5dbd-46d8-8eee-27c93d66b21f">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.CheckFilterDate() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 498
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="CheckFilterLevelTypeInt" time="4.1018528">
+            <failure message="Test method DATAFEED.Tests.Filter.CheckFilterLevelTypeInt threw exception: &#10;System.Exception: AT-REQUEST:caf444e9-c854-405f-8150-083aa8d8c272&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.CheckFilterLevelTypeInt() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 435
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="EmptyOperator" time="2.0913454">
+            <failure message="Test method DATAFEED.Tests.Filter.EmptyOperator threw exception: &#10;System.Exception: AT-REQUEST:fbde4d94-b0d9-4a99-acf3-edfa03496081&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.EmptyOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 21
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="EqualOperator" time="8.1983506">
+            <failure message="Test method DATAFEED.Tests.Filter.EqualOperator threw exception: &#10;System.Exception: AT-REQUEST:c44a6e08-3ed2-4082-bfd7-3a044e9a7a84&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.EqualOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 50
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="ErrorGteOperator" time="4.1065354">
+            <failure message="Test method DATAFEED.Tests.Filter.ErrorGteOperator threw exception: &#10;System.Exception: AT-REQUEST:6402e16e-73e2-4ed0-80de-c0f47bdc91e5">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.ErrorGteOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 269
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="ErrorGtOperator" time="2.0947312">
+            <failure message="Test method DATAFEED.Tests.Filter.ErrorGtOperator threw exception: &#10;System.Exception: AT-REQUEST:516cf54d-5b3a-492e-bb42-4655d54a49a1">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.ErrorGtOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 221
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="ErrorLteOperator" time="2.0566392">
+            <failure message="Test method DATAFEED.Tests.Filter.ErrorLteOperator threw exception: &#10;System.Exception: AT-REQUEST:884ba19c-d68b-4bc8-98a5-88828093c5e0">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.ErrorLteOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 253
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="ErrorLtOperator" time="4.0968807">
+            <failure message="Test method DATAFEED.Tests.Filter.ErrorLtOperator threw exception: &#10;System.Exception: AT-REQUEST:f546c7c5-3334-48df-9c61-32b5d2ec182a">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.ErrorLtOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 237
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterCyrilic" time="4.0659366">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterCyrilic threw exception: &#10;System.Net.WebException: AT-REQUEST:a2163237-a286-4e8d-9ff3-fc4ad39deef6&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Filter.FilterCyrilic() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 482
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterDoubleQuote" time="2.0604449">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterDoubleQuote threw exception: &#10;System.Exception: AT-REQUEST:1a339cc5-81dc-40c0-80ad-d5e24107f785&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.FilterDoubleQuote() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 598
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterEmpty" time="4.1311479">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterEmpty threw exception: &#10;System.Net.WebException: AT-REQUEST:68162bc8-6751-4705-af02-19950ee45463&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Filter.FilterEmpty() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 556
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterMetricRegex" time="4.0983812">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterMetricRegex threw exception: &#10;System.Net.WebException: AT-REQUEST:49f2f4a2-75f2-4b9e-be59-af51aeb19bab&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Filter.FilterMetricRegex() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 466
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterSingleQuote" time="2.0673826">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterSingleQuote threw exception: &#10;System.Exception: AT-REQUEST:5dc3deb8-2266-45d5-a958-d35df839962c&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.FilterSingleQuote() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 583
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="FilterWithQuote" time="2.0980534">
+            <failure message="Test method DATAFEED.Tests.Filter.FilterWithQuote threw exception: &#10;System.Exception: AT-REQUEST:133f6c52-ac42-477e-8de0-0c20febd777d&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.FilterWithQuote() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 568
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="GtOperator" time="4.0781919">
+            <failure message="Test method DATAFEED.Tests.Filter.GtOperator threw exception: &#10;System.Exception: AT-REQUEST:065bf909-eaca-44af-b562-f3f4500dad0e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.GtOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 66
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="IdOperator" time="4.0756609">
+            <failure message="Test method DATAFEED.Tests.Filter.IdOperator threw exception: &#10;System.Exception: AT-REQUEST:21e09898-95c0-4c38-93b0-5997920d3367&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.IdOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 188
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="InLkOperator" time="2.0996571">
+            <failure message="Test method DATAFEED.Tests.Filter.InLkOperator threw exception: &#10;System.Exception: AT-REQUEST:d847098f-775b-4bab-aa95-82756250963a&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.InLkOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 313
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="InLkwOperator" time="2.0886183">
+            <failure message="Test method DATAFEED.Tests.Filter.InLkwOperator threw exception: &#10;System.Exception: AT-REQUEST:2730923f-14a1-4cdc-9d19-a5da55f0683d&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.InLkwOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 377
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="InOperator" time="4.1789159">
+            <failure message="Test method DATAFEED.Tests.Filter.InOperator threw exception: &#10;System.Exception: AT-REQUEST:f06fd000-99c4-4d20-a57b-06669700e00a&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.InOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 282
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="LkAndNeqOperator" time="10.2612588">
+            <failure message="Test method DATAFEED.Tests.Filter.LkAndNeqOperator threw exception: &#10;System.Exception: AT-REQUEST:d181b5f2-5090-4be5-a50c-8245bdf7aecb&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.LkAndNeqOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 137
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="LkwOperator" time="2.0647315">
+            <failure message="Test method DATAFEED.Tests.Filter.LkwOperator threw exception: &#10;System.Exception: AT-REQUEST:9208081d-b9eb-435f-ae0a-9e208c05e8a0&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.LkwOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 344
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="LtAndGteOperator" time="2.0945855">
+            <failure message="Test method DATAFEED.Tests.Filter.LtAndGteOperator threw exception: &#10;System.Exception: AT-REQUEST:d391d3a9-1331-4499-97e8-28e12ec7679e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.LtAndGteOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 82
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="LteOperator" time="4.1121999">
+            <failure message="Test method DATAFEED.Tests.Filter.LteOperator threw exception: &#10;System.Exception: AT-REQUEST:e67d4e39-5dcb-413d-a897-c328197b099e&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.LteOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 103
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="MultiPeriodFilterBlacklist" time="4.0871326">
+            <failure message="Test method DATAFEED.Tests.Filter.MultiPeriodFilterBlacklist threw exception: &#10;System.Net.WebException: AT-REQUEST:029d35aa-78f5-47c8-989a-5e3bf3bbadd5&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10;">    at DATAFEED.Tests.HttpRequestHelper.EnsureStatusIsSuccessful() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 78
+                at DATAFEED.Tests.Filter.MultiPeriodFilterBlacklist() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 528
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NidOperator" time="2.0834341">
+            <failure message="Test method DATAFEED.Tests.Filter.NidOperator threw exception: &#10;System.Exception: AT-REQUEST:5ec6c6d7-4e0a-492f-911e-15a7f4e40476&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NidOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 204
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NlkAndNeqOperator" time="8.2623712">
+            <failure message="Test method DATAFEED.Tests.Filter.NlkAndNeqOperator threw exception: &#10;System.Exception: AT-REQUEST:8f29cc4e-b2c1-4a28-89ad-c33b7ee8fa47&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NlkAndNeqOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 153
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotEmptyOperator" time="2.0607618">
+            <failure message="Test method DATAFEED.Tests.Filter.NotEmptyOperator threw exception: &#10;System.Exception: AT-REQUEST:e3c07eb3-a341-4ef7-9e20-4cdc372c1bbb&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotEmptyOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 33
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotEndOperator" time="8.154083">
+            <failure message="Test method DATAFEED.Tests.Filter.NotEndOperator threw exception: &#10;System.Exception: AT-REQUEST:73c97490-7466-4c09-bafe-12f685272954&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotEndOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 420
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotEqualOperator" time="4.1014524">
+            <failure message="Test method DATAFEED.Tests.Filter.NotEqualOperator threw exception: &#10;System.Exception: AT-REQUEST:c3f852fd-b1f1-435a-9abd-1f43b11c0522&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotEqualOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 121
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotInLkOperator" time="8.1945362">
+            <failure message="Test method DATAFEED.Tests.Filter.NotInLkOperator threw exception: &#10;System.Exception: AT-REQUEST:6cd0c3cc-6c93-40d1-9880-e65559bc3dff&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotInLkOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 330
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotInlkwOperator" time="2.0596907">
+            <failure message="Test method DATAFEED.Tests.Filter.NotInlkwOperator threw exception: &#10;System.Exception: AT-REQUEST:e7f0df53-679a-434f-8a04-051b87a88511">    at DATAFEED.Tests.HttpRequestHelper.IsErrorCode(String p_sErrorCode) in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 307
+                at DATAFEED.Tests.Filter.NotInlkwOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 393
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotInOperator" time="4.1070994">
+            <failure message="Test method DATAFEED.Tests.Filter.NotInOperator threw exception: &#10;System.Exception: AT-REQUEST:d973a314-0b2c-4b82-ada1-ddda4f3e52ef&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotInOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 299
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotlkwOperator" time="4.0759933">
+            <failure message="Test method DATAFEED.Tests.Filter.NotlkwOperator threw exception: &#10;System.Exception: AT-REQUEST:b06b07bb-c5e2-4a4c-8414-4142f916f8c6&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotlkwOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 363
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="NotStartOperator" time="15.568742">
+            <failure message="Test method DATAFEED.Tests.Filter.NotStartOperator threw exception: &#10;System.Exception: AT-REQUEST:c18afe7a-3864-4dba-89e1-b822f2f171c9&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unknown error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.NotStartOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 406
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Filter" name="StartOrEndOperator" time="4.1044584">
+            <failure message="Test method DATAFEED.Tests.Filter.StartOrEndOperator threw exception: &#10;System.Exception: AT-REQUEST:6a5cc229-3d5d-499a-98e1-bd61b217fb53&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Filter.StartOrEndOperator() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Filter.cs:line 172
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountArbo" time="2.1033565">
+            <failure message="Assert.AreNotEqual failed. Expected any value except:&lt;-1&gt;. Actual:&lt;-1&gt;. ">   at DATAFEED.Tests.GetRowCount.&lt;&gt;c__DisplayClass36.&lt;HtmlRowCountArbo&gt;b__34() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\GetRowCount.cs:line 336
+                at DATAFEED.Tests.Randomizer.Invoke() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\Randomizer.cs:line 30
+                at DATAFEED.Tests.GetRowCount.HtmlRowCountArbo() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\GetRowCount.cs:line 322
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountEvo" time="2.0663136">
+            <failure message="Assert.AreNotEqual failed. Expected any value except:&lt;-1&gt;. Actual:&lt;-1&gt;. ">   at DATAFEED.Tests.GetRowCount.&lt;&gt;c__DisplayClass2a.&lt;HtmlRowCountEvo&gt;b__28() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\GetRowCount.cs:line 269
+                at DATAFEED.Tests.Randomizer.Invoke() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\Randomizer.cs:line 30
+                at DATAFEED.Tests.GetRowCount.HtmlRowCountEvo() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\GetRowCount.cs:line 255
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountMultiperiod" time="13.11638"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountMultispace" time="13.8386983"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountSampleFirst" time="12.0074884"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="HtmlRowCountSimple" time="4.1765501"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountArbo" time="1.033641"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountEvo" time="0.9065604"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountMultiperiod" time="6.3994588"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountMultispace" time="0.9048359"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountSampleFirst" time="0.4342335"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="JsonRowCountSimple" time="0.4295026"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountArbo" time="0.7159868"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountEvo" time="0.6874455"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountMultiperiod" time="5.2188683"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountMultispace" time="6.0293162"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountSampleFirst" time="0.3864585"/>
+        <testcase classname="DATAFEED.Tests.GetRowCount" name="XmlRowCountSimple" time="0.7554126"/>
+        <testcase classname="DATAFEED.Tests.GetStream" name="GetMediumAsync" time="7.1978113"/>
+        <testcase classname="DATAFEED.Tests.GetStream" name="GetSmallAsync" time="1.9501699"/>
+        <testcase classname="DATAFEED.Tests.HttpAccept" name="DefaultAccept" time="0.3852475"/>
+        <testcase classname="DATAFEED.Tests.HttpAccept" name="ExcelAccept" time="0.3313584"/>
+        <testcase classname="DATAFEED.Tests.HttpAccept" name="HtmlAccept" time="0.3131251"/>
+        <testcase classname="DATAFEED.Tests.HttpAccept" name="JsonAccept" time="0.333434"/>
+        <testcase classname="DATAFEED.Tests.HttpAccept" name="XmlAccept" time="0.3199787"/>
+        <testcase classname="DATAFEED.Tests.HttpQuerystring" name="DisableCacheFromQuerystring" time="0.4098711"/>
+        <testcase classname="DATAFEED.Tests.HttpQuerystring" name="TimeoutFromQuerystring" time="3.1193089"/>
+        <testcase classname="DATAFEED.Tests.HttpQuerystring" name="TimeoutSmartcacheFromQuerystring" time="5.5805298"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="BridgeIqy" time="21.2203776"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="ErrorIqy" time="0.3196794"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="EvoIqy" time="0.819887"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="MultiPeriodIqy" time="17.1478923"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="MultiSpaceIqy" time="23.2201067"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="ShortcodeIqy" time="4.0347221"/>
+        <testcase classname="DATAFEED.Tests.IqyAlias" name="SimpleIqy" time="0.3356054"/>
+        <testcase classname="DATAFEED.Tests.Language" name="Deutsch" time="2.6636675"/>
+        <testcase classname="DATAFEED.Tests.Language" name="English" time="0.3315297"/>
+        <testcase classname="DATAFEED.Tests.Language" name="Espanol" time="0.3222704"/>
+        <testcase classname="DATAFEED.Tests.Language" name="Portugues" time="0.3062827"/>
+        <testcase classname="DATAFEED.Tests.Language" name="Russe" time="0.319279"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="GetMaxDateHtml" time="0.1333596"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="GetMaxDateJson" time="0.1151186"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="GetMaxDateXML" time="0.1332223"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="GroupForbidden" time="0.1308654"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="OnlyOneSite" time="0.1223665"/>
+        <testcase classname="DATAFEED.Tests.MaxDate" name="SiteNoAccess" time="0.1456216"/>
+        <testcase classname="DATAFEED.Tests.MaxResultsZero" name="ArboMaxResultsZero" time="4.0894604"/>
+        <testcase classname="DATAFEED.Tests.MaxResultsZero" name="DataMaxResultsZero" time="0.302975"/>
+        <testcase classname="DATAFEED.Tests.MaxResultsZero" name="MaxResultsDefault100" time="0.4590221"/>
+        <testcase classname="DATAFEED.Tests.MaxResultsZero" name="MultiPeriodMaxResultsZero" time="9.4630349"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="LevelIsStandalone" time="0.4747854"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpace2Dimensions" time="0.488929"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceDifForbidden" time="0.4537228"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceFilterOnlyOnS1" time="0.4763238"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceMaxResultLimit30" time="0.4629741"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceNamespaceForMetricsRequired" time="0.4324903"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceOn3Sites" time="35.3437358"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceOn4Sites" time="0.2447657"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceOnlyOnSite" time="0.1288955"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceRatioForbidden" time="0.514361"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceSortOnlyOnS1" time="0.4987173"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceVarForbidden" time="0.5809485"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceWithS1AndS2" time="18.8935062"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceWithS1AndS3" time="2.1555042"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="MultiSpaceWithS2AndS3" time="0.5380091"/>
+        <testcase classname="DATAFEED.Tests.MultiSpace" name="NoMultiPeriodWithMultiSpace" time="0.1934908"/>
+        <testcase classname="DATAFEED.Tests.Period" name="ChainedPeriodSyntaxError" time="18.2528354"/>
+        <testcase classname="DATAFEED.Tests.Period" name="ColumnMax50IgnoreLevelId" time="2.342121"/>
+        <testcase classname="DATAFEED.Tests.Period" name="IncorrectSyntaxInPeriod" time="0.3634675"/>
+        <testcase classname="DATAFEED.Tests.Period" name="IncorrectSyntaxInPeriodComma" time="0.1758089"/>
+        <testcase classname="DATAFEED.Tests.Period" name="LevelIsStandalone" time="7.5156758"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MaxResultsLessOrEqual100" time="0.2256383"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriod3PeriodsMax" time="0.3277132"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriod45DaysLimit" time="10.4120912"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodFilterMetricOnlyOnP1" time="0.2300584"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodIncompatibleWithArbo" time="0.1980224"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodMetricPrefixedWithP1" time="0.1662672"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodMultiLevel" time="24.3870272"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodNonConsecutivePeriodLimit" time="0.3190076"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodP4P5P6Error" time="0.2742279"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodSortMetricOnlyOnP1" time="0.2345295"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodStartOrEndAfterToday" time="0.3421968"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodTimeAttributeNotAllowed" time="0.1941634"/>
+        <testcase classname="DATAFEED.Tests.Period" name="MultiPeriodTRMixedAggregated" time="0.2566278"/>
+        <testcase classname="DATAFEED.Tests.Period" name="Period45DaysLimit" time="2.9627163"/>
+        <testcase classname="DATAFEED.Tests.Period" name="RelativePeriodSyntaxError" time="0.2582165"/>
+        <testcase classname="DATAFEED.Tests.Period" name="TestMultiperiod" time="3.9658547"/>
+        <testcase classname="DATAFEED.Tests.PostUrl" name="PostGetData" time="0.3312503"/>
+        <testcase classname="DATAFEED.Tests.Ratio" name="PageRatioWithInclude" time="37.2298939"/>
+        <testcase classname="DATAFEED.Tests.Ratio" name="RatioInvalideSyntaxe" time="0.2785925"/>
+        <testcase classname="DATAFEED.Tests.Ratio" name="RatioMultiPeriod" time="8.083777"/>
+        <testcase classname="DATAFEED.Tests.Ratio" name="RatioWithoutInclude" time="0.1887073"/>
+        <testcase classname="DATAFEED.Tests.Ratio" name="SourceRatioWithInclude" time="2.9516558"/>
+        <testcase classname="DATAFEED.Tests.References" name="TestInvalidReference" time="0.2670305"/>
+        <testcase classname="DATAFEED.Tests.References" name="TestReference" time="1.0703835"/>
+        <testcase classname="DATAFEED.Tests.References" name="TestReferenceOnMultiPeriod" time="23.7404758"/>
+        <testcase classname="DATAFEED.Tests.RestV1" name="GetCustomReportTest" time="4.433469"/>
+        <testcase classname="DATAFEED.Tests.RestV1" name="GetDataFromCloud" time="0.2940668"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="Test_Sample50_MaxResult100_Page1" time="3.4411742"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="Test_Sample500_MaxResult500_Page1" time="7.7617915"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="Test_Sample500_MaxResult500_Page2" time="2.2333515"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="TestSampleArbo" time="0.9418469"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="TestSampleClassic" time="0.4829462"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="TestSampleMultiPeriod" time="18.8936185"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="TestSampleNotFirstError" time="0.1754345"/>
+        <testcase classname="DATAFEED.Tests.Sample" name="TestSampleNotNumericError" time="0.1386502"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataArbo" time="2.785505"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataEvoTest" time="1.0481147"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataMultiPeriodTest" time="1.0667931"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataMultiSpace" time="6.1749675"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataTest" time="0.5421816"/>
+        <testcase classname="DATAFEED.Tests.SchemaXsdTest" name="DataTotaux" time="0.5631328"/>
+        <testcase classname="DATAFEED.Tests.Scod" name="CreateScod" time="9.7884666"/>
+        <testcase classname="DATAFEED.Tests.Scod" name="GetScod" time="0.7377913"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescMaxDays" time="0.3713736"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescNoRelatif" time="0.3574273"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescPeriodNoNamespace" time="0.2902663"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescPeriodWithNoSegmentId" time="0.2695902"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescUnknownKey" time="0.323279"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentDescWithPeriodFutur" time="0.3547203"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentNoDesc" time="5.4041138"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentStandard" time="2.7968946"/>
+        <testcase classname="DATAFEED.Tests.Segment" name="SegmentWithPeriod" time="1.0570138"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeNotValid" time="0.1965346"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeOverrideTest" time="1.0429443"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeSiteGroup" time="11.8053069"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeV1Test" time="0.1958804"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeV2EvoJsonTest" time="1.3638475"/>
+        <testcase classname="DATAFEED.Tests.Shortcode" name="ShortcodeV2Test" time="10.5243274"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="CheckAccessGroup" time="0.1498711"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="CheckGroupN2Forbidden" time="0.1549756"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="CheckOptionGroup" time="0.4704243"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="EvoSiteGroup" time="10.7137585"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="MultiPeriodSiteGroup" time="6.3136725"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="NoGroupWithSite" time="0.4626951"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="OnlyOneGroup" time="0.3980154"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="SimpleGroup" time="0.6507591"/>
+        <testcase classname="DATAFEED.Tests.SiteGroup" name="SiteGroupWithOver50Site" time="3.8039218"/>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="ArboSiteLevel2" time="1.1763766"/>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="EvoSiteLevel2" time="1.2124897"/>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="JsonManyL2sWithFullSite" time="0.0105303">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.JsonManyL2sWithFullSite() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 143
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="ManyL2" time="0.0036564">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.ManyL2() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 34
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="ManyL2s" time="0.0048218">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.ManyL2s() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 56
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="ManyL2sWithFullSite" time="0.0063808">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.ManyL2sWithFullSite() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 114
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="MultiPeriodSiteLevel2" time="10.8155785"/>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="MultiSpaceSiteLevel2" time="0.0062105">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.MultiSpaceSiteLevel2() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 172
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="SingleL2" time="3.3800191"/>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="SiteLevel2Max50" time="0.0013256">
+            <skipped message="Assert.Inconclusive failed. #30105, pour un site on autorise pour l'instant un seul l2">   at DATAFEED.Tests.SiteLevel2.SiteLevel2Max50() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\SiteLevel2.cs:line 94
+            </skipped>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.SiteLevel2" name="UnknownSubkey" time="0.2401483"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="BilanMultiSite" time="3.3046245"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="BilanMultiSiteEvo" time="2.252446"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="BilanMultiSiteMultiPeriod" time="5.2720884"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="BilanSite" time="0.5204226"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="BilanSiteMultiPeriodWithRowCount" time="10.977769"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="GeoMultiSiteNoMaxdatePerf" time="1.1527449"/>
+        <testcase classname="DATAFEED.Tests.SmartcacheDesc" name="GeoMultiSiteNoRealTime" time="1.0062084"/>
+        <testcase classname="DATAFEED.Tests.SmartDfq" name="EvoSmart" time="0.3635112"/>
+        <testcase classname="DATAFEED.Tests.SmartDfq" name="RatioSmart" time="0.2764386"/>
+        <testcase classname="DATAFEED.Tests.SmartDfq" name="SimpleSmart" time="0.2544379"/>
+        <testcase classname="DATAFEED.Tests.SmartDfq" name="VariationSmart" time="0.2688123"/>
+        <testcase classname="DATAFEED.Tests.Space" name="BridgeMonoSpace" time="6.3422477"/>
+        <testcase classname="DATAFEED.Tests.Space" name="CheckAccessMultiSite" time="0.3014521"/>
+        <testcase classname="DATAFEED.Tests.Space" name="CheckMultiSiteCM" time="0.9321515"/>
+        <testcase classname="DATAFEED.Tests.Space" name="CheckOptionMultiSite" time="0.8720203"/>
+        <testcase classname="DATAFEED.Tests.Space" name="DataMonoSpace" time="0.5055518"/>
+        <testcase classname="DATAFEED.Tests.Space" name="DataMonoSpaceMultiSite" time="2.2590537"/>
+        <testcase classname="DATAFEED.Tests.Space" name="SiteMax50" time="2.797889"/>
+        <testcase classname="DATAFEED.Tests.Space" name="SiteNoAccess" time="0.3414251"/>
+        <testcase classname="DATAFEED.Tests.Space" name="SpaceNotOptional" time="0.138284"/>
+        <testcase classname="DATAFEED.Tests.Space" name="UnknownSubkey" time="0.2339085"/>
+        <testcase classname="DATAFEED.Tests.SummablePie" name="SummablePiePageColumns" time="9.8868039"/>
+        <testcase classname="DATAFEED.Tests.SummablePie" name="SummablePieSourceColumns" time="8.0774628"/>
+        <testcase classname="DATAFEED.Tests.Total" name="TotalAll" time="3.8710246"/>
+        <testcase classname="DATAFEED.Tests.Total" name="TotalDisplayed" time="16.6369962">
+            <failure message="Test method DATAFEED.Tests.Total.TotalDisplayed threw exception: &#10;System.Exception: AT-REQUEST:66fbc807-45d8-4e2d-87e3-4de8c4ba6cda&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Total.TotalDisplayed() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Total.cs:line 15
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Total" name="TotalDisplayedUnsommable" time="6.2039675"/>
+        <testcase classname="DATAFEED.Tests.Total" name="TotalUnsommableComplex" time="9.3217451">
+            <failure message="Test method DATAFEED.Tests.Total.TotalUnsommableComplex threw exception: &#10;System.Exception: AT-REQUEST:590485c3-0043-4530-bf88-f0d4abe182fc&#10;&lt;ErrorDetail&gt;&#10;  &lt;ErrorCode&gt;1&lt;/ErrorCode&gt;&#10;  &lt;ErrorMessage&gt;Unexpected Error&lt;/ErrorMessage&gt;&#10;&lt;/ErrorDetail&gt;&#10; ---&gt; System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;ErrorDetail xmlns=''&gt; was not expected.">    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderXmlDataFeedV1.Read14_DataFeed()
+                --- End of inner exception stack trace ---
+                at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+                at System.Xml.Serialization.XmlSerializer.Deserialize(Stream stream)
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 240
+                --- End of inner exception stack trace ---
+                at DATAFEED.Tests.HttpRequestHelper.XmlDeserialize[T]() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Helper\HttpRequestHelper.cs:line 244
+                at DATAFEED.Tests.Total.TotalUnsommableComplex() in e:\Jenkins\workspace\DataEngine\DATAFEED.Tests\DATAFEED.Tests\Total.cs:line 47
+            </failure>
+        </testcase>
+        <testcase classname="DATAFEED.Tests.Variation" name="VariationBounceRateTest" time="1.1405672"/>
+        <testcase classname="DATAFEED.Tests.Variation" name="VariationMultiPeriod" time="1.3588433"/>
+        <testcase classname="DATAFEED.Tests.Variation" name="VariationNotaNumberTest" time="0.987665"/>
+        <testcase classname="DATAFEED.Tests.Variation" name="VariationVisitsTest" time="0.8704727"/>
+        <testcase classname="DATAFEED.Tests.VisitorUniqueGranularity" name="VU_NoData" time="3.3764093"/>
+        <testcase classname="DATAFEED.Tests.VisitorUniqueGranularity" name="VU_WithData" time="3.302335"/>
+    </testsuite>
+</testsuites>

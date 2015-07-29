@@ -8,8 +8,8 @@
             <xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
             <xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
             <xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error | /a:TestRun/a:ResultSummary/a:Counters/@timeout | /b:TestRun/b:ResultSummary/b:Counters/@timeout)" />
-            <xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
-            <xsl:variable name="skipped2010" select="/b:TestRun/b:ResultSummary/b:Counters/@total - /b:TestRun/b:ResultSummary/b:Counters/@executed"/>
+            <xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@inconclusive + /a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
+            <xsl:variable name="skipped2010" select="/b:TestRun/b:ResultSummary/b:Counters/@inconclusive + /b:TestRun/b:ResultSummary/b:Counters/@total - /b:TestRun/b:ResultSummary/b:Counters/@executed"/>
             <xsl:variable name="numberSkipped">
                 <xsl:choose>
                     <xsl:when test="$skipped2006 > 0"><xsl:value-of select="$skipped2006"/></xsl:when>
@@ -113,7 +113,7 @@
                 <xsl:variable name="tag">
                     <xsl:choose>
                         <xsl:when test="$outcome = 'Failed'">failure</xsl:when>
-                        <xsl:when test="$outcome = 'NotExecuted'">skipped</xsl:when>
+                        <xsl:when test="$outcome = 'NotExecuted' or $outcome = 'Inconclusive'">skipped</xsl:when>
                         <xsl:otherwise>error</xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
