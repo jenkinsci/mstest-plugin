@@ -2,18 +2,20 @@
 
 <xsl:template match="results">
   <CoverageDSPriv>
-    <xsl:for-each select="module">
-      <Module>
-        <ModuleName><xsl:value-of select="@name"/></ModuleName>
-        <BlocksCovered><xsl:value-of select="@blocks_covered"/></BlocksCovered>
-        <BlocksNotCovered><xsl:value-of select="@blocks_not_covered"/></BlocksNotCovered>
-        <LinesCovered><xsl:value-of select="@lines_covered"/></LinesCovered>
-        <LinesPartiallyCovered><xsl:value-of select="@lines_partially_covered"/></LinesPartiallyCovered>
-        <LinesNotCovered><xsl:value-of select="@lines_not_covered"/></LinesNotCovered>
-        <xsl:apply-templates/>
-      <Module>
-    </xsl:foreach>
+    <xsl:apply-templates>
   </CoverageDSPriv>
+</xsl:template>
+
+<xsl:template match="module">
+  <Module>
+    <ModuleName><xsl:value-of select="@name"/></ModuleName>
+    <BlocksCovered><xsl:value-of select="@blocks_covered"/></BlocksCovered>
+    <BlocksNotCovered><xsl:value-of select="@blocks_not_covered"/></BlocksNotCovered>
+    <LinesCovered><xsl:value-of select="@lines_covered"/></LinesCovered>
+    <LinesPartiallyCovered><xsl:value-of select="@lines_partially_covered"/></LinesPartiallyCovered>
+    <LinesNotCovered><xsl:value-of select="@lines_not_covered"/></LinesNotCovered>
+    <xsl:apply-templates/>
+  <Module>
 </xsl:template>
 
 <xsl:template match="functions">
