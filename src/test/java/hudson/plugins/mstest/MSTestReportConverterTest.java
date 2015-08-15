@@ -209,7 +209,7 @@ public class MSTestReportConverterTest {
     private String readXmlAsString(String resourceName) throws IOException {
         String xmlString = "";
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resourceName)));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resourceName), com.google.common.base.Charsets.UTF_8));
         String line = reader.readLine();
         while (line != null) {
             xmlString += line + "\n";

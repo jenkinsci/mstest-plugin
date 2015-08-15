@@ -8,12 +8,12 @@ import org.jmock.Mockery;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.util.FileCopyUtils;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
+/* Java 1.7+
 import java.nio.file.Files;
+ */
 
 /**
  * Unit tests for MSTestTransformer class
@@ -60,7 +60,9 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         if (testFile.exists())
             testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
-        Files.copy(testStream, testFile.toPath());
+        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
+        /* Java 1.7+
+        Files.copy(testStream, testFile.toPath());*/
         MSTestReportConverter converter = new MSTestReportConverter();
         transformer = new MSTestTransformer(testPath, converter, buildListener);
         transformer.invoke(parentFile, virtualChannel);
@@ -83,7 +85,9 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         if (testFile.exists())
             testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
-        Files.copy(testStream, testFile.toPath());
+        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
+        /* Java 1.7+
+        Files.copy(testStream, testFile.toPath());  */
         MSTestReportConverter converter = new MSTestReportConverter();
         transformer = new MSTestTransformer(testPath, converter, buildListener);
         transformer.invoke(parentFile, virtualChannel);
@@ -106,7 +110,9 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         if (testFile.exists())
             testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-charset.trx");
-        Files.copy(testStream, testFile.toPath());
+        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
+        /* Java 1.7+
+        Files.copy(testStream, testFile.toPath());*/
         MSTestReportConverter converter = new MSTestReportConverter();
         transformer = new MSTestTransformer(testPath, converter, buildListener);
         transformer.invoke(parentFile, virtualChannel);
