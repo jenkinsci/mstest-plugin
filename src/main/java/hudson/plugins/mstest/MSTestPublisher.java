@@ -6,11 +6,7 @@ import hudson.Util;
 import hudson.FilePath.FileCallable;
 import hudson.AbortException;
 import hudson.Extension;
-import hudson.model.AbstractBuild;
-import hudson.model.AbstractProject;
-import hudson.model.Action;
-import hudson.model.BuildListener;
-import hudson.model.Result;
+import hudson.model.*;
 import hudson.plugins.emma.EmmaHealthReportThresholds;
 import hudson.plugins.emma.EmmaPublisher;
 import hudson.remoting.VirtualChannel;
@@ -49,9 +45,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
     private long buildTime;
     private boolean failOnError;
     private boolean keepLongStdio;
-    //private EmmaPublisher emmaPublisher;
 
-    
     public MSTestPublisher(String testResultsFile){
         this(testResultsFile, true, false);
     }
@@ -115,7 +109,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
         try {
             resolveFilePath(build, listener);
 
-            listener.getLogger().println("MSTest: Processing tests results in file(s) " + resolvedFilePath);
+            listener.getLogger().println("[MSTEST-PLUGIN] Processing test results in file(s) " + resolvedFilePath);
             MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener, failOnError);
             result = build.getWorkspace().act(transformer);
 
@@ -142,7 +136,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
             }
 
         } catch (TransformerException te) {
-            throw new AbortException("MSTest: Could not read the XSL XML file. Please report this issue to the plugin author");
+            throw new AbortException("[MSTEST-PLUGIN] Could not read the XSL XML file. Please report this issue to the plugin author.");
         }
 
         return result;
@@ -179,23 +173,21 @@ public class MSTestPublisher extends Recorder implements Serializable {
             }
             TestResult result = getTestResult(junitFilePattern, build, existingTestResults);
 
-            //There was no result because there was no TRX file
             if(result == null) {
                 return true;
             }
             
             if (existingAction == null) {
-                action = new TestResultAction(build, result, listener);
+                action = new TestResultAction((Run)build, result, (TaskListener)listener);
             } else {
                 action = existingAction;
-                action.setResult(result, listener);
+                action.setResult(result, (TaskListener)listener);
             }
             if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                throw new AbortException("None of the test reports contained any result");
+                throw new AbortException("[MSTEST-PLUGIN] None of the test reports contained any result.");
             }
         } catch (AbortException e) {
-            if (build.getResult() == Result.FAILURE) // most likely a build failed before it gets to the test phase.
-            // don't report confusing error message.
+            if (build.getResult() == Result.FAILURE)
             {
                 return true;
             }
@@ -206,7 +198,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
         }
 
         if (existingAction == null) {
-            build.getActions().add(action);
+            build.addAction(action);
         }
 
         if (action.getResult().getFailCount() > 0) {
@@ -236,8 +228,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 
                 if (files.length == 0) {
                     if(failOnError) {
-                        // no test result. Most likely a configuration error or fatal problem
-                        throw new AbortException("No test report files were found. Configuration error?");
+                        throw new AbortException("[MSTEST-PLUGIN] No test report files were found. (Have you specified a pattern matching any file in your workspace ?)");
                     } else {
                         return null;
                     }

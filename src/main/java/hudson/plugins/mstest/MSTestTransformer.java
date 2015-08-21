@@ -57,10 +57,10 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
 
         if (mstestFiles.length == 0) {
             if(!failOnError){
-                listener.getLogger().println("MSTest: No MSTest TRX test report files were found. Ignoring.");
+                listener.getLogger().println("[MSTEST-PLUGIN] No MSTest TRX test report files were found. Ignoring.");
                 return Boolean.TRUE;
             }
-            listener.fatalError("MSTest: No MSTest TRX test report files were found. Configuration error?");
+            listener.fatalError("[MSTEST-PLUGIN] No MSTest TRX test report files were found. Configuration error?");
             return Boolean.FALSE;
         }
 
@@ -74,13 +74,13 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
                 unitReportTransformer.transform(mstestFile, junitOutputPath, listener);
             } catch (TransformerException te) {
                 throw new IOException(
-                        "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", te);
+                        "[MSTEST-PLUGIN] Could not transform the MSTest report. Please report this issue to the plugin author", te);
             } catch (SAXException se) {
                 throw new IOException(
-                        "MSTest: Could not transform the MSTest report. Please report this issue to the plugin author", se);
+                        "[MSTEST-PLUGIN] Could not transform the MSTest report. Please report this issue to the plugin author", se);
             } catch (ParserConfigurationException pce) {
                 throw new IOException(
-                        "MSTest: Could not initalize the XML parser. Please report this issue to the plugin author", pce);
+                        "[MSTEST-PLUGIN] Could not initalize the XML parser. Please report this issue to the plugin author", pce);
             }
         }
 

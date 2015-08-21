@@ -79,10 +79,10 @@ public class MSTestReportConverter implements Serializable {
                     convertToEmma(listener, f, c);
                     break;
                 } else {
-                    listener.getLogger().printf("[MSTEST] XML coverage report file format not supported (read the wiki): %s\n", c.getAbsolutePath());
+                    listener.getLogger().printf("[MSTEST-PLUGIN] XML coverage report file format not supported (read the wiki): %s\n", c.getAbsolutePath());
                 }
             } else {
-                listener.getLogger().printf("[MSTEST] XML coverage report file not found: %s\n", c.getAbsolutePath());
+                //listener.getLogger().printf("[MSTEST-PLUGIN] XML coverage report file not found: %s\n", c.getAbsolutePath());
             }
     }
 
