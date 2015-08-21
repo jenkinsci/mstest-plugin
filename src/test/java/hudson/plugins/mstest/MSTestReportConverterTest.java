@@ -206,6 +206,17 @@ public class MSTestReportConverterTest {
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }
 
+    @Test
+    public void webTest() throws Exception {
+
+        Transform myTransform = new Transform(
+                new InputSource(this.getClass().getResourceAsStream("webTestResult.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("webTestResult.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
     private String readXmlAsString(String resourceName) throws IOException {
         String xmlString = "";
 

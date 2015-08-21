@@ -22,7 +22,7 @@
                 failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
                 skipped="{$numberSkipped}">
 
-                <xsl:for-each select="//a:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //b:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)]">
+                <xsl:for-each select="//a:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //b:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //a:WebTestResult | //b:WebTestResult">
                     <xsl:variable name="stdout">
                         <xsl:for-each select="a:Output/a:StdOut | b:Output/b:StdOut">
                             <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
@@ -60,12 +60,13 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod">
+                        <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod | //a:WebTest[@id=$testId] | //b:WebTest[@id=$testId]">
                             <xsl:variable name="className">
                                 <xsl:choose>
                                     <xsl:when test="contains(@className, ',')">
                                         <xsl:value-of select="substring-before(@className, ',')"/>
                                     </xsl:when>
+                                    <xsl:when test="@storage"><xsl:value-of select="@storage"/></xsl:when>
                                     <xsl:otherwise>
                                         <xsl:value-of select="@className"/>
                                     </xsl:otherwise>
