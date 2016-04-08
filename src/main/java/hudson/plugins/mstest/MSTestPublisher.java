@@ -219,7 +219,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
                 action = existingAction;
                 action.setResult(result, (TaskListener)listener);
             }
-            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+            if (result.isEmpty()) {
                 throw new AbortException("[MSTEST-PLUGIN] None of the test reports contained any result.");
             }
         } catch (AbortException e) {
