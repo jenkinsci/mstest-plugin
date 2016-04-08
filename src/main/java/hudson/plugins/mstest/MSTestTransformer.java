@@ -74,13 +74,13 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
                 unitReportTransformer.transform(mstestFile, junitOutputPath, listener);
             } catch (TransformerException te) {
                 throw new IOException(
-                        "[MSTEST-PLUGIN] Could not transform the MSTest report. Please report this issue to the plugin author", te);
+                        "[MSTEST-PLUGIN] Unable to transform the MSTest report. Please report this issue to the plugin author", te);
             } catch (SAXException se) {
                 throw new IOException(
-                        "[MSTEST-PLUGIN] Could not transform the MSTest report. Please report this issue to the plugin author", se);
+                        "[MSTEST-PLUGIN] Unable to transform the MSTest report. Please report this issue to the plugin author", se);
             } catch (ParserConfigurationException pce) {
                 throw new IOException(
-                        "[MSTEST-PLUGIN] Could not initalize the XML parser. Please report this issue to the plugin author", pce);
+                        "[MSTEST-PLUGIN] Unable to initalize the XML parser. Please report this issue to the plugin author", pce);
             }
         }
 
