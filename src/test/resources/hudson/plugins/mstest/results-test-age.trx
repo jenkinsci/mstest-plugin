@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="13572252-95ed-42ab-98a5-e84f53b2a399" name="Jenkins@QCAPP-TST-DV01 2015-05-13 15:03:09" runUser="Jenkins" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2015-05-13T15:03:09.2885179-04:00" queuing="2015-05-13T15:03:09.2885179-04:00" start="2015-05-13T15:03:09.2885179-04:00" finish="2015-05-13T15:14:25.2754829-04:00" />
+  <TestSettings name="default" id="9d893bc2-bf5f-4884-be79-9c86e11f9188">
+    <Execution>
+      <TestTypeSpecific />
+    </Execution>
+    <Deployment runDeploymentRoot="Jenkins_QCAPP-TST-DV01 2015-05-13 15_03_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="b6e10605-364c-404b-86cc-17a5c14740fd" testId="fd807157-bd99-47a3-1096-5db500ce8a16" testName="TestDataProviderSommaire" computerName="QCAPP-TST-DV01" duration="00:00:02.6420876" startTime="2015-05-13T15:13:32.1549950-04:00" endTime="2015-05-13T15:13:34.8062640-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6e10605-364c-404b-86cc-17a5c14740fd">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method SIGLSProduction.Tests.Omhm.Entretien.BonDeTravailResume.Tests.DataProvidersTest.TestDataProviderSommaire threw exception: 
+SIGLSCommun.SqlCogiException: Arithmetic overflow error for data type tinyint, value = 256.
+The statement has been terminated. ---&gt; System.Data.SqlClient.SqlException: Arithmetic overflow error for data type tinyint, value = 256.
+The statement has been terminated.</Message>
+          <StackTrace>    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean&amp; dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task&amp; task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task&amp; task, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, String srcTable)
+   at SIGLSCommun.Acces.NouveauAccesSql.ExecuterRequete(DataSet dataset, String codeUtilisateur, RequeteSql[] requetes) in c:\Projet\Jenkins\SIGLS_v2\SIGLSCommun\Acces\NouveauAccesSql.cs:line 334
+ --- End of inner exception stack trace ---
+    at SIGLSCommun.Acces.NouveauAccesSql.ExecuterRequete(DataSet dataset, String codeUtilisateur, RequeteSql[] requetes) in c:\Projet\Jenkins\SIGLS_v2\SIGLSCommun\Acces\NouveauAccesSql.cs:line 392
+   at SIGLSProduction.Entretien.BonDeTravailResume.DataProvider.MajBonTravail(DataSet tableauDs) in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction\Entretien\BonDeTravailResume\DataProvider.cs:line 87
+   at SIGLSProduction.Entretien.BonDeTravailResume.DataProvider.OnDataLoaded() in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction\Entretien\BonDeTravailResume\DataProvider.cs:line 64
+   at SIGLSProduction.DataProviders.DataProvider.GetData() in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction\DataProviders\DataProvider.cs:line 73
+   at SIGLSProduction.DataProviders.DataProvider`2.GetData() in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction\DataProviders\DataProvider.cs:line 114
+   at SIGLSProduction.DataProviders.DataProvider.get_DataSource() in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction\DataProviders\DataProvider.cs:line 28
+   at SIGLSProduction.Tests.Omhm.Entretien.BonDeTravailResume.Tests.DataProvidersTest.TestDataProviderSommaire() in c:\Projet\Jenkins\SIGLS_v2\SIGLSProduction.Tests.Omhm\Entretien\BonDeTravailResume\Tests\DataProviderTest.cs:line 25
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4f638e89-8189-4457-b73e-9505e9f89d38" testId="db6ed0df-720c-14cb-13bf-34c04b1442c9" testName="TestDataProviderSommaire" computerName="QCAPP-TST-DV01" duration="00:00:00.9960401" startTime="2015-05-13T15:13:35.0869866-04:00" endTime="2015-05-13T15:13:36.0851114-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4f638e89-8189-4457-b73e-9505e9f89d38" />
+    <UnitTestResult executionId="98cc3ccd-837c-4aaa-a8de-d689887af255" testId="d56297de-c352-f74f-55a6-e1f287f7798c" testName="TestDataProviderSommaire" computerName="QCAPP-TST-DV01" duration="00:00:00.1562842" startTime="2015-05-13T15:13:37.4731287-04:00" endTime="2015-05-13T15:13:37.6290857-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="98cc3ccd-837c-4aaa-a8de-d689887af255" />
+    <UnitTestResult executionId="ad76b813-d354-4a81-9af1-6f8a0f269b75" testId="72c00ada-d9ed-afe4-8013-b686aa96a9e8" testName="TestDataProviderSommaire" computerName="QCAPP-TST-DV01" duration="00:00:14.0853973" startTime="2015-05-13T15:14:01.1629970-04:00" endTime="2015-05-13T15:14:15.4166165-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ad76b813-d354-4a81-9af1-6f8a0f269b75" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TestDataProviderSommaire" storage="c:\projet\jenkins\sigls_v2\siglsproduction.tests.omhm\bin\release\siglsproduction.tests.omhm.dll" id="fd807157-bd99-47a3-1096-5db500ce8a16">
+      <Execution id="b6e10605-364c-404b-86cc-17a5c14740fd" />
+      <TestMethod codeBase="C:\projet\Jenkins\SIGLS_v2\SIGLSProduction.Tests.Omhm\bin\Release\SIGLSProduction.Tests.Omhm.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="SIGLSProduction.Tests.Omhm.Entretien.BonDeTravailResume.Tests.DataProvidersTest" name="TestDataProviderSommaire" />
+    </UnitTest>
+    <UnitTest name="TestDataProviderSommaire" storage="c:\projet\jenkins\sigls_v2\siglsproduction.tests.omhm\bin\release\siglsproduction.tests.omhm.dll" id="db6ed0df-720c-14cb-13bf-34c04b1442c9">
+      <Execution id="4f638e89-8189-4457-b73e-9505e9f89d38" />
+      <TestMethod codeBase="C:\projet\Jenkins\SIGLS_v2\SIGLSProduction.Tests.Omhm\bin\Release\SIGLSProduction.Tests.Omhm.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="SIGLSProduction.Tests.Omhm.Entretien.ComparaisonDesBonDeTravailDetailles.Tests.DataProviderTest" name="TestDataProviderSommaire" />
+    </UnitTest>
+    <UnitTest name="TestDataProviderSommaire" storage="c:\projet\jenkins\sigls_v2\siglsproduction.tests.omhm\bin\release\siglsproduction.tests.omhm.dll" id="d56297de-c352-f74f-55a6-e1f287f7798c">
+      <Execution id="98cc3ccd-837c-4aaa-a8de-d689887af255" />
+      <TestMethod codeBase="C:\projet\Jenkins\SIGLS_v2\SIGLSProduction.Tests.Omhm\bin\Release\SIGLSProduction.Tests.Omhm.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="SIGLSProduction.Tests.Omhm.Entretien.DelaisDeReparation.Tests.DataProvidersTest" name="TestDataProviderSommaire" />
+    </UnitTest>
+    <UnitTest name="TestDataProviderSommaire" storage="c:\projet\jenkins\sigls_v2\siglsproduction.tests.omhm\bin\release\siglsproduction.tests.omhm.dll" id="72c00ada-d9ed-afe4-8013-b686aa96a9e8">
+      <Execution id="ad76b813-d354-4a81-9af1-6f8a0f269b75" />
+      <TestMethod codeBase="C:\projet\Jenkins\SIGLS_v2\SIGLSProduction.Tests.Omhm\bin\Release\SIGLSProduction.Tests.Omhm.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="SIGLSProduction.Tests.Omhm.Entretien.StatistiquesBonTravail.Tests.DataProviderTest" name="TestDataProviderSommaire" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+	<TestEntry testId="fd807157-bd99-47a3-1096-5db500ce8a16" executionId="b6e10605-364c-404b-86cc-17a5c14740fd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+	<TestEntry testId="db6ed0df-720c-14cb-13bf-34c04b1442c9" executionId="4f638e89-8189-4457-b73e-9505e9f89d38" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+	<TestEntry testId="d56297de-c352-f74f-55a6-e1f287f7798c" executionId="98cc3ccd-837c-4aaa-a8de-d689887af255" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+	<TestEntry testId="72c00ada-d9ed-afe4-8013-b686aa96a9e8" executionId="ad76b813-d354-4a81-9af1-6f8a0f269b75" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="3661" executed="3661" passed="3659" failed="2" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test 'ObtenirInfoDemande_ToutesLesDemandesSuccursale230Org3055_IdemALaVielleMethode' was skipped in the test run.Test 'RechercherPlanifications_SansCriteres_NotNull' was skipped in the test run.Test 'RechercherDerniersAppels_SansCriteres_NotNull' was skipped in the test run.Test 'SerializeCritereRechercheAppel' was skipped in the test run.Test 'ObtenirTextToSpeech_Fr_NotNull' was skipped in the test run.Test 'RechercherPlanifications_SansCriteres_NotNull' was skipped in the test run.Test 'ObtenirPlanification_CleNumerique_NotNull' was skipped in the test run.Test 'ObtenirSuccursalePourOrganisme_CodeOrganisme_NotNull' was skipped in the test run.Test 'TestCriteriaFactory' was skipped in the test run.Test 'ResolveDataProvider' was skipped in the test run.Test 'ResolveWrapperSynthese' was skipped in the test run.Test 'RenderSummary' was skipped in the test run.Test 'RenderSynthese' was skipped in the test run.Test 'RenderXls' was skipped in the test run.Test 'DataSource_AucunCritereAucunChangement_Egal' was skipped in the test run.Test 'CritereSuccursale_EstEgal' was skipped in the test run.Test 'ArreterQueueAvecTraitement' was skipped in the test run.Test 'EstMonitorQueueOkSurArretSansMessage' was skipped in the test run.Test 'EstMonitorQueueOkSurArretAvecMessage' was skipped in the test run.Test 'TestRapport2002356_NoFormatPDF_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestRapport0403100_NoFormatPDF_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestRapport0406112_NoFormatTXT_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestTraitement_0604190_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestTraitement_0203122_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestTraitement_0203126MTL_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestTraitement_0604191_Succes' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'TestAccesCorrespondanceProprietairePlainte' was skipped in the test run.Test 'TestMethod1' was skipped in the test run.Test 'ReviserAvecAjout_AMTEnVigueur_EstSucces' was skipped in the test run.Test 'ObtenirNbDemandes2010' was skipped in the test run.Test 'ObtenirNbDemandes2011' was skipped in the test run.Test 'ObtenirNombreNouvellesDemandes2011' was skipped in the test run.Test 'ObtenirDelaisMoyenAttribution2011' was skipped in the test run.Test 'Obtenirprogrammes' was skipped in the test run.Test 'DataProvider_IsEqual' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'EstTempsExecutionNominal' was skipped in the test run.Test 'ObtenirLotsFinancierTransfertGlSansException' was skipped in the test run.Test 'ObtenirOrganismeSansException' was skipped in the test run.Test 'ObtenirSuccursalePourOrganismeSansException' was skipped in the test run.Test 'SetLotsFinancierTransfertGlRecupereSansException' was skipped in the test run.Test 'ObtenirLotsFinancierVersementSansException' was skipped in the test run.Test 'SetLotsFinancierVersementRecupereSansException' was skipped in the test run.Test 'DiResolve_AllPublications_InstantiateWithoutExecutingQueries' was skipped in the test run.Test 'RenderCritereAvecRegroupementParProgrammeParent' was skipped in the test run.</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="QCAPP-TST-DV01" outcome="Warning" timestamp="2015-05-13T15:07:47.0480904-04:00">
+        <Text>System.AppDomainUnloadedException: Attempted to access an unloaded AppDomain. This can happen if the test(s) started a thread but did not stop it. Make sure that all the threads started by the test(s) are stopped before completion.</Text>
+      </RunInfo>
+      <RunInfo computerName="QCAPP-TST-DV01" outcome="Warning" timestamp="2015-05-13T15:09:05.8109532-04:00">
+        <Text>System.AppDomainUnloadedException: Attempted to access an unloaded AppDomain. This can happen if the test(s) started a thread but did not stop it. Make sure that all the threads started by the test(s) are stopped before completion.</Text>
+      </RunInfo>
+      <RunInfo computerName="QCAPP-TST-DV01" outcome="Warning" timestamp="2015-05-13T15:12:19.6765540-04:00">
+        <Text>System.AppDomainUnloadedException: Attempted to access an unloaded AppDomain. This can happen if the test(s) started a thread but did not stop it. Make sure that all the threads started by the test(s) are stopped before completion.</Text>
+      </RunInfo>
+      <RunInfo computerName="QCAPP-TST-DV01" outcome="Warning" timestamp="2015-05-13T15:14:24.6842865-04:00">
+        <Text>System.AppDomainUnloadedException: Attempted to access an unloaded AppDomain. This can happen if the test(s) started a thread but did not stop it. Make sure that all the threads started by the test(s) are stopped before completion.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<WebTest Name="Login - Sucess" Id="ec05dfc3-a76e-40a0-9eda-291bebddf26e" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="0a14d3d6-85a5-45ee-93f1-8be98d0b36b7" Version="1.1" Url="{{DEV3}}/ta/rest/v1/{{Action}}?Company={{Company}}&amp;Username={{Username}}&amp;Password={{Password}}" ThinkTime="0" Timeout="30" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0.2" Encoding="utf-8" ExpectedHttpStatusCode="200" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <Headers>
+        <Header Name="Accept" Value="application/json" />
+      </Headers>
+      <ValidationRules>
+        <ValidationRule Classname="Rules.RequiredJsonValue, Rules, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DisplayName="RequiredJsonValue" Description="" Level="High" ExectuionOrder="BeforeDependents">
+          <RuleParameters>
+            <RuleParameter Name="TokenPath" Value="map.token" />
+            <RuleParameter Name="ExpectedValue" Value="" />
+          </RuleParameters>
+        </ValidationRule>
+      </ValidationRules>
+    </Request>
+  </Items>
+  <ContextParameters>
+    <ContextParameter Name="DEV3" Value="http://10.11.12.59:8080" />
+    <ContextParameter Name="Company" Value="Intl.demo" />
+    <ContextParameter Name="Username" Value="scott.davis" />
+    <ContextParameter Name="Password" Value="Password1!" />
+    <ContextParameter Name="Action" Value="login" />
+  </ContextParameters>
+</WebTest>

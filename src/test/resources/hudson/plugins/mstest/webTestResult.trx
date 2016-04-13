@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="6a049e06-d634-4cac-97d4-725af9e94484" name="peter.barnes@KDT-BE-37895 2015-08-20 09:49:47" runUser="xxxxxxxx" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="f53967ec-831a-4478-8e90-14cbd5f38020">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment runDeploymentRoot="xxxxxxxxxxxxxxxxxxxxxxx">
+      <DeploymentItem filename="Rules\bin\Debug\Newtonsoft.Json.dll" />
+      <DeploymentItem filename="Rules\bin\Debug\Rules.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 9.0" MaxConnections="6">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2015-08-20T09:49:47.2295064+02:00" queuing="2015-08-20T09:49:47.4745309+02:00" start="2015-08-20T09:49:47.5625397+02:00" finish="2015-08-20T09:49:58.7176551+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <WebTest name="Login - Sucess" storage="xxxxxxxxxxxxxxxxxxxxxxxx\login - sucess.webtest" id="ec05dfc3-a76e-40a0-9eda-291bebddf26e" persistedWebTest="77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pg0KPFdlYlRlc3QgTmFtZT0iTG9naW4gLSBTdWNlc3MiIElkPSJlYzA1ZGZjMy1hNzZlLTQwYTAtOWVkYS0yOTFiZWJkZGYyNmUiIE93bmVyPSIiIFByaW9yaXR5PSIyMTQ3NDgzNjQ3IiBFbmFibGVkPSJUcnVlIiBDc3NQcm9qZWN0U3RydWN0dXJlPSIiIENzc0l0ZXJhdGlvbj0iIiBUaW1lb3V0PSIwIiBXb3JrSXRlbUlkcz0iIiB4bWxucz0iaHR0cDovL21pY3Jvc29mdC5jb20vc2NoZW1hcy9WaXN1YWxTdHVkaW8vVGVhbVRlc3QvMjAxMCIgRGVzY3JpcHRpb249IiIgQ3JlZGVudGlhbFVzZXJOYW1lPSIiIENyZWRlbnRpYWxQYXNzd29yZD0iIiBQcmVBdXRoZW50aWNhdGU9IlRydWUiIFByb3h5PSJkZWZhdWx0IiBTdG9wT25FcnJvcj0iRmFsc2UiIFJlY29yZGVkUmVzdWx0RmlsZT0iIiBSZXN1bHRzTG9jYWxlPSIiPg0KICA8SXRlbXM+DQogICAgPFJlcXVlc3QgTWV0aG9kPSJHRVQiIEd1aWQ9IjBhMTRkM2Q2LTg1YTUtNDVlZS05M2YxLThiZTk4ZDBiMzZiNyIgVmVyc2lvbj0iMS4xIiBVcmw9Int7REVWM319L3RhL3Jlc3QvdjEve3tBY3Rpb259fT9Db21wYW55PXt7Q29tcGFueX19JmFtcDtVc2VybmFtZT17e1VzZXJuYW1lfX0mYW1wO1Bhc3N3b3JkPXt7UGFzc3dvcmR9fSIgVGhpbmtUaW1lPSIwIiBUaW1lb3V0PSIzMCIgUGFyc2VEZXBlbmRlbnRSZXF1ZXN0cz0iVHJ1ZSIgRm9sbG93UmVkaXJlY3RzPSJUcnVlIiBSZWNvcmRSZXN1bHQ9IlRydWUiIENhY2hlPSJGYWxzZSIgUmVzcG9uc2VUaW1lR29hbD0iMC4yIiBFbmNvZGluZz0idXRmLTgiIEV4cGVjdGVkSHR0cFN0YXR1c0NvZGU9IjIwMCIgRXhwZWN0ZWRSZXNwb25zZVVybD0iIiBSZXBvcnRpbmdOYW1lPSIiIElnbm9yZUh0dHBTdGF0dXNDb2RlPSJGYWxzZSI+DQogICAgICA8SGVhZGVycz4NCiAgICAgICAgPEhlYWRlciBOYW1lPSJBY2NlcHQiIFZhbHVlPSJhcHBsaWNhdGlvbi9qc29uIiAvPg0KICAgICAgPC9IZWFkZXJzPg0KICAgICAgPFZhbGlkYXRpb25SdWxlcz4NCiAgICAgICAgPFZhbGlkYXRpb25SdWxlIENsYXNzbmFtZT0iUnVsZXMuUmVxdWlyZWRKc29uVmFsdWUsIFJ1bGVzLCBWZXJzaW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbCIgRGlzcGxheU5hbWU9IlJlcXVpcmVkSnNvblZhbHVlIiBEZXNjcmlwdGlvbj0iIiBMZXZlbD0iSGlnaCIgRXhlY3R1aW9uT3JkZXI9IkJlZm9yZURlcGVuZGVudHMiPg0KICAgICAgICAgIDxSdWxlUGFyYW1ldGVycz4NCiAgICAgICAgICAgIDxSdWxlUGFyYW1ldGVyIE5hbWU9IlRva2VuUGF0aCIgVmFsdWU9Im1hcC50b2tlbiIgLz4NCiAgICAgICAgICAgIDxSdWxlUGFyYW1ldGVyIE5hbWU9IkV4cGVjdGVkVmFsdWUiIFZhbHVlPSIiIC8+DQogICAgICAgICAgPC9SdWxlUGFyYW1ldGVycz4NCiAgICAgICAgPC9WYWxpZGF0aW9uUnVsZT4NCiAgICAgIDwvVmFsaWRhdGlvblJ1bGVzPg0KICAgIDwvUmVxdWVzdD4NCiAgPC9JdGVtcz4NCiAgPENvbnRleHRQYXJhbWV0ZXJzPg0KICAgIDxDb250ZXh0UGFyYW1ldGVyIE5hbWU9IkRFVjMiIFZhbHVlPSJodHRwOi8vMTAuMTEuMTIuNTk6ODA4MCIgLz4NCiAgICA8Q29udGV4dFBhcmFtZXRlciBOYW1lPSJDb21wYW55IiBWYWx1ZT0iSW50bC5kZW1vIiAvPg0KICAgIDxDb250ZXh0UGFyYW1ldGVyIE5hbWU9IlVzZXJuYW1lIiBWYWx1ZT0ic2NvdHQuZGF2aXMiIC8+DQogICAgPENvbnRleHRQYXJhbWV0ZXIgTmFtZT0iUGFzc3dvcmQiIFZhbHVlPSJQYXNzd29yZDEhIiAvPg0KICAgIDxDb250ZXh0UGFyYW1ldGVyIE5hbWU9IkFjdGlvbiIgVmFsdWU9ImxvZ2luIiAvPg0KICA8L0NvbnRleHRQYXJhbWV0ZXJzPg0KPC9XZWJUZXN0Pg==">
+      <Execution id="496c2b07-5be3-4943-ae9f-09b9e67025c3" />
+    </WebTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry isTransparent="false" testId="ec05dfc3-a76e-40a0-9eda-291bebddf26e" executionId="496c2b07-5be3-4943-ae9f-09b9e67025c3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <WebTestResult executionId="496c2b07-5be3-4943-ae9f-09b9e67025c3" testId="ec05dfc3-a76e-40a0-9eda-291bebddf26e" testName="Login - Sucess" computerName="xxxxxxxxxxxxxx" duration="00:00:00.4936854" startTime="2015-08-20T09:49:47.6155450+02:00" endTime="2015-08-20T09:49:58.6746508+02:00" testType="4e7599fa-5ecb-43e9-a887-cd63cf72d207" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="496c2b07-5be3-4943-ae9f-09b9e67025c3">
+      <ResultFiles>
+        <ResultFile path="Login - Sucess.webtestResult" />
+      </ResultFiles>
+      <TestSettings name="Local" id="f53967ec-831a-4478-8e90-14cbd5f38020">
+        <Description>These are default test settings for a local test run.</Description>
+        <Deployment runDeploymentRoot="xxxxxxxxxxxxxx">
+          <DeploymentItem filename="Rules\bin\Debug\Newtonsoft.Json.dll" />
+          <DeploymentItem filename="Rules\bin\Debug\Rules.dll" />
+        </Deployment>
+        <Execution>
+          <TestTypeSpecific>
+            <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+              <AssemblyResolution>
+                <TestDirectory useLoadContext="true" />
+              </AssemblyResolution>
+            </UnitTestRunConfig>
+            <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+              <Browser name="Internet Explorer 9.0" MaxConnections="6">
+                <Headers>
+                  <Header name="User-Agent" value="Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" />
+                  <Header name="Accept" value="*/*" />
+                  <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+                  <Header name="Accept-Encoding" value="GZIP" />
+                </Headers>
+              </Browser>
+            </WebTestRunConfiguration>
+          </TestTypeSpecific>
+          <AgentRule name="LocalMachineDefaultRole">
+          </AgentRule>
+        </Execution>
+        <Properties />
+      </TestSettings>
+      <WebTestResultFilePath>xxxxxxxxxxxxxxxxxx\Login - Sucess.webtestResult</WebTestResultFilePath>
+    </WebTestResult>
+  </Results>
+</TestRun>

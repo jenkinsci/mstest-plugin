@@ -195,10 +195,32 @@ public class MSTestReportConverterTest {
         assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
     }
 
+    @Test
+    public void testInconclusive() throws Exception {
+
+        Transform myTransform = new Transform(
+                new InputSource(this.getClass().getResourceAsStream("DATAFEED.Tests.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("DATAFEED.Tests.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
+    @Test
+    public void webTest() throws Exception {
+
+        Transform myTransform = new Transform(
+                new InputSource(this.getClass().getResourceAsStream("webTestResult.trx")),
+                new InputSource(this.getClass().getResourceAsStream(MSTestReportConverter.MSTEST_TO_JUNIT_XSLFILE_STR)));
+
+        Diff myDiff = new Diff(readXmlAsString("webTestResult.xml"), myTransform);
+        assertTrue("XSL transformation did not work" + myDiff, myDiff.similar());
+    }
+
     private String readXmlAsString(String resourceName) throws IOException {
         String xmlString = "";
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resourceName)));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resourceName), com.google.common.base.Charsets.UTF_8));
         String line = reader.readLine();
         while (line != null) {
             xmlString += line + "\n";

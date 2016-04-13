@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ae023d3b-37e7-4c4d-abcb-d8ad132cc241" name="SYSTEM@AD-JENKINS 2015-07-08 10:53:01" runUser="NT AUTHORITY\SYSTEM" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2015-07-08T10:53:01.8188628+05:30" queuing="2015-07-08T10:53:01.8188628+05:30" start="2015-07-08T10:53:01.8188628+05:30" finish="2015-07-08T10:53:23.4993937+05:30" />
+  <TestSettings name="default" id="c3d93ff6-e72a-4ff9-a679-79b967bc5eb7">
+    <Execution>
+      <TestTypeSpecific />
+    </Execution>
+    <Deployment runDeploymentRoot="SYSTEM_AD-JENKINS 2015-07-08 10_53_01" />
+    <Properties />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="4180f9ec-d237-424c-b0d2-11847419de81" testId="bd82b441-8403-8320-6841-a6034c9e168f" testName="integration_hotelListing_Success" computerName="AD-JENKINS" duration="00:00:08.8804191" startTime="2015-07-08T10:52:52.8340265+05:30" endTime="2015-07-08T10:53:01.7563596+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4180f9ec-d237-424c-b0d2-11847419de81">
+      <Output>
+        <StdOut>Debug Trace:
+DEBUG: S: SELECT 7
+DEBUG: +OK
+DEBUG: S: INFO
+DEBUG: R: $2435
+DEBUG: S: SELECT 7
+DEBUG: +OK
+DEBUG: S: LPUSH pubsub:LogQHotelBeds \Y\0&#x1F;�\0\0\0\0\0\0�g��ܶ%��J�?Xo�~i��s�RKǀ�&amp;���і
+��s�{���`�)���0ُ6/倧�k�1��?...
+DEBUG: R: 215</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c8fe5eee-d435-462f-be17-77141a92da19" testId="8f254499-10ef-3f0b-f600-00250b043607" testName="integration_hotelListing_by_HotelIds_Success" computerName="AD-JENKINS" duration="00:00:07.8084052" startTime="2015-07-08T10:53:01.7719856+05:30" endTime="2015-07-08T10:53:09.5818938+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c8fe5eee-d435-462f-be17-77141a92da19">
+      <Output>
+        <StdOut>Debug Trace:
+DEBUG: S: LPUSH pubsub:LogQHotelBeds |&amp;Q\0&#x1F;�\0\0\0\0\0\0�yo�ܗ5�K�&#x1D;�����b&lt;&#xF;��Je�����*�d�̣�y��{�@�`Bn�+q���k���&#x1E;...
+DEBUG: R: 216
+DEBUG: S: LPUSH pubsub:LogQHotelBeds ��\0&#x1F;�\0\0\0\0\0\0�}铪ʶ�������/�˭WL�xb�&#x1D;&#xF;穜�_�	T�P�����78�CjiiUfŉ��E�ʵ�o
+�...
+DEBUG: R: 217</StdOut>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="33593732-d69e-4cd0-b81c-6f32f0f33fb7" testId="7434bcc5-45e6-48a6-3336-9fdfae25b4b3" testName="integration_hotel_Booking_Flow_Success" computerName="AD-JENKINS" duration="00:00:13.2455962" startTime="2015-07-08T10:53:09.5818938+05:30" endTime="2015-07-08T10:53:22.8274615+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="33593732-d69e-4cd0-b81c-6f32f0f33fb7">
+      <Output>
+        <StdOut>Debug Trace:
+DEBUG: S: LPUSH pubsub:LogQHotelBeds Ե\0&#x1F;�\0\0\0\0\0\0�]Ys�H�~���&#xF;��m|�%Sk�2�f�Xl�=Q!#T��%0�[��ojH6^��%+:Ky...
+DEBUG: R: 218
+DEBUG: S: LPUSH pubsub:LogQHotelBeds �)\0\0&#x1F;�\0\0\0\0\0\0�Yks�F�ޙ�
+����A�Q4��d0P.i���%��H"������E�]]���μ���gϞ=...
+DEBUG: R: 219
+DEBUG: S: LPUSH pubsub:LogQHotelBeds #9\0\0&#x1F;�\0\0\0\0\0\0�Zms�H�~U�&#x1F;�H�~�I`޼Z�1�ط8��n�[[2m@"���mRu�������y�f�p...
+DEBUG: R: 220
+DEBUG: S: LPUSH pubsub:LogQHotelBeds &amp;@\0\0&#x1F;�\0\0\0\0\0\0�ko�8���&#x1F;X��K����j����W���N&#x1F;{Y����ڢ+�I|��&#x1F;�&#x1F;�/�!�e�...
+DEBUG: R: 221</StdOut>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_hotel_Booking_Flow_Success threw exception: 
+System.ArgumentNullException: Value cannot be null.
+Parameter name: ItineraryNumber can not be null or empty.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.HotelSupplier.RequestValidation(SupplierCancelBookingRequest request) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\HotelSupplier.cs:line 265
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.CancelBooking(SupplierCancelBookingRequest request) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\CancelBooking.cs:line 21
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_hotel_Booking_Flow_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 285
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b6e3a63d-a50b-4d61-b031-b2796eea7d86" testId="b683f44e-450d-4978-955a-dc1f01a9ce29" testName="integration_Cancellation_failure" computerName="AD-JENKINS" duration="00:00:00.0009560" startTime="2015-07-08T10:53:22.8274615+05:30" endTime="2015-07-08T10:53:22.8274615+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b6e3a63d-a50b-4d61-b031-b2796eea7d86">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_Cancellation_failure threw exception: 
+System.ArgumentNullException: Value cannot be null.
+Parameter name: ItineraryNumber can not be null or empty.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.HotelSupplier.RequestValidation(SupplierCancelBookingRequest request) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\HotelSupplier.cs:line 265
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.CancelBooking(SupplierCancelBookingRequest request) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\CancelBooking.cs:line 21
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_Cancellation_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 306
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="554543c0-c4dc-4565-a2c1-8e73bfaaf510" testId="c539f2fa-3d87-aeb4-0df9-32b5c4ef9dc7" testName="integration_TryParse_cancellationResponse_success" computerName="AD-JENKINS" duration="00:00:00.0914136" startTime="2015-07-08T10:53:22.8274615+05:30" endTime="2015-07-08T10:53:22.9212208+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="554543c0-c4dc-4565-a2c1-8e73bfaaf510">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_TryParse_cancellationResponse_success threw exception: 
+System.InvalidOperationException: There is an error in XML document (1, 2). ---&gt; System.InvalidOperationException: &lt;PurchaseCancelRS xmlns='http://www.hotelbeds.com/schemas/2005/06/messages'&gt; was not expected.</Message>
+          <StackTrace>    at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderPurchaseCancelRS.Read47_PurchaseCancelRS()
+ --- End of inner exception stack trace ---
+    at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(TextReader textReader)
+   at Traveazy.Suppliers.Hotels.Helpers.HelperUtil.XmlDeserializeFromString(String objectData, Type type) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Helpers\HelperUtil.cs:line 105
+   at Traveazy.Suppliers.Hotels.Helpers.HelperUtil.XmlDeserializeFromString[T](String objectData) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Helpers\HelperUtil.cs:line 82
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_TryParse_cancellationResponse_success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 321
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="19d5bc70-f1ab-4bb0-bbd2-436ca6c3c9a6" testId="59ed76b3-1db9-6c5b-14c4-f6cedf383e38" testName="integration_MultiThread_HotelListing_Success" computerName="AD-JENKINS" duration="00:00:00.0047690" startTime="2015-07-08T10:53:22.9212208+05:30" endTime="2015-07-08T10:53:22.9212208+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19d5bc70-f1ab-4bb0-bbd2-436ca6c3c9a6">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_HotelListing_Success threw exception: 
+System.NotSupportedException: WaitAll for multiple handles on a STA thread is not supported.</Message>
+          <StackTrace>    at System.Threading.WaitHandle.WaitMultiple(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext, Boolean WaitAll)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles)
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_HotelListing_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 381
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a761b2f7-79dc-43dd-9902-eab3f885c4ff" testId="c04b496e-be03-3823-83f9-b85d1eae1eed" testName="integration_MultiThread_HotelRoomRates_Success" computerName="AD-JENKINS" duration="00:00:00.0045125" startTime="2015-07-08T10:53:22.9212208+05:30" endTime="2015-07-08T10:53:22.9212208+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a761b2f7-79dc-43dd-9902-eab3f885c4ff">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_HotelRoomRates_Success threw exception: 
+System.NotSupportedException: WaitAll for multiple handles on a STA thread is not supported.</Message>
+          <StackTrace>    at System.Threading.WaitHandle.WaitMultiple(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext, Boolean WaitAll)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles)
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_HotelRoomRates_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 478
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d5633b06-24fd-40d5-bff1-3760e7fa74f1" testId="62f144a2-15d3-a368-ac63-33bde414d62a" testName="integration_MultiThread_hotel_Booking_Flow_Success" computerName="AD-JENKINS" duration="00:00:00.0073365" startTime="2015-07-08T10:53:22.9212208+05:30" endTime="2015-07-08T10:53:22.9368464+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d5633b06-24fd-40d5-bff1-3760e7fa74f1">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_hotel_Booking_Flow_Success threw exception: 
+System.NotSupportedException: WaitAll for multiple handles on a STA thread is not supported.</Message>
+          <StackTrace>    at System.Threading.WaitHandle.WaitMultiple(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext, Boolean WaitAll)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles, Int32 millisecondsTimeout, Boolean exitContext)
+   at System.Threading.WaitHandle.WaitAll(WaitHandle[] waitHandles)
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest.integration_MultiThread_hotel_Booking_Flow_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsintegrationTest.cs:line 695
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="572d0a36-195b-4b15-9fbe-7369f8f378ad" testId="494e0bd5-7c7b-5823-9d90-d7f55c571b5a" testName="integration_MultiThread_hotel_Booking_Flow_DataDriven_Success" computerName="AD-JENKINS" startTime="2015-07-08T10:53:22.9368464+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="572d0a36-195b-4b15-9fbe-7369f8f378ad">
+      <Output>
+        <ErrorInfo>
+          <Message>The unit test adapter failed to connect to the data source or to read the data. For more information on troubleshooting this error, see "Troubleshooting Data-Driven Unit Tests" (http://go.microsoft.com/fwlink/?LinkId=62412) in the MSDN Library. Error details: ERROR [IM002] [Microsoft][ODBC Driver Manager] Data source name not found and no default driver specified</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7d60d4de-2a73-4700-a608-ea871ad03211" testId="e7c1533d-e2f8-15f0-53fe-2f89132677e3" testName="hotelListing_Validate_request_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007119" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d60d4de-2a73-4700-a608-ea871ad03211" />
+    <UnitTestResult executionId="16a82814-858e-434e-995c-f4eea8d83acc" testId="65fb6f27-bf7d-e225-d4c1-dbd64e0a6ad3" testName="hotelListing_Validate_request_TransactionId_null_failure" computerName="AD-JENKINS" duration="00:00:00.0006773" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16a82814-858e-434e-995c-f4eea8d83acc" />
+    <UnitTestResult executionId="07d63aa6-32ad-46b9-bcc7-c08a1f4c3ed9" testId="644f21e3-3df4-fb47-ae89-7e2681ac750e" testName="hotelListing_Validate_request_TransactionId_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006980" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="07d63aa6-32ad-46b9-bcc7-c08a1f4c3ed9" />
+    <UnitTestResult executionId="772f6328-e56b-406b-9f64-c1d77cc42e09" testId="79899f70-d49c-77a0-5b00-1e328ef7cb29" testName="hotelListing_Validate_request_DestinationId_null_failure" computerName="AD-JENKINS" duration="00:00:00.0018052" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="772f6328-e56b-406b-9f64-c1d77cc42e09">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_DestinationId_null_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 118
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="7b4b32d9-c24f-47eb-b0be-0905252691ce" testId="33701d3c-a6ad-9f0b-b43c-43260bec961b" testName="hotelListing_Validate_request_DestinationId_Empty_failure" computerName="AD-JENKINS" duration="00:00:00.0012518" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9837245+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b4b32d9-c24f-47eb-b0be-0905252691ce">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_DestinationId_Empty_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 145
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="4846d79a-a42d-408d-a8d2-e0b2a74984f2" testId="9cbc59e0-cb58-6682-9635-086514aaaf39" testName="hotelListing_Validate_request_SearchByHotelId_DestinationId_Empty_failure" computerName="AD-JENKINS" duration="00:00:00.0017527" startTime="2015-07-08T10:53:22.9837245+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4846d79a-a42d-408d-a8d2-e0b2a74984f2">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_SearchByHotelId_DestinationId_Empty_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 173
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="3be43b7e-27e4-489d-a748-f0411809e528" testId="30344a9b-1f83-f8be-d5aa-864a43194202" testName="hotelListing_Validate_request_SearchByHotelId_DestinationId_null_failure" computerName="AD-JENKINS" duration="00:00:00.0012710" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3be43b7e-27e4-489d-a748-f0411809e528">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_SearchByHotelId_DestinationId_null_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 200
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="cb7e31e3-b50d-45dc-b963-20be2477c69f" testId="4ca44dab-2a4b-9bad-c79b-e507f3a1b4a7" testName="hotelListing_Validate_request_HotelId_Empty_failure" computerName="AD-JENKINS" duration="00:00:00.0012690" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb7e31e3-b50d-45dc-b963-20be2477c69f">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_HotelId_Empty_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 228
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="c269f10c-90cc-49ef-ac5a-b75d068e2768" testId="26b2a8f6-7aff-53b1-38cc-9fbb3747577c" testName="hotelListing_Validate_request_HotelId_null_failure" computerName="AD-JENKINS" duration="00:00:00.0012634" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c269f10c-90cc-49ef-ac5a-b75d068e2768">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_HotelId_null_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 256
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2eea91d5-573d-478d-b3cb-0206829f166a" testId="d0cb85ce-d1b0-59ac-99e5-bb5e3769ec6f" testName="hotelListing_Validate_request_CheckOutDate_failure" computerName="AD-JENKINS" duration="00:00:00.0006272" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2eea91d5-573d-478d-b3cb-0206829f166a" />
+    <UnitTestResult executionId="f4997c61-73d4-44dc-b6b6-0dfea6b4cf84" testId="d48df660-faef-70d6-00f0-20bfa4592bca" testName="hotelListing_Validate_request_CurrencyCodeNull_failure" computerName="AD-JENKINS" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f4997c61-73d4-44dc-b6b6-0dfea6b4cf84" />
+    <UnitTestResult executionId="efe9c8d3-0c95-4837-b799-c63f783d8e1d" testId="565b51c0-5a8c-38a0-07e4-2ca832e4a36e" testName="hotelListing_Validate_request_OccupancyNull_failure" computerName="AD-JENKINS" duration="00:00:00.0005948" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="efe9c8d3-0c95-4837-b799-c63f783d8e1d" />
+    <UnitTestResult executionId="dbcc137d-41ef-4238-be80-0bb25f577457" testId="a1ca69df-77c0-0e17-79f9-d4f94a07c4a0" testName="hotelListing_Validate_request_OccupancyEmpty_failure" computerName="AD-JENKINS" duration="00:00:00.0006311" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dbcc137d-41ef-4238-be80-0bb25f577457" />
+    <UnitTestResult executionId="0f900bfe-3d25-4337-958c-9b9feff6eb8c" testId="46f4c134-9a2a-13f9-063d-575390e0b5b1" testName="hotelListing_Validate_request_ItemsPerPage_failure" computerName="AD-JENKINS" duration="00:00:00.0012527" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0f900bfe-3d25-4337-958c-9b9feff6eb8c">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_ItemsPerPage_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 386
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="a2eb24ee-e55b-4091-9110-8df905f314d5" testId="b9c02516-2ec9-aed0-4adf-24019c32d97e" testName="hotelListing_Validate_request_PageNumber_failure" computerName="AD-JENKINS" duration="00:00:00.0012512" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:22.9993514+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a2eb24ee-e55b-4091-9110-8df905f314d5">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. Wrong exception message was returned.</Message>
+          <StackTrace>    at Traveazy.Suppliers.Hotels.Request.SupplierHotelListRequest.Validate() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels\Request\SupplierHotelListRequest.cs:line 74
+   at Traveazy.Suppliers.Hotels.HotelBeds.HotelBedsAPI.HotelBedsClient.GetHotelsAvailability(SupplierHotelListRequest hotelListRequest) in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.Hotels.HotelBeds\HotelBedsAPI\GetHotelsAvailability.cs:line 35
+   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.hotelListing_Validate_request_PageNumber_failure() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 413
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="0b6c33bd-761a-4aae-a0b8-35eaf887d5d5" testId="13fff4cb-4ef8-1ee2-b9fa-91ce8d164d1d" testName="hotelListing_Validate_response_Success" computerName="AD-JENKINS" duration="00:00:00.1902162" startTime="2015-07-08T10:53:22.9993514+05:30" endTime="2015-07-08T10:53:23.1868677+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b6c33bd-761a-4aae-a0b8-35eaf887d5d5" />
+    <UnitTestResult executionId="38fb2940-9618-4249-9c0f-55b5b8218c95" testId="61643755-c2a0-b339-9fc3-822e34e62435" testName="hotelListing_Validate_response_null_failure" computerName="AD-JENKINS" duration="00:00:00.0037251" startTime="2015-07-08T10:53:23.1868677+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38fb2940-9618-4249-9c0f-55b5b8218c95" />
+    <UnitTestResult executionId="a687edc2-1db7-40af-9812-5386d6662a12" testId="44699a52-41f1-e54f-be6f-bb6cd83fe0e7" testName="hotelListing_Validate_response_NoHotelFound_Success" computerName="AD-JENKINS" duration="00:00:00.0018859" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a687edc2-1db7-40af-9812-5386d6662a12" />
+    <UnitTestResult executionId="59ce4eae-f0bb-4469-a4dc-cfbda66bd29d" testId="0c9b5d21-6948-3286-3b3c-a61e505119df" testName="Logger_instance" computerName="AD-JENKINS" duration="00:00:00.0000916" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="59ce4eae-f0bb-4469-a4dc-cfbda66bd29d" />
+    <UnitTestResult executionId="8ee0531d-97a5-4500-a033-e1547b1063a2" testId="55d48548-89df-3052-2c5e-f292d853129a" testName="RoomAvail_validate_request_failure" computerName="AD-JENKINS" duration="00:00:00.0005854" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8ee0531d-97a5-4500-a033-e1547b1063a2" />
+    <UnitTestResult executionId="38e97a6c-f6fd-4d03-b78f-90f39cc40997" testId="910b6d16-e1c7-c802-1cda-5e94bfa96ed2" testName="RoomAvail_Validate_request_DestinationIdnull_failure" computerName="AD-JENKINS" duration="00:00:00.0006957" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="38e97a6c-f6fd-4d03-b78f-90f39cc40997" />
+    <UnitTestResult executionId="3eb9a58f-d584-4e52-895c-a3a44f91bd77" testId="0adb4104-9544-00ad-0045-888e8373f4cc" testName="RoomAvail_Validate_request_DestinationIdEmpty_failure" computerName="AD-JENKINS" duration="00:00:00.0006904" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3eb9a58f-d584-4e52-895c-a3a44f91bd77" />
+    <UnitTestResult executionId="8f721a03-cc6b-4238-b2f3-0c45a2bdb606" testId="3619f3bc-4420-c1a6-4f27-8e1cbe38ca0e" testName="RoomAvail_Validate_request_HotelCode_EmptyOrNull_failure" computerName="AD-JENKINS" duration="00:00:00.0007039" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8f721a03-cc6b-4238-b2f3-0c45a2bdb606" />
+    <UnitTestResult executionId="3fd3cd0d-0623-4652-8226-19c2b694e364" testId="0026cfa0-3e2d-1087-9c10-2e4d99fec87a" testName="RoomAvail_Validate_request_CheckOutDate_failure" computerName="AD-JENKINS" duration="00:00:00.0006731" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3fd3cd0d-0623-4652-8226-19c2b694e364" />
+    <UnitTestResult executionId="8a3f5cc5-4dc2-4cbb-8d53-4fddd00fe6e6" testId="9334c4cd-5517-7ea7-b1be-845edb7404c8" testName="RoomAvail_Validate_request_CurrencyCodeNull_failure" computerName="AD-JENKINS" duration="00:00:00.0007183" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a3f5cc5-4dc2-4cbb-8d53-4fddd00fe6e6" />
+    <UnitTestResult executionId="8cf06a2a-8497-48e6-ba2b-8d4e6b88f48c" testId="224f2fcd-55c1-05fb-81b4-83cb316e3352" testName="RoomAvail_Validate_request_OccupancyNull_failure" computerName="AD-JENKINS" duration="00:00:00.0005922" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8cf06a2a-8497-48e6-ba2b-8d4e6b88f48c" />
+    <UnitTestResult executionId="4fc11540-dd0d-47a7-afa4-09cc82822a04" testId="28d114c0-1f08-97ee-e2b6-cfaa804af341" testName="RoomAvail_Validate_request_OccupancyEmpty_failure" computerName="AD-JENKINS" duration="00:00:00.0006078" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4fc11540-dd0d-47a7-afa4-09cc82822a04" />
+    <UnitTestResult executionId="1d54d87d-9163-4af9-a544-754b137a8559" testId="990b16fa-277b-e94d-c7b6-f7149a878e8c" testName="RoomAvail_Validate_request_Response_null_failure" computerName="AD-JENKINS" duration="00:00:00.0022497" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d54d87d-9163-4af9-a544-754b137a8559" />
+    <UnitTestResult executionId="adb07246-1f6c-4d21-a5b3-f9eaa94add19" testId="841176b0-5782-1ae7-66d7-6384d7433663" testName="RoomAvail_Validate_request_Response_Exception_failure" computerName="AD-JENKINS" duration="00:00:00.0018534" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2024930+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="adb07246-1f6c-4d21-a5b3-f9eaa94add19" />
+    <UnitTestResult executionId="30e74d8a-5798-4ab3-81f6-5cf0042c9be1" testId="a756a033-60ee-507c-8d0d-a5fdf8728d8a" testName="RoomAvail_Validate_request_singleOccupancy_response_Success" computerName="AD-JENKINS" duration="00:00:00.0026864" startTime="2015-07-08T10:53:23.2024930+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="30e74d8a-5798-4ab3-81f6-5cf0042c9be1" />
+    <UnitTestResult executionId="cfde5265-2bfa-4a31-b2d7-45e868590156" testId="003133ef-f547-befb-12e4-cdd36370abb3" testName="RoomAvail_Validate_request_MulipleOccupancy_response_Success" computerName="AD-JENKINS" duration="00:00:00.0023709" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cfde5265-2bfa-4a31-b2d7-45e868590156" />
+    <UnitTestResult executionId="0c8d1c85-36d0-47ff-a534-fe11f481ebd5" testId="2c80f12c-5ab9-549f-8d99-1a112ef2830e" testName="PreBooking_validate_request_failure" computerName="AD-JENKINS" duration="00:00:00.0004957" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c8d1c85-36d0-47ff-a534-fe11f481ebd5" />
+    <UnitTestResult executionId="8520aa3d-01f2-4014-afcf-93726bbeb257" testId="648fb154-95bb-7e66-5cdf-6247a0147025" testName="PreBooking_Validate_request_DestinationIdnull_failure" computerName="AD-JENKINS" duration="00:00:00.0006963" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8520aa3d-01f2-4014-afcf-93726bbeb257" />
+    <UnitTestResult executionId="7eee34b1-1d06-495d-b14d-e7457bfe1366" testId="1caf55f8-a7f4-ac1d-f98c-411041fcd8f8" testName="PreBooking_Validate_request_DestinationIdEmpty_failure" computerName="AD-JENKINS" duration="00:00:00.0006979" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7eee34b1-1d06-495d-b14d-e7457bfe1366" />
+    <UnitTestResult executionId="3b227c37-1814-4ab3-9e45-be97b86e5f34" testId="5f2c2490-1133-90d7-c4b0-89936bc98281" testName="PreBooking_Validate_request_HotelCode_EmptyOrNull_failure" computerName="AD-JENKINS" duration="00:00:00.0004685" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b227c37-1814-4ab3-9e45-be97b86e5f34" />
+    <UnitTestResult executionId="ab32d200-2e14-4790-9322-6a1e25369d07" testId="27acf684-ad45-94a7-d146-8c3c73258b4d" testName="PreBooking_Validate_request_CheckOutDate_failure" computerName="AD-JENKINS" duration="00:00:00.0005600" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ab32d200-2e14-4790-9322-6a1e25369d07" />
+    <UnitTestResult executionId="dec0470d-6287-406c-ad2d-ca7bdea610ef" testId="c384dcf0-1f97-2f87-1774-3a7c8e5df790" testName="PreBooking_Validate_request_CurrencyCodeNull_failure" computerName="AD-JENKINS" duration="00:00:00.0005521" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dec0470d-6287-406c-ad2d-ca7bdea610ef" />
+    <UnitTestResult executionId="2e0c9dfd-e911-48c5-846c-e4e00573d8f2" testId="9cb47cff-2b51-105f-0616-407c6171dd10" testName="PreBooking_Validate_request_OccupancyNull_failure" computerName="AD-JENKINS" duration="00:00:00.0005377" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2e0c9dfd-e911-48c5-846c-e4e00573d8f2" />
+    <UnitTestResult executionId="d629a584-daaa-4044-b7a5-2cb5a222802c" testId="19ff3c4e-a1d0-cc05-9000-bd9fc58eabe2" testName="PreBooking_Validate_request_OccupancyEmpty_failure" computerName="AD-JENKINS" duration="00:00:00.0005534" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d629a584-daaa-4044-b7a5-2cb5a222802c" />
+    <UnitTestResult executionId="83dcef23-0a31-445b-8b59-8b7be457ffd5" testId="ebe77f98-46f9-1fcf-bfff-edde04002ae6" testName="PreBooking_Validate_request_Tokens_null_failure" computerName="AD-JENKINS" duration="00:00:00.0006422" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="83dcef23-0a31-445b-8b59-8b7be457ffd5" />
+    <UnitTestResult executionId="ed274083-35b1-4afb-acd1-452715858d2e" testId="e2f42a05-f272-42de-eb16-120277e252e0" testName="PreBooking_Validate_request_Tokens_BoardToken_null_failure" computerName="AD-JENKINS" duration="00:00:00.0006561" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ed274083-35b1-4afb-acd1-452715858d2e" />
+    <UnitTestResult executionId="15ce2706-c328-4815-9922-92775e59ac5e" testId="3ec8b2bd-de1a-c649-ca99-6b7c552d8a90" testName="PreBooking_Validate_request_Tokens_BoardToken_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006304" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15ce2706-c328-4815-9922-92775e59ac5e" />
+    <UnitTestResult executionId="9759ec54-0c8c-47d1-8147-046b3425ae9a" testId="0dc00a1b-2034-29f2-c294-489edf8acc8d" testName="PreBooking_Validate_request_Tokens_ContractOffice_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006280" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9759ec54-0c8c-47d1-8147-046b3425ae9a" />
+    <UnitTestResult executionId="9d38c998-d19f-4997-ba1c-9cb57b1acd08" testId="44dee912-4e28-7dff-a34b-76ff62194016" testName="PreBooking_Validate_request_Tokens_ContractOffice_Null_failure" computerName="AD-JENKINS" duration="00:00:00.0006176" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9d38c998-d19f-4997-ba1c-9cb57b1acd08" />
+    <UnitTestResult executionId="6d0266d2-5ede-4662-98af-ad26283e3ee1" testId="054d9df3-5797-af9b-c3f0-94fbf4f03323" testName="PreBooking_Validate_request_Tokens_ContractName_Null_failure" computerName="AD-JENKINS" duration="00:00:00.0006255" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6d0266d2-5ede-4662-98af-ad26283e3ee1" />
+    <UnitTestResult executionId="fc4322b1-c036-4cba-a79a-6c68357f9081" testId="103e3c1a-5ebe-8b42-f89d-baf1bea4a9d3" testName="PreBooking_Validate_request_Tokens_ContractName_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006393" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2181197+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fc4322b1-c036-4cba-a79a-6c68357f9081" />
+    <UnitTestResult executionId="55ce7d94-0fbb-4973-897c-fa292e2f6541" testId="a91494b4-3722-eb61-1b3b-20301008ccd2" testName="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_null_failure" computerName="AD-JENKINS" duration="00:00:00.0006639" startTime="2015-07-08T10:53:23.2181197+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="55ce7d94-0fbb-4973-897c-fa292e2f6541" />
+    <UnitTestResult executionId="abba3e5e-7885-4325-8821-b94929639890" testId="9ad2910b-9688-abfc-8f43-2a058570d38f" testName="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006290" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abba3e5e-7885-4325-8821-b94929639890" />
+    <UnitTestResult executionId="2baf4caa-2ca1-4942-848c-7c6a7ddda4b8" testId="778de728-80d1-9162-5407-3b074605dc16" testName="PreBooking_Validate_request_Tokens_RoomTypeCode_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006359" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2baf4caa-2ca1-4942-848c-7c6a7ddda4b8" />
+    <UnitTestResult executionId="6e544052-3019-4270-99e0-8d6c1ab6ec83" testId="1e1fc9a3-2514-20e6-8f47-5cd9b609b011" testName="PreBooking_Validate_request_Tokens_RoomTypeCode_null_failure" computerName="AD-JENKINS" duration="00:00:00.0006547" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e544052-3019-4270-99e0-8d6c1ab6ec83" />
+    <UnitTestResult executionId="453d6a00-1c88-4401-8704-a1ce6c3e78bd" testId="c0ea7db5-33ce-ac51-3f31-6b4791fd2468" testName="PreBooking_Success" computerName="AD-JENKINS" duration="00:00:00.0039719" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="453d6a00-1c88-4401-8704-a1ce6c3e78bd">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.PreBooking_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 1503
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="97a9da45-0817-4da1-8db5-6336603c0430" testId="3a672588-1c04-3486-9277-36bcfd364138" testName="PreBooking_Response_Null_failure" computerName="AD-JENKINS" duration="00:00:00.0017701" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="97a9da45-0817-4da1-8db5-6336603c0430" />
+    <UnitTestResult executionId="546e7977-9161-4d73-86ae-c0b2babd0ba2" testId="fe73dbe0-4225-83e5-0b60-b3f2faa6c65b" testName="PreBooking_Request_Syntax_Error_Success" computerName="AD-JENKINS" duration="00:00:00.0055734" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="546e7977-9161-4d73-86ae-c0b2babd0ba2">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.PreBooking_Request_Syntax_Error_Success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 1626
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="1dd09a82-693f-477b-8210-f7d934b62066" testId="cfd86c15-6517-2826-e69f-902d47c68be4" testName="Booking_validate_request_null_failure" computerName="AD-JENKINS" duration="00:00:00.0005213" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2337446+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1dd09a82-693f-477b-8210-f7d934b62066" />
+    <UnitTestResult executionId="4117d9a8-b8db-4f5a-a3c7-5424155b4e72" testId="7ec53c3f-613a-1131-860f-3fb31557039d" testName="Booking_validate_request_RoomType_null_failure" computerName="AD-JENKINS" duration="00:00:00.0008479" startTime="2015-07-08T10:53:23.2337446+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4117d9a8-b8db-4f5a-a3c7-5424155b4e72" />
+    <UnitTestResult executionId="5ba2b2c9-4030-414f-a1c8-2a891ed491e0" testId="4e1e8600-0ff8-7ed4-7e5a-d2791a486c29" testName="Booking_validate_request_RoomType_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0006713" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5ba2b2c9-4030-414f-a1c8-2a891ed491e0" />
+    <UnitTestResult executionId="919f53b3-77ce-4ed2-a959-74393366afc6" testId="ac2c9415-260c-e1b1-9d29-0ab8a5730176" testName="Booking_validate_request_PassengerDetails_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007124" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="919f53b3-77ce-4ed2-a959-74393366afc6" />
+    <UnitTestResult executionId="d91ed409-80ac-430d-bd0c-17c81546bdfc" testId="3e6cd2a8-a24c-ef2b-d051-118400e83c1d" testName="Booking_validate_request_PassengerDetails_Empty_failure" computerName="AD-JENKINS" duration="00:00:00.0007181" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d91ed409-80ac-430d-bd0c-17c81546bdfc" />
+    <UnitTestResult executionId="cf02cb57-c3bf-413b-90a1-76c76e28f050" testId="59a40fd5-b3a1-4abd-57b8-7a50540a25d4" testName="Booking_validate_request_RoomOccupancyDetails_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007085" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cf02cb57-c3bf-413b-90a1-76c76e28f050" />
+    <UnitTestResult executionId="ef73d67d-1e2b-4148-86b3-5a31b041fc89" testId="33746f6e-73ce-1df8-bf44-42dc6d48da83" testName="Booking_validate_request_BookingToken_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007430" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ef73d67d-1e2b-4148-86b3-5a31b041fc89" />
+    <UnitTestResult executionId="e37aaea6-e80e-487a-bd9a-310ee8d9a77d" testId="dceee7a6-df4c-474d-e01e-024a242cd90e" testName="Booking_validate_request_BookingToken_BookingPurchaseToken_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007517" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e37aaea6-e80e-487a-bd9a-310ee8d9a77d" />
+    <UnitTestResult executionId="aa6d369b-7536-4c3a-b2a6-8cad02a9ef15" testId="b0f9b5e4-dc48-6e52-4bc1-563d56b29e96" testName="Booking_validate_request_BookingToken_BookingPurchaseToken_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0007609" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa6d369b-7536-4c3a-b2a6-8cad02a9ef15" />
+    <UnitTestResult executionId="6e4d9530-0d71-4e1e-8a41-f777f961aa4f" testId="4ddcd4f8-97f8-26f7-b22b-ba82f7f9e567" testName="Booking_validate_request_BookingToken_ServiceProductUniqueId_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0007569" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e4d9530-0d71-4e1e-8a41-f777f961aa4f" />
+    <UnitTestResult executionId="63dcc22e-bdb3-4a96-8c2e-f4c69b1cc925" testId="17cc7375-c242-38ed-1104-0488be95deec" testName="Booking_validate_request_BookingToken_ServiceProductUniqueId_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007751" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="63dcc22e-bdb3-4a96-8c2e-f4c69b1cc925" />
+    <UnitTestResult executionId="19801b4c-c46a-4da6-ae4f-3eb7dfb866a2" testId="18573a9c-0a7d-6ba4-e0da-871e752a7f13" testName="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_null_failure" computerName="AD-JENKINS" duration="00:00:00.0007726" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19801b4c-c46a-4da6-ae4f-3eb7dfb866a2" />
+    <UnitTestResult executionId="88d8a931-1dd6-4fc2-a385-fe544ccef31a" testId="d6708045-15f2-0473-880d-64a97539971d" testName="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0007848" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="88d8a931-1dd6-4fc2-a385-fe544ccef31a" />
+    <UnitTestResult executionId="b5e8c0b3-9da9-4ecb-9bfe-9b7c11e147b4" testId="655c9cbf-cdee-db3e-89b8-315b2dfa64f2" testName="Booking_validate_response_success" computerName="AD-JENKINS" duration="00:00:00.0032196" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b5e8c0b3-9da9-4ecb-9bfe-9b7c11e147b4" />
+    <UnitTestResult executionId="956cd40f-f710-4b44-af84-caa12f45fd47" testId="41220e17-b572-764b-52d9-79d03d11fc7d" testName="Booking_validate_response_null_failure" computerName="AD-JENKINS" duration="00:00:00.0016396" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2493721+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="956cd40f-f710-4b44-af84-caa12f45fd47" />
+    <UnitTestResult executionId="d013b718-9514-4c01-83d3-e630e40f6f0a" testId="4da280cb-e2d7-1beb-1854-49d2c35c9a74" testName="Booking_validate_response_Error_success" computerName="AD-JENKINS" duration="00:00:00.0048665" startTime="2015-07-08T10:53:23.2493721+05:30" endTime="2015-07-08T10:53:23.2649983+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d013b718-9514-4c01-83d3-e630e40f6f0a">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   at Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest.Booking_validate_response_Error_success() in c:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\HotelBedsUnitTest.cs:line 2276
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="85ff81ab-392c-4a0d-9646-8140b5e6e140" testId="4a4d69fb-d115-487d-61b3-a7f5ef486d71" testName="Booking_SupplierResponse_Parsing_success" computerName="AD-JENKINS" duration="00:00:00.0116508" startTime="2015-07-08T10:53:23.2649983+05:30" endTime="2015-07-08T10:53:23.2806253+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="85ff81ab-392c-4a0d-9646-8140b5e6e140" />
+    <UnitTestResult executionId="367d860e-95e5-4590-8160-bbfa1e82ad65" testId="5c812a8d-61c8-2109-ff8d-253f657d5cb5" testName="Cancellation_Request_null_failure" computerName="AD-JENKINS" duration="00:00:00.0005811" startTime="2015-07-08T10:53:23.2806253+05:30" endTime="2015-07-08T10:53:23.2806253+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="367d860e-95e5-4590-8160-bbfa1e82ad65" />
+    <UnitTestResult executionId="0929fdea-b5a6-4239-bdaf-5d2e15406834" testId="ac3a19ff-350b-c19d-a2cf-1b94b9e02bc4" testName="Cancellation_Request_ConfirmationNumber_null_failure" computerName="AD-JENKINS" duration="00:00:00.0008366" startTime="2015-07-08T10:53:23.2806253+05:30" endTime="2015-07-08T10:53:23.2806253+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0929fdea-b5a6-4239-bdaf-5d2e15406834" />
+    <UnitTestResult executionId="a1aa0b62-6381-45d4-bf9c-48b7d2800397" testId="dbebca26-0aff-6907-159d-a2766d8f0d8c" testName="Cancellation_Request_ConfirmationNumber_empty_failure" computerName="AD-JENKINS" duration="00:00:00.0005426" startTime="2015-07-08T10:53:23.2806253+05:30" endTime="2015-07-08T10:53:23.2806253+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a1aa0b62-6381-45d4-bf9c-48b7d2800397" />
+    <UnitTestResult executionId="e5de1ac1-f61a-4d9f-9600-6fedd98f28d2" testId="eb0bb612-8d67-ea1c-5f5a-3be02cce5f81" testName="Cancellation_Request_ConfirmationNumber_Invalid_failure" computerName="AD-JENKINS" duration="00:00:00.0016618" startTime="2015-07-08T10:53:23.2806253+05:30" endTime="2015-07-08T10:53:23.2806253+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5de1ac1-f61a-4d9f-9600-6fedd98f28d2" />
+    <UnitTestResult executionId="854d8b52-9f1f-452c-9211-f17a617c7868" testId="69be9a09-f457-594f-12ba-93ed98ebcced" testName="Cancellation_validate_response_null_failure" computerName="AD-JENKINS" duration="00:00:00.0289769" startTime="2015-07-08T10:53:23.2806253+05:30" endTime="2015-07-08T10:53:23.3118777+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="854d8b52-9f1f-452c-9211-f17a617c7868" />
+    <UnitTestResult executionId="ea443bcd-15a9-4513-9f31-6d136e628791" testId="1f55bcec-9c5b-77cd-a445-46d3a25bdced" testName="Cancellation_validate_response_success" computerName="AD-JENKINS" duration="00:00:00.1542463" startTime="2015-07-08T10:53:23.3118777+05:30" endTime="2015-07-08T10:53:23.4681416+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ea443bcd-15a9-4513-9f31-6d136e628791" />
+    <UnitTestResult executionId="768255ba-9beb-4656-a51e-02f7d8992e8b" testId="d3a23ef1-88a6-7575-0275-3f57aa5a80bc" testName="Cancellation_validate_Error_response_success" computerName="AD-JENKINS" duration="00:00:00.0043683" startTime="2015-07-08T10:53:23.4681416+05:30" endTime="2015-07-08T10:53:23.4681416+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="768255ba-9beb-4656-a51e-02f7d8992e8b" />
+    <UnitTestResult executionId="8a290289-f0bd-47e4-95dd-48d75de67317" testId="e8f1a79c-eff3-93d3-33a3-74187e2b6ddf" testName="Validation_Config_null" computerName="AD-JENKINS" startTime="2015-07-08T10:53:23.4681416+05:30" endTime="2015-07-08T10:53:23.4681416+05:30" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8a290289-f0bd-47e4-95dd-48d75de67317" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="integration_hotelListing_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="bd82b441-8403-8320-6841-a6034c9e168f">
+      <Execution id="4180f9ec-d237-424c-b0d2-11847419de81" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_hotelListing_Success" />
+    </UnitTest>
+    <UnitTest name="integration_hotelListing_by_HotelIds_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="8f254499-10ef-3f0b-f600-00250b043607">
+      <Execution id="c8fe5eee-d435-462f-be17-77141a92da19" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_hotelListing_by_HotelIds_Success" />
+    </UnitTest>
+    <UnitTest name="integration_hotel_Booking_Flow_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="7434bcc5-45e6-48a6-3336-9fdfae25b4b3">
+      <Execution id="33593732-d69e-4cd0-b81c-6f32f0f33fb7" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_hotel_Booking_Flow_Success" />
+    </UnitTest>
+    <UnitTest name="integration_Cancellation_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="b683f44e-450d-4978-955a-dc1f01a9ce29">
+      <Execution id="b6e3a63d-a50b-4d61-b031-b2796eea7d86" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_Cancellation_failure" />
+    </UnitTest>
+    <UnitTest name="integration_TryParse_cancellationResponse_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="c539f2fa-3d87-aeb4-0df9-32b5c4ef9dc7">
+      <Execution id="554543c0-c4dc-4565-a2c1-8e73bfaaf510" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_TryParse_cancellationResponse_success" />
+    </UnitTest>
+    <UnitTest name="integration_MultiThread_HotelListing_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="59ed76b3-1db9-6c5b-14c4-f6cedf383e38">
+      <Execution id="19d5bc70-f1ab-4bb0-bbd2-436ca6c3c9a6" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_MultiThread_HotelListing_Success" />
+    </UnitTest>
+    <UnitTest name="integration_MultiThread_HotelRoomRates_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="c04b496e-be03-3823-83f9-b85d1eae1eed">
+      <Execution id="a761b2f7-79dc-43dd-9902-eab3f885c4ff" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_MultiThread_HotelRoomRates_Success" />
+    </UnitTest>
+    <UnitTest name="integration_MultiThread_hotel_Booking_Flow_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="62f144a2-15d3-a368-ac63-33bde414d62a">
+      <Execution id="d5633b06-24fd-40d5-bff1-3760e7fa74f1" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_MultiThread_hotel_Booking_Flow_Success" />
+    </UnitTest>
+    <UnitTest name="integration_MultiThread_hotel_Booking_Flow_DataDriven_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="494e0bd5-7c7b-5823-9d90-d7f55c571b5a">
+      <Execution id="572d0a36-195b-4b15-9fbe-7369f8f378ad" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsIntegrationTest" name="integration_MultiThread_hotel_Booking_Flow_DataDriven_Success" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="e7c1533d-e2f8-15f0-53fe-2f89132677e3">
+      <Execution id="7d60d4de-2a73-4700-a608-ea871ad03211" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_TransactionId_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="65fb6f27-bf7d-e225-d4c1-dbd64e0a6ad3">
+      <Execution id="16a82814-858e-434e-995c-f4eea8d83acc" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_TransactionId_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_TransactionId_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="644f21e3-3df4-fb47-ae89-7e2681ac750e">
+      <Execution id="07d63aa6-32ad-46b9-bcc7-c08a1f4c3ed9" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_TransactionId_empty_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_DestinationId_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="79899f70-d49c-77a0-5b00-1e328ef7cb29">
+      <Execution id="772f6328-e56b-406b-9f64-c1d77cc42e09" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_DestinationId_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_DestinationId_Empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="33701d3c-a6ad-9f0b-b43c-43260bec961b">
+      <Execution id="7b4b32d9-c24f-47eb-b0be-0905252691ce" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_DestinationId_Empty_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_SearchByHotelId_DestinationId_Empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="9cbc59e0-cb58-6682-9635-086514aaaf39">
+      <Execution id="4846d79a-a42d-408d-a8d2-e0b2a74984f2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_SearchByHotelId_DestinationId_Empty_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_SearchByHotelId_DestinationId_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="30344a9b-1f83-f8be-d5aa-864a43194202">
+      <Execution id="3be43b7e-27e4-489d-a748-f0411809e528" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_SearchByHotelId_DestinationId_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_HotelId_Empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="4ca44dab-2a4b-9bad-c79b-e507f3a1b4a7">
+      <Execution id="cb7e31e3-b50d-45dc-b963-20be2477c69f" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_HotelId_Empty_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_HotelId_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="26b2a8f6-7aff-53b1-38cc-9fbb3747577c">
+      <Execution id="c269f10c-90cc-49ef-ac5a-b75d068e2768" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_HotelId_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_CheckOutDate_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="d0cb85ce-d1b0-59ac-99e5-bb5e3769ec6f">
+      <Execution id="2eea91d5-573d-478d-b3cb-0206829f166a" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_CheckOutDate_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_CurrencyCodeNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="d48df660-faef-70d6-00f0-20bfa4592bca">
+      <Execution id="f4997c61-73d4-44dc-b6b6-0dfea6b4cf84" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_CurrencyCodeNull_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_OccupancyNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="565b51c0-5a8c-38a0-07e4-2ca832e4a36e">
+      <Execution id="efe9c8d3-0c95-4837-b799-c63f783d8e1d" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_OccupancyNull_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_OccupancyEmpty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="a1ca69df-77c0-0e17-79f9-d4f94a07c4a0">
+      <Execution id="dbcc137d-41ef-4238-be80-0bb25f577457" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_OccupancyEmpty_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_ItemsPerPage_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="46f4c134-9a2a-13f9-063d-575390e0b5b1">
+      <Execution id="0f900bfe-3d25-4337-958c-9b9feff6eb8c" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_ItemsPerPage_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_request_PageNumber_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="b9c02516-2ec9-aed0-4adf-24019c32d97e">
+      <Execution id="a2eb24ee-e55b-4091-9110-8df905f314d5" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_request_PageNumber_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_response_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="13fff4cb-4ef8-1ee2-b9fa-91ce8d164d1d">
+      <Execution id="0b6c33bd-761a-4aae-a0b8-35eaf887d5d5" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_response_Success" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_response_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="61643755-c2a0-b339-9fc3-822e34e62435">
+      <Execution id="38fb2940-9618-4249-9c0f-55b5b8218c95" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_response_null_failure" />
+    </UnitTest>
+    <UnitTest name="hotelListing_Validate_response_NoHotelFound_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="44699a52-41f1-e54f-be6f-bb6cd83fe0e7">
+      <Execution id="a687edc2-1db7-40af-9812-5386d6662a12" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="hotelListing_Validate_response_NoHotelFound_Success" />
+    </UnitTest>
+    <UnitTest name="Logger_instance" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="0c9b5d21-6948-3286-3b3c-a61e505119df">
+      <Execution id="59ce4eae-f0bb-4469-a4dc-cfbda66bd29d" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Logger_instance" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_validate_request_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="55d48548-89df-3052-2c5e-f292d853129a">
+      <Execution id="8ee0531d-97a5-4500-a033-e1547b1063a2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_validate_request_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_DestinationIdnull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="910b6d16-e1c7-c802-1cda-5e94bfa96ed2">
+      <Execution id="38e97a6c-f6fd-4d03-b78f-90f39cc40997" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_DestinationIdnull_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_DestinationIdEmpty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="0adb4104-9544-00ad-0045-888e8373f4cc">
+      <Execution id="3eb9a58f-d584-4e52-895c-a3a44f91bd77" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_DestinationIdEmpty_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_HotelCode_EmptyOrNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="3619f3bc-4420-c1a6-4f27-8e1cbe38ca0e">
+      <Execution id="8f721a03-cc6b-4238-b2f3-0c45a2bdb606" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_HotelCode_EmptyOrNull_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_CheckOutDate_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="0026cfa0-3e2d-1087-9c10-2e4d99fec87a">
+      <Execution id="3fd3cd0d-0623-4652-8226-19c2b694e364" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_CheckOutDate_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_CurrencyCodeNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="9334c4cd-5517-7ea7-b1be-845edb7404c8">
+      <Execution id="8a3f5cc5-4dc2-4cbb-8d53-4fddd00fe6e6" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_CurrencyCodeNull_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_OccupancyNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="224f2fcd-55c1-05fb-81b4-83cb316e3352">
+      <Execution id="8cf06a2a-8497-48e6-ba2b-8d4e6b88f48c" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_OccupancyNull_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_OccupancyEmpty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="28d114c0-1f08-97ee-e2b6-cfaa804af341">
+      <Execution id="4fc11540-dd0d-47a7-afa4-09cc82822a04" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_OccupancyEmpty_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_Response_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="990b16fa-277b-e94d-c7b6-f7149a878e8c">
+      <Execution id="1d54d87d-9163-4af9-a544-754b137a8559" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_Response_null_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_Response_Exception_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="841176b0-5782-1ae7-66d7-6384d7433663">
+      <Execution id="adb07246-1f6c-4d21-a5b3-f9eaa94add19" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_Response_Exception_failure" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_singleOccupancy_response_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="a756a033-60ee-507c-8d0d-a5fdf8728d8a">
+      <Execution id="30e74d8a-5798-4ab3-81f6-5cf0042c9be1" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_singleOccupancy_response_Success" />
+    </UnitTest>
+    <UnitTest name="RoomAvail_Validate_request_MulipleOccupancy_response_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="003133ef-f547-befb-12e4-cdd36370abb3">
+      <Execution id="cfde5265-2bfa-4a31-b2d7-45e868590156" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="RoomAvail_Validate_request_MulipleOccupancy_response_Success" />
+    </UnitTest>
+    <UnitTest name="PreBooking_validate_request_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="2c80f12c-5ab9-549f-8d99-1a112ef2830e">
+      <Execution id="0c8d1c85-36d0-47ff-a534-fe11f481ebd5" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_validate_request_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_DestinationIdnull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="648fb154-95bb-7e66-5cdf-6247a0147025">
+      <Execution id="8520aa3d-01f2-4014-afcf-93726bbeb257" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_DestinationIdnull_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_DestinationIdEmpty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="1caf55f8-a7f4-ac1d-f98c-411041fcd8f8">
+      <Execution id="7eee34b1-1d06-495d-b14d-e7457bfe1366" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_DestinationIdEmpty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_HotelCode_EmptyOrNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="5f2c2490-1133-90d7-c4b0-89936bc98281">
+      <Execution id="3b227c37-1814-4ab3-9e45-be97b86e5f34" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_HotelCode_EmptyOrNull_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_CheckOutDate_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="27acf684-ad45-94a7-d146-8c3c73258b4d">
+      <Execution id="ab32d200-2e14-4790-9322-6a1e25369d07" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_CheckOutDate_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_CurrencyCodeNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="c384dcf0-1f97-2f87-1774-3a7c8e5df790">
+      <Execution id="dec0470d-6287-406c-ad2d-ca7bdea610ef" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_CurrencyCodeNull_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_OccupancyNull_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="9cb47cff-2b51-105f-0616-407c6171dd10">
+      <Execution id="2e0c9dfd-e911-48c5-846c-e4e00573d8f2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_OccupancyNull_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_OccupancyEmpty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="19ff3c4e-a1d0-cc05-9000-bd9fc58eabe2">
+      <Execution id="d629a584-daaa-4044-b7a5-2cb5a222802c" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_OccupancyEmpty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="ebe77f98-46f9-1fcf-bfff-edde04002ae6">
+      <Execution id="83dcef23-0a31-445b-8b59-8b7be457ffd5" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_BoardToken_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="e2f42a05-f272-42de-eb16-120277e252e0">
+      <Execution id="ed274083-35b1-4afb-acd1-452715858d2e" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_BoardToken_null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_BoardToken_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="3ec8b2bd-de1a-c649-ca99-6b7c552d8a90">
+      <Execution id="15ce2706-c328-4815-9922-92775e59ac5e" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_BoardToken_empty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_ContractOffice_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="0dc00a1b-2034-29f2-c294-489edf8acc8d">
+      <Execution id="9759ec54-0c8c-47d1-8147-046b3425ae9a" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_ContractOffice_empty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_ContractOffice_Null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="44dee912-4e28-7dff-a34b-76ff62194016">
+      <Execution id="9d38c998-d19f-4997-ba1c-9cb57b1acd08" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_ContractOffice_Null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_ContractName_Null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="054d9df3-5797-af9b-c3f0-94fbf4f03323">
+      <Execution id="6d0266d2-5ede-4662-98af-ad26283e3ee1" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_ContractName_Null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_ContractName_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="103e3c1a-5ebe-8b42-f89d-baf1bea4a9d3">
+      <Execution id="fc4322b1-c036-4cba-a79a-6c68357f9081" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_ContractName_empty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="a91494b4-3722-eb61-1b3b-20301008ccd2">
+      <Execution id="55ce7d94-0fbb-4973-897c-fa292e2f6541" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="9ad2910b-9688-abfc-8f43-2a058570d38f">
+      <Execution id="abba3e5e-7885-4325-8821-b94929639890" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_RoomTypeCharacteristic_empty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_RoomTypeCode_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="778de728-80d1-9162-5407-3b074605dc16">
+      <Execution id="2baf4caa-2ca1-4942-848c-7c6a7ddda4b8" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_RoomTypeCode_empty_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Validate_request_Tokens_RoomTypeCode_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="1e1fc9a3-2514-20e6-8f47-5cd9b609b011">
+      <Execution id="6e544052-3019-4270-99e0-8d6c1ab6ec83" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Validate_request_Tokens_RoomTypeCode_null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="c0ea7db5-33ce-ac51-3f31-6b4791fd2468">
+      <Execution id="453d6a00-1c88-4401-8704-a1ce6c3e78bd" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Success" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Response_Null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="3a672588-1c04-3486-9277-36bcfd364138">
+      <Execution id="97a9da45-0817-4da1-8db5-6336603c0430" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Response_Null_failure" />
+    </UnitTest>
+    <UnitTest name="PreBooking_Request_Syntax_Error_Success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="fe73dbe0-4225-83e5-0b60-b3f2faa6c65b">
+      <Execution id="546e7977-9161-4d73-86ae-c0b2babd0ba2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="PreBooking_Request_Syntax_Error_Success" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="cfd86c15-6517-2826-e69f-902d47c68be4">
+      <Execution id="1dd09a82-693f-477b-8210-f7d934b62066" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_RoomType_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="7ec53c3f-613a-1131-860f-3fb31557039d">
+      <Execution id="4117d9a8-b8db-4f5a-a3c7-5424155b4e72" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_RoomType_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_RoomType_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="4e1e8600-0ff8-7ed4-7e5a-d2791a486c29">
+      <Execution id="5ba2b2c9-4030-414f-a1c8-2a891ed491e0" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_RoomType_empty_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_PassengerDetails_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="ac2c9415-260c-e1b1-9d29-0ab8a5730176">
+      <Execution id="919f53b3-77ce-4ed2-a959-74393366afc6" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_PassengerDetails_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_PassengerDetails_Empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="3e6cd2a8-a24c-ef2b-d051-118400e83c1d">
+      <Execution id="d91ed409-80ac-430d-bd0c-17c81546bdfc" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_PassengerDetails_Empty_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_RoomOccupancyDetails_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="59a40fd5-b3a1-4abd-57b8-7a50540a25d4">
+      <Execution id="cf02cb57-c3bf-413b-90a1-76c76e28f050" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_RoomOccupancyDetails_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="33746f6e-73ce-1df8-bf44-42dc6d48da83">
+      <Execution id="ef73d67d-1e2b-4148-86b3-5a31b041fc89" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_BookingPurchaseToken_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="dceee7a6-df4c-474d-e01e-024a242cd90e">
+      <Execution id="e37aaea6-e80e-487a-bd9a-310ee8d9a77d" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_BookingPurchaseToken_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_BookingPurchaseToken_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="b0f9b5e4-dc48-6e52-4bc1-563d56b29e96">
+      <Execution id="aa6d369b-7536-4c3a-b2a6-8cad02a9ef15" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_BookingPurchaseToken_empty_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_ServiceProductUniqueId_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="4ddcd4f8-97f8-26f7-b22b-ba82f7f9e567">
+      <Execution id="6e4d9530-0d71-4e1e-8a41-f777f961aa4f" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_ServiceProductUniqueId_empty_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_ServiceProductUniqueId_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="17cc7375-c242-38ed-1104-0488be95deec">
+      <Execution id="63dcc22e-bdb3-4a96-8c2e-f4c69b1cc925" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_ServiceProductUniqueId_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="18573a9c-0a7d-6ba4-e0da-871e752a7f13">
+      <Execution id="19801b4c-c46a-4da6-ae4f-3eb7dfb866a2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="d6708045-15f2-0473-880d-64a97539971d">
+      <Execution id="88d8a931-1dd6-4fc2-a385-fe544ccef31a" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_request_BookingToken_SupplierAgencyReffNumber_empty_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_response_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="655c9cbf-cdee-db3e-89b8-315b2dfa64f2">
+      <Execution id="b5e8c0b3-9da9-4ecb-9bfe-9b7c11e147b4" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_response_success" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_response_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="41220e17-b572-764b-52d9-79d03d11fc7d">
+      <Execution id="956cd40f-f710-4b44-af84-caa12f45fd47" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_response_null_failure" />
+    </UnitTest>
+    <UnitTest name="Booking_validate_response_Error_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="4da280cb-e2d7-1beb-1854-49d2c35c9a74">
+      <Execution id="d013b718-9514-4c01-83d3-e630e40f6f0a" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_validate_response_Error_success" />
+    </UnitTest>
+    <UnitTest name="Booking_SupplierResponse_Parsing_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="4a4d69fb-d115-487d-61b3-a7f5ef486d71">
+      <Execution id="85ff81ab-392c-4a0d-9646-8140b5e6e140" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Booking_SupplierResponse_Parsing_success" />
+    </UnitTest>
+    <UnitTest name="Cancellation_Request_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="5c812a8d-61c8-2109-ff8d-253f657d5cb5">
+      <Execution id="367d860e-95e5-4590-8160-bbfa1e82ad65" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_Request_null_failure" />
+    </UnitTest>
+    <UnitTest name="Cancellation_Request_ConfirmationNumber_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="ac3a19ff-350b-c19d-a2cf-1b94b9e02bc4">
+      <Execution id="0929fdea-b5a6-4239-bdaf-5d2e15406834" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_Request_ConfirmationNumber_null_failure" />
+    </UnitTest>
+    <UnitTest name="Cancellation_Request_ConfirmationNumber_empty_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="dbebca26-0aff-6907-159d-a2766d8f0d8c">
+      <Execution id="a1aa0b62-6381-45d4-bf9c-48b7d2800397" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_Request_ConfirmationNumber_empty_failure" />
+    </UnitTest>
+    <UnitTest name="Cancellation_Request_ConfirmationNumber_Invalid_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="eb0bb612-8d67-ea1c-5f5a-3be02cce5f81">
+      <Execution id="e5de1ac1-f61a-4d9f-9600-6fedd98f28d2" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_Request_ConfirmationNumber_Invalid_failure" />
+    </UnitTest>
+    <UnitTest name="Cancellation_validate_response_null_failure" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="69be9a09-f457-594f-12ba-93ed98ebcced">
+      <Execution id="854d8b52-9f1f-452c-9211-f17a617c7868" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_validate_response_null_failure" />
+    </UnitTest>
+    <UnitTest name="Cancellation_validate_response_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="1f55bcec-9c5b-77cd-a445-46d3a25bdced">
+      <Execution id="ea443bcd-15a9-4513-9f31-6d136e628791" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_validate_response_success" />
+    </UnitTest>
+    <UnitTest name="Cancellation_validate_Error_response_success" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="d3a23ef1-88a6-7575-0275-3f57aa5a80bc">
+      <Execution id="768255ba-9beb-4656-a51e-02f7d8992e8b" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Cancellation_validate_Error_response_success" />
+    </UnitTest>
+    <UnitTest name="Validation_Config_null" storage="c:\program files (x86)\jenkins\jobs\traveazy.suppliers\workspace\traveazy.suppliers.hotelbedstest\bin\debug\traveazy.suppliers.hotelbedstest.dll" id="e8f1a79c-eff3-93d3-33a3-74187e2b6ddf">
+      <Execution id="8a290289-f0bd-47e4-95dd-48d75de67317" />
+      <TestMethod codeBase="C:\Program Files (x86)\Jenkins\jobs\Traveazy.Suppliers\workspace\Traveazy.Suppliers.HotelBedsTest\bin\Debug\Traveazy.Suppliers.HotelBedsTest.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter" className="Traveazy.Suppliers.Hotels.HotelBedsTest.HotelBedsUnitTest" name="Validation_Config_null" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="bd82b441-8403-8320-6841-a6034c9e168f" executionId="4180f9ec-d237-424c-b0d2-11847419de81" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f254499-10ef-3f0b-f600-00250b043607" executionId="c8fe5eee-d435-462f-be17-77141a92da19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7434bcc5-45e6-48a6-3336-9fdfae25b4b3" executionId="33593732-d69e-4cd0-b81c-6f32f0f33fb7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b683f44e-450d-4978-955a-dc1f01a9ce29" executionId="b6e3a63d-a50b-4d61-b031-b2796eea7d86" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c539f2fa-3d87-aeb4-0df9-32b5c4ef9dc7" executionId="554543c0-c4dc-4565-a2c1-8e73bfaaf510" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="59ed76b3-1db9-6c5b-14c4-f6cedf383e38" executionId="19d5bc70-f1ab-4bb0-bbd2-436ca6c3c9a6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c04b496e-be03-3823-83f9-b85d1eae1eed" executionId="a761b2f7-79dc-43dd-9902-eab3f885c4ff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="62f144a2-15d3-a368-ac63-33bde414d62a" executionId="d5633b06-24fd-40d5-bff1-3760e7fa74f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="494e0bd5-7c7b-5823-9d90-d7f55c571b5a" executionId="572d0a36-195b-4b15-9fbe-7369f8f378ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e7c1533d-e2f8-15f0-53fe-2f89132677e3" executionId="7d60d4de-2a73-4700-a608-ea871ad03211" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="65fb6f27-bf7d-e225-d4c1-dbd64e0a6ad3" executionId="16a82814-858e-434e-995c-f4eea8d83acc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="644f21e3-3df4-fb47-ae89-7e2681ac750e" executionId="07d63aa6-32ad-46b9-bcc7-c08a1f4c3ed9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="79899f70-d49c-77a0-5b00-1e328ef7cb29" executionId="772f6328-e56b-406b-9f64-c1d77cc42e09" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="33701d3c-a6ad-9f0b-b43c-43260bec961b" executionId="7b4b32d9-c24f-47eb-b0be-0905252691ce" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9cbc59e0-cb58-6682-9635-086514aaaf39" executionId="4846d79a-a42d-408d-a8d2-e0b2a74984f2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30344a9b-1f83-f8be-d5aa-864a43194202" executionId="3be43b7e-27e4-489d-a748-f0411809e528" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ca44dab-2a4b-9bad-c79b-e507f3a1b4a7" executionId="cb7e31e3-b50d-45dc-b963-20be2477c69f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="26b2a8f6-7aff-53b1-38cc-9fbb3747577c" executionId="c269f10c-90cc-49ef-ac5a-b75d068e2768" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d0cb85ce-d1b0-59ac-99e5-bb5e3769ec6f" executionId="2eea91d5-573d-478d-b3cb-0206829f166a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d48df660-faef-70d6-00f0-20bfa4592bca" executionId="f4997c61-73d4-44dc-b6b6-0dfea6b4cf84" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="565b51c0-5a8c-38a0-07e4-2ca832e4a36e" executionId="efe9c8d3-0c95-4837-b799-c63f783d8e1d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a1ca69df-77c0-0e17-79f9-d4f94a07c4a0" executionId="dbcc137d-41ef-4238-be80-0bb25f577457" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="46f4c134-9a2a-13f9-063d-575390e0b5b1" executionId="0f900bfe-3d25-4337-958c-9b9feff6eb8c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b9c02516-2ec9-aed0-4adf-24019c32d97e" executionId="a2eb24ee-e55b-4091-9110-8df905f314d5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="13fff4cb-4ef8-1ee2-b9fa-91ce8d164d1d" executionId="0b6c33bd-761a-4aae-a0b8-35eaf887d5d5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="61643755-c2a0-b339-9fc3-822e34e62435" executionId="38fb2940-9618-4249-9c0f-55b5b8218c95" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44699a52-41f1-e54f-be6f-bb6cd83fe0e7" executionId="a687edc2-1db7-40af-9812-5386d6662a12" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0c9b5d21-6948-3286-3b3c-a61e505119df" executionId="59ce4eae-f0bb-4469-a4dc-cfbda66bd29d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55d48548-89df-3052-2c5e-f292d853129a" executionId="8ee0531d-97a5-4500-a033-e1547b1063a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="910b6d16-e1c7-c802-1cda-5e94bfa96ed2" executionId="38e97a6c-f6fd-4d03-b78f-90f39cc40997" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0adb4104-9544-00ad-0045-888e8373f4cc" executionId="3eb9a58f-d584-4e52-895c-a3a44f91bd77" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3619f3bc-4420-c1a6-4f27-8e1cbe38ca0e" executionId="8f721a03-cc6b-4238-b2f3-0c45a2bdb606" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0026cfa0-3e2d-1087-9c10-2e4d99fec87a" executionId="3fd3cd0d-0623-4652-8226-19c2b694e364" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9334c4cd-5517-7ea7-b1be-845edb7404c8" executionId="8a3f5cc5-4dc2-4cbb-8d53-4fddd00fe6e6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="224f2fcd-55c1-05fb-81b4-83cb316e3352" executionId="8cf06a2a-8497-48e6-ba2b-8d4e6b88f48c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="28d114c0-1f08-97ee-e2b6-cfaa804af341" executionId="4fc11540-dd0d-47a7-afa4-09cc82822a04" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="990b16fa-277b-e94d-c7b6-f7149a878e8c" executionId="1d54d87d-9163-4af9-a544-754b137a8559" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="841176b0-5782-1ae7-66d7-6384d7433663" executionId="adb07246-1f6c-4d21-a5b3-f9eaa94add19" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a756a033-60ee-507c-8d0d-a5fdf8728d8a" executionId="30e74d8a-5798-4ab3-81f6-5cf0042c9be1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="003133ef-f547-befb-12e4-cdd36370abb3" executionId="cfde5265-2bfa-4a31-b2d7-45e868590156" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2c80f12c-5ab9-549f-8d99-1a112ef2830e" executionId="0c8d1c85-36d0-47ff-a534-fe11f481ebd5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="648fb154-95bb-7e66-5cdf-6247a0147025" executionId="8520aa3d-01f2-4014-afcf-93726bbeb257" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1caf55f8-a7f4-ac1d-f98c-411041fcd8f8" executionId="7eee34b1-1d06-495d-b14d-e7457bfe1366" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f2c2490-1133-90d7-c4b0-89936bc98281" executionId="3b227c37-1814-4ab3-9e45-be97b86e5f34" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="27acf684-ad45-94a7-d146-8c3c73258b4d" executionId="ab32d200-2e14-4790-9322-6a1e25369d07" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c384dcf0-1f97-2f87-1774-3a7c8e5df790" executionId="dec0470d-6287-406c-ad2d-ca7bdea610ef" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9cb47cff-2b51-105f-0616-407c6171dd10" executionId="2e0c9dfd-e911-48c5-846c-e4e00573d8f2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="19ff3c4e-a1d0-cc05-9000-bd9fc58eabe2" executionId="d629a584-daaa-4044-b7a5-2cb5a222802c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ebe77f98-46f9-1fcf-bfff-edde04002ae6" executionId="83dcef23-0a31-445b-8b59-8b7be457ffd5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e2f42a05-f272-42de-eb16-120277e252e0" executionId="ed274083-35b1-4afb-acd1-452715858d2e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3ec8b2bd-de1a-c649-ca99-6b7c552d8a90" executionId="15ce2706-c328-4815-9922-92775e59ac5e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0dc00a1b-2034-29f2-c294-489edf8acc8d" executionId="9759ec54-0c8c-47d1-8147-046b3425ae9a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="44dee912-4e28-7dff-a34b-76ff62194016" executionId="9d38c998-d19f-4997-ba1c-9cb57b1acd08" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="054d9df3-5797-af9b-c3f0-94fbf4f03323" executionId="6d0266d2-5ede-4662-98af-ad26283e3ee1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="103e3c1a-5ebe-8b42-f89d-baf1bea4a9d3" executionId="fc4322b1-c036-4cba-a79a-6c68357f9081" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a91494b4-3722-eb61-1b3b-20301008ccd2" executionId="55ce7d94-0fbb-4973-897c-fa292e2f6541" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9ad2910b-9688-abfc-8f43-2a058570d38f" executionId="abba3e5e-7885-4325-8821-b94929639890" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="778de728-80d1-9162-5407-3b074605dc16" executionId="2baf4caa-2ca1-4942-848c-7c6a7ddda4b8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e1fc9a3-2514-20e6-8f47-5cd9b609b011" executionId="6e544052-3019-4270-99e0-8d6c1ab6ec83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0ea7db5-33ce-ac51-3f31-6b4791fd2468" executionId="453d6a00-1c88-4401-8704-a1ce6c3e78bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3a672588-1c04-3486-9277-36bcfd364138" executionId="97a9da45-0817-4da1-8db5-6336603c0430" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fe73dbe0-4225-83e5-0b60-b3f2faa6c65b" executionId="546e7977-9161-4d73-86ae-c0b2babd0ba2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cfd86c15-6517-2826-e69f-902d47c68be4" executionId="1dd09a82-693f-477b-8210-f7d934b62066" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7ec53c3f-613a-1131-860f-3fb31557039d" executionId="4117d9a8-b8db-4f5a-a3c7-5424155b4e72" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4e1e8600-0ff8-7ed4-7e5a-d2791a486c29" executionId="5ba2b2c9-4030-414f-a1c8-2a891ed491e0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac2c9415-260c-e1b1-9d29-0ab8a5730176" executionId="919f53b3-77ce-4ed2-a959-74393366afc6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3e6cd2a8-a24c-ef2b-d051-118400e83c1d" executionId="d91ed409-80ac-430d-bd0c-17c81546bdfc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="59a40fd5-b3a1-4abd-57b8-7a50540a25d4" executionId="cf02cb57-c3bf-413b-90a1-76c76e28f050" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="33746f6e-73ce-1df8-bf44-42dc6d48da83" executionId="ef73d67d-1e2b-4148-86b3-5a31b041fc89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dceee7a6-df4c-474d-e01e-024a242cd90e" executionId="e37aaea6-e80e-487a-bd9a-310ee8d9a77d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b0f9b5e4-dc48-6e52-4bc1-563d56b29e96" executionId="aa6d369b-7536-4c3a-b2a6-8cad02a9ef15" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4ddcd4f8-97f8-26f7-b22b-ba82f7f9e567" executionId="6e4d9530-0d71-4e1e-8a41-f777f961aa4f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="17cc7375-c242-38ed-1104-0488be95deec" executionId="63dcc22e-bdb3-4a96-8c2e-f4c69b1cc925" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="18573a9c-0a7d-6ba4-e0da-871e752a7f13" executionId="19801b4c-c46a-4da6-ae4f-3eb7dfb866a2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d6708045-15f2-0473-880d-64a97539971d" executionId="88d8a931-1dd6-4fc2-a385-fe544ccef31a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="655c9cbf-cdee-db3e-89b8-315b2dfa64f2" executionId="b5e8c0b3-9da9-4ecb-9bfe-9b7c11e147b4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41220e17-b572-764b-52d9-79d03d11fc7d" executionId="956cd40f-f710-4b44-af84-caa12f45fd47" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4da280cb-e2d7-1beb-1854-49d2c35c9a74" executionId="d013b718-9514-4c01-83d3-e630e40f6f0a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4a4d69fb-d115-487d-61b3-a7f5ef486d71" executionId="85ff81ab-392c-4a0d-9646-8140b5e6e140" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5c812a8d-61c8-2109-ff8d-253f657d5cb5" executionId="367d860e-95e5-4590-8160-bbfa1e82ad65" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ac3a19ff-350b-c19d-a2cf-1b94b9e02bc4" executionId="0929fdea-b5a6-4239-bdaf-5d2e15406834" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dbebca26-0aff-6907-159d-a2766d8f0d8c" executionId="a1aa0b62-6381-45d4-bf9c-48b7d2800397" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eb0bb612-8d67-ea1c-5f5a-3be02cce5f81" executionId="e5de1ac1-f61a-4d9f-9600-6fedd98f28d2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="69be9a09-f457-594f-12ba-93ed98ebcced" executionId="854d8b52-9f1f-452c-9211-f17a617c7868" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1f55bcec-9c5b-77cd-a445-46d3a25bdced" executionId="ea443bcd-15a9-4513-9f31-6d136e628791" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d3a23ef1-88a6-7575-0275-3f57aa5a80bc" executionId="768255ba-9beb-4656-a51e-02f7d8992e8b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e8f1a79c-eff3-93d3-33a3-74187e2b6ddf" executionId="8a290289-f0bd-47e4-95dd-48d75de67317" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="87" executed="85" passed="67" failed="18" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>Test 'hotelListing_Validate_request_CurrencyCodeNull_failure' was skipped in the test run.Test 'Validation_Config_null' was skipped in the test run.</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

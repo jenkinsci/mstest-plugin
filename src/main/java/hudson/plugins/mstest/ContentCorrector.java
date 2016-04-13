@@ -1,7 +1,11 @@
 package hudson.plugins.mstest;
 
+import org.apache.commons.io.FileUtils;
+import org.springframework.util.FileCopyUtils;
+
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+//import java.nio.charset.Charset;
+//import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,12 +28,12 @@ public class ContentCorrector
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), StandardCharsets.UTF_8));
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), StandardCharsets.UTF_8));
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), com.google.common.base.Charsets.UTF_8));
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), com.google.common.base.Charsets.UTF_8));
         String line = in.readLine();
         boolean replace = false;
         while (line != null) {
-            String newline = stripIllegalEntities(stripIllegalCharacters(line));
+            String newline = stripIllegalEntities(line);
             if (line.length() != newline.length())
                 replace = true;
             out.println(newline);
@@ -37,14 +41,21 @@ public class ContentCorrector
         }
         in.close();
         out.close();
-        if (replace)
-            java.nio.file.Files.move(
+        if (replace) {
+            inFile.delete();
+            outfile.renameTo(inFile);
+            /*java.nio.file.Files.move(
                     outfile.toPath(),
                     inFile.toPath(),
                     java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-                    java.nio.file.LinkOption.NOFOLLOW_LINKS);
+                    java.nio.file.LinkOption.NOFOLLOW_LINKS);*/
+        }
+        else
+            outfile.delete();
+          // java.nio.file.Files.delete(outfile.toPath());
     }
 
+    /*
     private String stripIllegalCharacters(String line)
     {
         String xml10pattern = "[^"
@@ -59,16 +70,21 @@ public class ContentCorrector
                 + "\ud800\udc00-\udbff\udfff"
                 + "]+";
         return line.replaceAll(xml10pattern, "").replaceAll(xml11pattern, "");
-    }
+    }*/
 
     private String stripIllegalEntities(String line)
     {
-        final String pattern = "(?<entity>&#x(?<char>[0-9A-Ca-c]{1,4});)";
+        final String pattern = "(&#x([0-9A-Fa-f]{1,4});)";
+        /* Java 1.7+
+        final String pattern = "(?<entity>&#x(?<char>[0-9A-Fa-f]{1,4});)";*/
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(line);
 
         while (m.find()) {
-            long c = Long.parseLong(m.group("char"), 16);
+            String charGroup = m.group(2);
+            /* Java 1.7+
+            String charGroupJava17 = m.group("char");*/
+            long c = Long.parseLong(charGroup, 16);
             if (!isAllowed(c)) {
                 line = new StringBuilder(line).replace(m.start(1), m.end(1), "").toString();
                 m = p.matcher(line);

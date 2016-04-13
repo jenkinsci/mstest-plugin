@@ -45,7 +45,7 @@ public class XslTransformer {
     }
     
     public void transform(InputStream inputStream, File outputFile) 
-            throws FileNotFoundException, TransformerException, IOException {
+            throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {
             xslTransformer.transform(new StreamSource(inputStream), new StreamResult(fileOutputStream));
@@ -55,7 +55,7 @@ public class XslTransformer {
     }
     
     public void transform(DOMSource source, File outputFile) 
-            throws FileNotFoundException, TransformerException, IOException {
+            throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {
             xslTransformer.transform(source, new StreamResult(fileOutputStream));

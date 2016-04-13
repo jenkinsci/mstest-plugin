@@ -8,8 +8,8 @@
             <xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
             <xsl:variable name="numberOfFailures" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@failed | /b:TestRun/b:ResultSummary/b:Counters/@failed)" />
             <xsl:variable name="numberOfErrors" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@error | /b:TestRun/b:ResultSummary/b:Counters/@error | /a:TestRun/a:ResultSummary/a:Counters/@timeout | /b:TestRun/b:ResultSummary/b:Counters/@timeout)" />
-            <xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
-            <xsl:variable name="skipped2010" select="/b:TestRun/b:ResultSummary/b:Counters/@total - /b:TestRun/b:ResultSummary/b:Counters/@executed"/>
+            <xsl:variable name="skipped2006" select="/a:TestRun/a:ResultSummary/a:Counters/@inconclusive + /a:TestRun/a:ResultSummary/a:Counters/@total - /a:TestRun/a:ResultSummary/a:Counters/@executed"/>
+            <xsl:variable name="skipped2010" select="/b:TestRun/b:ResultSummary/b:Counters/@inconclusive + /b:TestRun/b:ResultSummary/b:Counters/@total - /b:TestRun/b:ResultSummary/b:Counters/@executed"/>
             <xsl:variable name="numberSkipped">
                 <xsl:choose>
                     <xsl:when test="$skipped2006 > 0"><xsl:value-of select="$skipped2006"/></xsl:when>
@@ -22,7 +22,7 @@
                 failures="{$numberOfFailures}"  errors="{$numberOfErrors}"
                 skipped="{$numberSkipped}">
 
-                <xsl:for-each select="//a:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //b:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)]">
+                <xsl:for-each select="//a:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //b:UnitTestResult[@resultType='DataDrivenDataRow' or not(@resultType)] | //a:WebTestResult | //b:WebTestResult">
                     <xsl:variable name="stdout">
                         <xsl:for-each select="a:Output/a:StdOut | b:Output/b:StdOut">
                             <xsl:value-of select="text()"/><xsl:text>&#10;</xsl:text>
@@ -60,12 +60,13 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:variable>
-                        <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod">
+                        <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod | //a:WebTest[@id=$testId] | //b:WebTest[@id=$testId]">
                             <xsl:variable name="className">
                                 <xsl:choose>
                                     <xsl:when test="contains(@className, ',')">
                                         <xsl:value-of select="substring-before(@className, ',')"/>
                                     </xsl:when>
+                                    <xsl:when test="@storage"><xsl:value-of select="@storage"/></xsl:when>
                                     <xsl:otherwise>
                                         <xsl:value-of select="@className"/>
                                     </xsl:otherwise>
@@ -113,7 +114,7 @@
                 <xsl:variable name="tag">
                     <xsl:choose>
                         <xsl:when test="$outcome = 'Failed'">failure</xsl:when>
-                        <xsl:when test="$outcome = 'NotExecuted'">skipped</xsl:when>
+                        <xsl:when test="$outcome = 'NotExecuted' or $outcome = 'Inconclusive'">skipped</xsl:when>
                         <xsl:otherwise>error</xsl:otherwise>
                     </xsl:choose>
                 </xsl:variable>
