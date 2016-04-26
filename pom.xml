@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>emma</artifactId>
-            <version>1.29</version>
+            <version>1.30-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
         <dependency>
@@ -88,6 +88,12 @@
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>junit</artifactId>
             <version>1.4</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.plugins.workflow</groupId>
+            <artifactId>workflow-job</artifactId>
+            <version>2.1</version>
             <type>jar</type>
         </dependency>
     </dependencies>

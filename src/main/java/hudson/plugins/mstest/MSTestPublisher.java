@@ -6,6 +6,7 @@ import hudson.Util;
 import hudson.FilePath.FileCallable;
 import hudson.AbortException;
 import hudson.Extension;
+import hudson.FilePath;
 import hudson.model.*;
 import hudson.plugins.emma.EmmaHealthReportThresholds;
 import hudson.plugins.emma.EmmaPublisher;
@@ -26,10 +27,12 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 import javax.xml.transform.TransformerException;
+import jenkins.tasks.SimpleBuildStep;
 
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.plugins.workflow.job.WorkflowRun;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
@@ -39,7 +42,7 @@ import org.kohsuke.stapler.StaplerRequest;
  *
  * @author Antonio Marques
  */
-public class MSTestPublisher extends Recorder implements Serializable {
+public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
     private String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private String resolvedFilePath;
@@ -135,32 +138,16 @@ public class MSTestPublisher extends Recorder implements Serializable {
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
-
-        boolean result = true;
-        buildTime = build.getTimestamp().getTimeInMillis();
-        try {
-            resolveFilePath(build, listener);
-
-            listener.getLogger().println("[MSTEST-PLUGIN] Processing test results in file(s) " + resolvedFilePath);
-            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener, failOnError);
-            result = build.getWorkspace().act(transformer);
-
-            if (result) {
-                // Run the JUnit test archiver
-                result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, listener);
-                build.getWorkspace().child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
-                createEmmaReport(build, launcher, listener);
-            }
-
-        } catch (TransformerException te) {
-            throw new AbortException("[MSTEST-PLUGIN] Could not read the XSL XML file. Please report this issue to the plugin author.");
+        try{
+            perform(build, build.getWorkspace(), launcher, listener);
+            return true;
+        } catch(Exception ex) {
+            return false;
         }
-
-        return result;
     }
 
-    private void createEmmaReport(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) throws IOException, InterruptedException {
-        if (build.getWorkspace().list("**/emma/coverage.xml").length > 0)
+    private void createEmmaReport(Run<?, ?> build, FilePath workspace, Launcher launcher, TaskListener listener) throws IOException, InterruptedException {
+        if (workspace.list("**/emma/coverage.xml").length > 0)
         {
             EmmaPublisher ep = new EmmaPublisher();
             ep.healthReports = new EmmaHealthReportThresholds();
@@ -174,11 +161,11 @@ public class MSTestPublisher extends Recorder implements Serializable {
             ep.healthReports.setMinMethod(0);
             ep.healthReports.setMaxLine(80);
             ep.healthReports.setMinLine(0);
-            ep.perform(build, launcher, listener);
+            ep.perform(build, workspace, launcher, listener);
         }
     }
 
-    private void resolveFilePath(AbstractBuild<?, ?> build, BuildListener listener) throws IOException, InterruptedException {
+    private void resolveFilePath(Run<?, ?> build, TaskListener listener) throws IOException, InterruptedException {
         EnvVars env = build.getEnvironment(listener);
         resolvedFilePath = testResultsFile;
         String expanded = env.expand(resolvedFilePath);
@@ -197,7 +184,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
      * @throws InterruptedException
      * @throws IOException
      */
-    private boolean recordTestResult(String junitFilePattern, AbstractBuild<?, ?> build, BuildListener listener)
+    private boolean recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws InterruptedException, IOException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         TestResultAction action;
@@ -207,7 +194,7 @@ public class MSTestPublisher extends Recorder implements Serializable {
             if (existingAction != null) {
                 existingTestResults = existingAction.getResult();
             }
-            TestResult result = getTestResult(junitFilePattern, build, existingTestResults);
+            TestResult result = getTestResult(junitFilePattern, build, workspace, existingTestResults);
 
             if(result == null) {
                 return true;
@@ -255,10 +242,10 @@ public class MSTestPublisher extends Recorder implements Serializable {
      * @throws InterruptedException
      */
     private TestResult getTestResult
-        (final String junitFilePattern, AbstractBuild<?, ?> build, final TestResult existingTestResults)
+        (final String junitFilePattern, Run<?, ?> build, final FilePath workspace, final TestResult existingTestResults)
             throws IOException, InterruptedException
     {
-        TestResult result = build.getWorkspace().act(new FileCallable<TestResult>() {
+        TestResult result = workspace.act(new FileCallable<TestResult>() {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
@@ -285,6 +272,30 @@ public class MSTestPublisher extends Recorder implements Serializable {
     @Override
     public DescriptorImpl getDescriptor() {
         return (DescriptorImpl) super.getDescriptor();
+    }
+
+    @Override
+    public void perform(Run<?, ?> build, FilePath workspace, Launcher launcher, TaskListener listener) throws InterruptedException, IOException {
+        //this.perform((AbstractBuild<?,?>)build, launcher, (BuildListener)listener);
+        boolean result = true;
+        buildTime = build.getTimestamp().getTimeInMillis();
+        try {
+            resolveFilePath(build, listener);
+
+            listener.getLogger().println("[MSTEST-PLUGIN] Processing test results in file(s) " + resolvedFilePath);
+            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener, failOnError);
+            result = workspace.act(transformer);
+
+            if (result) {
+                // Run the JUnit test archiver
+                result = recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace, listener);
+                workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
+                createEmmaReport(build, workspace, launcher, listener);
+            }
+
+        } catch (TransformerException te) {
+            throw new AbortException("[MSTEST-PLUGIN] Could not read the XSL XML file. Please report this issue to the plugin author.");
+        }
     }
 
     @Extension

@@ -1,6 +1,7 @@
 package hudson.plugins.mstest;
 
 import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -58,7 +59,7 @@ public class MSTestReportConverter implements Serializable {
      * @throws SAXException
      * @throws ParserConfigurationException
      */
-    public void transform(String file, File junitOutputPath, BuildListener listener)
+    public void transform(String file, File junitOutputPath, TaskListener listener)
             throws FileNotFoundException, IOException, TransformerException,
             SAXException, ParserConfigurationException {
         File f = new File(file);
@@ -100,7 +101,7 @@ public class MSTestReportConverter implements Serializable {
         return new File(trxFile.getParentFile(), fileNameWithOutExt + MSTESTCOVERAGE_FILE_EXT);
     }
 
-    private void convertToEmma(BuildListener listener, File f, File c) throws TransformerException, IOException, ParserConfigurationException {
+    private void convertToEmma(TaskListener listener, File f, File c) throws TransformerException, IOException, ParserConfigurationException {
         FileInputStream fileStream = null;
         File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
         emmaTargetFile.getParentFile().mkdirs();
