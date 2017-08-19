@@ -11,8 +11,5 @@
 	<f:entry field="keepLongStdio" title="${%Retain long standard output/error}">
 		<f:checkbox name="keepLongStdio" default="${descriptor.defaultKeepLongStdio}"/>
 	</f:entry>
-	<f:entry field="enableCodeCoverageAnalysis" title="${%Enable display of Code Coverage results}">
-		<f:checkbox name="enableCodeCoverageAnalysis" default="${descriptor.defaultEnableCodeCoverageAnalysis}"/>
-	</f:entry>
 
 </j:jelly>

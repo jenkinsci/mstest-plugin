@@ -43,12 +43,6 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.jenkins-ci.plugins</groupId>
-            <artifactId>emma</artifactId>
-            <version>1.29</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
             <groupId>xmlunit</groupId>
             <artifactId>xmlunit</artifactId>
             <version>1.6</version>

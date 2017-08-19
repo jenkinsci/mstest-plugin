@@ -2,6 +2,7 @@ package hudson.plugins.mstest;
 
 import hudson.FilePath;
 import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 
 import java.io.File;
@@ -25,7 +26,7 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
     private static final long serialVersionUID = 1L;
 
     public static final String JUNIT_REPORTS_PATH = "temporary-junit-reports";
-    private final BuildListener listener;
+    private final TaskListener listener;
     private final boolean failOnError;
 
     // Build related objects
@@ -38,7 +39,7 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         this(testResults, unitReportTransformer, listener, true);
     }
     
-    public MSTestTransformer(String testResults, MSTestReportConverter unitReportTransformer, BuildListener listener, boolean failOnError) throws TransformerException {
+    public MSTestTransformer(String testResults, MSTestReportConverter unitReportTransformer, TaskListener listener, boolean failOnError) throws TransformerException {
         this.testResultsFile = testResults;
         this.unitReportTransformer = unitReportTransformer;
         this.listener = listener;
