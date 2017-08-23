@@ -1,16 +1,14 @@
 package hudson.plugins.mstest;
 
-import static org.junit.Assert.assertFalse;
-import hudson.FilePath;
-import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 
 import java.io.*;
-import java.nio.file.Files;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,10 +17,10 @@ import org.junit.Test;
  * 
  * @author Antonio Marques
  */
-public class MSTestTransformerTest extends TestHelper{
+public class MSTestTransformerTest extends TestHelper {
 
 	
-    private BuildListener buildListener;
+    private TaskListener buildListener;
     private Mockery context;
     private Mockery classContext;
     private MSTestReportConverter converter;
@@ -37,17 +35,15 @@ public class MSTestTransformerTest extends TestHelper{
         context = getMock();
         classContext = getClassMock();        
 
-        buildListener = classContext.mock(BuildListener.class);
+        buildListener = classContext.mock(TaskListener.class);
         converter = classContext.mock(MSTestReportConverter.class);
         virtualChannel = context.mock(VirtualChannel.class);
     }
 
     @After
     public void tearDown() throws Exception {
-    	   deleteWorkspace();
+       deleteWorkspace();
     }
-
-    
 
     @Test
     public void testReturnWhenNoTRXFileIsFound() throws Exception {
@@ -55,11 +51,12 @@ public class MSTestTransformerTest extends TestHelper{
             {
                 ignoring(buildListener).getLogger();
                 will(returnValue(new PrintStream(new ByteArrayOutputStream())));
-                one(buildListener).fatalError(with(any(String.class)));
+                oneOf(buildListener).fatalError(with(any(String.class)));
             }
         });
-        transformer = new MSTestTransformer("build.trx", converter, buildListener);
+
+        transformer = new MSTestTransformer(resolve("build.trx"), converter, buildListener, true);
         Boolean result = transformer.invoke(parentFile, virtualChannel);
-        assertFalse("The archiver did not return false when it could not find any files", result);
+        Assert.assertFalse("The archiver did not return false when it could not find any files", result);
     }
 }

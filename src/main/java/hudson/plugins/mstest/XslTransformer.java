@@ -1,12 +1,9 @@
 package hudson.plugins.mstest;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -20,11 +17,11 @@ import javax.xml.transform.stream.StreamSource;
  *
  * @author nilleb
  */
-public class XslTransformer {
+class XslTransformer {
 
     private final transient Transformer xslTransformer;
 
-    public XslTransformer()
+    XslTransformer()
             throws TransformerConfigurationException, ParserConfigurationException
     {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -38,13 +35,13 @@ public class XslTransformer {
         xslTransformer = transformerFactory.newTransformer(new StreamSource(this.getClass().getResourceAsStream(xslTransform)));  
     }
 
-    public static XslTransformer FromResource(String resourceName)
+    static XslTransformer FromResource(String resourceName)
             throws TransformerConfigurationException, ParserConfigurationException
     {
         return new XslTransformer(resourceName);
     }
     
-    public void transform(InputStream inputStream, File outputFile) 
+    void transform(InputStream inputStream, File outputFile)
             throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {
@@ -54,7 +51,7 @@ public class XslTransformer {
         }
     }
     
-    public void transform(DOMSource source, File outputFile) 
+    void transform(DOMSource source, File outputFile)
             throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {

@@ -1,11 +1,12 @@
 package hudson.plugins.mstest;
 
 import hudson.FilePath;
-import hudson.model.BuildListener;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
@@ -23,7 +24,7 @@ import java.nio.file.Files;
 public class MSTestTransformerAndConverterTest extends TestHelper{
 
 	
-    private BuildListener buildListener;
+    private TaskListener buildListener;
     private Mockery context;
     private Mockery classContext;
     private MSTestTransformer transformer;
@@ -36,13 +37,13 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
 
         context = getMock();
         classContext = getClassMock();
-        buildListener = classContext.mock(BuildListener.class);
+        buildListener = classContext.mock(TaskListener.class);
         virtualChannel = context.mock(VirtualChannel.class);
     }
 
     @After
     public void tearDown() throws Exception {
-    	   deleteWorkspace();
+        deleteWorkspace();
     }
 
     @Test
@@ -63,11 +64,11 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
         Files.copy(testStream, testFile.toPath());*/
-        MSTestReportConverter converter = new MSTestReportConverter();
-        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        MSTestReportConverter converter = new MSTestReportConverter(buildListener);
+        transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);
         FilePath[] list = workspace.list("*.trx");
-        assertEquals(1, list.length);
+        Assert.assertEquals(1, list.length);
     }
 
     @Test
@@ -88,11 +89,11 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
         Files.copy(testStream, testFile.toPath());  */
-        MSTestReportConverter converter = new MSTestReportConverter();
-        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        MSTestReportConverter converter = new MSTestReportConverter(buildListener);
+        transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);
         FilePath[] list = workspace.list("*.trx");
-        assertEquals(1, list.length);
+        Assert.assertEquals(1, list.length);
     }
 
     @Test
@@ -113,10 +114,10 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
         Files.copy(testStream, testFile.toPath());*/
-        MSTestReportConverter converter = new MSTestReportConverter();
-        transformer = new MSTestTransformer(testPath, converter, buildListener);
+        MSTestReportConverter converter = new MSTestReportConverter(buildListener);
+        transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);
         FilePath[] list = workspace.list("*.trx");
-        assertEquals(1, list.length);
+        Assert.assertEquals(1, list.length);
     }
 }

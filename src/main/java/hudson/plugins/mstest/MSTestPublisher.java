@@ -19,61 +19,50 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.annotation.Nonnull;
-import javax.xml.transform.TransformerException;
 
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
+import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
-
 /**
  * Class that records MSTest test reports into Hudson.
  *
  * @author Antonio Marques
  */
+@Symbol("mstest")
 public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
-    private String testResultsFile = DescriptorImpl.defaultTestResultsFile;
-    private String resolvedFilePath;
-    private long buildTime;
+    private @Nonnull String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private boolean failOnError = DescriptorImpl.defaultFailOnError;
     private boolean keepLongStdio = DescriptorImpl.defaultKeepLongStdio;
 
-    @DataBoundConstructor
-    public MSTestPublisher(){
+    private long buildTime;
+
+    public MSTestPublisher() {
         this(DescriptorImpl.defaultTestResultsFile, DescriptorImpl.defaultFailOnError, DescriptorImpl.defaultKeepLongStdio);
     }
 
-    // used by the unit tests
-    @Deprecated
-    public MSTestPublisher(String testResultsFile) {
-        this.testResultsFile = testResultsFile;
-    }
-
-    @Deprecated
+    @DataBoundConstructor
     public MSTestPublisher(String testResultsFile, boolean failOnError, boolean keepLongStdio) {
         this.testResultsFile = testResultsFile;
         this.failOnError = failOnError;
         this.keepLongStdio = keepLongStdio;
     }
 
-    @Nonnull
-    public String getTestResultsFile() {
+    public @Nonnull
+    String getTestResultsFile() {
         return testResultsFile;
     }
 
     @DataBoundSetter
-    public final void setTestResultsFile(String testResultsFile) {
+    public final void setTestResultsFile(@Nonnull String testResultsFile) {
         this.testResultsFile = testResultsFile;
     }
 
-    public String getResolvedFilePath() {
-        return resolvedFilePath;
-    }
-    
     public boolean getFailOnError(){
         return failOnError; 
     }
@@ -81,6 +70,10 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     @DataBoundSetter
     public final void setFailOnError(boolean failOnError) {
         this.failOnError = failOnError;
+    }
+
+    public boolean getKeepLongStdio(){
+        return failOnError;
     }
 
     @DataBoundSetter
@@ -114,86 +107,78 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
             throws InterruptedException, IOException {
-        perform(build, build.getWorkspace(), launcher, listener);
+        final FilePath workspace = build.getWorkspace();
+
+        if (workspace == null) {
+            throw new IllegalArgumentException();
+        }
+
+        perform(build, workspace, launcher, listener);
         return true;
     }
 
     @Override
-    public void perform(final Run<?, ?> build, FilePath workspace, Launcher launcher, final TaskListener listener)
+    public void perform(final @Nonnull Run<?, ?> build, @Nonnull FilePath workspace, @Nonnull Launcher launcher, final @Nonnull TaskListener listener)
             throws InterruptedException, IOException {
-        boolean result = true;
         buildTime = build.getTimestamp().getTimeInMillis();
-        try {
-            resolveFilePath(build, listener);
 
-            listener.getLogger().println("[MSTEST-PLUGIN] Processing test results in file(s) " + resolvedFilePath);
-            MSTestTransformer transformer = new MSTestTransformer(resolvedFilePath, new MSTestReportConverter(), listener, failOnError);
-            result = workspace.act(transformer);
+        String[] matchingFiles = resolveTestReports(testResultsFile, build, workspace, listener);
+        MSTestReportConverter converter = new MSTestReportConverter(listener);
+        MSTestTransformer transformer = new MSTestTransformer(matchingFiles, converter, listener, failOnError);
+        boolean result = workspace.act(transformer);
 
-            if (result) {
-                // Run the JUnit test archiver
-                recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace, listener);
-                workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
-            }
-
-        } catch (TransformerException te) {
-            throw new AbortException("[MSTEST-PLUGIN] Could not read the XSL XML file. Please report this issue to the plugin author.");
+        if (result) {
+            // Run the JUnit test archiver
+            recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace, listener);
+            workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
         }
     }
 
-    private void resolveFilePath(Run<?, ?> build, TaskListener listener) throws IOException, InterruptedException {
-        EnvVars env = build.getEnvironment(listener);
-        resolvedFilePath = testResultsFile;
-        String expanded = env.expand(resolvedFilePath);
-        if (expanded == null ? resolvedFilePath != null : !expanded.equals(resolvedFilePath)) {
-            resolvedFilePath = expanded;
-        }
+    static String[] resolveTestReports(String testReportsPattern, @Nonnull Run<?, ?> build, @Nonnull FilePath workspace, @Nonnull TaskListener listener) {
+        FileResolver resolver = new FileResolver(listener);
+        String resolved = resolver.SafeResolveFilePath(testReportsPattern, build, listener);
+        return resolver.FindMatchingMSTestReports(resolved, workspace);
     }
 
     /**
      * Record the test results into the current build.
      *
-     * @param junitFilePattern
-     * @param build
-     * @param listener
-     * @return
+     * @param junitFilePattern the ant file pattern mathing the junit test results file
+     * @param build the current build
+     * @param listener the log listener
      * @throws InterruptedException
      * @throws IOException
      */
-    private boolean recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace, TaskListener listener)
+    private void recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws InterruptedException, IOException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         TestResultAction action;
 
-        try {
-            TestResult existingTestResults = null;
-            if (existingAction != null) {
-                existingTestResults = existingAction.getResult();
-            }
-            TestResult result = getTestResult(junitFilePattern, workspace, existingTestResults);
+        MsTestLogger logger = new MsTestLogger(listener);
+        TestResult existingTestResults = null;
 
-            if(result == null) {
-                return true;
-            }
-            
-            if (existingAction == null) {
-                action = new TestResultAction((Run)build, result, listener);
-            } else {
-                action = existingAction;
-                action.setResult(result, listener);
-            }
-            if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-                throw new AbortException("[MSTEST-PLUGIN] None of the test reports contained any result.");
-            }
-        } catch (AbortException e) {
-            if (build.getResult() == Result.FAILURE)
-            {
-                return true;
-            }
+        if (existingAction != null) {
+            existingTestResults = existingAction.getResult();
+        }
+        TestResult result = getTestResult(junitFilePattern, workspace, existingTestResults);
 
-            listener.getLogger().println(e.getMessage());
-            build.setResult(Result.FAILURE);
-            return true;
+        if(result == null) {
+            return;
+        }
+
+        if (existingAction == null) {
+            action = new TestResultAction((Run)build, result, listener);
+        } else {
+            action = existingAction;
+            action.setResult(result, listener);
+        }
+
+        if (result.getPassCount() == 0 && result.getFailCount() == 0) {
+            if (build.getResult() != Result.FAILURE) {
+                logger.error("None of the test reports contained any result.");
+                build.setResult(Result.FAILURE);
+                return;
+            }
         }
 
         if (existingAction == null) {
@@ -203,17 +188,15 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         if (action.getResult().getFailCount() > 0) {
             build.setResult(Result.UNSTABLE);
         }
-
-        return true;
     }
 
     /**
      * Collect the test results from the files
      *
-     * @param junitFilePattern
-     * @param workspace
+     * @param junitFilePattern the ant file pattern mathing the junit test results file
+     * @param workspace the build workspace
      * @param existingTestResults existing test results to add results to
-     * @return a test result
+     * @return a junit TestResult
      * @throws IOException
      * @throws InterruptedException
      */
@@ -221,7 +204,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         (final String junitFilePattern, FilePath workspace, final TestResult existingTestResults)
             throws IOException, InterruptedException
     {
-        TestResult result = workspace.act(new FileCallable<TestResult>() {
+        return workspace.act(new FileCallable<TestResult>() {
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
@@ -229,7 +212,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
                 
                 if (files.length == 0) {
                     if(failOnError) {
-                        throw new AbortException("[MSTEST-PLUGIN] No test report files were found. (Have you specified a pattern matching any file in your workspace ?)");
+                        throw new AbortException(MsTestLogger.format("No test report files were found. (Have you specified a pattern matching any file in your workspace ?)"));
                     } else {
                         return null;
                     }
@@ -242,7 +225,6 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
                 }
             }
         });
-        return result;
     }
 
     @Override

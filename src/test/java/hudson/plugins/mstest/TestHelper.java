@@ -2,20 +2,14 @@ package hudson.plugins.mstest;
 
 import hudson.FilePath;
 import hudson.Util;
-import hudson.model.Build;
-import hudson.model.FreeStyleProject;
-import hudson.tasks.Builder;
-
 import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-import junit.framework.TestCase;
 
+import hudson.model.Run;
+import hudson.model.TaskListener;
 import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
-import org.jvnet.hudson.test.JenkinsRule;
 
-public abstract class TestHelper extends TestCase {
+public abstract class TestHelper {
 
     protected File parentFile;
     protected FilePath workspace;
@@ -49,5 +43,9 @@ public abstract class TestHelper extends TestCase {
     {
     	return new Mockery();
     }
-    
+
+    String[] resolve(String testFile)
+    {
+        return new FileResolver(null).FindMatchingMSTestReports(testFile, workspace);
+    }
 }

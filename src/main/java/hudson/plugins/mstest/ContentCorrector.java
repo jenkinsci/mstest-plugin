@@ -1,9 +1,8 @@
 package hudson.plugins.mstest;
 
-import org.apache.commons.io.FileUtils;
-import org.springframework.util.FileCopyUtils;
-
 import java.io.*;
+//import org.apache.commons.io.FileUtils;
+//import org.springframework.util.FileCopyUtils;
 //import java.nio.charset.Charset;
 //import java.nio.charset.StandardCharsets;
 import java.util.Random;
@@ -11,18 +10,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by ivo on 27/03/2015.
+ * @author nilleb
  */
-public class ContentCorrector
+class ContentCorrector
 {
     private String file;
 
-    public ContentCorrector(String file)
+    ContentCorrector(String file)
     {
         this.file = file;
     }
 
-    public void fix() throws IOException
+    void fix() throws IOException
     {
         String filename = Integer.toString(randInt(1000, 1000000)) + ".trx";
         File inFile = new File(file);
@@ -42,8 +41,8 @@ public class ContentCorrector
         in.close();
         out.close();
         if (replace) {
-            inFile.delete();
-            outfile.renameTo(inFile);
+            assert inFile.delete();
+            assert outfile.renameTo(inFile);
             /*java.nio.file.Files.move(
                     outfile.toPath(),
                     inFile.toPath(),
@@ -51,7 +50,7 @@ public class ContentCorrector
                     java.nio.file.LinkOption.NOFOLLOW_LINKS);*/
         }
         else
-            outfile.delete();
+            assert outfile.delete();
           // java.nio.file.Files.delete(outfile.toPath());
     }
 
@@ -93,12 +92,12 @@ public class ContentCorrector
         return line;
     }
 
-    public boolean isAllowed(long c)
+    private boolean isAllowed(long c)
     {
         return c == 9 || c == 0xA || c == 0xD || (c > 0x20 && c < 0xD7FF) || (c > 0xE000 && c < 0xFFFD) || (c > 0x10000 && c < 0x10FFFF);
     }
 
-    public static int randInt(int min, int max) {
+    private static int randInt(int min, int max) {
         return new Random().nextInt((max - min) + 1) + min;
     }
 }

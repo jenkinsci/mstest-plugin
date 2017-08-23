@@ -1,9 +1,7 @@
 package hudson.plugins.mstest;
 
-import hudson.model.BuildListener;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -33,34 +31,40 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * Transforms a MSTest report into a JUnit report.
+ * Transforms a MSTest report into a JUnit report by means of a XSL transform.
+ * Converts all the coverage reports referenced by this TRX to a emma compatible format.
  */
-public class MSTestReportConverter implements Serializable {
+class MSTestReportConverter implements Serializable {
 
     private static final String JUNIT_FILE_POSTFIX = ".xml";
     private static final String JUNIT_FILE_PREFIX = "TEST-";
     private static final String TEMP_JUNIT_FILE_STR = "temp-junit.xml";
-    public static final String MSTEST_TO_JUNIT_XSLFILE_STR = "mstest-to-junit.xsl";
+    static final String MSTEST_TO_JUNIT_XSLFILE_STR = "mstest-to-junit.xsl";
     private static final String MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR = "MSTestCoverageToEmma.xsl";
     private static final String EMMA_FILE_STR = "emma" + File.separator + "coverage.xml";
     private static final String MSTESTCOVERAGE_FILE_STR = "vstest.coveragexml";
     private static final String MSTESTCOVERAGE_FILE_EXT = ".coveragexml";
 
+    private MsTestLogger logger;
     private transient int fileCount;
 
+    MSTestReportConverter(TaskListener listener)
+    {
+        this.logger = new MsTestLogger(listener);
+    }
     /**
      * Transform the MSTest TRX file into a junit XML file in the output path
      *
      * @param file the mstest file to transform
      * @param junitOutputPath the output path to put all junit files
-     * @throws java.io.FileNotFoundException
+     * @throws java.io.FileNotFoundException if the input file doesn't exist
      * @throws IOException thrown if there was any problem with the transform.
-     * @throws TransformerException
-     * @throws SAXException
-     * @throws ParserConfigurationException
+     * @throws TransformerException thrown if the XSL stylesheet is invalid
+     * @throws SAXException thrown if the input XML file is invalid
+     * @throws ParserConfigurationException thrown if something is wrong with the current system XL configuration
      */
-    public void transform(String file, File junitOutputPath, TaskListener listener)
-            throws FileNotFoundException, IOException, TransformerException,
+    void transform(String file, File junitOutputPath)
+            throws IOException, TransformerException,
             SAXException, ParserConfigurationException {
         File f = new File(file);
         FileInputStream fileStream = null;
@@ -77,13 +81,13 @@ public class MSTestReportConverter implements Serializable {
             if (c.exists())
             {
                 if (containsData(c)) {
-                    convertToEmma(listener, f, c);
+                    convertToEmma(f, c);
                     break;
                 } else {
-                    listener.getLogger().printf("[MSTEST-PLUGIN] XML coverage report file format not supported (read the wiki): %s\n", c.getAbsolutePath());
+                    logger.warn("XML coverage report file format not supported (read the wiki): %s\n", c.getAbsolutePath());
                 }
             } else {
-                //listener.getLogger().printf("[MSTEST-PLUGIN] XML coverage report file not found: %s\n", c.getAbsolutePath());
+                logger.info("XML coverage report file not found: %s\n", c.getAbsolutePath());
             }
     }
 
@@ -101,11 +105,11 @@ public class MSTestReportConverter implements Serializable {
         return new File(trxFile.getParentFile(), fileNameWithOutExt + MSTESTCOVERAGE_FILE_EXT);
     }
 
-    private void convertToEmma(TaskListener listener, File f, File c) throws TransformerException, IOException, ParserConfigurationException {
+    private void convertToEmma(File f, File c) throws TransformerException, IOException, ParserConfigurationException {
         FileInputStream fileStream = null;
         File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
-        emmaTargetFile.getParentFile().mkdirs();
-        //listener.getLogger().printf("[MSTEST] XML coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
+        assert emmaTargetFile.getParentFile().mkdirs();
+        logger.info("XML coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
         try {
             fileStream = new FileInputStream(c);
             XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
@@ -149,7 +153,7 @@ public class MSTestReportConverter implements Serializable {
         File junitTargetFile = new File(junitOutputPath, TEMP_JUNIT_FILE_STR);
         XslTransformer.FromResource(MSTEST_TO_JUNIT_XSLFILE_STR).transform(mstestFileStream, junitTargetFile);
         splitJUnitFile(junitTargetFile, junitOutputPath);
-        junitTargetFile.delete();
+        assert junitTargetFile.delete();
     }
 
     private DocumentBuilder getDocumentBuilder()
@@ -169,7 +173,7 @@ public class MSTestReportConverter implements Serializable {
      * @throws TransformerException
      */
     private void splitJUnitFile(File junitFile, File junitOutputPath) throws SAXException, IOException,
-            TransformerException, TransformerFactoryConfigurationError, TransformerConfigurationException, ParserConfigurationException {
+            TransformerException, TransformerFactoryConfigurationError, ParserConfigurationException {
         Document document = getDocumentBuilder().parse(junitFile);
 
         NodeList elementsByTagName = ((Element) document.getElementsByTagName("testsuites").item(0)).getElementsByTagName("testsuite");
