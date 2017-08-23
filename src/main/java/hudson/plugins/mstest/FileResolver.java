@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FileResolver {
+class FileResolver {
     private final TaskListener listener;
 
     FileResolver(TaskListener listener){
@@ -57,6 +57,7 @@ public class FileResolver {
      * @return an array of strings containing filenames of MSTest report files
      */
      String[] FindMatchingMSTestReports(String pattern, FilePath workspace) {
+         MsTestLogger logger = new MsTestLogger(listener);
         if (workspace == null) {
             return new String[]{};
         }
@@ -70,7 +71,9 @@ public class FileResolver {
                 fileNames.add(x.getRemote());
             }
         } catch (IOException ioe) {
-        } catch (InterruptedException inte) {
+            logger.error("while listing workspace files: %s", ioe.getMessage());
+        } catch (InterruptedException ie) {
+            logger.error("while listing workspace files: %s", ie.getMessage());
         }
         return fileNames.toArray(new String[fileNames.size()]);
     }

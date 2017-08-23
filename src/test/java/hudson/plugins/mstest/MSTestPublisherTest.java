@@ -84,10 +84,10 @@ public class MSTestPublisherTest extends TestHelper {
             }
         });
         File subfolder = new File(parentFile, "subfolder");
-        subfolder.mkdirs();
+        assert subfolder.mkdirs();
         File testFile = new File(subfolder, "xmlentities-forged.trx");
         if (testFile.exists())
-            testFile.delete();
+            assert testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         String[] results = MSTestPublisher.resolveTestReports("*.trx", run, workspace, buildListener);

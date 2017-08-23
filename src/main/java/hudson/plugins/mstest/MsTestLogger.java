@@ -6,7 +6,7 @@ class MsTestLogger {
     private static String prefix = "[MSTEST-PLUGIN]";
     private TaskListener listener;
 
-    public MsTestLogger(TaskListener listener){
+    MsTestLogger(TaskListener listener){
         this.listener = listener;
     }
 
@@ -26,7 +26,7 @@ class MsTestLogger {
         printf("ERR", format, args);
     }
 
-    void printf(String level, String format, Object ... args){
+    private void printf(String level, String format, Object ... args){
         String message_format = String.format("%s %s %s", MsTestLogger.prefix, level, format);
         if (listener != null) {
             listener.getLogger().printf(message_format, args);

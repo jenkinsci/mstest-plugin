@@ -4,17 +4,15 @@ import hudson.FilePath;
 import hudson.Util;
 import java.io.File;
 
-import hudson.model.Run;
-import hudson.model.TaskListener;
 import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
 
 public abstract class TestHelper {
 
-    protected File parentFile;
+    File parentFile;
     protected FilePath workspace;
 
-    public void createWorkspace() throws Exception {
+    void createWorkspace() throws Exception {
         parentFile = Util.createTempDir();
         workspace = new FilePath(parentFile);
         if (workspace.exists()) {
@@ -23,12 +21,12 @@ public abstract class TestHelper {
         workspace.mkdirs();
     }
 
-    public void deleteWorkspace() throws Exception {
+    void deleteWorkspace() throws Exception {
         workspace.deleteRecursive();
     }
     
     
-    protected Mockery getClassMock()
+    Mockery getClassMock()
     {
     	Mockery classContext;
         classContext = new Mockery() {
@@ -39,7 +37,7 @@ public abstract class TestHelper {
     	return classContext;
     }
     
-    protected Mockery getMock()
+    Mockery getMock()
     {
     	return new Mockery();
     }

@@ -146,8 +146,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
      * @param junitFilePattern the ant file pattern mathing the junit test results file
      * @param build the current build
      * @param listener the log listener
-     * @throws InterruptedException
-     * @throws IOException
+     * @throws InterruptedException workspace/jenkins operations may throw
+     * @throws IOException workspace/jenkins operations may throw
      */
     private void recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace, TaskListener listener)
             throws InterruptedException, IOException {
@@ -167,7 +167,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         }
 
         if (existingAction == null) {
-            action = new TestResultAction((Run)build, result, listener);
+            action = new TestResultAction(build, result, listener);
         } else {
             action = existingAction;
             action.setResult(result, listener);
@@ -197,8 +197,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
      * @param workspace the build workspace
      * @param existingTestResults existing test results to add results to
      * @return a junit TestResult
-     * @throws IOException
-     * @throws InterruptedException
+     * @throws IOException workspace/jenkins operations may throw
+     * @throws InterruptedException workspace/jenkins operations may throw
      */
     private TestResult getTestResult
         (final String junitFilePattern, FilePath workspace, final TestResult existingTestResults)

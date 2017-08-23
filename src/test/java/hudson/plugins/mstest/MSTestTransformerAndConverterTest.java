@@ -59,7 +59,7 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         final String testPath = "xmlentities-forged.trx";
         File testFile = new File(parentFile, testPath);
         if (testFile.exists())
-            testFile.delete();
+            assert testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
@@ -84,7 +84,7 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         final String testPath = "vishalMane.trx";
         File testFile = new File(parentFile, testPath);
         if (testFile.exists())
-            testFile.delete();
+            assert testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
@@ -109,7 +109,7 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         final String testPath = "charset.trx";
         File testFile = new File(parentFile, testPath);
         if (testFile.exists())
-            testFile.delete();
+            assert testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-charset.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
