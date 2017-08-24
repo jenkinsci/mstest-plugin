@@ -27,7 +27,7 @@ class MsTestLogger {
     }
 
     private void printf(String level, String format, Object ... args){
-        String message_format = String.format("%s %s %s", MsTestLogger.prefix, level, format);
+        String message_format = String.format("%s %s %s\n", MsTestLogger.prefix, level, format);
         if (listener != null) {
             listener.getLogger().printf(message_format, args);
         }

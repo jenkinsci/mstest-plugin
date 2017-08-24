@@ -108,7 +108,7 @@ class MSTestReportConverter implements Serializable {
     private void convertToEmma(File f, File c) throws TransformerException, IOException, ParserConfigurationException {
         FileInputStream fileStream = null;
         File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
-        assert emmaTargetFile.getParentFile().mkdirs();
+        FileOperator.safeCreateFolder(emmaTargetFile.getParentFile(), logger);
         logger.info("XML coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
         try {
             fileStream = new FileInputStream(c);
@@ -153,7 +153,7 @@ class MSTestReportConverter implements Serializable {
         File junitTargetFile = new File(junitOutputPath, TEMP_JUNIT_FILE_STR);
         XslTransformer.FromResource(MSTEST_TO_JUNIT_XSLFILE_STR).transform(mstestFileStream, junitTargetFile);
         splitJUnitFile(junitTargetFile, junitOutputPath);
-        assert junitTargetFile.delete();
+        FileOperator.safeDelete(junitOutputPath, logger);
     }
 
     private DocumentBuilder getDocumentBuilder()

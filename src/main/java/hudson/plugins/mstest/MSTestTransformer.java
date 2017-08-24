@@ -58,7 +58,10 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         }
 
         File junitOutputPath = new File(ws, JUNIT_REPORTS_PATH);
-        assert junitOutputPath.mkdirs();
+        boolean success = FileOperator.safeCreateFolder(junitOutputPath, logger);
+        if (!success) {
+            return false;
+        }
 
         for (String mstestFile : msTestFiles) {
             logger.info("processing report file: " + mstestFile);

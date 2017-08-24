@@ -40,18 +40,23 @@ class ContentCorrector
         }
         in.close();
         out.close();
+        MsTestLogger logger = new MsTestLogger(null);
         if (replace) {
-            assert inFile.delete();
-            assert outfile.renameTo(inFile);
+            FileOperator.safeDelete(inFile, logger);
+            boolean success = outfile.renameTo(inFile);
+            if (!success) {
+                logger.error("Unable to move the file %s to %s.", outfile.getAbsolutePath(), inFile.getAbsolutePath());
+            }
             /*java.nio.file.Files.move(
                     outfile.toPath(),
                     inFile.toPath(),
                     java.nio.file.StandardCopyOption.REPLACE_EXISTING,
                     java.nio.file.LinkOption.NOFOLLOW_LINKS);*/
         }
-        else
-            assert outfile.delete();
-          // java.nio.file.Files.delete(outfile.toPath());
+        else {
+            FileOperator.safeDelete(outfile, logger);
+            // java.nio.file.Files.delete(outfile.toPath());
+        }
     }
 
     /*
