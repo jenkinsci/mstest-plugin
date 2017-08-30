@@ -3,8 +3,11 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.579</version>
+        <version>2.32</version>
     </parent>
+    <properties>
+        <jenkins.version>1.579</jenkins.version>
+    </properties>
     <groupId>org.jvnet.hudson.plugins</groupId>
     <artifactId>mstest</artifactId>
     <packaging>hpi</packaging>
@@ -14,7 +17,7 @@
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     <scm>
         <connection>scm:git:https://github.com/jenkinsci/mstest-plugin.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/mstest-plugin.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
         <tag>mstest-0.20-alpha</tag>
     </scm>

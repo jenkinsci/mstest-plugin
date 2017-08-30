@@ -27,19 +27,28 @@ class ContentCorrector
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
-        PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), com.google.common.base.Charsets.UTF_8));
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), com.google.common.base.Charsets.UTF_8));
-        String line = in.readLine();
+        PrintWriter out = null;
+        BufferedReader in = null;
         boolean replace = false;
-        while (line != null) {
-            String newline = stripIllegalEntities(line);
-            if (line.length() != newline.length())
-                replace = true;
-            out.println(newline);
-            line = in.readLine();
+        try {
+            out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), com.google.common.base.Charsets.UTF_8));
+            in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), com.google.common.base.Charsets.UTF_8));
+            String line = in.readLine();
+            while (line != null) {
+                String newline = stripIllegalEntities(line);
+                if (line.length() != newline.length())
+                    replace = true;
+                out.println(newline);
+                line = in.readLine();
+            }
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+            if (out != null) {
+                out.close();
+            }
         }
-        in.close();
-        out.close();
         MsTestLogger logger = new MsTestLogger(null);
         if (replace) {
             FileOperator.safeDelete(inFile, logger);

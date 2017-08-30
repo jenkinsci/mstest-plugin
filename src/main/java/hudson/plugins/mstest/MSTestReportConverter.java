@@ -36,6 +36,7 @@ import org.xml.sax.SAXException;
  */
 class MSTestReportConverter implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private static final String JUNIT_FILE_POSTFIX = ".xml";
     private static final String JUNIT_FILE_PREFIX = "TEST-";
     private static final String TEMP_JUNIT_FILE_STR = "temp-junit.xml";
@@ -45,7 +46,7 @@ class MSTestReportConverter implements Serializable {
     private static final String MSTESTCOVERAGE_FILE_STR = "vstest.coveragexml";
     private static final String MSTESTCOVERAGE_FILE_EXT = ".coveragexml";
 
-    private MsTestLogger logger;
+    private transient MsTestLogger logger;
     private transient int fileCount;
 
     MSTestReportConverter(TaskListener listener)
