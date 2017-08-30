@@ -2,7 +2,6 @@ package hudson.plugins.mstest;
 
 import hudson.FilePath;
 import hudson.model.TaskListener;
-import hudson.remoting.VirtualChannel;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -15,18 +14,14 @@ import java.io.*;
 
 public class FileResolverTest extends TestHelper {
     private TaskListener buildListener;
-    private Mockery context;
     private Mockery classContext;
-    private VirtualChannel virtualChannel;
 
     @Before
     public void setUp() throws Exception {
         createWorkspace();
 
-        context = getMock();
         classContext = getClassMock();
         buildListener = classContext.mock(TaskListener.class);
-        virtualChannel = context.mock(VirtualChannel.class);
     }
 
     @After

@@ -1,13 +1,10 @@
 package hudson.plugins.mstest;
 
 import java.io.*;
-//import org.apache.commons.io.FileUtils;
-//import org.springframework.util.FileCopyUtils;
-//import java.nio.charset.Charset;
-//import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.google.common.base.Charsets;
 
 /**
  * @author nilleb
@@ -27,83 +24,50 @@ class ContentCorrector
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);
-        PrintWriter out = null;
-        BufferedReader in = null;
         boolean replace = false;
-        try {
-            out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), com.google.common.base.Charsets.UTF_8));
-            in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), com.google.common.base.Charsets.UTF_8));
-            String line = in.readLine();
-            while (line != null) {
-                String newline = stripIllegalEntities(line);
-                if (line.length() != newline.length())
-                    replace = true;
-                out.println(newline);
-                line = in.readLine();
-            }
-        } finally {
-            if (in != null) {
-                in.close();
-            }
-            if (out != null) {
-                out.close();
+
+        try (PrintWriter out = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outfile), Charsets.UTF_8))) {
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(inFile), Charsets.UTF_8))) {
+                String line = in.readLine();
+                while (line != null) {
+                    String newline = stripIllegalEntities(line);
+                    if (line.length() != newline.length())
+                        replace = true;
+                    out.println(newline);
+                    line = in.readLine();
+                }
             }
         }
         MsTestLogger logger = new MsTestLogger(null);
+
         if (replace) {
             FileOperator.safeDelete(inFile, logger);
             boolean success = outfile.renameTo(inFile);
             if (!success) {
                 logger.error("Unable to move the file %s to %s.", outfile.getAbsolutePath(), inFile.getAbsolutePath());
             }
-            /*java.nio.file.Files.move(
-                    outfile.toPath(),
-                    inFile.toPath(),
-                    java.nio.file.StandardCopyOption.REPLACE_EXISTING,
-                    java.nio.file.LinkOption.NOFOLLOW_LINKS);*/
         }
         else {
             FileOperator.safeDelete(outfile, logger);
-            // java.nio.file.Files.delete(outfile.toPath());
         }
     }
 
-    /*
-    private String stripIllegalCharacters(String line)
-    {
-        String xml10pattern = "[^"
-                + "\u0009\r\n"
-                + "\u0020-\uD7FF"
-                + "\uE000-\uFFFD"
-                + "\ud800\udc00-\udbff\udfff"
-                + "]";
-        String xml11pattern = "[^"
-                + "\u0001-\uD7FF"
-                + "\uE000-\uFFFD"
-                + "\ud800\udc00-\udbff\udfff"
-                + "]+";
-        return line.replaceAll(xml10pattern, "").replaceAll(xml11pattern, "");
-    }*/
-
     private String stripIllegalEntities(String line)
     {
-        final String pattern = "(&#x([0-9A-Fa-f]{1,4});)";
-        /* Java 1.7+
-        final String pattern = "(?<entity>&#x(?<char>[0-9A-Fa-f]{1,4});)";*/
-        Pattern p = Pattern.compile(pattern);
+        final String PATTERN = "(&#x([0-9A-Fa-f]{1,4});)";
+        Pattern p = Pattern.compile(PATTERN);
         Matcher m = p.matcher(line);
+        String replaced = line;
 
         while (m.find()) {
             String charGroup = m.group(2);
-            /* Java 1.7+
-            String charGroupJava17 = m.group("char");*/
             long c = Long.parseLong(charGroup, 16);
             if (!isAllowed(c)) {
-                line = new StringBuilder(line).replace(m.start(1), m.end(1), "").toString();
-                m = p.matcher(line);
+                replaced = new StringBuilder(replaced).replace(m.start(1), m.end(1), "").toString();
+                m = p.matcher(replaced);
             }
         }
-        return line;
+        return replaced;
     }
 
     private boolean isAllowed(long c)

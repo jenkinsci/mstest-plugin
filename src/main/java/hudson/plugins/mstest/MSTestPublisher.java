@@ -36,6 +36,7 @@ import org.kohsuke.stapler.StaplerRequest;
 @Symbol("mstest")
 public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
+    private static final long serialVersionUID = 1L;
     private @Nonnull String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private boolean failOnError = DescriptorImpl.defaultFailOnError;
     private boolean keepLongStdio = DescriptorImpl.defaultKeepLongStdio;
@@ -64,7 +65,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     public boolean getFailOnError(){
-        return failOnError; 
+        return failOnError;
     }
 
     @DataBoundSetter
@@ -90,7 +91,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
             return null;
         }
     }
-    
+
     @Override
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
         Collection<Action> actions = new ArrayList<Action>();
@@ -205,11 +206,13 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
             throws IOException, InterruptedException
     {
         return workspace.act(new FileCallable<TestResult>() {
+            private static final long serialVersionUID = 1L;
+
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {
                 FileSet fs = Util.createFileSet(ws, junitFilePattern);
                 DirectoryScanner ds = fs.getDirectoryScanner();
                 String[] files = ds.getIncludedFiles();
-                
+
                 if (files.length == 0) {
                     if(failOnError) {
                         throw new AbortException(MsTestLogger.format("No test report files were found. (Have you specified a pattern matching any file in your workspace ?)"));
