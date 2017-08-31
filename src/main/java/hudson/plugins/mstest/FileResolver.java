@@ -27,6 +27,7 @@ class FileResolver {
             logger.error("caught unexpected IO exception while retrieving environment variables: %s", ioe.getMessage());
         } catch (InterruptedException ie){
             logger.error("caught unexpected interrupted exception while retrieving environment variables: %s", ie.getMessage());
+            Thread.currentThread().interrupt();
         }
         if (env != null) {
             resolved = resolveFilePath(filePath, env);
@@ -74,6 +75,7 @@ class FileResolver {
             logger.error("while listing workspace files: %s", ioe.getMessage());
         } catch (InterruptedException ie) {
             logger.error("while listing workspace files: %s", ie.getMessage());
+            Thread.currentThread().interrupt();
         }
         return fileNames.toArray(new String[fileNames.size()]);
     }
