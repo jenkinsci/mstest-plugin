@@ -25,6 +25,7 @@ import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.Symbol;
+import org.jenkinsci.remoting.RoleChecker;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
@@ -209,6 +210,11 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
             throws IOException, InterruptedException
     {
         return workspace.act(new FileCallable<TestResult>() {
+            @Override
+            public void checkRoles(RoleChecker checker) throws SecurityException {
+
+            }
+
             private static final long serialVersionUID = 1L;
 
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {

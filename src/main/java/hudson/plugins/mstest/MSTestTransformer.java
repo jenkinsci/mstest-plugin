@@ -13,6 +13,7 @@ import javax.annotation.Nonnull;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+import org.jenkinsci.remoting.RoleChecker;
 import org.xml.sax.SAXException;
 
 /**
@@ -81,5 +82,10 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         }
 
         return Boolean.TRUE;
+    }
+
+    @Override
+    public void checkRoles(RoleChecker checker) throws SecurityException {
+
     }
 }
