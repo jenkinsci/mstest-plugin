@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import hudson.AbortException;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 
@@ -56,7 +57,11 @@ public class MSTestTransformerTest extends TestHelper {
         });
 
         transformer = new MSTestTransformer(resolve("build.trx"), converter, buildListener, true);
-        Boolean result = transformer.invoke(parentFile, virtualChannel);
-        Assert.assertFalse("The archiver did not return false when it could not find any files", result);
+        try {
+            transformer.invoke(parentFile, virtualChannel);
+            Assert.assertFalse("The archiver did not throw when it could not find any files", true);
+        } catch (AbortException ae) {
+            Assert.assertTrue(true);
+        }
     }
 }
