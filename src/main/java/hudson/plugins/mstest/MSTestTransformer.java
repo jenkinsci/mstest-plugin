@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import hudson.AbortException;
 import hudson.FilePath;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
@@ -53,14 +54,13 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
                 logger.warn("No MSTest TRX test report files were found. Ignoring.");
                 return Boolean.TRUE;
             }
-            listener.fatalError(MsTestLogger.format("No MSTest TRX test report files were found. Configuration error?"));
-            return Boolean.FALSE;
+            throw new AbortException(MsTestLogger.format("No MSTest TRX test report files were found. Configuration error?"));
         }
 
         File junitOutputPath = new File(ws, JUNIT_REPORTS_PATH);
         boolean success = FileOperator.safeCreateFolder(junitOutputPath, logger);
         if (!success) {
-            return false;
+            return Boolean.FALSE;
         }
 
         for (String mstestFile : msTestFiles) {
@@ -80,6 +80,6 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
             }
         }
 
-        return true;
+        return Boolean.TRUE;
     }
 }

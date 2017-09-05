@@ -132,6 +132,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
             // Run the JUnit test archiver
             recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace, listener);
             workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
+        } else {
+            throw new AbortException("Unable to transform the MSTest report.");
         }
     }
 
@@ -175,10 +177,11 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         }
 
         if (result.getPassCount() == 0 && result.getFailCount() == 0) {
-            if (build.getResult() != Result.FAILURE) {
-                logger.error("None of the test reports contained any result.");
-                build.setResult(Result.FAILURE);
-                return;
+            String message = "None of the test reports contained any result.";
+            if (failOnError) {
+                throw new AbortException(message);
+            } else {
+                logger.error(message);
             }
         }
 
