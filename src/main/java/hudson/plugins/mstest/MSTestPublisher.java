@@ -1,7 +1,6 @@
 package hudson.plugins.mstest;
 
 import hudson.*;
-import hudson.FilePath.FileCallable;
 import hudson.model.*;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
@@ -20,12 +19,12 @@ import java.util.Collection;
 
 import javax.annotation.Nonnull;
 
+import jenkins.MasterToSlaveFileCallable;
 import jenkins.tasks.SimpleBuildStep;
 import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.Symbol;
-import org.jenkinsci.remoting.RoleChecker;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.StaplerRequest;
@@ -87,7 +86,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public Action getProjectAction(AbstractProject<?, ?> project) {
         TestResultProjectAction action = project.getAction(TestResultProjectAction.class);
         if (action == null) {
-            return new TestResultProjectAction(project);
+            return new TestResultProjectAction((Job)project);
         } else {
             return null;
         }
@@ -95,7 +94,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
 
     @Override
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
-        Collection<Action> actions = new ArrayList<Action>();
+        Collection<Action> actions = new ArrayList<>();
         Action action = this.getProjectAction(project);
         if (action != null)
             actions.add(action);
@@ -209,12 +208,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         (final String junitFilePattern, FilePath workspace, final TestResult existingTestResults)
             throws IOException, InterruptedException
     {
-        return workspace.act(new FileCallable<TestResult>() {
-            @Override
-            public void checkRoles(RoleChecker checker) throws SecurityException {
-
-            }
-
+        return workspace.act(new MasterToSlaveFileCallable<TestResult>() {
             private static final long serialVersionUID = 1L;
 
             public TestResult invoke(File ws, VirtualChannel channel) throws IOException {

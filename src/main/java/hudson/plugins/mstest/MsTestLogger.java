@@ -2,34 +2,45 @@ package hudson.plugins.mstest;
 
 import hudson.model.TaskListener;
 
-class MsTestLogger {
+import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+class MsTestLogger implements Serializable {
     private static String prefix = "[MSTEST-PLUGIN]";
     private TaskListener listener;
+
+    static MsTestLogger getLogger() {
+        return new MsTestLogger(null);
+    }
 
     MsTestLogger(TaskListener listener){
         this.listener = listener;
     }
 
     void debug(String format, Object ... args){
-        printf("DEBUG", format, args);
+        printf(Level.FINE, format, args);
     }
 
     void info(String format, Object ... args){
-        printf("INFO", format, args);
+        printf(Level.INFO, format, args);
     }
 
     void warn(String format, Object ... args){
-        printf("WARN", format, args);
+        printf(Level.WARNING, format, args);
     }
 
     void error(String format, Object ... args){
-        printf("ERR", format, args);
+        printf(Level.SEVERE, format, args);
     }
 
-    private void printf(String level, String format, Object ... args){
-        String message_format = String.format("%s %s %s%n", MsTestLogger.prefix, level, format);
+    private void printf(Level level, String format, Object ... args){
+        String messageFormat = String.format("%s %s %s%n", MsTestLogger.prefix, level.getName(), format);
         if (listener != null) {
-            listener.getLogger().printf(message_format, args);
+            listener.getLogger().printf(messageFormat, args);
+        } else {
+            Logger logger = Logger.getLogger(MSTestReportConverter.class.getName());
+            logger.log(level, messageFormat, args);
         }
     }
 

@@ -7,8 +7,6 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -46,7 +44,7 @@ class MSTestReportConverter implements Serializable {
     private static final String MSTESTCOVERAGE_FILE_STR = "vstest.coveragexml";
     private static final String MSTESTCOVERAGE_FILE_EXT = ".coveragexml";
 
-    private transient MsTestLogger logger;
+    private MsTestLogger logger;
     private transient int fileCount;
 
     MSTestReportConverter(TaskListener listener)
@@ -68,14 +66,8 @@ class MSTestReportConverter implements Serializable {
             throws IOException, TransformerException,
             SAXException, ParserConfigurationException {
         File f = new File(file);
-        FileInputStream fileStream = null;
-        try {
-            fileStream = new FileInputStream(f);
+        try (FileInputStream fileStream = new FileInputStream(f)) {
             transform(fileStream, junitOutputPath);
-        } finally {
-            if (fileStream != null) {
-                fileStream.close();
-            }
         }
 
         for (File c: getCoverageFiles(f))
@@ -94,7 +86,7 @@ class MSTestReportConverter implements Serializable {
 
     private List<File> getCoverageFiles(File trxFile)
     {
-        List<File> coverageFiles = new ArrayList<File>();
+        List<File> coverageFiles = new ArrayList<>();
         coverageFiles.add(new File(trxFile.getParent(), MSTESTCOVERAGE_FILE_STR));
         coverageFiles.add(getCoverageFile(trxFile));
         return coverageFiles;
@@ -107,17 +99,11 @@ class MSTestReportConverter implements Serializable {
     }
 
     private void convertToEmma(File f, File c) throws TransformerException, IOException, ParserConfigurationException {
-        FileInputStream fileStream = null;
         File emmaTargetFile = new File(f.getParent(), EMMA_FILE_STR);
         FileOperator.safeCreateFolder(emmaTargetFile.getParentFile(), logger);
         logger.info("XML coverage: transforming '%s' to '%s'\n", c.getAbsolutePath(), emmaTargetFile.getAbsolutePath());
-        try {
-            fileStream = new FileInputStream(c);
+        try (FileInputStream fileStream = new FileInputStream(c)) {
             XslTransformer.FromResource(MSTESTCOVERAGE_TO_EMMA_XSLFILE_STR).transform(fileStream, emmaTargetFile);
-        } finally {
-            if (fileStream != null) {
-                fileStream.close();
-            }
         }
     }
 
@@ -131,9 +117,8 @@ class MSTestReportConverter implements Serializable {
             XPathExpression expr = xpath.compile("count(/CoverageDSPriv/*)");
             Double childCount = (Double) expr.evaluate(doc, XPathConstants.NUMBER);
             return childCount > 0;
-        } catch (ParserConfigurationException ex) {
-        } catch (org.xml.sax.SAXException ex) {
-        } catch (XPathExpressionException ex) {
+        } catch (ParserConfigurationException | SAXException | XPathExpressionException ex) {
+            MsTestLogger.getLogger().error("Caught a XML parsing related exception: %s", ex.getMessage());
         }
         return false;
     }
@@ -158,7 +143,7 @@ class MSTestReportConverter implements Serializable {
     }
 
     private DocumentBuilder getDocumentBuilder()
-            throws TransformerFactoryConfigurationError, TransformerConfigurationException,
+            throws TransformerFactoryConfigurationError,
             ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         return factory.newDocumentBuilder();
@@ -186,10 +171,8 @@ class MSTestReportConverter implements Serializable {
             File junitOutputFile = new File(junitOutputPath, filename);
             try {
                 new XslTransformer().transform(source, junitOutputFile);
-            } catch (TransformerConfigurationException ex) {
-                Logger.getLogger(MSTestReportConverter.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ParserConfigurationException ex) {
-                Logger.getLogger(MSTestReportConverter.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (TransformerConfigurationException | ParserConfigurationException ex) {
+                MsTestLogger.getLogger().error("Caught a TransformerConfigurationException (what's the system configuration?) %s", ex.getMessage());
             }
         }
     }

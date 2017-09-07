@@ -11,6 +11,8 @@ import com.google.common.base.Charsets;
  */
 class ContentCorrector
 {
+    private static final String ILLEGAL_ENTITIES_PATTERN = "(&#x([0-9A-Fa-f]{1,4});)";
+
     private String file;
 
     ContentCorrector(String file)
@@ -54,8 +56,7 @@ class ContentCorrector
 
     private String stripIllegalEntities(String line)
     {
-        final String PATTERN = "(&#x([0-9A-Fa-f]{1,4});)";
-        Pattern p = Pattern.compile(PATTERN);
+        Pattern p = Pattern.compile(ILLEGAL_ENTITIES_PATTERN);
         Matcher m = p.matcher(line);
         String replaced = line;
 

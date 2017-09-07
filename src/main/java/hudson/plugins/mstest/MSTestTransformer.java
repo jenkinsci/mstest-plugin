@@ -1,19 +1,17 @@
 package hudson.plugins.mstest;
 
 import hudson.AbortException;
-import hudson.FilePath;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 
 import javax.annotation.Nonnull;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.jenkinsci.remoting.RoleChecker;
+import jenkins.MasterToSlaveFileCallable;
 import org.xml.sax.SAXException;
 
 /**
@@ -22,7 +20,7 @@ import org.xml.sax.SAXException;
  *
  * @author Antonio Marques
  */
-public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serializable {
+public class MSTestTransformer extends MasterToSlaveFileCallable<Boolean> {
 
     private static final long serialVersionUID = 1L;
 
@@ -69,12 +67,9 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
             try {
                 new ContentCorrector(mstestFile).fix();
                 unitReportTransformer.transform(mstestFile, junitOutputPath);
-            } catch (TransformerException te) {
+            } catch (TransformerException | SAXException te) {
                 throw new IOException(
                         MsTestLogger.format("Unable to transform the MSTest report. Please report this issue to the plugin author"), te);
-            } catch (SAXException se) {
-                throw new IOException(
-                        MsTestLogger.format("Unable to transform the MSTest report. Please report this issue to the plugin author"), se);
             } catch (ParserConfigurationException pce) {
                 throw new IOException(
                         MsTestLogger.format("Unable to initalize the XML parser. Please report this issue to the plugin author"), pce);
@@ -82,10 +77,5 @@ public class MSTestTransformer implements FilePath.FileCallable<Boolean>, Serial
         }
 
         return Boolean.TRUE;
-    }
-
-    @Override
-    public void checkRoles(RoleChecker checker) throws SecurityException {
-
     }
 }
