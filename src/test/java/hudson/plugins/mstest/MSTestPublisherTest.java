@@ -44,9 +44,13 @@ public class MSTestPublisherTest extends TestHelper {
         deleteWorkspace();
     }
 
-    private MSTestPublisher getTestedPublisher()
+    private MSTestPublisher getTestedPublisher(String pattern)
     {
-        return new MSTestPublisher("build.trx", false, false);
+        MSTestPublisher publisher = new MSTestPublisher();
+        publisher.setTestResultsFile(pattern);
+        publisher.setFailOnError(false);
+        publisher.setKeepLongStdio(false);
+        return publisher;
     }
 
     @Test
@@ -57,7 +61,7 @@ public class MSTestPublisherTest extends TestHelper {
                 will(returnValue(new TestResultProjectAction(project)));
             }
         });
-        MSTestPublisher publisher = getTestedPublisher();
+        MSTestPublisher publisher = getTestedPublisher("build.trx");
         Action projectAction = publisher.getProjectAction(project);
         Assert.assertNull("The action was not null", projectAction);
     }
@@ -70,7 +74,7 @@ public class MSTestPublisherTest extends TestHelper {
                 will(returnValue(null));
             }
         });
-        MSTestPublisher publisher = getTestedPublisher();
+        MSTestPublisher publisher = getTestedPublisher("build.trx");
         Action projectAction = publisher.getProjectAction(project);
         Assert.assertNotNull("The action was null", projectAction);
         Assert.assertEquals("The action type is incorrect", TestResultProjectAction.class, projectAction.getClass());
@@ -158,7 +162,7 @@ public class MSTestPublisherTest extends TestHelper {
             testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
-        MSTestPublisher publisher = new MSTestPublisher("**/*.trx", false, false);
+        MSTestPublisher publisher = getTestedPublisher("**/*.trx");
         Launcher launcher = classContext.mock(Launcher.class);
         publisher.perform(run, workspace, launcher, buildListener);
     }

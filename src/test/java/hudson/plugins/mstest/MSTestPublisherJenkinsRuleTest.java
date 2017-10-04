@@ -34,7 +34,11 @@ public class MSTestPublisherJenkinsRuleTest {
 
     private MSTestPublisher getTestedPublisher(String pattern)
     {
-        return new MSTestPublisher(pattern, false, false);
+        MSTestPublisher publisher = new MSTestPublisher();
+        publisher.setTestResultsFile(pattern);
+        publisher.setFailOnError(false);
+        publisher.setKeepLongStdio(false);
+        return publisher;
     }
 
     @Test
