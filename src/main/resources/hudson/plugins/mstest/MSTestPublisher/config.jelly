@@ -5,12 +5,12 @@
 		This jelly script is used for per-project configuration.
 	-->
 	<f:entry title="${%Test report TRX file}" description="${%description.pattern}">
-            <f:textbox name="mstest_reports.pattern" value="${instance.testResultsFile}" default="${descriptor.defaultTestResultsFile}"/>
+		<f:textbox field="testResultsFile" default="${descriptor.defaultTestResultsFile}"/>
 	</f:entry>
-	<f:entry title="${%Fail build if no files are found}" field="failOnError" >
-		<f:checkbox name="failOnError" default="${descriptor.defaultFailOnError}"/>
+	<f:entry title="${%Fail build if no files are found}">
+		<f:checkbox field="failOnError" default="${descriptor.defaultFailOnError}"/>
 	</f:entry>
-	<f:entry field="keepLongStdio" title="${%Retain long standard output/error}">
-		<f:checkbox name="keepLongStdio" default="${descriptor.defaultKeepLongStdio}"/>
+	<f:entry title="${%Retain long standard output/error}">
+		<f:checkbox field="keepLongStdio" default="${descriptor.defaultKeepLongStdio}"/>
 	</f:entry>
 </j:jelly>

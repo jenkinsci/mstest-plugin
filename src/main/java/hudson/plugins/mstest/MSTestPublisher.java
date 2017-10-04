@@ -43,15 +43,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
 
     private long buildTime;
 
-    public MSTestPublisher() {
-        this(DescriptorImpl.defaultTestResultsFile, DescriptorImpl.defaultFailOnError, DescriptorImpl.defaultKeepLongStdio);
-    }
-
     @DataBoundConstructor
-    public MSTestPublisher(String testResultsFile, boolean failOnError, boolean keepLongStdio) {
-        this.testResultsFile = testResultsFile;
-        this.failOnError = failOnError;
-        this.keepLongStdio = keepLongStdio;
+    public MSTestPublisher() {
     }
 
     public @Nonnull
@@ -74,7 +67,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     public boolean getKeepLongStdio(){
-        return failOnError;
+        return keepLongStdio;
     }
 
     @DataBoundSetter
@@ -262,26 +255,6 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         @Override
         public boolean isApplicable(Class<? extends AbstractProject> jobType) {
             return true;
-        }
-
-        @Override
-        public Publisher newInstance(StaplerRequest req, JSONObject formData) throws FormException {
-            MSTestPublisher publisher = new MSTestPublisher();
-            publisher.setTestResultsFile(req.getParameter("mstest_reports.pattern"));
-
-            if (req.getParameter("failOnError") == null) {
-                publisher.setFailOnError(defaultFailOnError);
-            } else if (!req.getParameter("failOnError").equals("on")) {
-                publisher.setFailOnError(false);
-            }
-
-            if (req.getParameter("keepLongStdio") == null) {
-                publisher.setKeepLongStdio(defaultKeepLongStdio);
-            } else if (req.getParameter("keepLongStdio").equals("on")) {
-                publisher.setKeepLongStdio(true);
-            }
-
-            return publisher;
         }
     }
 }

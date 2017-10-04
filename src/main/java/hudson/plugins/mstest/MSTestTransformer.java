@@ -1,7 +1,9 @@
 package hudson.plugins.mstest;
 
 import hudson.AbortException;
+import hudson.FilePath;
 import hudson.model.TaskListener;
+import hudson.remoting.Channel;
 import hudson.remoting.VirtualChannel;
 
 import java.io.File;
@@ -39,11 +41,16 @@ public class MSTestTransformer extends MasterToSlaveFileCallable<Boolean> {
     }
 
     /**
-     * {@inheritDoc}
+     * Performs the computational task on the node where the data is located.
+     *
+     * <p>
+     * All the exceptions are forwarded to the caller.
+     *
      * @param ws
+     *      {@link File} that represents the local file that {@link FilePath} has represented.
      * @param channel
-     * @return 
-     * @throws java.io.IOException
+     *      The "back pointer" of the {@link Channel} that represents the communication
+     *      with the node from where the code was sent.
      */
     public Boolean invoke(File ws, VirtualChannel channel) throws IOException {
         MsTestLogger logger = new MsTestLogger(listener);
