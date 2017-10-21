@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="55bf0ea2-e080-4549-8a0e-3096c323abfe" name="controcctests-user@TYSHA 2016-07-18 13:58:43" runUser="OCCLAN\controcctests-user" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="TestSettings1" id="4329859c-c994-44a8-a0de-c755c59746ad">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="E:\Jenkins\Please_Ignore_TestMSTest" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="controcctests-user_TYSHA 2016-07-18 13_58_43" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+    <Properties />
+  </TestSettings>
+  <Times creation="2016-07-18T13:58:43.5862130+01:00" queuing="2016-07-18T13:58:44.0742414+01:00" start="2016-07-18T13:58:44.2342510+01:00" finish="2016-07-18T13:58:45.4003179+01:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="2" executed="2" passed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestCreatesError" storage="e:\jenkins\please_ignore_testmstest\testrunner\output\testmstest.dll" id="d76a6153-9c7f-b036-18d3-03274eda8378">
+      <Execution id="d6acdfbb-8f15-49fb-908e-5c09e3b678a3" />
+      <TestMethod codeBase="E:/Jenkins/Please_Ignore_TestMSTest/TestRunner/Output/TestMSTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestMSTest.UnitTest1, TestMSTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestCreatesError" />
+      <DataSource connectionString="Nonexistentfolder\Nonexistentfile.csv" providerInvariantName="Microsoft.VisualStudio.TestTools.DataSource.CSV" tableName="PensionCreditDate#csv" />
+    </UnitTest>
+    <UnitTest name="TestPasses" storage="e:\jenkins\please_ignore_testmstest\testrunner\output\testmstest.dll" id="a9008651-d760-89bf-8b41-d2e602889389">
+      <Execution id="894e36b7-bc54-44f5-8f02-463f09e5d9ad" />
+      <TestMethod codeBase="E:/Jenkins/Please_Ignore_TestMSTest/TestRunner/Output/TestMSTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestMSTest.UnitTest1, TestMSTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPasses" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="d76a6153-9c7f-b036-18d3-03274eda8378" executionId="d6acdfbb-8f15-49fb-908e-5c09e3b678a3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a9008651-d760-89bf-8b41-d2e602889389" executionId="894e36b7-bc54-44f5-8f02-463f09e5d9ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d6acdfbb-8f15-49fb-908e-5c09e3b678a3" testId="d76a6153-9c7f-b036-18d3-03274eda8378" testName="TestCreatesError" computerName="TYSHA" startTime="2016-07-18T13:58:44.2762529+01:00" endTime="2016-07-18T13:58:45.2813102+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d6acdfbb-8f15-49fb-908e-5c09e3b678a3" resultType="DataDrivenTest">
+      <Output>
+        <ErrorInfo>
+          <Message>The unit test adapter failed to connect to the data source or to read the data. For more information on troubleshooting this error, see "Troubleshooting Data-Driven Unit Tests" (http://go.microsoft.com/fwlink/?LinkId=62412) in the MSDN Library.
+Error details: 'E:\Jenkins\Please_Ignore_TestMSTest\controcctests-user_TYSHA 2016-07-18 13_58_43\Out\Nonexistentfolder' is not a valid path.  Make sure that the path name is spelled correctly and that you are connected to the server on which the file resides.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="894e36b7-bc54-44f5-8f02-463f09e5d9ad" testId="a9008651-d760-89bf-8b41-d2e602889389" testName="TestPasses" computerName="TYSHA" duration="00:00:00.0281352" startTime="2016-07-18T13:58:45.2863108+01:00" endTime="2016-07-18T13:58:45.3233118+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="894e36b7-bc54-44f5-8f02-463f09e5d9ad">
+    </UnitTestResult>
+  </Results>
+</TestRun>
