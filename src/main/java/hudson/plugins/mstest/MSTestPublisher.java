@@ -33,7 +33,6 @@ import org.kohsuke.stapler.StaplerRequest;
  *
  * @author Antonio Marques
  */
-@Symbol("mstest")
 public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
     private static final long serialVersionUID = 1L;
@@ -232,6 +231,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     @Extension
+    @Symbol("mstest")
     public static class DescriptorImpl extends BuildStepDescriptor<Publisher> {
 
         public static final String defaultTestResultsFile = "**/*.trx";
