@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.AbortException;
 import hudson.Extension;
 import hudson.FilePath;
@@ -26,7 +27,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.annotation.Nonnull;
 import jenkins.MasterToSlaveFileCallable;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.tools.ant.DirectoryScanner;
@@ -43,7 +43,7 @@ import org.kohsuke.stapler.DataBoundSetter;
 public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
     private static final long serialVersionUID = 1L;
-    @Nonnull
+    @NonNull
     private String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private boolean failOnError = DescriptorImpl.defaultFailOnError;
     private boolean keepLongStdio = DescriptorImpl.defaultKeepLongStdio;
@@ -54,20 +54,20 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public MSTestPublisher() {
     }
 
-    static String[] resolveTestReports(String testReportsPattern, @Nonnull Run<?, ?> build,
-        @Nonnull FilePath workspace, @Nonnull TaskListener listener) {
+    static String[] resolveTestReports(String testReportsPattern, @NonNull Run<?, ?> build,
+        @NonNull FilePath workspace, @NonNull TaskListener listener) {
         FileResolver resolver = new FileResolver(listener);
         String resolved = resolver.SafeResolveFilePath(testReportsPattern, build, listener);
         return resolver.FindMatchingMSTestReports(resolved, workspace);
     }
 
-    public @Nonnull
-    String getTestResultsFile() {
+    @NonNull
+    public String getTestResultsFile() {
         return testResultsFile;
     }
 
     @DataBoundSetter
-    public final void setTestResultsFile(@Nonnull String testResultsFile) {
+    public final void setTestResultsFile(@NonNull String testResultsFile) {
         this.testResultsFile = testResultsFile;
     }
 
@@ -100,6 +100,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     @Override
+    @NonNull
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
         Collection<Action> actions = new ArrayList<>();
         Action action = this.getProjectAction(project);
@@ -127,8 +128,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     @Override
-    public void perform(final @Nonnull Run<?, ?> build, @Nonnull FilePath workspace,
-        @Nonnull Launcher launcher, final @Nonnull TaskListener listener)
+    public void perform(final @NonNull Run<?, ?> build, @NonNull FilePath workspace,
+        @NonNull Launcher launcher, final @NonNull TaskListener listener)
         throws InterruptedException, IOException {
         buildTime = build.getTimestamp().getTimeInMillis();
 
@@ -257,6 +258,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         }
 
         @Override
+        @NonNull
         public String getDisplayName() {
             return Messages.MsTest_Publisher_Name();
         }

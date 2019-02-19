@@ -172,7 +172,7 @@ class MSTestReportConverter implements Serializable {
             File junitOutputFile = new File(junitOutputPath, filename);
             try {
                 new XslTransformer().transform(source, junitOutputFile);
-            } catch (TransformerConfigurationException | ParserConfigurationException ex) {
+            } catch (TransformerConfigurationException ex) {
                 MsTestLogger.getLogger().error(
                     "Caught a TransformerConfigurationException (what's the system configuration?) %s",
                     ex.getMessage());

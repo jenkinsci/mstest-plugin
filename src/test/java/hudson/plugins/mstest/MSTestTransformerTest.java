@@ -58,7 +58,7 @@ public class MSTestTransformerTest extends TestHelper {
         transformer = new MSTestTransformer(resolve("build.trx"), converter, buildListener, true);
         try {
             transformer.invoke(parentFile, virtualChannel);
-            Assert.assertFalse("The archiver did not throw when it could not find any files", true);
+            Assert.fail("The archiver did not throw when it could not find any files");
         } catch (AbortException ae) {
             Assert.assertTrue(true);
         }

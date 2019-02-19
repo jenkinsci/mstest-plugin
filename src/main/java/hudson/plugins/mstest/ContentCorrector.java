@@ -31,7 +31,7 @@ class ContentCorrector {
     }
 
     void fix() throws IOException {
-        String filename = Integer.toString(randInt(1000, 1000000)) + ".trx";
+        String filename = randInt(1000, 1000000) + ".trx";
         File inFile = new File(file);
         File parent = inFile.getParentFile();
         File outfile = new File(parent, filename);

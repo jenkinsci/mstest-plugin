@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.nio.file.Files;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -61,14 +62,10 @@ public class MSTestTransformerAndConverterTest extends TestHelper {
         });
         final String testPath = "xmlentities-forged.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists()) {
-            assert testFile.delete();
-        }
+        assert !testFile.exists() || testFile.delete();
         InputStream testStream = this.getClass()
             .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
-        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
-        /* Java 1.7+
-        Files.copy(testStream, testFile.toPath());*/
+        Files.copy(testStream, testFile.toPath());
         MSTestReportConverter converter = new MSTestReportConverter(buildListener);
         transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);
@@ -88,14 +85,10 @@ public class MSTestTransformerAndConverterTest extends TestHelper {
         });
         final String testPath = "vishalMane.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists()) {
-            assert testFile.delete();
-        }
+        assert !testFile.exists() || testFile.delete();
         InputStream testStream = this.getClass()
             .getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
-        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
-        /* Java 1.7+
-        Files.copy(testStream, testFile.toPath());  */
+        Files.copy(testStream, testFile.toPath());
         MSTestReportConverter converter = new MSTestReportConverter(buildListener);
         transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);
@@ -115,13 +108,9 @@ public class MSTestTransformerAndConverterTest extends TestHelper {
         });
         final String testPath = "charset.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists()) {
-            assert testFile.delete();
-        }
+        assert !testFile.exists() || testFile.delete();
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-charset.trx");
-        FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
-        /* Java 1.7+
-        Files.copy(testStream, testFile.toPath());*/
+        Files.copy(testStream, testFile.toPath());
         MSTestReportConverter converter = new MSTestReportConverter(buildListener);
         transformer = new MSTestTransformer(resolve(testPath), converter, buildListener, false);
         transformer.invoke(parentFile, virtualChannel);

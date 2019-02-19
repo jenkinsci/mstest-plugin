@@ -1,5 +1,6 @@
 package hudson.plugins.mstest;
 
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.AbortException;
 import hudson.FilePath;
 import hudson.model.TaskListener;
@@ -7,7 +8,6 @@ import hudson.remoting.Channel;
 import hudson.remoting.VirtualChannel;
 import java.io.File;
 import java.io.IOException;
-import javax.annotation.Nonnull;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import jenkins.MasterToSlaveFileCallable;
@@ -29,8 +29,8 @@ public class MSTestTransformer extends MasterToSlaveFileCallable<Boolean> {
     private final MSTestReportConverter unitReportTransformer;
     private final String[] msTestFiles;
 
-    MSTestTransformer(String[] msTestFiles, @Nonnull MSTestReportConverter unitReportTransformer,
-        @Nonnull TaskListener listener, boolean failOnError) {
+    MSTestTransformer(String[] msTestFiles, @NonNull MSTestReportConverter unitReportTransformer,
+        @NonNull TaskListener listener, boolean failOnError) {
         this.msTestFiles = msTestFiles;
         this.unitReportTransformer = unitReportTransformer;
         this.listener = listener;

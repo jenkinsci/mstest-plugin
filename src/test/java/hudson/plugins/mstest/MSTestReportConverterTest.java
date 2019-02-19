@@ -251,18 +251,18 @@ public class MSTestReportConverterTest {
     }
 
     private String readXmlAsString(String resourceName) throws IOException {
-        String xmlString = "";
+        StringBuilder xmlString = new StringBuilder();
 
-        BufferedReader reader = new BufferedReader(
+        try (BufferedReader reader = new BufferedReader(
             new InputStreamReader(this.getClass().getResourceAsStream(resourceName),
-                com.google.common.base.Charsets.UTF_8));
-        String line = reader.readLine();
-        while (line != null) {
-            xmlString += line + "\n";
-            line = reader.readLine();
+                com.google.common.base.Charsets.UTF_8))) {
+            String line = reader.readLine();
+            while (line != null) {
+                xmlString.append(line).append("\n");
+                line = reader.readLine();
+            }
         }
-        reader.close();
 
-        return xmlString;
+        return xmlString.toString();
     }
 }

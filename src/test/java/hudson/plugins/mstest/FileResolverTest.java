@@ -46,11 +46,9 @@ public class FileResolverTest extends TestHelper {
         });
 
         File subfolder = new File(parentFile, "subfolder");
-        subfolder.mkdirs();
+        assert subfolder.exists() || subfolder.mkdirs();
         File testFile = new File(subfolder, "xmlentities-forged.trx");
-        if (testFile.exists()) {
-            testFile.delete();
-        }
+        assert !testFile.exists() || testFile.delete();
         InputStream testStream = this.getClass()
             .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));

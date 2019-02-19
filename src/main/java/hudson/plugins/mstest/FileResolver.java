@@ -68,7 +68,7 @@ class FileResolver {
         if (f.isAbsolute() && f.exists()) {
             return new String[]{f.getAbsolutePath()};
         }
-        ArrayList<String> fileNames = new ArrayList<String>();
+        ArrayList<String> fileNames = new ArrayList<>();
         try {
             for (FilePath x : workspace.list(pattern)) {
                 fileNames.add(x.getRemote());
@@ -79,6 +79,6 @@ class FileResolver {
             logger.error("while listing workspace files: %s", ie.getMessage());
             Thread.currentThread().interrupt();
         }
-        return fileNames.toArray(new String[fileNames.size()]);
+        return fileNames.toArray(new String[0]);
     }
 }
