@@ -9,14 +9,20 @@ import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.test.TestResultProjectAction;
-
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+import java.util.GregorianCalendar;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
-
-import java.io.*;
-import java.util.GregorianCalendar;
 
 /**
  * Unit tests for MSTestPublisher class
@@ -44,8 +50,7 @@ public class MSTestPublisherTest extends TestHelper {
         deleteWorkspace();
     }
 
-    private MSTestPublisher getTestedPublisher(String pattern)
-    {
+    private MSTestPublisher getTestedPublisher(String pattern) {
         MSTestPublisher publisher = new MSTestPublisher();
         publisher.setTestResultsFile(pattern);
         publisher.setFailOnError(false);
@@ -77,7 +82,8 @@ public class MSTestPublisherTest extends TestHelper {
         MSTestPublisher publisher = getTestedPublisher("build.trx");
         Action projectAction = publisher.getProjectAction(project);
         Assert.assertNotNull("The action was null", projectAction);
-        Assert.assertEquals("The action type is incorrect", TestResultProjectAction.class, projectAction.getClass());
+        Assert.assertEquals("The action type is incorrect", TestResultProjectAction.class,
+            projectAction.getClass());
     }
 
     @Test
@@ -98,11 +104,14 @@ public class MSTestPublisherTest extends TestHelper {
         File subfolder = new File(parentFile, "subfolder");
         subfolder.mkdirs();
         File testFile = new File(subfolder, "xmlentities-forged.trx");
-        if (testFile.exists())
+        if (testFile.exists()) {
             testFile.delete();
-        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
+        }
+        InputStream testStream = this.getClass()
+            .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
-        String[] results = MSTestPublisher.resolveTestReports("*.trx", run, workspace, buildListener);
+        String[] results = MSTestPublisher
+            .resolveTestReports("*.trx", run, workspace, buildListener);
         Assert.assertEquals(0, results.length);
     }
 
@@ -158,9 +167,11 @@ public class MSTestPublisherTest extends TestHelper {
         File subfolder = new File(parentFile, "subfolder");
         subfolder.mkdirs();
         File testFile = new File(subfolder, "xmlentities-forged.trx");
-        if (testFile.exists())
+        if (testFile.exists()) {
             testFile.delete();
-        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
+        }
+        InputStream testStream = this.getClass()
+            .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         MSTestPublisher publisher = getTestedPublisher("**/*.trx");
         Launcher launcher = classContext.mock(Launcher.class);

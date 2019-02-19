@@ -1,7 +1,18 @@
 package hudson.plugins.mstest;
 
-import hudson.*;
-import hudson.model.*;
+import hudson.AbortException;
+import hudson.Extension;
+import hudson.FilePath;
+import hudson.Launcher;
+import hudson.Util;
+import hudson.model.AbstractBuild;
+import hudson.model.AbstractProject;
+import hudson.model.Action;
+import hudson.model.BuildListener;
+import hudson.model.Job;
+import hudson.model.Result;
+import hudson.model.Run;
+import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
 import hudson.tasks.BuildStepDescriptor;
 import hudson.tasks.BuildStepMonitor;
@@ -10,24 +21,20 @@ import hudson.tasks.Recorder;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.test.TestResultProjectAction;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-
 import javax.annotation.Nonnull;
-
 import jenkins.MasterToSlaveFileCallable;
 import jenkins.tasks.SimpleBuildStep;
-import net.sf.json.JSONObject;
 import org.apache.tools.ant.DirectoryScanner;
 import org.apache.tools.ant.types.FileSet;
 import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
-import org.kohsuke.stapler.StaplerRequest;
+
 /**
  * Class that records MSTest test reports into Hudson.
  *
@@ -36,7 +43,8 @@ import org.kohsuke.stapler.StaplerRequest;
 public class MSTestPublisher extends Recorder implements Serializable, SimpleBuildStep {
 
     private static final long serialVersionUID = 1L;
-    private @Nonnull String testResultsFile = DescriptorImpl.defaultTestResultsFile;
+    @Nonnull
+    private String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private boolean failOnError = DescriptorImpl.defaultFailOnError;
     private boolean keepLongStdio = DescriptorImpl.defaultKeepLongStdio;
 
@@ -44,6 +52,13 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
 
     @DataBoundConstructor
     public MSTestPublisher() {
+    }
+
+    static String[] resolveTestReports(String testReportsPattern, @Nonnull Run<?, ?> build,
+        @Nonnull FilePath workspace, @Nonnull TaskListener listener) {
+        FileResolver resolver = new FileResolver(listener);
+        String resolved = resolver.SafeResolveFilePath(testReportsPattern, build, listener);
+        return resolver.FindMatchingMSTestReports(resolved, workspace);
     }
 
     public @Nonnull
@@ -56,7 +71,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         this.testResultsFile = testResultsFile;
     }
 
-    public boolean getFailOnError(){
+    public boolean getFailOnError() {
         return failOnError;
     }
 
@@ -65,7 +80,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         this.failOnError = failOnError;
     }
 
-    public boolean getKeepLongStdio(){
+    public boolean getKeepLongStdio() {
         return keepLongStdio;
     }
 
@@ -78,7 +93,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public Action getProjectAction(AbstractProject<?, ?> project) {
         TestResultProjectAction action = project.getAction(TestResultProjectAction.class);
         if (action == null) {
-            return new TestResultProjectAction((Job)project);
+            return new TestResultProjectAction((Job) project);
         } else {
             return null;
         }
@@ -88,8 +103,9 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public Collection<Action> getProjectActions(AbstractProject<?, ?> project) {
         Collection<Action> actions = new ArrayList<>();
         Action action = this.getProjectAction(project);
-        if (action != null)
+        if (action != null) {
             actions.add(action);
+        }
         return actions;
     }
 
@@ -99,7 +115,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
 
     @Override
     public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
-            throws InterruptedException, IOException {
+        throws InterruptedException, IOException {
         final FilePath workspace = build.getWorkspace();
 
         if (workspace == null) {
@@ -111,28 +127,25 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     }
 
     @Override
-    public void perform(final @Nonnull Run<?, ?> build, @Nonnull FilePath workspace, @Nonnull Launcher launcher, final @Nonnull TaskListener listener)
-            throws InterruptedException, IOException {
+    public void perform(final @Nonnull Run<?, ?> build, @Nonnull FilePath workspace,
+        @Nonnull Launcher launcher, final @Nonnull TaskListener listener)
+        throws InterruptedException, IOException {
         buildTime = build.getTimestamp().getTimeInMillis();
 
         String[] matchingFiles = resolveTestReports(testResultsFile, build, workspace, listener);
         MSTestReportConverter converter = new MSTestReportConverter(listener);
-        MSTestTransformer transformer = new MSTestTransformer(matchingFiles, converter, listener, failOnError);
+        MSTestTransformer transformer = new MSTestTransformer(matchingFiles, converter, listener,
+            failOnError);
         boolean result = workspace.act(transformer);
 
         if (result) {
             // Run the JUnit test archiver
-            recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace, listener);
+            recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace,
+                listener);
             workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
         } else {
             throw new AbortException("Unable to transform the MSTest report.");
         }
-    }
-
-    static String[] resolveTestReports(String testReportsPattern, @Nonnull Run<?, ?> build, @Nonnull FilePath workspace, @Nonnull TaskListener listener) {
-        FileResolver resolver = new FileResolver(listener);
-        String resolved = resolver.SafeResolveFilePath(testReportsPattern, build, listener);
-        return resolver.FindMatchingMSTestReports(resolved, workspace);
     }
 
     /**
@@ -144,8 +157,9 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
      * @throws InterruptedException workspace/jenkins operations may throw
      * @throws IOException workspace/jenkins operations may throw
      */
-    private void recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace, TaskListener listener)
-            throws InterruptedException, IOException {
+    private void recordTestResult(String junitFilePattern, Run<?, ?> build, FilePath workspace,
+        TaskListener listener)
+        throws InterruptedException, IOException {
         TestResultAction existingAction = build.getAction(TestResultAction.class);
         TestResultAction action;
 
@@ -157,7 +171,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         }
         TestResult result = getTestResult(junitFilePattern, workspace, existingTestResults);
 
-        if(result == null) {
+        if (result == null) {
             return;
         }
 
@@ -197,9 +211,8 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
      * @throws InterruptedException workspace/jenkins operations may throw
      */
     private TestResult getTestResult
-        (final String junitFilePattern, FilePath workspace, final TestResult existingTestResults)
-            throws IOException, InterruptedException
-    {
+    (final String junitFilePattern, FilePath workspace, final TestResult existingTestResults)
+        throws IOException, InterruptedException {
         return workspace.act(new MasterToSlaveFileCallable<TestResult>() {
             private static final long serialVersionUID = 1L;
 
@@ -209,8 +222,9 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
                 String[] files = ds.getIncludedFiles();
 
                 if (files.length == 0) {
-                    if(failOnError) {
-                        throw new AbortException(MsTestLogger.format("No test report files were found. (Have you specified a pattern matching any file in your workspace ?)"));
+                    if (failOnError) {
+                        throw new AbortException(MsTestLogger.format(
+                            "No test report files were found. (Have you specified a pattern matching any file in your workspace ?)"));
                     } else {
                         return null;
                     }

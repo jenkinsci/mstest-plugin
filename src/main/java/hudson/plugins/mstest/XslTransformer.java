@@ -14,7 +14,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
- *
  * @author nilleb
  */
 class XslTransformer {
@@ -22,37 +21,36 @@ class XslTransformer {
     private final transient Transformer xslTransformer;
 
     XslTransformer()
-            throws TransformerConfigurationException, ParserConfigurationException
-    {
+        throws TransformerConfigurationException, ParserConfigurationException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        xslTransformer = transformerFactory.newTransformer();  
+        xslTransformer = transformerFactory.newTransformer();
     }
 
     private XslTransformer(String xslTransform)
-            throws TransformerConfigurationException, ParserConfigurationException
-    {
+        throws TransformerConfigurationException, ParserConfigurationException {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        xslTransformer = transformerFactory.newTransformer(new StreamSource(this.getClass().getResourceAsStream(xslTransform)));  
+        xslTransformer = transformerFactory
+            .newTransformer(new StreamSource(this.getClass().getResourceAsStream(xslTransform)));
     }
 
     static XslTransformer FromResource(String resourceName)
-            throws TransformerConfigurationException, ParserConfigurationException
-    {
+        throws TransformerConfigurationException, ParserConfigurationException {
         return new XslTransformer(resourceName);
     }
-    
+
     void transform(InputStream inputStream, File outputFile)
-            throws TransformerException, IOException {
+        throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {
-            xslTransformer.transform(new StreamSource(inputStream), new StreamResult(fileOutputStream));
+            xslTransformer
+                .transform(new StreamSource(inputStream), new StreamResult(fileOutputStream));
         } finally {
             fileOutputStream.close();
         }
     }
-    
+
     void transform(DOMSource source, File outputFile)
-            throws TransformerException, IOException {
+        throws TransformerException, IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(outputFile);
         try {
             xslTransformer.transform(source, new StreamResult(fileOutputStream));

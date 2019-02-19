@@ -2,6 +2,11 @@ package hudson.plugins.mstest;
 
 import hudson.FilePath;
 import hudson.model.TaskListener;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -10,9 +15,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
 
-import java.io.*;
-
 public class FileResolverTest extends TestHelper {
+
     private TaskListener buildListener;
     private Mockery classContext;
 
@@ -44,9 +48,11 @@ public class FileResolverTest extends TestHelper {
         File subfolder = new File(parentFile, "subfolder");
         subfolder.mkdirs();
         File testFile = new File(subfolder, "xmlentities-forged.trx");
-        if (testFile.exists())
+        if (testFile.exists()) {
             testFile.delete();
-        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
+        }
+        InputStream testStream = this.getClass()
+            .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         FilePath[] list = workspace.list("*.trx");
         Assert.assertEquals(0, list.length);

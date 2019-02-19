@@ -3,8 +3,8 @@ package hudson.plugins.mstest;
 import java.io.File;
 
 class FileOperator {
-    static boolean safeDelete(File path, MsTestLogger logger)
-    {
+
+    static boolean safeDelete(File path, MsTestLogger logger) {
         boolean success = path.delete();
         if (!success) {
             logger.warn("Unable to delete the file %s", path.getAbsolutePath());
@@ -13,8 +13,7 @@ class FileOperator {
         return success;
     }
 
-    static boolean safeCreateFolder(File path, MsTestLogger logger)
-    {
+    static boolean safeCreateFolder(File path, MsTestLogger logger) {
         boolean success = true;
         if (path.isFile()) {
             success = path.delete();
@@ -29,7 +28,9 @@ class FileOperator {
             }
         }
         if (!success) {
-            logger.info("The path %s is expected to be a folder, writable by the Jenkins worker process.", path.getAbsolutePath());
+            logger.info(
+                "The path %s is expected to be a folder, writable by the Jenkins worker process.",
+                path.getAbsolutePath());
         }
         return success;
     }

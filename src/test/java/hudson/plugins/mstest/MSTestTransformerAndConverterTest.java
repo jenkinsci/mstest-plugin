@@ -3,6 +3,11 @@ package hudson.plugins.mstest;
 import hudson.FilePath;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -10,27 +15,25 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.util.FileCopyUtils;
-
-import java.io.*;
 /* Java 1.7+
 import java.nio.file.Files;
  */
 
 /**
  * Unit tests for MSTestTransformer class
- * 
+ *
  * @author Antonio Marques
  */
-public class MSTestTransformerAndConverterTest extends TestHelper{
+public class MSTestTransformerAndConverterTest extends TestHelper {
 
-	
+
     private TaskListener buildListener;
     private Mockery context;
     private Mockery classContext;
     private MSTestTransformer transformer;
     private VirtualChannel virtualChannel;
 
-    
+
     @Before
     public void setUp() throws Exception {
         createWorkspace();
@@ -58,9 +61,11 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         });
         final String testPath = "xmlentities-forged.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists())
+        if (testFile.exists()) {
             assert testFile.delete();
-        InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
+        }
+        InputStream testStream = this.getClass()
+            .getResourceAsStream("JENKINS-23531-xmlentities-forged.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
         Files.copy(testStream, testFile.toPath());*/
@@ -83,9 +88,11 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         });
         final String testPath = "vishalMane.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists())
+        if (testFile.exists()) {
             assert testFile.delete();
-        InputStream testStream = this.getClass().getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
+        }
+        InputStream testStream = this.getClass()
+            .getResourceAsStream("SYSTEM_AD-JENKINS 2015-07-08 10_53_01.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+
         Files.copy(testStream, testFile.toPath());  */
@@ -108,8 +115,9 @@ public class MSTestTransformerAndConverterTest extends TestHelper{
         });
         final String testPath = "charset.trx";
         File testFile = new File(parentFile, testPath);
-        if (testFile.exists())
+        if (testFile.exists()) {
             assert testFile.delete();
+        }
         InputStream testStream = this.getClass().getResourceAsStream("JENKINS-23531-charset.trx");
         FileCopyUtils.copy(testStream, new FileOutputStream(testFile));
         /* Java 1.7+

@@ -3,14 +3,13 @@ package hudson.plugins.mstest;
 import hudson.FilePath;
 import hudson.Util;
 import java.io.File;
-
 import org.jmock.Mockery;
 import org.jmock.lib.legacy.ClassImposteriser;
 
 public abstract class TestHelper {
 
-    File parentFile;
     protected FilePath workspace;
+    File parentFile;
 
     void createWorkspace() throws Exception {
         parentFile = Util.createTempDir();
@@ -24,26 +23,23 @@ public abstract class TestHelper {
     void deleteWorkspace() throws Exception {
         workspace.deleteRecursive();
     }
-    
-    
-    Mockery getClassMock()
-    {
-    	Mockery classContext;
+
+
+    Mockery getClassMock() {
+        Mockery classContext;
         classContext = new Mockery() {
             {
                 setImposteriser(ClassImposteriser.INSTANCE);
             }
         };
-    	return classContext;
-    }
-    
-    Mockery getMock()
-    {
-    	return new Mockery();
+        return classContext;
     }
 
-    String[] resolve(String testFile)
-    {
+    Mockery getMock() {
+        return new Mockery();
+    }
+
+    String[] resolve(String testFile) {
         return new FileResolver(null).FindMatchingMSTestReports(testFile, workspace);
     }
 }

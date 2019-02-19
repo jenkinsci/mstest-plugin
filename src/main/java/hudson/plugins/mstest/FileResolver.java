@@ -4,29 +4,32 @@ import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.model.Run;
 import hudson.model.TaskListener;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 class FileResolver {
+
     private final TaskListener listener;
 
-    FileResolver(TaskListener listener){
+    FileResolver(TaskListener listener) {
         this.listener = listener;
     }
 
-    String SafeResolveFilePath(String filePath, Run<?, ?> build, TaskListener listener)
-    {
+    String SafeResolveFilePath(String filePath, Run<?, ?> build, TaskListener listener) {
         MsTestLogger logger = new MsTestLogger(listener);
         String resolved = filePath;
         EnvVars env = null;
         try {
             env = build.getEnvironment(listener);
         } catch (IOException ioe) {
-            logger.error("caught unexpected IO exception while retrieving environment variables: %s", ioe.getMessage());
-        } catch (InterruptedException ie){
-            logger.error("caught unexpected interrupted exception while retrieving environment variables: %s", ie.getMessage());
+            logger
+                .error("caught unexpected IO exception while retrieving environment variables: %s",
+                    ioe.getMessage());
+        } catch (InterruptedException ie) {
+            logger.error(
+                "caught unexpected interrupted exception while retrieving environment variables: %s",
+                ie.getMessage());
             Thread.currentThread().interrupt();
         }
         if (env != null) {
@@ -42,7 +45,7 @@ class FileResolver {
         if (expanded != null) {
             resolvedFilePath = expanded;
         }
-        if (!filePath.equals(resolvedFilePath)){
+        if (!filePath.equals(resolvedFilePath)) {
             logger.debug("the path %s has been resolved to %s", filePath, resolvedFilePath);
         }
         logger.info("processing test results in file(s) %s", resolvedFilePath);
@@ -50,15 +53,14 @@ class FileResolver {
     }
 
     /**
-     * Returns all MSTest report files matching the pattern given in
-     * configuration
+     * Returns all MSTest report files matching the pattern given in configuration
      *
      * @param pattern the pattern the files shall match
      * @param workspace the build's workspace
      * @return an array of strings containing filenames of MSTest report files
      */
-     String[] FindMatchingMSTestReports(String pattern, FilePath workspace) {
-         MsTestLogger logger = new MsTestLogger(listener);
+    String[] FindMatchingMSTestReports(String pattern, FilePath workspace) {
+        MsTestLogger logger = new MsTestLogger(listener);
         if (workspace == null) {
             return new String[]{};
         }

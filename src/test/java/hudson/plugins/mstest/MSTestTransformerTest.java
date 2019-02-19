@@ -3,9 +3,8 @@ package hudson.plugins.mstest;
 import hudson.AbortException;
 import hudson.model.TaskListener;
 import hudson.remoting.VirtualChannel;
-
-import java.io.*;
-
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
@@ -15,12 +14,12 @@ import org.junit.Test;
 
 /**
  * Unit tests for MSTestTransformer class
- * 
+ *
  * @author Antonio Marques
  */
 public class MSTestTransformerTest extends TestHelper {
 
-	
+
     private TaskListener buildListener;
     private Mockery context;
     private Mockery classContext;
@@ -28,13 +27,13 @@ public class MSTestTransformerTest extends TestHelper {
     private MSTestTransformer transformer;
     private VirtualChannel virtualChannel;
 
-    
+
     @Before
     public void setUp() throws Exception {
         createWorkspace();
 
         context = getMock();
-        classContext = getClassMock();        
+        classContext = getClassMock();
 
         buildListener = classContext.mock(TaskListener.class);
         converter = classContext.mock(MSTestReportConverter.class);
@@ -43,7 +42,7 @@ public class MSTestTransformerTest extends TestHelper {
 
     @After
     public void tearDown() throws Exception {
-       deleteWorkspace();
+        deleteWorkspace();
     }
 
     @Test

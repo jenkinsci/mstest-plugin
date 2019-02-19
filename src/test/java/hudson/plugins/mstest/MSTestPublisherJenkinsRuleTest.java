@@ -15,16 +15,15 @@ import hudson.slaves.EnvironmentVariablesNodeProperty;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.TestBuilder;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 /**
- *
  * @author nilleb
  */
 public class MSTestPublisherJenkinsRuleTest {
@@ -32,8 +31,7 @@ public class MSTestPublisherJenkinsRuleTest {
     @Rule
     public JenkinsRule j = new JenkinsRule();
 
-    private MSTestPublisher getTestedPublisher(String pattern)
-    {
+    private MSTestPublisher getTestedPublisher(String pattern) {
         MSTestPublisher publisher = new MSTestPublisher();
         publisher.setTestResultsFile(pattern);
         publisher.setFailOnError(false);
@@ -85,8 +83,9 @@ public class MSTestPublisherJenkinsRuleTest {
         project.getPublishersList().add(getTestedPublisher("$WORKSPACE/$TRX"));
         project.getBuildersList().add(new TestBuilder() {
             public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
-                    BuildListener listener) throws InterruptedException, IOException {
-                File f = new File("src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
+                BuildListener listener) throws InterruptedException, IOException {
+                File f = new File(
+                    "src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
                 assertTrue(f.exists());
                 File dest = new File(build.getWorkspace().getRemote());
                 assertTrue(dest.exists());
@@ -109,13 +108,17 @@ public class MSTestPublisherJenkinsRuleTest {
         project.getPublishersList().add(getTestedPublisher("**/*.trx"));
         assertTrue(project.getBuildersList().add(new TestBuilder() {
             public boolean perform(AbstractBuild<?, ?> build, Launcher launcher,
-                                   BuildListener listener) throws InterruptedException, IOException {
-                File f = new File("src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
+                BuildListener listener) throws InterruptedException, IOException {
+                File f = new File(
+                    "src/test/resources/hudson/plugins/mstest/results-example-mstest.trx");
                 assertTrue(f.exists());
-                File dest = new File(build.getWorkspace().getRemote(), "TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072");
+                File dest = new File(build.getWorkspace().getRemote(),
+                    "TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072");
                 assertTrue(dest.mkdir());
                 FileUtils.copyFileToDirectory(f, dest);
-                assertTrue(build.getWorkspace().child("TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072/results-example-mstest.trx").exists());
+                assertTrue(build.getWorkspace().child(
+                    "TestResults_51310ef0-5d36-47cc-a1a9-b21d6f3e2072/results-example-mstest.trx")
+                    .exists());
                 return true;
             }
         }));
