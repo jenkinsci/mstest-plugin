@@ -11,8 +11,10 @@
 
        and then specify the path to the MSTest TRX file, <code>TestResults/testResults.trx</code> in the above example.
    </p>
-   <p>
-       When using VSTest.Console.exe, you can't specify the path to the resulting TRX file. Thus, you can specify a pattern like <code>TestResults/*/*.trx</code> (/ or \, either will work).
+   <p>When using VSTest.Console.exe, you can specify the path to the resulting TRX file by using <code>/Logger:trx;LogFileName="testResults.trx"</code>. Example:
+        <ul><code> "%PROGRAMFILES(X86)%\Microsoft Visual Studio\2017\Professional\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" MyTestProject\bin\Release\MyTestProject.dll /Logger:trx;LogFileName="testResults.trx"
+       </code></ul>
+       and then specify the path to the MSTest TRX file, <code>TestResults/testResults.trx</code> in the above example. (The directory is assumed to be <code>TestResults</code> in the path of execution. You can use relative paths to write to the current directory (i.e., <code>..\testResults.trx</code>), but the TestResults folder will still be created.
    </p>
    <p>
         If you use the vstestrunner-plugin, the full path to the TRX file is exposed by an environment variable. So, you can also use an environment variable, 
