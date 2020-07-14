@@ -63,8 +63,7 @@ or you can build the following converter application:
 
 *CoverageCoverter.exe*
 
-[source,c#]
-----
+```c#
     class Program
     {
         static int Main(string[] args)
@@ -105,7 +104,7 @@ or you can build the following converter application:
             return 0;
         }
     }
-----
+```
 
 The CoverageDS and CoverageInfo types are being exposed by the Microsoft.VisualStudio.Coverage.Analysis.dll 
 (official documentation: https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.coverage.analysis.coverageds.aspx,
