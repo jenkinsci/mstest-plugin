@@ -13,4 +13,7 @@
 	<f:entry title="${%Retain long standard output/error}">
 		<f:checkbox field="keepLongStdio" default="${descriptor.defaultKeepLongStdio}"/>
 	</f:entry>
+	<f:entry title="${%Log level verbosity}">
+        <f:textbox field="logLevel" default="${descriptor.defaultLogLevel}"/>
+    </f:entry>
 </j:jelly>

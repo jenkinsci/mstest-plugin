@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import jenkins.MasterToSlaveFileCallable;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.tools.ant.DirectoryScanner;
@@ -47,6 +48,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     private String testResultsFile = DescriptorImpl.defaultTestResultsFile;
     private boolean failOnError = DescriptorImpl.defaultFailOnError;
     private boolean keepLongStdio = DescriptorImpl.defaultKeepLongStdio;
+    private String logLevel = DescriptorImpl.defaultLogLevel;
 
     private long buildTime;
 
@@ -88,6 +90,11 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public final void setKeepLongStdio(boolean keepLongStdio) {
         this.keepLongStdio = keepLongStdio;
     }
+
+    public String getLogLevel() { return logLevel; }
+
+    @DataBoundSetter
+    public final void setLogLevel(String logLevel) { this.logLevel = logLevel; }
 
     @Override
     public Action getProjectAction(AbstractProject<?, ?> project) {
@@ -131,6 +138,9 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
     public void perform(final @NonNull Run<?, ?> build, @NonNull FilePath workspace,
         @NonNull Launcher launcher, final @NonNull TaskListener listener)
         throws InterruptedException, IOException {
+
+        System.setProperty(MsTestLogger.HUDSON_PLUGINS_MSTEST_LEVEL, this.logLevel);
+
         buildTime = build.getTimestamp().getTimeInMillis();
 
         String[] matchingFiles = resolveTestReports(testResultsFile, build, workspace, listener);
@@ -252,6 +262,7 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         public static final String defaultTestResultsFile = "**/*.trx";
         public static final boolean defaultKeepLongStdio = false;
         public static final boolean defaultFailOnError = true;
+        public static final String defaultLogLevel = "INFO";
 
         public DescriptorImpl() {
             super(MSTestPublisher.class);
