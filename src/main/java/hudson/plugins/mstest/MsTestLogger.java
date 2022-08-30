@@ -1,8 +1,6 @@
 package hudson.plugins.mstest;
 
-import com.google.inject.Inject;
 import hudson.model.TaskListener;
-
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +14,6 @@ class MsTestLogger implements Serializable {
     private static String ERROR_LEVEL = "ERROR";
     private static String WARNING_LEVEL = "WARNING";
     private static String DEBUG_LEVEL = "DEBUG";
-
-    private MSTestPublisher msTestPublisher;
 
     MsTestLogger(TaskListener listener) {
         this.listener = listener;
@@ -48,14 +44,7 @@ class MsTestLogger implements Serializable {
         printf(Level.SEVERE, format, args);
     }
 
-    @Inject
-    public void setMsTestPublisher(MSTestPublisher msTestPublisher) {
-        this.msTestPublisher = msTestPublisher;
-    }
-
     private void printf(Level level, String format, Object... args) {
-        System.out.println("###### RECIEVED MS TEST PUBLISHER: " + this.msTestPublisher);
-
         String messageFormat = String
             .format("%s %s %s%n", MsTestLogger.prefix, level.getName(), format);
         if (listener != null) {
