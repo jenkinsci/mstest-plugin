@@ -113,6 +113,11 @@ class MSTestReportConverter implements Serializable {
     private boolean containsData(File c) throws IOException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+            factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+            factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(c);
             XPathFactory xPathfactory = XPathFactory.newInstance();
@@ -148,6 +153,10 @@ class MSTestReportConverter implements Serializable {
         throws TransformerFactoryConfigurationError,
         ParserConfigurationException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+        factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+        factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
+        factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         return factory.newDocumentBuilder();
     }
 
