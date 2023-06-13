@@ -121,7 +121,6 @@ class MSTestReportConverter implements Serializable {
 
             factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
             factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-            factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
 
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(c);
@@ -164,7 +163,6 @@ class MSTestReportConverter implements Serializable {
         factory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-        factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
         return factory.newDocumentBuilder();
     }
 
