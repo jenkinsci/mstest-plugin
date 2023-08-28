@@ -14,6 +14,7 @@ class MsTestLogger implements Serializable {
     private static String ERROR_LEVEL = "ERROR";
     private static String WARNING_LEVEL = "WARNING";
     private static String DEBUG_LEVEL = "DEBUG";
+    private static String INFO_LEVEL = "INFO";
 
     MsTestLogger(TaskListener listener) {
         this.listener = listener;
@@ -73,6 +74,8 @@ class MsTestLogger implements Serializable {
             return Level.WARNING;
         } else if (DEBUG_LEVEL.equals(level)){
             return Level.FINE;
+        } else if (INFO_LEVEL.equals(level)){
+            return Level.INFO;
         } else {
             throw new RuntimeException(String.format("Unknown [%s] level provided!", level));
         }
