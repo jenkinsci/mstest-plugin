@@ -66,7 +66,7 @@ class MsTestLogger implements Serializable {
         }
     }
 
-    public static Level parseLevel(String level){
+    public static Level parseLevel(String level) throws RuntimeException {
         if(ERROR_LEVEL.equals(level)){
             return Level.SEVERE;
         } else if (WARNING_LEVEL.equals(level)){
@@ -74,7 +74,7 @@ class MsTestLogger implements Serializable {
         } else if (DEBUG_LEVEL.equals(level)){
             return Level.FINE;
         } else {
-            return Level.INFO;
+            throw new RuntimeException(String.format("Unknown [%s] level provided!", level));
         }
     }
 }
