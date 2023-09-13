@@ -16,6 +16,8 @@ class MsTestLogger implements Serializable {
     private static String DEBUG_LEVEL = "DEBUG";
     private static String INFO_LEVEL = "INFO";
 
+    private static final Logger logger = Logger.getLogger(MSTestReportConverter.class.getName());
+
     MsTestLogger(TaskListener listener) {
         this.listener = listener;
         this.configuredLevel = parseLevel(System.getProperty(HUDSON_PLUGINS_MSTEST_LEVEL));
@@ -53,7 +55,6 @@ class MsTestLogger implements Serializable {
                 listener.getLogger().printf(messageFormat, args);
             }
         } else {
-            Logger logger = Logger.getLogger(MSTestReportConverter.class.getName());
             logger.setLevel(this.configuredLevel);
             logger.log(level, messageFormat, args);
         }
