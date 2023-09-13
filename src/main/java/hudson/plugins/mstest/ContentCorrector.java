@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 class ContentCorrector {
 
     private static final String ILLEGAL_ENTITIES_PATTERN = "(&#x([0-9A-Fa-f]{1,4});)";
+    private static final MsTestLogger logger = new MsTestLogger(null);
 
     private String file;
 
@@ -52,7 +53,6 @@ class ContentCorrector {
                 }
             }
         }
-        MsTestLogger logger = new MsTestLogger(null);
 
         if (replace) {
             FileOperator.safeDelete(inFile, logger);
