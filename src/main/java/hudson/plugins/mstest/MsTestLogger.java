@@ -20,7 +20,8 @@ class MsTestLogger implements Serializable {
 
     MsTestLogger(TaskListener listener) {
         this.listener = listener;
-        this.configuredLevel = parseLevel(System.getProperty(HUDSON_PLUGINS_MSTEST_LEVEL));
+        String mstestLevel = System.getProperty(HUDSON_PLUGINS_MSTEST_LEVEL);
+        this.configuredLevel = parseLevel(mstestLevel != null ? mstestLevel : MSTestPublisher.DescriptorImpl.defaultLogLevel);
     }
 
     static MsTestLogger getLogger() {
@@ -45,6 +46,10 @@ class MsTestLogger implements Serializable {
 
     void error(String format, Object... args) {
         printf(Level.SEVERE, format, args);
+    }
+
+    Level getConfiguredLogLevel() {
+        return configuredLevel;
     }
 
     private void printf(Level level, String format, Object... args) {
