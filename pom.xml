@@ -6,7 +6,7 @@
         <version>3.51</version>
     </parent>
     <properties>
-        <revision>1.0.3</revision>
+        <revision>1.0.4</revision>
         <changelist>-SNAPSHOT</changelist>
         <jenkins.version>2.60.3</jenkins.version>
         <java.level>8</java.level>
@@ -16,13 +16,13 @@
     <packaging>hpi</packaging>
     <name>MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
-    <version>1.0.3</version>
+    <version>${revision}${changelist}</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     <scm>
         <connection>scm:git:git@github.com:jenkinsci/mstest-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
-        <tag>mstest-1.0.3</tag>
+        <tag>${scmTag}</tag>
     </scm>
     <developers>
         <developer>
