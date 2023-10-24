@@ -19,7 +19,7 @@
     <version>${revision}${changelist}</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     <scm>
-        <connection>scm:git:https@github.com:jenkinsci/mstest-plugin.git</connection>
+        <connection>scm:git:https://github.com:jenkinsci/mstest-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
         <tag>${scmTag}</tag>
