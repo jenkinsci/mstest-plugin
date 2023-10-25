@@ -1,6 +1,7 @@
 package hudson.plugins.mstest;
 
 import com.google.common.base.Charsets;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +27,7 @@ class ContentCorrector {
         this.file = file;
     }
 
+    @SuppressFBWarnings("DMI_RANDOM_USED_ONLY_ONCE")
     private static int randInt(int min, int max) {
         return new Random().nextInt((max - min) + 1) + min;
     }
