@@ -7,7 +7,7 @@
         <relativePath />
     </parent>
     <properties>
-        <revision>1.0.4</revision>
+        <revision>1.0.5</revision>
         <changelist>-SNAPSHOT</changelist>
         <jenkins.version>2.401.3</jenkins.version>
     </properties>
@@ -16,13 +16,13 @@
     <packaging>hpi</packaging>
     <name>MSTest plugin</name>
     <description>Generates test reports for MSTest.</description>
-    <version>1.0.4</version>
+    <version>${revision}${changelist}</version>
     <url>http://wiki.jenkins-ci.org/display/JENKINS/MSTest+Plugin</url>
     <scm>
         <connection>scm:git:https://github.com:jenkinsci/mstest-plugin.git</connection>
         <developerConnection>scm:git:git@github.com:jenkinsci/mstest-plugin.git</developerConnection>
         <url>https://github.com/jenkinsci/mstest-plugin</url>
-        <tag>mstest-1.0.4</tag>
+        <tag>${scmTag}</tag>
     </scm>
     <developers>
         <developer>
