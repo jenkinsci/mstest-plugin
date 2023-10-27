@@ -1,27 +1,39 @@
 package hudson.plugins.mstest;
 
 import hudson.EnvVars;
+import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractProject;
 import hudson.model.Action;
+import hudson.model.Result;
 import hudson.model.Run;
 import hudson.model.TaskListener;
 import hudson.tasks.junit.TestResult;
 import hudson.tasks.junit.TestResultAction;
 import hudson.tasks.test.TestResultProjectAction;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.GregorianCalendar;
+
+import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition;
+import org.jenkinsci.plugins.workflow.job.WorkflowJob;
+import org.jenkinsci.plugins.workflow.job.WorkflowRun;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Rule;
 import org.junit.Test;
+import org.jvnet.hudson.test.JenkinsRule;
 import org.springframework.util.FileCopyUtils;
 
 /**
@@ -30,6 +42,9 @@ import org.springframework.util.FileCopyUtils;
  * @author Antonio Marques
  */
 public class MSTestPublisherTest extends TestHelper {
+
+    @Rule
+    public JenkinsRule j = new JenkinsRule();
 
     private Mockery classContext;
     private AbstractProject project;
@@ -173,4 +188,28 @@ public class MSTestPublisherTest extends TestHelper {
         Launcher launcher = classContext.mock(Launcher.class);
         publisher.perform(run, workspace, launcher, buildListener);
     }
+
+    @Test
+    public void simplePipelinePublishing() throws Exception {
+        WorkflowJob job = j.createProject(WorkflowJob.class, "simplePipelinePublishing");
+        FilePath ws = j.jenkins.getWorkspaceFor(job);
+
+        FilePath testFile = ws.child("build.trx");
+        testFile.copyFrom(this.getClass().getResourceAsStream("webTestResult.trx"));
+
+        job.setDefinition(new CpsFlowDefinition("node {\n" +
+                "    mstest(testResultsFile: 'build.trx')" +
+                "}\n", true
+        ));
+        WorkflowRun r = j.waitForCompletion(job.scheduleBuild2(0).waitForStart());
+        j.assertBuildStatus(Result.SUCCESS, r);
+
+        // Asser action
+        TestResultAction action = r.getAction(TestResultAction.class);
+        assertNotNull(action);
+        assertEquals(1, action.getTotalCount());
+        assertEquals(0, action.getSkipCount());
+        assertEquals(0, action.getFailCount());
+    }
+
 }
