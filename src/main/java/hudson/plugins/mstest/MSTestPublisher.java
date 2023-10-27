@@ -248,6 +248,13 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
         });
     }
 
+    protected Object readResolve() {
+        if (logLevel == null) {
+            logLevel = DescriptorImpl.defaultLogLevel;
+        }
+        return this;
+    }
+
     @Override
     public DescriptorImpl getDescriptor() {
         return (DescriptorImpl) super.getDescriptor();
