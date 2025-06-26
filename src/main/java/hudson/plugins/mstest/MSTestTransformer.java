@@ -21,20 +21,27 @@ import org.xml.sax.SAXException;
  */
 public class MSTestTransformer extends MasterToSlaveFileCallable<Boolean> {
 
-    static final String JUNIT_REPORTS_PATH = "temporary-junit-reports";
+    static final String JUNIT_REPORTS_PATH_DIR_PREFIX = "temp-junit-reports";
     private static final long serialVersionUID = 1L;
     private final TaskListener listener;
     private final boolean failOnError;
+    private final String junitReportDir;
 
     private final MSTestReportConverter unitReportTransformer;
     private final String[] msTestFiles;
 
     MSTestTransformer(String[] msTestFiles, @NonNull MSTestReportConverter unitReportTransformer,
         @NonNull TaskListener listener, boolean failOnError) {
+        this(msTestFiles, unitReportTransformer, listener, failOnError, null);
+    }
+
+    MSTestTransformer(String[] msTestFiles, @NonNull MSTestReportConverter unitReportTransformer,
+        @NonNull TaskListener listener, boolean failOnError, String junitReportDir) {
         this.msTestFiles = msTestFiles;
         this.unitReportTransformer = unitReportTransformer;
         this.listener = listener;
         this.failOnError = failOnError;
+        this.junitReportDir = (junitReportDir != null) ? junitReportDir : JUNIT_REPORTS_PATH_DIR_PREFIX; // Keep tests calls simple
     }
 
     /**
@@ -59,7 +66,7 @@ public class MSTestTransformer extends MasterToSlaveFileCallable<Boolean> {
                 .format("No MSTest TRX test report files were found. Configuration error?"));
         }
 
-        File junitOutputPath = new File(ws, JUNIT_REPORTS_PATH);
+        File junitOutputPath = new File(ws, junitReportDir);
         boolean success = FileOperator.safeCreateFolder(junitOutputPath, logger);
         if (!success) {
             return Boolean.FALSE;

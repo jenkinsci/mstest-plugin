@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.UUID;
 import jenkins.MasterToSlaveFileCallable;
 import jenkins.tasks.SimpleBuildStep;
 import org.apache.tools.ant.DirectoryScanner;
@@ -141,17 +142,18 @@ public class MSTestPublisher extends Recorder implements Serializable, SimpleBui
 
         buildTime = build.getTimestamp().getTimeInMillis();
 
+        String junitReportDir = MSTestTransformer.JUNIT_REPORTS_PATH_DIR_PREFIX + "-" + UUID.randomUUID();
         String[] matchingFiles = resolveTestReports(testResultsFile, build, workspace, listener);
         MSTestReportConverter converter = new MSTestReportConverter(listener);
         MSTestTransformer transformer = new MSTestTransformer(matchingFiles, converter, listener,
-            failOnError);
+            failOnError, junitReportDir);
         boolean result = workspace.act(transformer);
 
         if (result) {
             // Run the JUnit test archiver
-            recordTestResult(MSTestTransformer.JUNIT_REPORTS_PATH + "/TEST-*.xml", build, workspace,
-                listener);
-            workspace.child(MSTestTransformer.JUNIT_REPORTS_PATH).deleteRecursive();
+            recordTestResult(junitReportDir + "/TEST-*.xml", build, workspace,
+                    listener);
+            workspace.child(junitReportDir).deleteRecursive();
         } else {
             throw new AbortException("Unable to transform the MSTest report.");
         }
