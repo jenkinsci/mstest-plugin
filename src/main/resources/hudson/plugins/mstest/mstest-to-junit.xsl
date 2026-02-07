@@ -3,6 +3,8 @@
                 xmlns:a ="http://microsoft.com/schemas/VisualStudio/TeamTest/2006"
                 xmlns:b ="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" >
     <xsl:output encoding="UTF-8" method="xml" indent="yes" />
+    <xsl:key name="unitTests" match="//a:UnitTest/a:TestMethod | //b:UnitTest/b:TestMethod" use="../@id" />
+    <xsl:key name="webTests" match="//a:WebTest | //b:WebTest" use="@id" />
     <xsl:template match="/">
         <testsuites>
             <xsl:variable name="numberOfTests" select="sum(/a:TestRun/a:ResultSummary/a:Counters/@total | /b:TestRun/b:ResultSummary/b:Counters/@total)"/>
@@ -64,7 +66,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
-            <xsl:for-each select="//a:UnitTest[@id=$testId]/a:TestMethod | //b:UnitTest[@id=$testId]/b:TestMethod | //a:WebTest[@id=$testId] | //b:WebTest[@id=$testId]">
+            <xsl:for-each select="key('unitTests', $testId) | key('webTests', $testId)">
                 <xsl:variable name="className">
                     <xsl:choose>
                         <xsl:when test="contains(@className, ',')">
